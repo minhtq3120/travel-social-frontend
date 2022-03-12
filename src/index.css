@@ -1,0 +1,97 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.ant-layout {
+  min-height: auto;
+}
+
+.ant-layout-sider {
+  background-color: #ffffff;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.ant-popover-inner {
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.ant-popover-inner-content {
+  padding: 5px 36px 5px 12px;
+  color: rgba(123, 85, 32, 1);
+}
+
+.ant-popover-placement-bottom .ant-popover-arrow {
+  left: 74%;
+}
+
+input#pooladdress,
+input#poolname,
+input#poolname,
+input#collectionaddress,
+input#UMADTokenAddress\,input#TotalPoolSize\,input#NFTstake,
+input#hightier,
+input#lowtier,
+input#maxNFT,
+input#dynamic_form_item_collectionName,
+input#collectionAdress,
+input#property,
+.ant-select-selector,
+input#dynamic_form_item_names_property,
+input#dynamic_form_item_PropsName,
+input#dynamic_form_item_collectionAdress {
+  border-radius: 100px !important;
+}
+input#dynamic_form_item_collectionAddress {
+  border-radius: 100px;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline-block;
+  margin-left: 4px;
+  color: red !important;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: '(*)' !important;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  content: '' !important;
+} */
+
+
+.ant-input {
+  background-color: none !important;
+}
+
+.ant-input-affix-wrapper .ant-input-affix-wrapper-focused{
+  background-color: none !important;
+} 
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.ant-layout-header {
+  background-color: #ffffff;
+}
+
+

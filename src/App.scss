@@ -1,0 +1,45 @@
+@import '~antd/dist/antd.css';
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  font-family: 'Inter', sans-serif;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+}
+
+.custom-notification {
+  display: flex;
+  .ant-notification-notice-with-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-notification-notice-icon {
+      display: flex;
+  }
+  .ant-notification-notice-close-x {
+    display: none;
+  }
+}
+
+:root {
+  //login
+  --text-title-color: #232d42;
+  --text-gray: rgba(0, 0, 0, 0.45);
+  --text-black: rgba(0, 0, 0, 0.85);
+  --button-color: #c5c8ce;
+  --text-button-color: #e6e8ec;
+  --text-error: #c03221;
+}
+
+.ant-table-footer {
+  background-color: white;
+}
