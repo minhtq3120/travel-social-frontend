@@ -21,7 +21,7 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
-  background-color: #f2e1b4;
+  // background-color: #f2e1b4;
 
 
 
@@ -36,6 +36,14 @@
 
       .avatar {
         padding: 10px;
+
+        .user-avatar {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: 0 10px;
+        }
       }
 
       .name-time {
@@ -49,12 +57,12 @@
 
         .name {
           font-weight: bold;
-          font-size: 15px;
+          font-size: 16px;
         }
 
         .time {
-          font-size: 10px;
-          opacity: 0.5;
+          font-size: 11px;
+          opacity: 0.6;
         }
       }
     }
@@ -68,6 +76,24 @@
   .post-body {
     width: 100%;
     height: auto;
+   
+    .slider-container2{
+      .img-video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background-color: black;
+        width: 800px;
+        height: 700px;
+
+        .img{
+          width: 800px;
+          height: 700px;
+          object-fit: contain;
+        }
+      }
+    }
     
   }
   

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import IconTabReducer from './IconTabReducer';
 import walletReducer from './WalletReducer';
 
 const store = configureStore({
   reducer: {
     wallet: walletReducer,
+    iconTabb: IconTabReducer
   }
 });
 

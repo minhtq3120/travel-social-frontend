@@ -1,0 +1,146 @@
+.profile-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+
+  .cover-photo {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+  .profile-header-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+
+    .profile-header {
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin: 50px;
+
+      .avatar-img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 50px;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .info {
+        margin: 0 20px;
+        min-width: 500px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .name-follow {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          align-content: center;
+
+          .name {
+            font-weight: bold;
+            font-size: 25px;
+            padding: 5px 10px;
+            margin-right: 15px;
+          }
+
+          .follow-btn {
+            border-radius: 5px;
+            padding: 10px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            .text {
+              font-weight: bold;
+              padding: 10px 5px;
+              opacity: 0.5;
+            }
+          }
+
+        }
+
+        .posts-follow {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin: 10px 0;
+
+          .total {
+            padding: 5px;
+            font-size: 17px;
+            margin: 5px 10px;
+            cursor: pointer;
+          }
+
+          .total:hover{
+            opacity: 0.5;
+          }
+        }
+
+        .bios {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          .gender {
+            font-size: 18px;
+            margin: 0px 15px;
+          }
+
+          .bio {
+            font-size: 15px;
+            max-width: 500px;
+            line-break: true;
+            height: auto;
+            word-spacing: 1;
+            margin: 0px 15px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .middle {
+    width: 80%;
+    background-color: black;
+    height: 0.1px;
+    opacity: 0.2;
+    margin: 5px 0;
+  }
+
+  .profile-body {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  } 
+}

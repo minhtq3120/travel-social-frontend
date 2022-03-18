@@ -25,11 +25,15 @@ export const walletSlice = createSlice({
     },
     setLoginResult: (state, action) => {
       localStorage.setItem('accessToken', action.payload.accessToken as string);
-      // localStorage.setItem('refreshToken', action.payload.refreshToken as string);
+      localStorage.setItem('sex', action.payload.sex as string);
+      localStorage.setItem('name', action.payload.name as string);
+      localStorage.setItem('avatar', action.payload.avatar as string);
       return {
         ...state,
         accessToken: action.payload.accessToken,
-        userInfo: action.payload.userInfo
+        sex: action.payload.sex,
+        name: action.payload.name,
+        avatar: action.payload.avatar,
       };
     },
     setConnected: (state, action) => {

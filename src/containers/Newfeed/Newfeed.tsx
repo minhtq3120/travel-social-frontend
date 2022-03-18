@@ -44,7 +44,6 @@ const NewFeed = (props: any) => {
       // setItemsPerPage(parseInt(itemsPerPage));
       // setCurentPage(parseInt(currentPage));
 
-      console.log(result)
     }
     catch (err) {
       return err
@@ -57,7 +56,7 @@ const NewFeed = (props: any) => {
       {
         dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
           return (
-            <div key={index}>
+            <div key={item.postId}>
               <Post item={item}/>
             </div>
           )

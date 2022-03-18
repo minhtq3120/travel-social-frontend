@@ -24,20 +24,18 @@ const Login = (props: any) => {
   const history = useHistory()
   const [form] = Form.useForm();
 
-  // const account = useSelector((state: RootState) => state.wallet.account);
 ;
   const [loadingSignIn, setLoadingSignIn] = useState(false);
   const [formInput, setFormInput] = useState({email: '', password: ''})
 
   const handleFinish = async (values: any) => {
     try {
-      console.log(values)
+      (values)
       setLoadingSignIn(true);
       const payload = {
         email: values.email,
         password: values.password
       }
-      console.log(payload)
       const result = await login(payload)
        if (result === 400) {
         setLoadingSignIn(false);
@@ -49,18 +47,23 @@ const Login = (props: any) => {
           style: { background: '#CB0404', color: '#FFFFFF!important' }
         });
       }
-      const accessToken = _.get(result, 'data.accessToken', '');
-      // const refreshToken = _.get(result, 'data.refresh_token', '');
+
       const userInfo = {
+        accessToken: _.get(result, 'data.accessToken', ''),
         sex: _.get(result, 'data.sex', ''),
-        name: _.get(result, 'data.displayName', '')
+        name: _.get(result, 'data.displayName', ''),
+        avatar: _.get(result, 'data.avatar', '')
       };
+
+      const {accessToken, sex, name, avatar} = userInfo
 
       if (accessToken) {
         await dispatch(
           setLoginResult({
             accessToken,
-            userInfo,
+            sex,
+            name,
+            avatar
           })
         );
         history.push('/home');

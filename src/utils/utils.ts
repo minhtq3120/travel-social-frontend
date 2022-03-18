@@ -44,10 +44,19 @@ export const removeAccents = (str: string) => {
 }
 
 export const getUTCDate = (date: Date) => {
-  const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} ${date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`}:${date.getMinutes() > 9 ? date.getMinutes():`0${date.getMinutes()}`} UTC`;
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()} ${date.getHours() > 9 ? date.getHours() : `0${date.getHours()}`}:${date.getMinutes() > 9 ? date.getMinutes() : `0${date.getMinutes()}`} UTC`;
 }
 
 const commaNumber = require('comma-number');
 export const commaFormat = commaNumber.bindWith(',', '.');
+
+export const getCurrentUser = () => {
+  const userInfo = {
+    sex: localStorage.getItem('sex'),
+    name: localStorage.getItem('name'),
+    avatar: localStorage.getItem('avatar')
+  };
+  return userInfo
+};

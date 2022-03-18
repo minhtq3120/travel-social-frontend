@@ -11,16 +11,8 @@ import ImageGallery from 'react-image-gallery';
 import { Slide, Fade } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css";
 import ReactPlayer from 'react-player';
-
-
-
 import AwesomeSlider from 'react-awesome-slider';
 import moment from 'moment';
-// import 'react-awesome-slider/dist/styles.css';
-
-
-
-
 const cx = classNames.bind(styles);
 
 const Post = (props: any) => {
@@ -56,45 +48,25 @@ const Post = (props: any) => {
         indicators: true
     };
 
-
-    const fadeImages = [
-        {
-    url: "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-            type: 'image'
-        },
-        {
-    url:     "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-            type: 'image'
-        },
-        {
-    url:     "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-            type: 'image'
-        },
-        {
-    url: "https://www.youtube.com/watch?v=Yw9Ra2UiVLw",
-            type: 'video'
-        },
-        
-    ]; 
-
     const Slideshow = () => {
         return (
-        <div className="slide-container">
+        <div className={`slide-container ${cx('slider-container2')}`} >
             <Slide
                 {...properties}
             >
                 {
-                    fadeImages?.map((item: any, index: any) => {
+                    images?.map((item: any, index: any) => {
                         return (
-                            <div className="each-fade" key={index}>
+                            <div key={index} className={cx('img-video-container')}>
                                 {
-                                    item.type === "image" ? <img src={item.url} alt="img" style={{height: '800px', width: '800px'}}/> 
+                                    item.type === "image" ? <img src={item.url} alt="img" className={cx('img')}/> 
                                     : <ReactPlayer
                                         url={item?.url}
-                                        // playing
+                                        playing={false}
+                                        loop={true}
                                         controls={true}
-                                        width="800px"
-                                        height="800px"
+                                        width="100%"
+                                        height="100%"
                                         />
                                 }
                                 
@@ -106,18 +78,23 @@ const Post = (props: any) => {
         </div>
         )
     }
-
   return (
     <React.Fragment>
       <div className={cx(`post-container`)}>
         <div className={cx(`post-header`)}>
             <div className={cx(`left`)}>
                 <div className={cx(`avatar`)}>
-                    {/* {
-                        props.userAvatar?.length > 0? null : 
-                        <BsPersonCircle style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer'}}/>
-                    } */}
-                        <BsPersonCircle style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer'}}/>
+                    {
+                        props?.item?.userAvatar?.length > 0? (
+                            <img
+                                src={props?.item?.userAvatar}
+                                alt="user-avatar"
+                                className={cx('user-avatar')}
+                            />
+                        ) : 
+                        <BsPersonCircle style={{ fontSize: '40px', margin: '0 10px', cursor: 'pointer'}}/>
+                    }
+                    
                 </div>
                 <div className={cx(`name-time`)}>
                     <div className={cx(`name`)}>
@@ -154,7 +131,7 @@ const Post = (props: any) => {
             <div className={cx('footer-body')}>
                 <div className={cx(`description`)}>
                     <div className={cx('user-name')}>
-                        {props.item.userDisplayName}:
+                        {props?.item?.userDisplayName || 'user-name'}:
                     </div>
                     <div className={cx(`descrip`)}>
                         {

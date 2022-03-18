@@ -18,9 +18,7 @@ import styles from 'src/styles/Login.module.scss';
 const cx = classNames.bind(styles);
 
 const Signup = (props: any) => {
-  const windowObj = window as any;
   const dispatch = useDispatch();
-  const history = useHistory()
   const [form] = Form.useForm();
 
   const [loadingSignIn, setLoadingSignIn] = useState(false);
@@ -28,7 +26,6 @@ const Signup = (props: any) => {
 
   const handleFinish = async (values: any) => {
     try {
-      console.log(values)
       setLoadingSignIn(true);
       const payload = {
         email: values.email,
@@ -51,36 +48,6 @@ const Signup = (props: any) => {
       setLoadingSignIn(false)
       
       return;
-      //  if (result === 400) {
-      //   setLoadingSignIn(false);
-      //   return notification.error({
-      //     message: WRONG_EMAIL_OR_PASSWORD,
-      //     duration: 5,
-      //     icon: <img src={closeImg} alt="close" />,
-      //     className: 'custom-notification',
-      //     style: { background: '#CB0404', color: '#FFFFFF!important' }
-      //   });
-      // }
-      // const accessToken = _.get(result, 'data.accessToken', '');
-      // // const refreshToken = _.get(result, 'data.refresh_token', '');
-      // const userInfo = {
-      //   sex: _.get(result, 'data.sex', ''),
-      //   name: _.get(result, 'data.displayName', '')
-      // };
-
-      // if (accessToken) {
-      //   await dispatch(
-      //     setLoginResult({
-      //       accessToken,
-      //       userInfo,
-      //     })
-      //   );
-      //   history.push('/home');
-
-        
-      // } else {
-      //   setLoadingSignIn(false);
-      // }
     } 
     catch (err) {
     setLoadingSignIn(false)

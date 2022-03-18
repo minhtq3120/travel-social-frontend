@@ -17,10 +17,7 @@ const RouteWithSubRoutes = (route: any) => {
 };
 
 function App() {
-  const dispatch = useDispatch();
-  // const visibleWrongNetwork = useSelector((state: any) => state.wallet.modalWrongNetwork);
-  // console.log(visibleWrongNetwork)
-  
+
   return (
     <div className="App">
       <Switch>
@@ -31,13 +28,6 @@ function App() {
           <RouteWithSubRoutes key={i} {...route} />
         ))}
       </Switch>
-      {/* <Modal
-        title="Wrong Network"
-        visible={visibleWrongNetwork}
-        className="login-modal-style"
-        footer={[]}>
-        <span>Please connect to the appropriate Ethereum network and Sign in again.</span>
-      </Modal> */}
     </div>
   );
 }
