@@ -8,12 +8,20 @@
 
   .tabs-container {
     width: 60%;
-    min-height: 600px;
+    min-height: 500px;
     height: auto;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
 
+      // .tab-selected {
+      //   border-radius: 5px;
+      //   border-bottom: 1px solid black;
+      // }
+
+      // .panel-selected {
+      //   background-color: red;
+      // }
 
       .tab-name {
         display: flex;

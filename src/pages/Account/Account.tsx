@@ -24,6 +24,8 @@ import { getCurrentUser } from 'src/utils/utils';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import EditProfile from './EditProfile';
+import ChangeAvatarCover from './ChangeAvatarCover';
+import ChangePassword from './ChangePassword';
 
 
 
@@ -38,7 +40,10 @@ const Account = (props: any) => {
   
   return (
     <div className={cx('account-container')}>
-       <Tabs className={cx('tabs-container')}>
+       <Tabs className={cx('tabs-container')} 
+       //selectedTabClassName={cx('tab-selected')}
+      //  selectedTabPanelClassName={cx('panel-selected')}
+       >
         <TabList className={cx('tabs-list-container')}>
           <Tab>
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
@@ -76,10 +81,10 @@ const Account = (props: any) => {
           <EditProfile/>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <ChangeAvatarCover />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+          <ChangePassword />
         </TabPanel>
         <TabPanel>
           <h2>Any content 4</h2>

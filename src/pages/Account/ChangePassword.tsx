@@ -29,14 +29,13 @@ import TextArea from 'antd/lib/input/TextArea';
 
 const cx = classNames.bind(styles);
 
-const EditProfile = (props: any) => {
+const ChangePassword = (props: any) => {
     const dispatch = useDispatch();
   const history = useHistory()
   const [form] = Form.useForm();
 
 ;
   const [loadingSignIn, setLoadingSignIn] = useState(false);
-  const [formInput, setFormInput] = useState({email: '', password: ''})
 
 
   const handleFinish = async (values: any) => {
@@ -62,88 +61,83 @@ const EditProfile = (props: any) => {
         autoComplete="off"
         onFinish={handleFinish}
         >
-
-                <Form.Item 
-                label="Your Username"
-                name="displayName"
+            <p style={{ margin: '5px' }}>
+                Current password<span style={{ color: 'red' }}> (*)</span>
+            </p>
+            <Form.Item 
+                name="currentPassword"
                 rules={[
                     ({ getFieldValue }) => ({
-                    validator(_, value: string) {
-                        return Promise.resolve()
-                    }
+                        validator(_, value: string) {
+                        if (!value) {
+                            return Promise.reject(new Error('This field is required'));
+                        }
+                        return Promise.resolve();
+                        }
                     })
-                ]}
+                    ]}
                 >
                 <Input
                     type='text'
                     className={cx('email-input')}
-                    onChange={(e) => setFormInput({...formInput, email: e.target.value})}
                 />
 
-                </Form.Item>
+            </Form.Item>
 
-                <Form.Item 
-                label='Bio'
-                name="bio"
+            <p style={{ margin: '5px' }}>
+                New password<span style={{ color: 'red' }}> (*)</span>
+            </p>
+            <Form.Item 
+                name="newPassword"
                 rules={[
                     ({ getFieldValue }) => ({
-                    validator(_, value: string) {
-                        return Promise.resolve()
-                    }
+                        validator(_, value: string) {
+                        if (!value) {
+                            return Promise.reject(new Error('This field is required'));
+                        }
+                        return Promise.resolve();
+                        }
                     })
-                ]}
+                    ]}
                 >
-                {/* <Input
+                <Input
                     type='text'
                     className={cx('email-input')}
-                    onChange={(e) => setFormInput({...formInput, email: e.target.value})}
-                /> */}
-                <TextArea rows={4} placeholder='write something about your self'/>
+                />
 
-                </Form.Item>
+            </Form.Item>
 
-                <Form.Item 
-                label='Gender'
-                name="sex"
-                rules={[
+            <p style={{ margin: '5px' }}>
+                Confirm new password<span style={{ color: 'red' }}> (*)</span>
+            </p>
+            <Form.Item 
+                name="confirmNewPassword"
+               rules={[
                     ({ getFieldValue }) => ({
-                    validator(_, value: string) {
-                        return Promise.resolve()
-                    }
+                        validator(_, value: string) {
+                        if (!value) {
+                            return Promise.reject(new Error('This field is required'));
+                        }
+                        return Promise.resolve();
+                        }
                     })
-                ]}
+                    ]}
                 >
-                    <Radio.Group onChange={onChangeRadio} defaultValue="a">
-                        <Radio.Button value="0">Female</Radio.Button>
-                        <Radio.Button value="1">Male</Radio.Button>
-                        <Radio.Button value="2">Prefer not show</Radio.Button>
-                    </Radio.Group>
+                <Input
+                    type='text'
+                    className={cx('email-input')}
+                />
 
-                </Form.Item>
+            </Form.Item>
 
-                 <Form.Item 
-                label='Date of birth'
-                name="birthday"
-                rules={[
-                    ({ getFieldValue }) => ({
-                    validator(_, value: string) {
-                        return Promise.resolve()
-                    }
-                    })
-                ]}
-                >
-                   <DatePicker placeholder='Date of birth'/>
-                </Form.Item>
-                 
-            
             <Form.Item>
-            <Button
-            className={cx('button')}
-            htmlType="submit"
-            loading={loadingSignIn}
-            >
-                Save 
-            </Button>
+                <Button
+                className={cx('button')}
+                htmlType="submit"
+                loading={loadingSignIn}
+                >
+                    CHANGE PASSWORD 
+                </Button>
             </Form.Item>
 
         </Form>
@@ -153,4 +147,4 @@ const EditProfile = (props: any) => {
   
 };
 
-export default EditProfile;
+export default ChangePassword;

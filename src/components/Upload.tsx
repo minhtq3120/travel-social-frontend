@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Upload, message, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { LoadingOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 
 const UploadLogo = (props: any) => {
   const { className } = props;
   const [file, setFile] = useState<any>([])
   const [imageBase64, setImageBase64] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function getBase64(img: any, callback: any) {
     const reader = new FileReader();
     reader.addEventListener("load", () => callback(reader.result));
     reader.readAsDataURL(img);
   }
+  const uploadButton = (
+      <div>
+        {loading ? <LoadingOutlined /> : <PlusOutlined />}
+        <div style={{ marginTop: 8 }}>Upload</div>
+      </div>
+    );
+  
 
   const handleCustomRequest = ({onSuccess}: any) => {onSuccess('ok')};
 
@@ -58,13 +66,14 @@ const UploadLogo = (props: any) => {
       name={props.name}  
       maxCount={props.maxCount} 
       disabled={props.disabled}
+      listType="picture-card"
       >
-      <Button style={{ borderRadius: '100px' }} 
+      {/* <Button style={{ borderRadius: '100px' }} 
               icon={<UploadOutlined />} 
               disabled={props.disabled}
-      >
-        Upload pool logo
-      </Button>
+      > */}
+        {props?.title || 'Upload'}
+      {/* </Button> */}
     </Upload>
   );
 };
