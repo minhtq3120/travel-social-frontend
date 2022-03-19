@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { GoLocation } from 'react-icons/go';
-import {RiLockPasswordLine} from 'react-icons/ri'
+import {AiOutlineWoman, AiOutlineMan} from 'react-icons/ai'
 import { BsMoonStars, BsInfoCircle, BsImages, BsFillShieldLockFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -18,12 +18,13 @@ import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
 import { getFollowers } from 'src/services/follow-service';
-import { getCurrUserProfile } from 'src/services/user-service';
+import { getCurrUserProfile, updateInfo } from 'src/services/user-service';
 import styles from 'src/styles/EditProfile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TextArea from 'antd/lib/input/TextArea';
+import moment from 'moment';
 
 
 
@@ -38,13 +39,28 @@ const EditProfile = (props: any) => {
   const [loadingSignIn, setLoadingSignIn] = useState(false);
   const [formInput, setFormInput] = useState({email: '', password: ''})
 
+  useEffect(() => {
+    if(props?.profile) {
+        form.setFieldsValue({'displayName': props?.profile?.displayName})
+        form.setFieldsValue({'bio': props?.profile?.bio || null})
+        form.setFieldsValue({'birthday': moment(props?.profile?.birthday) || ''})
+        form.setFieldsValue({'sex': props?.profile?.sexNumber.toString()} || null)
+    }
+  }, [])
 
   const handleFinish = async (values: any) => {
     try {
-        console.log(values)
+        const payload = {
+            bio: values.bio,
+            displayName: values.displayName,
+            sex: Number(values.sex),
+            birthday:moment(values.birthday).format('YYYY-MM-DD')
+        }
+        const update = await updateInfo(payload)
+        console.log(update)
+        return;
     } 
     catch (err) {
-
      console.log(err)
     }
   };
@@ -77,7 +93,6 @@ const EditProfile = (props: any) => {
                 <Input
                     type='text'
                     className={cx('email-input')}
-                    onChange={(e) => setFormInput({...formInput, email: e.target.value})}
                 />
 
                 </Form.Item>
@@ -98,7 +113,7 @@ const EditProfile = (props: any) => {
                     className={cx('email-input')}
                     onChange={(e) => setFormInput({...formInput, email: e.target.value})}
                 /> */}
-                <TextArea rows={4} placeholder='write something about your self'/>
+                <TextArea rows={5} placeholder='write something about your self'/>
 
                 </Form.Item>
 
@@ -113,9 +128,9 @@ const EditProfile = (props: any) => {
                     })
                 ]}
                 >
-                    <Radio.Group onChange={onChangeRadio} defaultValue="a">
-                        <Radio.Button value="0">Female</Radio.Button>
-                        <Radio.Button value="1">Male</Radio.Button>
+                    <Radio.Group onChange={onChangeRadio}>
+                        <Radio.Button value="0">Female <AiOutlineWoman/></Radio.Button>
+                        <Radio.Button value="1">Male <AiOutlineMan/></Radio.Button>
                         <Radio.Button value="2">Prefer not show</Radio.Button>
                     </Radio.Group>
 

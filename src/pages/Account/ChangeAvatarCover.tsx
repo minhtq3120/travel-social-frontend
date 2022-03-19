@@ -18,7 +18,7 @@ import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
 import { getFollowers } from 'src/services/follow-service';
-import { getCurrUserProfile } from 'src/services/user-service';
+import { getCurrUserProfile, uploadProfileImage } from 'src/services/user-service';
 import styles from 'src/styles/ChangeAvatarCover.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -39,7 +39,7 @@ const ChangeAvatarCover = (props: any) => {
     const [formInput, setFormInput] = useState({email: '', password: ''})
     const [file, setFile] = useState<any>(null);
     const [file2, setFile2] = useState<any>(null);
-
+    console.log(file, file2)
     const handleFinish = async (values: any) => {
         try {
             const form = {
@@ -47,6 +47,12 @@ const ChangeAvatarCover = (props: any) => {
                 coverPhoto: file2
             }
             console.log(form)
+
+            const formData = new FormData();
+            if(file)formData.append('avatar', file);
+            if(file2) formData.append('coverPhoto', file2)
+            const upload = await uploadProfileImage(formData)
+            return
         } 
         catch (err) {
 
@@ -67,11 +73,20 @@ const ChangeAvatarCover = (props: any) => {
     //   wrapperCol={{ span: 16 }}
         >
         <div className={cx('avatar-container')}>
-            <img 
-                src={'https://www.w3schools.com/howto/img_avatar2.png'}
-                alt='avatar'
-                className={cx('avatar')}
-            />
+            <div className={cx('current-avatar')}>
+                <div className={cx('current-title')}>Avatar</div>
+                {
+                    props?.profile?.avatar ? (
+                        <img 
+                            src={props?.profile?.avatar}
+                            alt='avatar'
+                            className={cx('avatar')}
+                        />
+                    ) : null
+                }
+            </div>
+            
+            
             <Form.Item name="avatar-upload" className={cx('form-item')}>
                 
                 <UploadLogo
@@ -80,16 +95,26 @@ const ChangeAvatarCover = (props: any) => {
                     maxCount={1}
                     title="Change avatar"
                     setFile={setFile}
+                    file={file}
                 />
             </Form.Item>
             
         </div>
         <div className={cx('cover-container')}>
-             <img 
-                src={'https://www.w3schools.com/howto/img_avatar2.png'}
-                alt='cover'
-                className={cx('cover')}
-            />
+            <div className={cx('current-avatar')}>
+                <div className={cx('current-title')}>Cover Photo</div>
+                {
+                    props?.profile?.coverPhoto ? (
+                        <img 
+                            src={props?.profile?.coverPhoto}
+                            alt='cover'
+                            className={cx('cover')}
+                        />
+                    ) : null
+                }
+            </div>
+            
+            
             <Form.Item name="cover-upload" className={cx('form-item')}>
                 
                 <UploadLogo
@@ -98,6 +123,7 @@ const ChangeAvatarCover = (props: any) => {
                     title="Change cover photo"
                     setFile={setFile2}
                     maxCount={1}
+                    file={file2}
                 />
             </Form.Item>
         </div>

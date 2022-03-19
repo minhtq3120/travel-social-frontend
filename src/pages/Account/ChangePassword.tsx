@@ -18,7 +18,7 @@ import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
 import { getFollowers } from 'src/services/follow-service';
-import { getCurrUserProfile } from 'src/services/user-service';
+import { changePassword, getCurrUserProfile } from 'src/services/user-service';
 import styles from 'src/styles/EditProfile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -40,7 +40,13 @@ const ChangePassword = (props: any) => {
 
   const handleFinish = async (values: any) => {
     try {
-        console.log(values)
+        const payload = {
+            currentPassword: values.currentPassword,
+            newPassword: values.newPassword
+        }
+        const changePass = await changePassword(payload)
+        console.log(changePass)
+        return
     } 
     catch (err) {
 

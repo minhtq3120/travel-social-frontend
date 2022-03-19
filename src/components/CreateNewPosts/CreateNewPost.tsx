@@ -90,7 +90,7 @@ const CreateNewPost = (props: any) => {
     const handleChange = ({ fileList }) => {
         setFileList(fileList)
     };
-    console.log(fileList)
+
     return (
         <div className={cx('createNewPostContainer')}>
             {

@@ -8,8 +8,6 @@ export type RegisterParams = {
   email: string,
   password: string,
   displayName: string,
-  birthday: string,
-  sex: number,
 };
 
 export type ActivateParams = {

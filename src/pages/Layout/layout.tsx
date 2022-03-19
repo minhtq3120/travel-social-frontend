@@ -16,6 +16,7 @@ import HeaderContainer from 'src/containers/Header/Header';
 import NewFeed from 'src/containers/Newfeed/Newfeed';
 import Profile from '../Profile/Profile';
 import Account from '../Account/Account';
+import { getCurrUserProfile } from 'src/services/user-service';
 
 const cx = classNames.bind(styles);
 
@@ -28,6 +29,20 @@ const LayoutComponent = (props: any) => {
 
   const [activeStep, setActiveStep] = useState(0);
   const [_activestep, _setActiveStep] = useState(0);
+  const [profile,setProfile] = useState<any>(null)
+  useEffect(() => { 
+    getCurrentUserProfile() 
+  }, [])
+
+  const getCurrentUserProfile = async () => {
+    try {
+      const user = await getCurrUserProfile()
+      setProfile(user)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
 
 
   const resetLogin = async () => {
@@ -55,7 +70,7 @@ const LayoutComponent = (props: any) => {
   return (
     <Layout>
       <Header className={cx('header')}>
-        <HeaderContainer />
+        <HeaderContainer profile={profile}/>
       </Header>
       <Switch>  
         <Route exact path="/home">

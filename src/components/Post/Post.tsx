@@ -5,7 +5,7 @@ import styles from 'src/styles/Post.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import { BsThreeDots, BsPersonCircle,BsFlag } from 'react-icons/bs';
 import { AiOutlineHeart , AiOutlineShareAlt} from 'react-icons/ai';
-import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow} from 'react-icons/fa';
+import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart} from 'react-icons/fa';
 import ReactHashtag from "react-hashtag";
 import ImageGallery from 'react-image-gallery';
 import { Slide, Fade } from 'react-slideshow-image';
@@ -13,6 +13,7 @@ import "react-slideshow-image/dist/styles.css";
 import ReactPlayer from 'react-player';
 import AwesomeSlider from 'react-awesome-slider';
 import moment from 'moment';
+import { likePost, unLikePost } from 'src/services/like-service';
 const cx = classNames.bind(styles);
 
 const Post = (props: any) => {
@@ -78,6 +79,32 @@ const Post = (props: any) => {
         </div>
         )
     }
+
+    const handleLike = async (postId: string) => {
+        try {
+            console.log(postId)
+            const like = await likePost(postId)
+            console.log(like)
+            return
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
+    const handleUnlike = async (postId: string) => {
+        try {
+            console.log(postId)
+            const like = await unLikePost(postId)
+            console.log(like)
+            return
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
   return (
     <React.Fragment>
       <div className={cx(`post-container`)}>
@@ -120,9 +147,32 @@ const Post = (props: any) => {
         <div className={cx(`post-footer`)}>
             <div className={cx('footer-top')}>
                 <div className={cx('left')}>
-                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
-                    <FaRegComment style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
-                    <FaRegShareSquare style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
+                    <div className={cx('num')}>
+                        {
+                            props?.item?.liked ? (
+                                <>
+                                    <FaHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: 'red'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
+                                    {props?.item?.likes}
+
+                                </>
+                            ) : (
+                                <>
+                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {handleLike(props?.item?.postId)}}/> 
+                                    {props?.item?.likes}
+                                </>
+                            )
+                        }
+                    </div>
+                    <div className={cx('num')}>
+                        <FaRegComment style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
+                        {props?.item?.comments}
+                    </div>
+
+                    <div className={cx('num')}>
+                        <FaRegShareSquare style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
+                        10
+                    </div>
+                    
                 </div>
                 <div className={cx(`right`)}>
                     <BsFlag style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>

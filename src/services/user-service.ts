@@ -24,7 +24,7 @@ export const getUserProfileById = async (id) => {
         });
 };
 
-export const changePassword = async (currentPassword, newPassword) => {
+export const changePassword = async ({ currentPassword, newPassword }) => {
     return axiosInstance
         .put(`/user/change-password`, {
             currentPassword,
@@ -39,23 +39,38 @@ export const changePassword = async (currentPassword, newPassword) => {
 };
 
 export const updateInfo = async (
-    sex,
-    birthday,
-    provinceId,
-    districtId,
-    wardId
+    payload: any
 ) => {
+    const {
+        bio,
+        displayName,
+        sex,
+        birthday
+    } = payload
     return axiosInstance
         .put(`/user/update-info`, {
-            sex: +sex,
-            birthday,
-            address: {
-                province: +provinceId > 0 ? +provinceId : -1,
-                district: +districtId > 0 ? +districtId : -1,
-                ward: +wardId > 0 ? +wardId : -1,
-            },
+            bio,
+            displayName,
+            sex,
+            birthday
         })
         .catch((error) => {
+            console.log(error)
+            if (error.response) {
+                console.error(error.response.message);
+                return error.response.status;
+            }
+        });
+};
+
+export const uploadProfileImage = async (
+    payload: any
+) => {
+    console.log(payload)
+    return axiosInstance
+        .post(`/user/upload/profile-image`, payload)
+        .catch((error) => {
+            console.log(error)
             if (error.response) {
                 console.error(error.response.message);
                 return error.response.status;

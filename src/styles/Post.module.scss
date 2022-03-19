@@ -118,6 +118,18 @@
       .left {
         width: auto;
         padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
+        .num {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          align-content: center;
+        }
       }
       .right {
         width: auto;

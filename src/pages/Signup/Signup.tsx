@@ -12,7 +12,7 @@ import FloatLabel from 'src/components/FloatingLabel/FloatingLabel';
 import { OPP_NO_ADMIN, OPP_SOMETHING_WRONG, WRONG_EMAIL_OR_PASSWORD } from 'src/constant/message';
 import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
-import {  activate, login, register } from 'src/services/auth-service';
+import {  activate, login, register, sendActivate } from 'src/services/auth-service';
 import styles from 'src/styles/Login.module.scss';
 
 const cx = classNames.bind(styles);
@@ -31,33 +31,16 @@ const Signup = (props: any) => {
         email: values.email,
         password: values.password,
         displayName: values.username,
-        birthday: "2000-10-30",
-        sex:1
       }
 
       const result = await register(payload)
-      notification.success({
-            message: 'LOGIN SUCCESS',
-            duration: 13,
-            icon: <img src={closeImg} alt="close" style={{cursor: 'pointer'}} onClick={() => notification.close('3')}/>,
-            className: 'custom-notification',
-            style: { background: '#14D16B', color: '#000000 !important' },
-            key: '3'
-          })
-      const sendActiveCode = await activate(payload.email)
+      const sendActiveCode = await sendActivate(payload.email)
       setLoadingSignIn(false)
       
       return;
     } 
     catch (err) {
     setLoadingSignIn(false)
-     notification.error({
-          message: OPP_SOMETHING_WRONG,
-          duration: 5,
-          icon: <img src={closeImg} alt="close" />,
-          className: 'custom-notification',
-          style: { background: '#CB0404', color: '#FFFFFF!important' }
-        });
      console.log(err)
     }
   };

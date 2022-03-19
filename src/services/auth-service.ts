@@ -13,13 +13,11 @@ export const login = async (payload: LoginParams) => {
 
 export const register = async (payload: RegisterParams) => {
   try {
-    const { email, password, displayName, birthday, sex } = payload
+    const { email, password, displayName } = payload
     return await axiosInstance.post(`/user/auth/signup`, {
       email,
       password,
       displayName,
-      birthday,
-      sex,
     });
   } catch (error) {
     throw error;
@@ -31,14 +29,13 @@ export const activate = async (payload: ActivateParams) => {
     const { email, activationCode } = payload
     return await axiosInstance.put(`/user/auth/activate-account`, {
       email,
-      activationCode,
     });
   } catch (error) {
     throw error;
   }
 };
 
-export const resend = async (email: string) => {
+export const sendActivate = async (email: string) => {
   try {
     return await axiosInstance.put(`/user/auth/send/activationCode`, {
       email,

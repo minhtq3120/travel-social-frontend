@@ -39,13 +39,6 @@ const Login = (props: any) => {
       const result = await login(payload)
        if (result === 400) {
         setLoadingSignIn(false);
-        return notification.error({
-          message: WRONG_EMAIL_OR_PASSWORD,
-          duration: 5,
-          icon: <img src={closeImg} alt="close" />,
-          className: 'custom-notification',
-          style: { background: '#CB0404', color: '#FFFFFF!important' }
-        });
       }
 
       const userInfo = {
@@ -67,36 +60,14 @@ const Login = (props: any) => {
           })
         );
         history.push('/home');
-        notification.success({
-            message: 'LOGIN SUCCESS',
-            duration: 13,
-            icon: <img src={closeImg} alt="close" style={{cursor: 'pointer'}} onClick={() => notification.close('3')}/>,
-            className: 'custom-notification',
-            style: { background: '#14D16B', color: '#000000 !important' },
-            key: '3'
-          })
         
       } else {
         setLoadingSignIn(false);
-        return notification.error({
-          message: WRONG_EMAIL_OR_PASSWORD,
-          duration: 5,
-          icon: <img src={closeImg} alt="close" />,
-          className: 'custom-notification',
-          style: { background: '#CB0404', color: '#FFFFFF!important' }
-        });
       }
       setLoadingSignIn(false)
     } 
     catch (err) {
-    setLoadingSignIn(false)
-     notification.error({
-          message: OPP_SOMETHING_WRONG,
-          duration: 5,
-          icon: <img src={closeImg} alt="close" />,
-          className: 'custom-notification',
-          style: { background: '#CB0404', color: '#FFFFFF!important' }
-        });
+      setLoadingSignIn(false)
      console.log(err)
     }
   };

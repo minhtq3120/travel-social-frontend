@@ -16,7 +16,7 @@ import { OPP_NO_ADMIN, OPP_SOMETHING_WRONG, WRONG_EMAIL_OR_PASSWORD } from 'src/
 import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
-import { getFollowers } from 'src/services/follow-service';
+import { getFollowers, getFollowing } from 'src/services/follow-service';
 import { getCurrUserProfile } from 'src/services/user-service';
 import styles from 'src/styles/Profile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
@@ -68,7 +68,6 @@ const Profile = (props: any) => {
   const getCurrentUserProfile = async () => {
     try {
       const user = await getCurrUserProfile()
-      console.log(user) 
       setProfile(user)
     }
     catch (err) {
@@ -83,9 +82,9 @@ const Profile = (props: any) => {
     style={{backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%),url(${profile?.coverPhoto})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}> 
      <div className={cx('profile-header')} >
       {
-        currentUser?.avatar?.length > 0 ? (
+        profile?.avatar?.length > 0 ? (
           <img
-              src={currentUser.avatar}
+              src={profile?.avatar}
               alt="user-avatar"
               className={cx('avatar-img')}
           />
@@ -142,7 +141,7 @@ const Profile = (props: any) => {
         <InfinityList typeList="followers" queryAPI={async (params: any) => await getFollowers(params)} totalItems={profile?.followers}/>
       </Modal>
       <Modal title={`Followings (${profile?.followings})`} visible={isModalVisibleFollowings} footer={[]} onCancel={handleCancel}>
-        <InfinityList typeList="followings" queryAPI={async (params: any) => await getFollowers(params)} totalItems={profile?.followings}/>
+        <InfinityList typeList="followings" queryAPI={async (params: any) => await getFollowing(params)} totalItems={profile?.followings}/>
       </Modal>
     </>
   );

@@ -15,7 +15,7 @@ export const getNewFeedPost = async (params?: any) => {
   }
   if (params?.limit) {
     const condition = _.get(params, 'page', 0) > 0 ? '&' : '?';
-    const queryLimit = `${condition}postLimit=${params.limit}`;
+    const queryLimit = `${condition}limit=${params.limit}`;
     queryString = queryString.concat(queryLimit);
   }
   if (params?.groupId) {

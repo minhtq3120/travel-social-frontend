@@ -33,6 +33,20 @@ const cx = classNames.bind(styles);
 
 const Account = (props: any) => {
   const [value, setValue] = React.useState(0);
+  const [profile,setProfile] = useState<any>(null)
+  useEffect(() => { 
+    getCurrentUserProfile() 
+  }, [])
+
+  const getCurrentUserProfile = async () => {
+    try {
+      const user = await getCurrUserProfile()
+      setProfile(user)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -78,10 +92,10 @@ const Account = (props: any) => {
         </TabList>
 
         <TabPanel>
-          <EditProfile/>
+          {profile ? <EditProfile profile={profile}/> : null}
         </TabPanel>
         <TabPanel>
-          <ChangeAvatarCover />
+          {profile ? <ChangeAvatarCover profile={profile}/> : null}
         </TabPanel>
         <TabPanel>
           <ChangePassword />

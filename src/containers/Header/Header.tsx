@@ -33,7 +33,6 @@ const HeaderContainer = (props: any) => {
   const dispatch = useDispatch()
   const currentUser: any = getCurrentUser()
   const account = useSelector((state: RootState) => state.iconTabb.iconKey);
-  console.log(openCreatePost)
   const iconNotClick = {
     fontSize: '32px', margin: '0 7px', cursor: 'pointer',
   }
@@ -145,9 +144,9 @@ const HeaderContainer = (props: any) => {
         <div className={cx('icon-profile')}>
            <Dropdown overlay={menu} trigger={['click']} arrow >
             {
-              currentUser?.avatar?.length > 0 ? (
+              props?.profile?.avatar?.length > 0 ? (
                 <img
-                    src={currentUser.avatar}
+                    src={props?.profile?.avatar}
                     alt="user-avatar"
                     className={cx('user-avatar')}
                 />
