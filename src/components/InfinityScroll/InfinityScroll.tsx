@@ -8,7 +8,7 @@ import { RiRestaurant2Line } from 'react-icons/ri';
 
 const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
-const ContainerHeight = 400;
+const ContainerHeight = 500;
 
 const InfinityList = (props: any) => {
   const [data, setData] = useState<any>([]);
@@ -19,10 +19,18 @@ const InfinityList = (props: any) => {
   const [currentPage, setCurentPage] = useState(0);
   const [trigger, setTrigger] = useState(false)
 
-  console.log('current',currentPage, '   total', totalPage)
   const appendData =  async (page?: number) => {
-    const params = {
+    let params = {}
+    if(props?.typeList === 'followers' || props?.typeList === 'followings') {
+      params = {
         page: page
+      }
+    }
+    if(props?.typeList === 'likes' ) {
+      params = {
+        postId: props.postId,
+        page: page
+      }
     }
     if(props?.queryAPI){
       const result = await props?.queryAPI(params)
@@ -45,13 +53,10 @@ const InfinityList = (props: any) => {
     }
     
   };
-  console.log('data:' , data.length, data)
 
   const handleFollow  = async (userId: string) => {
     try {
-      console.log(userId)
       const follow = await followId(userId)
-      console.log(follow)
       setCurentPage(0)
       setData([])
       setTrigger(!trigger)
@@ -64,9 +69,7 @@ const InfinityList = (props: any) => {
 
   const handleUnFollow  = async (userId: string) => {
     try {
-      console.log(userId)
       const unfollow = await unfollowId(userId)
-      console.log(unfollow)
       setCurentPage(0)
       setData([])
       setTrigger(!trigger)
@@ -83,7 +86,7 @@ const InfinityList = (props: any) => {
   }, [currentPage, trigger]);
 
   const onScroll = e => {
-    if(data.length === props?.totalItems)return
+    if(data.length === totalItem || currentPage === totalPage)return
     if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
       setCurentPage(currentPage+1)
     }
@@ -107,7 +110,9 @@ const InfinityList = (props: any) => {
             />
             <div>
               {
-              item?.followed && !item?.isCurrentUser ? (
+              (item?.followed && !item?.isCurrentUser && (props?.typeList === 'followers' || props?.typeList === 'followings')) || 
+              (item?.isFollowed && props?.typeList === 'likes')
+              ? (
                 <Button onClick={() => {handleUnFollow(item.userId)}}>
                   Unfollow
                 </Button>

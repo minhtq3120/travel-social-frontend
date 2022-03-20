@@ -157,14 +157,16 @@ const HeaderContainer = (props: any) => {
       </div>
     </div>
      <Modal
-        title="Modal 1000px width"
+        title=""
         centered
         visible={openCreatePost}
         onOk={() => setOpenCreatePost(false)}
         onCancel={() => setOpenCreatePost(false)}
         width={1000}
+        footer={null}
+        closable={false}
       >
-        <CreateNewPost />
+        <CreateNewPost profile={props.profile}/>
       </Modal>
     </>
   );

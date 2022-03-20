@@ -33,7 +33,7 @@ const UploadLogo = (props: any) => {
   
 
   const handleCustomRequest = ({onSuccess}: any) => {onSuccess('ok')};
-
+         console.log('fileLISTTTTTT', props.fileList)
   let propsRef = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -41,24 +41,35 @@ const UploadLogo = (props: any) => {
       authorization: 'authorization-text'
     },
     beforeUpload: (file: any) => {
-      const isValid = file?.name.match(/\.(jpg|jpeg|png|gif|PNG)$/);
-      if (!isValid) {
-        message.error(`Invalid logo image`);
-        return Upload.LIST_IGNORE
+      if(props?.createPostType) {
+        console.log('come')
+        const isValid = file?.name.match(/\.(jpg|jpeg|png|gif|PNG|mp4|3gp|3gpp|mov|wmv|flv|m3u8|avi)$/);
+        if (!isValid) {
+          message.error(`file must be image or video`);
+          return Upload.LIST_IGNORE
+        }
       }
+      else {
+        const isValid = file?.name.match(/\.(jpg|jpeg|png|gif|PNG)$/);
+        if (!isValid) {
+          message.error(`Invalid logo image`);
+          return Upload.LIST_IGNORE
+        }
+      }
+      
     },
     onChange(info: any) {
       if (info.file.status !== 'uploading') {
         setLoading(true)
         console.log(info.file, info.fileList);
+        if(props?.setFileList) props.setFileList(info.fileList)
         if(info.fileList.length === 0) {
           props.setFile(null)
           setLoading(false)
         }
       }
       if (info.file.status === 'done') {
-        if(!info.file.name.match(/\.(jpg|jpeg|png|gif|PNG)$/)){
-          message.error('Invalid logo image')
+        if(!info.file.name.match(/\.(jpg|jpeg|png|gif|PNG)$/) || (props?.createPostType && !info.file?.name.match(/\.(jpg|jpeg|png|gif|PNG|mp4|3gp|3gpp|mov|wmv|flv|m3u8|avi)$/))){
           props.setFile(null)
           setLoading(false)
         } 
@@ -78,7 +89,6 @@ const UploadLogo = (props: any) => {
     
   };
 
-  console.log(props.file)
   return (
     <Upload {...propsRef}  
       defaultFileList={props.logoUrl} 
@@ -90,20 +100,24 @@ const UploadLogo = (props: any) => {
       disabled={props.disabled}
       // listType="picture-card"
       >
-        <div style={{
-        display: 'flex', 
-        alignContent:'center', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-         flexDirection: 'column', 
-         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-         width: '200px',
-         height: '200px',
-         cursor: 'pointer'
-         }}>
-          {imageBase64 && props?.file ? <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} /> : uploadButton}
+        {
+        props?.custom ? props.custom :
+            <div style={{
+              display: 'flex', 
+              alignContent:'center', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              flexDirection: 'column', 
+              boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+              width: '200px',
+              height: '200px',
+              cursor: 'pointer'
+              }}>
+              
+              {imageBase64 && props?.file ? <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} /> : uploadButton}
 
-        </div>
+            </div>
+        }
     </Upload>
   );
 };

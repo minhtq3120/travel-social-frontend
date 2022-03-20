@@ -35,3 +35,17 @@ export const getNewFeedPost = async (params?: any) => {
     });
 };
 
+export const createPost = async (
+  payload
+) => {
+  console.log(payload)
+  return axiosInstance
+    .post(`/post/new-post`, payload)
+    .catch((error) => {
+      console.log(error)
+      if (error.response) {
+        console.error(error.response.message);
+        return error.response.status;
+      }
+    });
+};

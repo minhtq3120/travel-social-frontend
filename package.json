@@ -9,6 +9,8 @@
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
     "@reduxjs/toolkit": "1.7.1",
+    "@rpldy/upload-preview": "^0.18.0",
+    "@rpldy/uploady": "^0.18.0",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.10",
@@ -55,7 +57,7 @@
     "web3": "1.6.1",
     "web3modal": "1.9.4",
     "websocket": "1.0.34",
-    "yarn": "^1.22.17"
+    "yarn": "^1.22.18"
   },
   "scripts": {
     "start": "react-scripts start",

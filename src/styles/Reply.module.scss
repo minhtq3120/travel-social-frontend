@@ -1,0 +1,58 @@
+    
+    .comment-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0 15px;
+      
+
+      .comment-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        
+
+        .name {
+          font-weight: bold;
+          cursor: pointer;
+          font-size: 16px;
+          margin: 0 10px;
+        }
+
+        
+      }
+
+      .comment {
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 13px; 
+          margin-left: 5px;      
+        }
+
+      .comment-time-reply {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        margin-left: 45px;
+
+        .time {
+          font-size: 11px;
+          opacity: 0.5;
+        }
+
+        .reply {
+          font-size: 13px;
+          margin: 0 15px;
+          cursor: pointer;
+          font-weight: bold;
+          opacity: 0.5;
+        }
+      }
+    }

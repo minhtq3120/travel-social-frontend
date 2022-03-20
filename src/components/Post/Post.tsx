@@ -13,16 +13,29 @@ import "react-slideshow-image/dist/styles.css";
 import ReactPlayer from 'react-player';
 import AwesomeSlider from 'react-awesome-slider';
 import moment from 'moment';
-import { likePost, unLikePost } from 'src/services/like-service';
+import { getLikeOfPots, likePost, unLikePost } from 'src/services/like-service';
+import Modal from 'antd/lib/modal/Modal';
+import InfinityList from '../InfinityScroll/InfinityScroll';
+import PostDetail from '../PostDetail/PostDetail';
+import { commentToPost } from 'src/services/comment-service';
 const cx = classNames.bind(styles);
 
 const Post = (props: any) => {
     const [form] = Form.useForm();
     const [images, setImages] = useState<any>([])
+    const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
+    const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false)
 
     const handleFinish = async (values) => {
         try {
             console.log(values)
+            const addCommentToPost = {
+                postId: props?.item?.postId,
+                comment: values.comment
+            }
+            const addCom = await commentToPost(addCommentToPost)
+            console.log(addCom)
+            form.resetFields()
         }
         catch (err) {
             console.log(err)
@@ -82,9 +95,7 @@ const Post = (props: any) => {
 
     const handleLike = async (postId: string) => {
         try {
-            console.log(postId)
             const like = await likePost(postId)
-            console.log(like)
             return
         }
         catch (err) {
@@ -95,15 +106,18 @@ const Post = (props: any) => {
 
     const handleUnlike = async (postId: string) => {
         try {
-            console.log(postId)
             const like = await unLikePost(postId)
-            console.log(like)
             return
         }
         catch (err) {
             console.log(err)
         }
     }
+
+    const handleCancel = () => {
+        setIsModalVisibleLikes(false)
+        setIsModalVisibleDetail(false)
+    };
 
   return (
     <React.Fragment>
@@ -152,13 +166,12 @@ const Post = (props: any) => {
                             props?.item?.liked ? (
                                 <>
                                     <FaHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: 'red'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
-                                    {props?.item?.likes}
-
+                                    <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{props?.item?.likes}</div>
                                 </>
                             ) : (
                                 <>
                                     <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {handleLike(props?.item?.postId)}}/> 
-                                    {props?.item?.likes}
+                                     <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{props?.item?.likes}</div>
                                 </>
                             )
                         }
@@ -198,7 +211,7 @@ const Post = (props: any) => {
                     </div>
                     
                 </div>
-                <div className={cx(`view-comment`)}>
+                <div className={cx(`view-comment`)} onClick={() => {setIsModalVisibleDetail(true)}}>
                     {`View all ${props.item.comments} comments`}
                 </div>
             </div>
@@ -240,6 +253,14 @@ const Post = (props: any) => {
             </Form>
         </div>
       </div>
+      <Modal title={`Likes (${props?.item?.likes})`} visible={isModalVisibleLikes} footer={[]} onCancel={handleCancel} style={{borderRadius: '10px'}}>
+        <InfinityList  typeList="likes" queryAPI={async (params: any) => await getLikeOfPots(params)}  postId={props?.item?.postId}/>
+      </Modal>
+
+      <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px'}} width={1400}  closable={false}>
+        {images ? <PostDetail images={images} postId={props?.item?.postId}/> : null}
+      </Modal>
+
     </React.Fragment>
   );
 };
