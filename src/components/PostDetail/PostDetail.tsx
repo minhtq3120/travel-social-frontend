@@ -119,7 +119,7 @@ const PostDetail = (props: any) => {
     const Itemmm = useCallback(( item: any, index: any) => {
         item = item.item
         return (
-            <List.Item key={index}>
+            <List.Item key={index} style={{width: '100%'}}>
                 <div className={cx('comment-container')}>
                     <div className={cx('comment-info')}>
                         <Avatar src={item?.avatar} />
@@ -163,8 +163,9 @@ const PostDetail = (props: any) => {
 
     const ListComment = useCallback(() => {
         return ( 
-            <List >
+            <List style={{width:'100%'}}>
                 <VirtualList
+                style={{width: '100%'}}
                     data={data}
                     height={ContainerHeight}
                     itemHeight={47}

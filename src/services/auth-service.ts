@@ -29,6 +29,7 @@ export const activate = async (payload: ActivateParams) => {
     const { email, activationCode } = payload
     return await axiosInstance.put(`/user/auth/activate-account`, {
       email,
+      activationCode
     });
   } catch (error) {
     throw error;

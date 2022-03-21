@@ -1,3 +1,4 @@
+import ActiveAccount from 'src/pages/ActiveAccount/ActiveAccount';
 import LayoutComponent from 'src/pages/Layout/layout';
 import Login from 'src/pages/Login/Login';
 import Profile from 'src/pages/Profile/Profile';
@@ -23,5 +24,9 @@ export const routes = [
   {
     path: '/account',
     component: LayoutComponent
+  },
+  {
+    path: "/activeAccount/:code",
+    component: ActiveAccount
   },
 ];

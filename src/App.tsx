@@ -9,9 +9,9 @@ import { useDispatch, useSelector } from 'react-redux'
 const RouteWithSubRoutes = (route: any) => {
   return (
     <PrivateRoute
-      path={route.path}
+      exact path={route.path}
       component={route.component}
-      render={(props: any) => <route.component {...props} routes={route.routes} />}
+      render={(props: any) => <route.component {...props}  routes={route.routes} />}
     />
   );
 };

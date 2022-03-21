@@ -23,6 +23,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setIconTabKey } from "src/redux/IconTabReducer";
 import { RootState } from "src/redux/store";
 import CreateNewPost from "src/components/CreateNewPosts/CreateNewPost";
+import InfinityList from "src/components/InfinityScroll/InfinityScroll";
+import { getFollowers } from "src/services/follow-service";
+import NotificationList from "src/components/Notification/Notification";
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -98,6 +101,10 @@ const HeaderContainer = (props: any) => {
     </Menu>
   );
 
+  const notifi = (
+      <NotificationList />
+  )
+
 
   return (
     <>
@@ -135,11 +142,14 @@ const HeaderContainer = (props: any) => {
               dispatch(setIconTabKey('4'))
             }}
           />
-          <IoMdNotificationsOutline style={account === "5" ? iconClicked : iconNotClick} 
+          
+          <Dropdown overlay={() => <NotificationList />} trigger={['click']} arrow placement="bottomRight"  >
+            <IoMdNotificationsOutline style={account === "5" ? iconClicked : iconNotClick} 
             onClick={() => {
               dispatch(setIconTabKey('5'))
             }}
           />
+          </Dropdown>
         </div>
         <div className={cx('icon-profile')}>
            <Dropdown overlay={menu} trigger={['click']} arrow >

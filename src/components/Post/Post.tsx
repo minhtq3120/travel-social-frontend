@@ -257,7 +257,7 @@ const Post = (props: any) => {
         <InfinityList  typeList="likes" queryAPI={async (params: any) => await getLikeOfPots(params)}  postId={props?.item?.postId}/>
       </Modal>
 
-      <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px'}} width={1400}  closable={false}>
+      <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1400}  closable={false} bodyStyle={{padding: '0'}}>
         {images ? <PostDetail images={images} postId={props?.item?.postId}/> : null}
       </Modal>
 
