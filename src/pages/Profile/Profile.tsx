@@ -20,6 +20,7 @@ import { getFollowers, getFollowing } from 'src/services/follow-service';
 import { getCurrUserProfile } from 'src/services/user-service';
 import styles from 'src/styles/Profile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
+import ProfilePosts from './ProfilePosts';
 
 const cx = classNames.bind(styles);
 const { TabPane } = Tabs;
@@ -33,9 +34,9 @@ const { TabPane } = Tabs;
 // }
 
 const TabProfile = () => (
-  <Tabs defaultActiveKey="1" centered tabPosition='top'>
+  <Tabs defaultActiveKey="1" centered tabPosition='top' style={{width: '100%'}}>
     <TabPane tab="Posts" key="1">
-
+      <ProfilePosts />
     </TabPane>
     <TabPane tab="Saved" key="2">
       Content of Tab Pane 2

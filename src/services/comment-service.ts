@@ -11,7 +11,7 @@ export const getCommentsOfPost = async (params) => {
     if (params?.page) {
         const postId = _.get(params, 'postId', null);
         const condition = postId ? '?' : '&'
-        const queryPage = `&page=${params.page}`;
+        const queryPage = `?page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
     if (params?.perPage) {

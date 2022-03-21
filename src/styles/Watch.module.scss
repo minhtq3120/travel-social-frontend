@@ -1,0 +1,76 @@
+.watchs-container {
+    // margin: 20px 0;
+    // padding: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    .watchs-child {
+      width: 50%;
+      height: auto;
+      margin: 30px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+      .watch {
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        height: auto;
+        min-height: 700px;
+        border: 1px solid black;
+        background-color: black;
+        margin-bottom: 50px;
+
+
+        .info {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          padding: 15px 15px;
+
+          .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            
+            .name-time-container {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+
+              .name {
+                font-weight: bold;
+                margin:  0 10px;
+                font-size: 17px;
+                color: white;
+              }
+
+              .time {
+                font-size: 14px;
+                color: white;
+                opacity: 0.7;
+                margin:  0 10px;
+              }
+            }
+            
+          }
+        }
+      }
+}
+

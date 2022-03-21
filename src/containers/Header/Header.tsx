@@ -139,6 +139,7 @@ const HeaderContainer = (props: any) => {
           />
           <AiOutlineYoutube style={account === "4" ? iconClicked : iconNotClick} 
             onClick={() => {
+              history.push('/watchs')
               dispatch(setIconTabKey('4'))
             }}
           />

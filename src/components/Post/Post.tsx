@@ -258,7 +258,7 @@ const Post = (props: any) => {
       </Modal>
 
       <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1400}  closable={false} bodyStyle={{padding: '0'}}>
-        {images ? <PostDetail images={images} postId={props?.item?.postId}/> : null}
+        {images ? <PostDetail images={images} postId={props?.item?.postId} info={props.item}/> : null}
       </Modal>
 
     </React.Fragment>

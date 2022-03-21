@@ -96,13 +96,15 @@ const PostDetail = (props: any) => {
 
     useEffect(() => {
         appendData(currentPage);
-    }, [currentPage, trigger]);
-
+    }, [currentPage, trigger, props?.postId]);
+    console.log("DATA",data,"------Length---", data.length)
+    console.log("Current", currentPage, "TOTALPAGE______" ,totalPage)
     const onScroll = e => {
-        // if(data.length === totalItem || currentPage === totalPage)return
-        // if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
-        //     setCurentPage(currentPage+1)
-        // }
+        if(data.length === totalItem || currentPage === totalPage - 1)return
+        if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
+            // setCurentPage(currentPage+1)
+            console.log("--------------ENDDDDDDDDDDDDDD")
+        }
     };
 
 
@@ -164,21 +166,26 @@ const PostDetail = (props: any) => {
     const ListComment = useCallback(() => {
         return ( 
             <List style={{width:'100%'}}>
-                <VirtualList
-                style={{width: '100%'}}
-                    data={data}
-                    height={ContainerHeight}
-                    itemHeight={47}
-                    itemKey="email"
-                    onScroll={onScroll}
-                >
-                    {(item: any, index: any) => (
-                        <Itemmm item={item} index={index}/>
-                    )}
-                </VirtualList>
+                {
+                    <VirtualList
+                        style={{width: '100%'}}
+                            data={data}
+                            height={ContainerHeight}
+                            itemHeight={47}
+                            itemKey="email"
+                            onScroll={onScroll}
+                        >
+                        {
+                            (item: any, index: any) => (
+                                <Itemmm item={item} index={index}/>
+                            )
+                        }
+                    </VirtualList>
+                }
+                
             </List>
         )
-    }, [showReply, data])
+    }, [data])
 
     const Slideshow = () => {
         return (
@@ -240,6 +247,14 @@ const PostDetail = (props: any) => {
                 <Slideshow/>
              </div>
              <div className={cx(`post-right`)}>
+                 <div className={cx('info')}>
+                    <div className={cx('left')}>
+                         <Avatar src={props?.info?.userAvatar} />
+                        <div className={cx('name')}>{props?.info?.userDisplayName}</div>
+                    </div>
+                    
+                    <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} />
+                </div>
                 <ListComment />
                  <Form
                     form={form}

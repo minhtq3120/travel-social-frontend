@@ -10,7 +10,7 @@
 
   .post-left {
     width: 900px;
-    height: 850px;
+    height: 900px;
     background-color: black;
     .slider-container2{
       background-color: black;
@@ -21,7 +21,7 @@
         align-content: center;
         background-color: black;
         width: 100%;
-        height: 850px;
+        height: 900px;
 
         .img{
           width: 800px;
@@ -34,7 +34,31 @@
 
   .post-right {
     width: 500px;
-    height: 850px;
+    height: 900px;
+
+    .info {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+
+      .left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        
+        .name {
+          font-weight: bold;
+          margin:  0 10px;
+          font-size: 17px;
+        }
+      }
+
+      
+    }
     
     .comment-container {
       display: flex;
@@ -55,7 +79,7 @@
         .name {
           font-weight: bold;
           cursor: pointer;
-          font-size: 16px;
+          font-size: 15px;
           margin: 0 10px;
         }
 

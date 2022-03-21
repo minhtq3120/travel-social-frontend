@@ -1,3 +1,4 @@
+import Watch from 'src/components/Watch/Watch';
 import ActiveAccount from 'src/pages/ActiveAccount/ActiveAccount';
 import LayoutComponent from 'src/pages/Layout/layout';
 import Login from 'src/pages/Login/Login';
@@ -29,4 +30,8 @@ export const routes = [
     path: "/activeAccount/:code",
     component: ActiveAccount
   },
+  {
+    path: "/watchs",
+    component: LayoutComponent
+  }
 ];

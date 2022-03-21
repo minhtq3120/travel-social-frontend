@@ -6,7 +6,7 @@ import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
 import styles from 'src/styles/Layout.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, Route, Switch, useHistory } from 'react-router-dom';
-import { setAccountAddress, setConnected, setLoginResult, setModalWrongNetwork } from 'src/redux/WalletReducer';
+import { setAccountAddress, setConnected, setLoginResult, setSocket } from 'src/redux/WalletReducer';
 import { RootState } from 'src/redux/store';
 import classNames from 'classnames/bind';
 import { PieChartOutlined, UsergroupAddOutlined } from '@ant-design/icons';
@@ -17,6 +17,10 @@ import NewFeed from 'src/containers/Newfeed/Newfeed';
 import Profile from '../Profile/Profile';
 import Account from '../Account/Account';
 import { getCurrUserProfile } from 'src/services/user-service';
+import { userInfo } from 'os';
+import { io } from "socket.io-client";
+import { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
+import Watch from 'src/components/Watch/Watch';
 
 const cx = classNames.bind(styles);
 
@@ -43,6 +47,28 @@ const LayoutComponent = (props: any) => {
       console.log(err)
     }
   }
+  const socket: any = useSelector((state: RootState) => state.wallet.socket);
+  console.log(socket)
+  
+
+socket?.on(RECEIVE_NOTIFICATION, (data) => {
+      console.log(data)
+    })
+
+  useEffect(() => {
+    if(localStorage.getItem('accessToken')) {
+      const socketOptions = {
+          auth: {
+            token: localStorage.getItem('accessToken')
+          }
+      }
+
+      const socket = io("http://localhost:8080", socketOptions)
+      dispatch(setSocket(socket))
+    }
+  }, [])
+
+  
 
 
   const resetLogin = async () => {
@@ -91,6 +117,13 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <Account />
+            </Content>
+          </Layout>
+        </Route>
+        <Route exact path="/watchs">
+          <Layout className={cx('body')}>
+            <Content>
+              <Watch />
             </Content>
           </Layout>
         </Route>

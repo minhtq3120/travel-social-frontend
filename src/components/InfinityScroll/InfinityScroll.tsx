@@ -10,6 +10,19 @@ const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 500;
 
+const SEND_NOTIFICATION = 'sendNotification';
+const RECEIVE_NOTIFICATION = 'receiveNotification';
+import { io } from "socket.io-client";
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/redux/store';
+
+export enum NotificationAction {
+  Like = 'like',
+  Comment = 'comment',
+  ReplyComment = 'replyComment',
+  Follow = 'follow'
+}
+
 const InfinityList = (props: any) => {
   const [data, setData] = useState<any>([]);
   const [totalItem, setTotalItem] = useState(0);
@@ -18,6 +31,8 @@ const InfinityList = (props: any) => {
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurentPage] = useState(0);
   const [trigger, setTrigger] = useState(false)
+  const socket: any = useSelector((state: RootState) => state.wallet.socket);
+  console.log(socket)
 
   const appendData =  async (page?: number) => {
     let params = {}
@@ -57,6 +72,10 @@ const InfinityList = (props: any) => {
   const handleFollow  = async (userId: string) => {
     try {
       const follow = await followId(userId)
+      socket.emit(SEND_NOTIFICATION, {
+        receiver: userId,
+        action: NotificationAction.Follow
+      })
       setCurentPage(0)
       setData([])
       setTrigger(!trigger)

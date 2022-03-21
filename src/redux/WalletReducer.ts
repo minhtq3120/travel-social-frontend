@@ -10,7 +10,8 @@ const initialState = {
   account: Web3.utils.isAddress(walletAddress) ? walletAddress : '',
   isConnected: false,
   modalWrongNetwork: false,
-  userInfo: null
+  userInfo: null,
+  socket: null
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -43,14 +44,14 @@ export const walletSlice = createSlice({
         isConnected: action.payload
       };
     },
-    setModalWrongNetwork: (state, action) => {
+    setSocket: (state, action) => {
       return {
         ...state,
-        modalWrongNetwork: action.payload
+        socket: action.payload
       };
-    }
+    },
   }
 });
-export const { setAccountAddress, setConnected, setLoginResult, setModalWrongNetwork } = walletSlice.actions;
+export const { setAccountAddress, setConnected, setLoginResult, setSocket } = walletSlice.actions;
 const { reducer: walletReducer } = walletSlice;
 export default walletReducer;
