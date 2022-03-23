@@ -6,7 +6,7 @@ import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
 import styles from 'src/styles/Layout.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, Route, Switch, useHistory } from 'react-router-dom';
-import { setAccountAddress, setConnected, setLoginResult, setSocket } from 'src/redux/WalletReducer';
+import { setAccountAddress, setConnected, setLoginResult, setNotifications, setSocket } from 'src/redux/WalletReducer';
 import { RootState } from 'src/redux/store';
 import classNames from 'classnames/bind';
 import { PieChartOutlined, UsergroupAddOutlined } from '@ant-design/icons';
@@ -21,6 +21,14 @@ import { userInfo } from 'os';
 import { io } from "socket.io-client";
 import { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
 import Watch from 'src/components/Watch/Watch';
+import Avatar from 'antd/lib/avatar/avatar';
+
+export enum NotificationAction {
+  Like = 'like',
+  Comment = 'comment',
+  ReplyComment = 'replyComment',
+  Follow = 'follow'
+}
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +41,7 @@ const LayoutComponent = (props: any) => {
 
   const [activeStep, setActiveStep] = useState(0);
   const [_activestep, _setActiveStep] = useState(0);
+  const [dataNoti, setDataNoti] = useState<any>(null)
   const [profile,setProfile] = useState<any>(null)
   useEffect(() => { 
     getCurrentUserProfile() 
@@ -48,13 +57,28 @@ const LayoutComponent = (props: any) => {
     }
   }
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
-  console.log(socket)
   
 
-socket?.on(RECEIVE_NOTIFICATION, (data) => {
-      console.log(data)
-    })
+  useEffect(() => {
+    if(dataNoti) {
+      openNotification('bottomLeft', dataNoti)
+    }
+  }, [dataNoti])
 
+  const openNotification = (placement, data) => {
+    notification.info({
+      message: 
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center'}}>
+                <Avatar src={data?.sender?.avatar} />
+                <div style={{fontWeight: 'bold', margin: '0 10px'}}>{data?.sender?.displayName}</div>
+                <div>{` ${data?.action} your Post`}</div>
+          </div>,  
+      placement,
+      style: {width: '500px'},
+      duration: 10
+    });
+  };
+  
   useEffect(() => {
     if(localStorage.getItem('accessToken')) {
       const socketOptions = {
@@ -68,9 +92,17 @@ socket?.on(RECEIVE_NOTIFICATION, (data) => {
     }
   }, [])
 
+  socket?.on(RECEIVE_NOTIFICATION, (data) => {
+    console.log(data)
+    setDataNoti(data)
+    dispatch(setSocket(null))
+    dispatch(setNotifications(null))
+  })
+
+  useEffect(() => {
+    dispatch(setNotifications(dataNoti))
+  }, [dataNoti])
   
-
-
   const resetLogin = async () => {
     dispatch(setAccountAddress(''));
     dispatch(setConnected(false));

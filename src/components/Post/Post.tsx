@@ -18,6 +18,10 @@ import Modal from 'antd/lib/modal/Modal';
 import InfinityList from '../InfinityScroll/InfinityScroll';
 import PostDetail from '../PostDetail/PostDetail';
 import { commentToPost } from 'src/services/comment-service';
+import { SEND_NOTIFICATION } from '../Notification/Notification';
+import { NotificationAction } from 'src/pages/Layout/layout';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/redux/store';
 const cx = classNames.bind(styles);
 
 const Post = (props: any) => {
@@ -25,6 +29,7 @@ const Post = (props: any) => {
     const [images, setImages] = useState<any>([])
     const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
     const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false)
+    const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
     const handleFinish = async (values) => {
         try {
@@ -33,6 +38,11 @@ const Post = (props: any) => {
                 postId: props?.item?.postId,
                 comment: values.comment
             }
+            
+            socket.emit(SEND_NOTIFICATION, {
+                receiver: props.item.userId,
+                action: NotificationAction.Comment
+            })
             const addCom = await commentToPost(addCommentToPost)
             console.log(addCom)
             form.resetFields()
@@ -93,9 +103,13 @@ const Post = (props: any) => {
         )
     }
 
-    const handleLike = async (postId: string) => {
+    const handleLike = async (postId: string, userId: string) => {
         try {
             const like = await likePost(postId)
+            socket.emit(SEND_NOTIFICATION, {
+                receiver: userId,
+                action: NotificationAction.Like
+            })
             return
         }
         catch (err) {
@@ -170,7 +184,10 @@ const Post = (props: any) => {
                                 </>
                             ) : (
                                 <>
-                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {handleLike(props?.item?.postId)}}/> 
+                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
+                                        handleLike(props?.item?.postId, props?.item?.userId)
+                                        }}
+                                    /> 
                                      <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{props?.item?.likes}</div>
                                 </>
                             )

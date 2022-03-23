@@ -75,6 +75,11 @@ const UploadLogo = (props: any) => {
         } 
         else {
           getBase64(info.file.originFileObj, (imageUrl) => {
+            if(props?.setImageBase64Arr) {
+              let temp = props.imageBase64Arr
+              temp.push(imageUrl)
+              props.setImageBase64Arr(temp)
+            }
             setImageBase64(imageUrl)
             setLoading(false)
           });
@@ -99,6 +104,7 @@ const UploadLogo = (props: any) => {
       maxCount={props.maxCount} 
       disabled={props.disabled}
       // listType="picture-card"
+      listType={props.listType}
       >
         {
         props?.custom ? props.custom :

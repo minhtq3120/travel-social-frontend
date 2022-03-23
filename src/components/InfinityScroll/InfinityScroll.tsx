@@ -15,13 +15,7 @@ const RECEIVE_NOTIFICATION = 'receiveNotification';
 import { io } from "socket.io-client";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
-
-export enum NotificationAction {
-  Like = 'like',
-  Comment = 'comment',
-  ReplyComment = 'replyComment',
-  Follow = 'follow'
-}
+import { NotificationAction } from 'src/pages/Layout/layout';
 
 const InfinityList = (props: any) => {
   const [data, setData] = useState<any>([]);
@@ -32,7 +26,7 @@ const InfinityList = (props: any) => {
   const [currentPage, setCurentPage] = useState(0);
   const [trigger, setTrigger] = useState(false)
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
-  console.log(socket)
+  // console.log(socket)
 
   const appendData =  async (page?: number) => {
     let params = {}

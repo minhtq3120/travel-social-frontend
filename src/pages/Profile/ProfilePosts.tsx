@@ -102,7 +102,7 @@ const ProfilePosts = (props: any) => {
                 item.files[3].type === "image" ? (
                   <>
                     <div className={cx('img-container')}>
-                      <img src={ 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'} alt="img" className={cx('img')}/> 
+                      <img src={item?.files[0]?.url} alt="img" className={cx('img')}/> 
                       <div className={cx('overlay')}>
                         <div className={cx('text')}>
                           <FaRegHeart style={{margin: '0 10px'}} />{`${item.likes}`}

@@ -11,7 +11,8 @@ const initialState = {
   isConnected: false,
   modalWrongNetwork: false,
   userInfo: null,
-  socket: null
+  socket: null,
+  notification: null
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -50,8 +51,14 @@ export const walletSlice = createSlice({
         socket: action.payload
       };
     },
+    setNotifications: (state, action) => {
+      return {
+        ...state,
+        notification: action.payload
+      };
+    },
   }
 });
-export const { setAccountAddress, setConnected, setLoginResult, setSocket } = walletSlice.actions;
+export const { setAccountAddress, setConnected, setLoginResult, setSocket, setNotifications } = walletSlice.actions;
 const { reducer: walletReducer } = walletSlice;
 export default walletReducer;

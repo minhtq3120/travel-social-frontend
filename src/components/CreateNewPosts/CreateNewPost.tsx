@@ -23,14 +23,7 @@ import TextArea from 'antd/lib/input/TextArea';
 import Avatar from 'antd/lib/avatar/avatar';
 import { createPost } from 'src/services/post-service';
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
+
 
 export const FILE_TYPE_VIDEO = [
   "video/mp4",
@@ -76,11 +69,30 @@ const CreateNewPost = (props: any) => {
     const [fileList, setFileList] = useState<any>([])
     const [file, setFile] = useState<any>(null);
     const [form] = useForm()
-    function getBase64(img: any, callback: any) {
-        const reader = new FileReader();
-        reader.addEventListener("load", () => callback(reader.result));
-        reader.readAsDataURL(img);
-    }
+    const [imageBase64Arr, setImageBase64Arr] = useState([])
+
+    // function getBase64(img: any, callback: any) {
+    //     const reader = new FileReader();
+    //     reader.addEventListener("load", () => callback(reader.result));
+    //     reader.readAsDataURL(img);
+    // }
+
+    // const convertImg = async (data) => {
+    //     let temp:any = [];
+    //     console.log("?????????", data)
+    //     data.map((item: any) => {
+    //         return getBase64(item.originFileObj, (imageUrl) => {
+    //             temp.push(imageUrl)
+    //         });
+    //     })
+    //     setImageBase64Arr(temp)
+    // }
+
+    // useEffect(() => {
+    //     convertImg(fileList)
+    // }, [fileList])
+
+    console.log(imageBase64Arr)
 
     const handleFinish = async (values) => {
         try {
@@ -108,7 +120,6 @@ const CreateNewPost = (props: any) => {
     const handleCancel = () => {
         setPreviewVisible(false)
     }
-
     return (
         <div className={cx('createNewPostContainer')}>
             <div className={cx('left')}>
@@ -121,17 +132,11 @@ const CreateNewPost = (props: any) => {
                     setFileList={setFileList}
                     maxCount={10}
                     file={file}
+                    setImageBase64Arr={setImageBase64Arr}
+                    imageBase64Arr={imageBase64Arr}
+                    // listType="picture-card"
                     custom={
-                        <div  className={cx('uploadContainer')} style={{
-                            display: 'flex', 
-                            alignContent:'center', 
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            flexDirection: 'column', 
-                            width: '500px',
-                            height: '200px',
-                            cursor: 'pointer'
-                            }}>
+                        <div  className={cx('uploadContainer')} >
                             <div className={cx('uploadIcon')}>
                                 <FcAddImage style={{ fontSize: '100px', marginRight: '10px', cursor: 'pointer'}}/>
                             </div>
@@ -143,23 +148,27 @@ const CreateNewPost = (props: any) => {
                     >
                         
                 </UploadLogo>
-                {
+                {/* {
                     <div className={cx('filelistArr')}>
                     { 
-                        fileList.map((item: any) => {
+                        fileList.map((item: any, index: any) => {
+                            console.log(item.type, 'check-----', FILE_TYPE_VIDEO.includes(item.type))
                             return (
-                                item.type.includes(FILE_TYPE_VIDEO) ? 
+                                FILE_TYPE_VIDEO.includes(item.type) ? 
                                     <ReactPlayer
-                                        src={item.thumbUrl}
+                                        src={imageBase64Arr[index]}
                                         // playing
+                        light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+
                                         controls={true}
-                                        width="100%"
-                                        height="100%"
+                                        width="300px"
+                                        height="300px"
                                         className="shareImg"
                                     />
                                     : 
                                     <img
-                                        src={item.thumbUrl}
+                                        style={{width: '300px', height: '300px'}}
+                                        src={imageBase64Arr[index]}
                                         alt=""
                                         className="shareImg"
                                     />
@@ -167,7 +176,7 @@ const CreateNewPost = (props: any) => {
                             })
                         }
                     </div>
-                }
+                } */}
             </div>
             
                 <Form
@@ -178,10 +187,10 @@ const CreateNewPost = (props: any) => {
                     className={cx('right')}
                 >
                        
-                        <div className={cx('info')}>
-                            <Avatar src={props?.profile?.avatar} />
-                            <div className={cx('name')}>{props?.profile.displayName}</div>
-                        </div>
+                    <div className={cx('info')}>
+                        <Avatar src={props?.profile?.avatar} />
+                        <div className={cx('name')}>{props?.profile?.displayName}</div>
+                    </div>
                     <Form.Item 
                         name="description"
                         className={cx(`input`)}

@@ -4,7 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import { followId, getFollowers, getFollowing, unfollowId } from 'src/services/follow-service';
 import _ from 'lodash';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { RiRestaurant2Line } from 'react-icons/ri';
+import { GoPrimitiveDot } from 'react-icons/go';
 import { getNotifi } from 'src/services/notifi-service';
 import { getCommentsOfPost } from 'src/services/comment-service';
 const fakeDataUrl =
@@ -27,6 +27,7 @@ const NotificationList = (props: any) => {
   const [trigger, setTrigger] = useState(false)
   const [loading, setLoading] = useState(false)
   
+  const noti: any = useSelector((state: RootState) => state.wallet.notification);
 
   const appendData =  async (page?: number) => {
     console.log('????')
@@ -60,6 +61,11 @@ const NotificationList = (props: any) => {
   useEffect(() => {
     appendData(currentPage);
   }, [currentPage, trigger]);
+   useEffect(() => {
+     setData([])
+     setCurentPage(0)
+      appendData(currentPage);
+  }, [noti]);
 
   const onScroll = e => {
     if(data.length === totalItem || currentPage === totalPage)return
@@ -89,13 +95,18 @@ const NotificationList = (props: any) => {
           >
             {(item: any, index: any) => (
               <List.Item key={index}>
-                <div style={{padding: '0 15px'}}>
-                  <List.Item.Meta
-                  avatar={<Avatar src={item?.avatar} />}
+                <div style={{width: '100%',display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center'}}>
+                    <Avatar src={item?.sender?.avatar} />
+                    <div style={{fontWeight: 'bold', fontSize: '15px', margin: '0 10px'}}>{item?.sender?.displayName}</div>
+                    <div>{item?.action} your Post</div>
+
+                  </div>
+                  
                 
-                  title={<a href="https://ant.design">do something</a>}
-                  description='adfdfsfds'
-                />
+                </div>
+                <div>
+                  {item?.seen ? <GoPrimitiveDot color='grey' style={{marginRight: '20px'}}/> : <GoPrimitiveDot color='blue'style={{marginRight: '20px'}} />}
                 </div>
                 
               </List.Item>
