@@ -28,12 +28,16 @@ const Post = (props: any) => {
     const [form] = Form.useForm();
     const [images, setImages] = useState<any>([])
     const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
-    const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false)
+    const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false);
+    const [liked, setLiked] = useState<boolean>(props?.item?.liked || false)
+    const [numLikes, setNumLikes] = useState<any>(props?.item?.likes)
+    const [numComments, setNumComments] = useState<any>(props?.item?.comments)
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
     const handleFinish = async (values) => {
         try {
             console.log(values)
+            setNumComments(numComments + 1)
             const addCommentToPost = {
                 postId: props?.item?.postId,
                 comment: values.comment
@@ -54,10 +58,6 @@ const Post = (props: any) => {
 
     useEffect(() => {
         if(props?.item.files?.length>0){
-            // let arr: any = []
-            // props.item.files.forEach((item: any) => {
-            //     arr.push(item.url)
-            // })
             setImages(props?.item.files)
         }
     },[props?.item])
@@ -106,6 +106,8 @@ const Post = (props: any) => {
     const handleLike = async (postId: string, userId: string) => {
         try {
             const like = await likePost(postId)
+            setLiked(true)
+            setNumLikes(numLikes + 1)
             socket.emit(SEND_NOTIFICATION, {
                 receiver: userId,
                 action: NotificationAction.Like
@@ -120,7 +122,9 @@ const Post = (props: any) => {
 
     const handleUnlike = async (postId: string) => {
         try {
-            const like = await unLikePost(postId)
+            const unlike = await unLikePost(postId)
+            setLiked(false)
+            setNumLikes(numLikes - 1)
             return
         }
         catch (err) {
@@ -177,10 +181,10 @@ const Post = (props: any) => {
                 <div className={cx('left')}>
                     <div className={cx('num')}>
                         {
-                            props?.item?.liked ? (
+                            liked ? (
                                 <>
                                     <FaHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: 'red'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
-                                    <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{props?.item?.likes}</div>
+                                    <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
                             ) : (
                                 <>
@@ -188,14 +192,14 @@ const Post = (props: any) => {
                                         handleLike(props?.item?.postId, props?.item?.userId)
                                         }}
                                     /> 
-                                     <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{props?.item?.likes}</div>
+                                     <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
                             )
                         }
                     </div>
                     <div className={cx('num')}>
                         <FaRegComment style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
-                        {props?.item?.comments}
+                        {numComments}
                     </div>
 
                     <div className={cx('num')}>
@@ -229,7 +233,7 @@ const Post = (props: any) => {
                     
                 </div>
                 <div className={cx(`view-comment`)} onClick={() => {setIsModalVisibleDetail(true)}}>
-                    {`View all ${props.item.comments} comments`}
+                    {`View all ${numComments} comments`}
                 </div>
             </div>
                 <Form
@@ -275,7 +279,7 @@ const Post = (props: any) => {
       </Modal>
 
       <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1400}  closable={false} bodyStyle={{padding: '0'}}>
-        {images ? <PostDetail images={images} postId={props?.item?.postId} info={props.item}/> : null}
+        {images ? <PostDetail images={images} postId={props?.item?.postId} info={props.item} setNumComments={setNumComments} numComments={numComments}/> : null}
       </Modal>
 
     </React.Fragment>

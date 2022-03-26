@@ -33,5 +33,9 @@ export const routes = [
   {
     path: "/watchs",
     component: LayoutComponent
+  },
+  {
+    path: "/chats",
+    component: LayoutComponent
   }
 ];

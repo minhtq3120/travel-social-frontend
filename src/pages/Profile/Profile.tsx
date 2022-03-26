@@ -22,6 +22,11 @@ import styles from 'src/styles/Profile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
 import ProfilePosts from './ProfilePosts';
 
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import { BottomScrollListener } from 'react-bottom-scroll-listener';
+ 
+
+
 const cx = classNames.bind(styles);
 const { TabPane } = Tabs;
 
@@ -48,6 +53,9 @@ const TabProfile = () => (
 );
 
 const Profile = (props: any) => {
+  const scrollRef: any = useBottomScrollListener(() => {
+    console.log('REACH END')
+  });
   const currentUser: any = getCurrentUser()
   const [profile,setProfile] = useState<any>(null)
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -138,10 +146,10 @@ const Profile = (props: any) => {
           <TabProfile />
      </div>
     </div>
-      <Modal title={`Followers (${profile?.followers})`} visible={isModalVisibleFollowers} footer={[]} onCancel={handleCancel} style={{borderRadius: '10px'}}>
+      <Modal  title={`Followers (${profile?.followers})`} visible={isModalVisibleFollowers} footer={null} onCancel={handleCancel} style={{borderRadius: '10px'}} width={550}>
         <InfinityList typeList="followers" queryAPI={async (params: any) => await getFollowers(params)} totalItems={profile?.followers}/>
       </Modal>
-      <Modal title={`Followings (${profile?.followings})`} visible={isModalVisibleFollowings} footer={[]} onCancel={handleCancel}>
+      <Modal title={`Followings (${profile?.followings})`} visible={isModalVisibleFollowings} footer={null} onCancel={handleCancel}  style={{borderRadius: '10px'}} width={550}>
         <InfinityList typeList="followings" queryAPI={async (params: any) => await getFollowing(params)} totalItems={profile?.followings}/>
       </Modal>
     </>

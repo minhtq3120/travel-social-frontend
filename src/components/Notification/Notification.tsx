@@ -15,9 +15,19 @@ export const RECEIVE_NOTIFICATION = 'receiveNotification';
 import { io } from "socket.io-client";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
+import { sleep } from 'src/containers/Newfeed/Newfeed';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import { BottomScrollListener } from 'react-bottom-scroll-listener';
 
 
 const NotificationList = (props: any) => {
+  const handleFetchMore = async () => {
+    await sleep();
+      setCurentPage(currentPage + 1)
+  }
+  const scrollRef: any = useBottomScrollListener(() => {
+      totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+  });
   const [data, setData] = useState<any>([]);
   const [totalItem, setTotalItem] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -61,59 +71,46 @@ const NotificationList = (props: any) => {
   useEffect(() => {
     appendData(currentPage);
   }, [currentPage, trigger]);
+  console.log(noti)
+
    useEffect(() => {
-     setData([])
-     setCurentPage(0)
+     if(noti) {
+      setData([])
+      setCurentPage(0)
       appendData(currentPage);
+     }
+     
   }, [noti]);
 
-  const onScroll = e => {
-    if(data.length === totalItem || currentPage === totalPage)return
-    if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
-      // setCurentPage(currentPage+1)
-    }
-  };
-
-   
-
-
-
   return (
-    <div style={{width: '450px', height: '550px', backgroundColor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignContent: 'center'}}>
+    <div  style={{width: '450px', height: '550px', backgroundColor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignContent: 'center'}}>
       <div style={{fontWeight: 'bold', fontSize: '16px', padding: '5px 15px'}}>
         Notifications
       </div>
-      {
-        loading ? <Spin size='large'/> :
-        <List>
-          <VirtualList
-            data={data}
-            height={ContainerHeight}
-            itemHeight={47}
-            itemKey="email"
-            onScroll={onScroll}
-          >
-            {(item: any, index: any) => (
-              <List.Item key={index}>
-                <div style={{width: '100%',display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
-                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center'}}>
-                    <Avatar src={item?.sender?.avatar} />
-                    <div style={{fontWeight: 'bold', fontSize: '15px', margin: '0 10px'}}>{item?.sender?.displayName}</div>
-                    <div>{item?.action} your Post</div>
-
-                  </div>
-                  
-                
+      <div ref={scrollRef }  style={{width: '100%',height: '93%', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}}>
+          {
+            data.map((item: any, index: any) => (
+              <div key={index} style={{width: '100%',display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center', padding: '20px 15px', cursor: 'pointer'}}>
+                  <Avatar src={item?.sender?.avatar} />
+                  <div style={{fontWeight: 'bold', fontSize: '15px', margin: '0 10px', padding: '5px 0'}}>{item?.sender?.displayName}</div>
+                  <div>{item?.action} your Post</div>
                 </div>
                 <div>
                   {item?.seen ? <GoPrimitiveDot color='grey' style={{marginRight: '20px'}}/> : <GoPrimitiveDot color='blue'style={{marginRight: '20px'}} />}
                 </div>
                 
-              </List.Item>
-            )}
-          </VirtualList>
-        </List>
-      }
+              </div>
+            ))
+            }
+            {
+          totalPage - 1 === currentPage || data?.length === 0 ? null : (
+              <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                  <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+              </div>  
+          )}
+      </div>
+      
     </div>
    
   );

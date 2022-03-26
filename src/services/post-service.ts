@@ -2,20 +2,18 @@ import axiosInstance from 'src/config/config';
 import _ from 'lodash';
 
 export const getNewFeedPost = async (params?: any) => {
+  console.log(params)
   let queryString = `/post/posts`;
   if (params?.postLimit) {
     const queryPage = `?postLimit=${params.postLimit}`;
     queryString = queryString.concat(queryPage);
   }
   if (params?.page) {
-    const postLimit = _.get(params, 'postLimit', null);
-    const condition = postLimit ? '&' : '?'
-    const queryPage = `?page=${params.page}`;
+    const queryPage = `&page=${params.page}`;
     queryString = queryString.concat(queryPage);
   }
   if (params?.limit) {
-    const condition = _.get(params, 'page', 0) > 0 ? '&' : '?';
-    const queryLimit = `${condition}limit=${params.limit}`;
+    const queryLimit = `&limit=${params.limit}`;
     queryString = queryString.concat(queryLimit);
   }
   if (params?.groupId) {

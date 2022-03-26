@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { List, message, Avatar, Skeleton, Divider, Button } from 'antd';
+import React, { useState, useEffect, useCallback } from 'react';
+import { List, message, Avatar, Skeleton, Divider, Button, Spin } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import { followId, getFollowers, getFollowing, unfollowId } from 'src/services/follow-service';
 import _ from 'lodash';
@@ -17,7 +17,23 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import { NotificationAction } from 'src/pages/Layout/layout';
 
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import { BottomScrollListener } from 'react-bottom-scroll-listener';
+import { sleep } from 'src/containers/Newfeed/Newfeed';
+ 
+
 const InfinityList = (props: any) => {
+
+  
+
+  const handleFetchMore = async () => {
+    await sleep();
+    setCurentPage(currentPage + 1)
+  }
+  const scrollRef: any = useBottomScrollListener(() => {
+     totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+  });
+
   const [data, setData] = useState<any>([]);
   const [totalItem, setTotalItem] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -26,8 +42,8 @@ const InfinityList = (props: any) => {
   const [currentPage, setCurentPage] = useState(0);
   const [trigger, setTrigger] = useState(false)
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
-  // console.log(socket)
 
+  console.log(data, '-------', totalPage, '-------', currentPage)
   const appendData =  async (page?: number) => {
     let params = {}
     if(props?.typeList === 'followers' || props?.typeList === 'followings') {
@@ -104,6 +120,42 @@ const InfinityList = (props: any) => {
       setCurentPage(currentPage+1)
     }
   };
+
+
+  return (
+     <div  ref={scrollRef } style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+      {
+      data.map((item: any, index: any) => (
+            <div key={index} style={{width: '100%',display:'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0'}}>
+              <div>
+                <Avatar src={item?.avatar} />
+                <a href="https://ant.design">{item?.displayName}</a>
+                <div>{item?.userId}</div>
+              </div>
+              <div>
+                {
+                (item?.followed && !item?.isCurrentUser && (props?.typeList === 'followers' || props?.typeList === 'followings')) || 
+                (item?.isFollowed && props?.typeList === 'likes')
+                ? (
+                  <Button onClick={() => {handleUnFollow(item.userId)}}>
+                    Unfollow
+                  </Button>
+                ) : (
+                  <Button onClick={() => {handleFollow(item.userId)}}> 
+                    Follow
+                  </Button>
+                  )
+                }
+              </div>
+            </div>
+        ))
+      }
+      {
+      totalPage - 1 === currentPage || data?.length === 0 ? null : (
+        <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+      )}
+    </div>
+  )
 
   return (
     <List>

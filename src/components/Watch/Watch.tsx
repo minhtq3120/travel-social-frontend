@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List, message, Avatar, Skeleton, Divider, Button } from 'antd';
+import { List, message, Avatar, Skeleton, Divider, Button, Spin } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import { followId, getFollowers, getFollowing, unfollowId } from 'src/services/follow-service';
 import _ from 'lodash';
@@ -95,7 +95,7 @@ const Watch = (props: any) => {
                   />
             </div>
           )
-        }) :null
+        }) : <Spin size="large" style={{}}/>
       }
 
       </div>

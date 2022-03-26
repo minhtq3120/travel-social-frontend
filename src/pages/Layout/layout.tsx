@@ -22,6 +22,7 @@ import { io } from "socket.io-client";
 import { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
 import Watch from 'src/components/Watch/Watch';
 import Avatar from 'antd/lib/avatar/avatar';
+import Chat from 'src/components/Chat/Chat';
 
 export enum NotificationAction {
   Like = 'like',
@@ -156,6 +157,13 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <Watch />
+            </Content>
+          </Layout>
+        </Route>
+         <Route exact path="/chats">
+          <Layout className={cx('body')}>
+            <Content>
+              <Chat />
             </Content>
           </Layout>
         </Route>

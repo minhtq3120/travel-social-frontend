@@ -54,46 +54,10 @@ const Reply = (props: any) => {
         }
     };
 
-    const handleFollow  = async (userId: string) => {
-        try {
-        console.log(userId)
-        const follow = await followId(userId)
-        console.log(follow)
-        setCurentPage(0)
-        setData([])
-        setTrigger(!trigger)
-        return follow
-        }
-        catch (err){
-        console.log(err)
-        }
-    }
-
-    const handleUnFollow  = async (userId: string) => {
-        try {
-        console.log(userId)
-        const unfollow = await unfollowId(userId)
-        console.log(unfollow)
-        setCurentPage(0)
-        setData([])
-        setTrigger(!trigger)
-        return unfollow
-        }
-        catch (err){
-        console.log(err)
-        }
-    }
 
     useEffect(() => {
         appendData(currentPage);
     }, [currentPage, trigger]);
-
-    const onScroll = e => {
-        if(data.length === totalItem || currentPage === totalPage)return
-        if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
-            setCurentPage(currentPage+1)
-        }
-    };
 
     const properties = {
         duration: 5000,

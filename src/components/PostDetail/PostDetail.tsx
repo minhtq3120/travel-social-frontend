@@ -22,11 +22,22 @@ import { commentToPost, getCommentsOfPost, getReplyOfComment, replyToComment } f
 import VirtualList from 'rc-virtual-list';
 import Avatar from 'antd/lib/avatar/avatar';
 import Reply from './Reply';
+import { sleep } from 'src/containers/Newfeed/Newfeed';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import { BottomScrollListener } from 'react-bottom-scroll-listener';
 
 const cx = classNames.bind(styles);
 const ContainerHeight = 850;
 
 const PostDetail = (props: any) => {
+
+    const handleFetchMore = async () => {
+    await sleep();
+        setCurentPage(currentPage + 1)
+    }
+    const scrollRef: any = useBottomScrollListener(() => {
+        totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+    });
     const [data, setData] = useState<any>([]);
 
     const [totalItem, setTotalItem] = useState(0);
@@ -64,48 +75,11 @@ const PostDetail = (props: any) => {
         }
     };
 
-    const handleFollow  = async (userId: string) => {
-        try {
-        console.log(userId)
-        const follow = await followId(userId)
-        console.log(follow)
-        setCurentPage(0)
-        setData([])
-        setTrigger(!trigger)
-        return follow
-        }
-        catch (err){
-        console.log(err)
-        }
-    }
-
-    const handleUnFollow  = async (userId: string) => {
-        try {
-        console.log(userId)
-        const unfollow = await unfollowId(userId)
-        console.log(unfollow)
-        setCurentPage(0)
-        setData([])
-        setTrigger(!trigger)
-        return unfollow
-        }
-        catch (err){
-        console.log(err)
-        }
-    }
 
     useEffect(() => {
         appendData(currentPage);
     }, [currentPage, trigger, props?.postId]);
-    console.log("DATA",data,"------Length---", data.length)
-    console.log("Current", currentPage, "TOTALPAGE______" ,totalPage)
-    const onScroll = e => {
-        if(data.length === totalItem || currentPage === totalPage - 1)return
-        if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
-            // setCurentPage(currentPage+1)
-            console.log("--------------ENDDDDDDDDDDDDDD")
-        }
-    };
+
 
 
     const properties = {
@@ -118,11 +92,20 @@ const PostDetail = (props: any) => {
         indicators: true
     };
 
-    const Itemmm = useCallback(( item: any, index: any) => {
-        item = item.item
-        return (
-            <List.Item key={index} style={{width: '100%'}}>
-                <div className={cx('comment-container')}>
+    // const ListReplys = useCallback((item: any) => {
+    //     console.log(item?.item?.commentId)
+    //     return (
+    //         <Reply commentId={item?.item?.commentId} form={form} setReplyCommentId={setReplyCommentId}/>
+    //     )
+    // }, [showReply])
+
+    // console.log(showReply)
+
+    const ListComments = useCallback(() => {
+     return <div  ref={scrollRef } style={{width: '100%',height: '93%', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+         {
+            data.map((item: any, index: any) => (
+                 <div className={cx('comment-container')} key={index}>
                     <div className={cx('comment-info')}>
                         <Avatar src={item?.avatar} />
                         <div className={cx('name')}>{item?.displayName}</div>
@@ -145,46 +128,29 @@ const PostDetail = (props: any) => {
                             {`----- Hide replies (${item?.replys}) -----`}
                         </div>  : <div className={cx('view-replys')} onClick={() => {
                             let temp = showReply
+                            console.log('?????')
                             temp.push(item?.commentId)
                             setShowReply(temp)
                         }}>
                             {`----- View replies (${item?.replys}) -----`}
                         </div> 
                     }
-                    {
+                    {/* {
                         showReply.includes(item?.commentId) ? (
-                            <Reply commentId={item?.commentId} form={form} setReplyCommentId={setReplyCommentId}/>
+                            <ListReplys item={item}/>
                         ) : null
-                    }
+                    } */}
                 
                 </div>
-                
-            </List.Item>
-        )
-    }, [showReply])
-
-    const ListComment = useCallback(() => {
-        return ( 
-            <List style={{width:'100%'}}>
-                {
-                    <VirtualList
-                        style={{width: '100%'}}
-                            data={data}
-                            height={ContainerHeight}
-                            itemHeight={47}
-                            itemKey="email"
-                            onScroll={onScroll}
-                        >
-                        {
-                            (item: any, index: any) => (
-                                <Itemmm item={item} index={index}/>
-                            )
-                        }
-                    </VirtualList>
-                }
-                
-            </List>
-        )
+            ))
+        }
+        {
+        totalPage - 1 === currentPage || data?.length === 0 ? null : (
+            <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+            </div>  
+        )}
+    </div>
     }, [data])
 
     const Slideshow = () => {
@@ -220,6 +186,7 @@ const PostDetail = (props: any) => {
     const handleFinish = async (values) => {
         try {
             console.log(values)
+            props.setNumComments(props.numComments + 1)
             const addCommentToPost = {
                 postId: props.postId,
                 comment: values.comment
@@ -255,7 +222,7 @@ const PostDetail = (props: any) => {
                     
                     <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} />
                 </div>
-                <ListComment />
+                <ListComments />
                  <Form
                     form={form}
                     className={cx('footer-footer')}

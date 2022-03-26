@@ -128,6 +128,7 @@ const HeaderContainer = (props: any) => {
           />
           <AiOutlineMessage style={account === "2" ? iconClicked : iconNotClick} 
             onClick={() => {
+              history.push('/chats')
               dispatch(setIconTabKey('2'))
             }}
           />
