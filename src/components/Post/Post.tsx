@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from 'src/styles/Post.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import { BsThreeDots, BsPersonCircle,BsFlag } from 'react-icons/bs';
-import { AiOutlineHeart , AiOutlineShareAlt} from 'react-icons/ai';
+import { MdLocationOn} from 'react-icons/md';
 import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart} from 'react-icons/fa';
 import ReactHashtag from "react-hashtag";
 import ImageGallery from 'react-image-gallery';
@@ -110,7 +110,8 @@ const Post = (props: any) => {
             setNumLikes(numLikes + 1)
             socket.emit(SEND_NOTIFICATION, {
                 receiver: userId,
-                action: NotificationAction.Like
+                action: NotificationAction.Like,
+                postId: postId
             })
             return
         }
@@ -172,6 +173,8 @@ const Post = (props: any) => {
             images?.length > 0 ? (
                 <div className={cx(`post-body`)}>
                     <Slideshow/>
+                    <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
+
                 </div>
             ) : null
         }

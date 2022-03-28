@@ -11,7 +11,7 @@
   .post-left {
     width: 900px;
     height: 900px;
-    background-color: black;
+    background-color: white;
     .slider-container2{
       background-color: black;
       .img-video-container {
@@ -24,9 +24,9 @@
         height: 900px;
 
         .img{
-          width: 800px;
-          height: 700px;
-          object-fit: contain;
+          width: 900px;
+          height: 900px;
+          object-fit: cover;
         }
       }
     }

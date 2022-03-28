@@ -1,0 +1,82 @@
+
+
+.weather-info-container{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  min-height: 300px;
+  margin-bottom: 30px;
+
+  .header {
+    width: 100%;
+     eight: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    .name {
+      font-size: 20px;
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    .coord {
+      font-size: 16px;
+      padding: 15px;
+    }
+  }
+
+  .body {
+    width: 100%;
+     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+
+    .temp {
+      font-size: 30px;
+      padding: 5px 15px;
+      opacity: 0.5;
+    }
+
+    .detail {
+      font-size: 20px;
+      padding: 5px 15px;
+      font-weight: bold;
+      opacity: 0.6;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    .date {
+      font-size: 15px;
+      padding: 10px 15px;
+      font-weight: bold;
+      opacity: 0.7;
+    }
+
+    .humidity {
+      font-size: 15px;
+      padding: 15px;
+      opacity: 0.7;
+    }
+  }
+}

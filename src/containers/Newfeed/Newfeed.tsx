@@ -13,6 +13,8 @@ import _ from 'lodash';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Avatar from "antd/lib/avatar/avatar";
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import GoogleMapCom from "src/components/GoogleMap/GoogleMap";
+import Weather from "src/components/GoogleMap/Weather";
 
 const cx = classNames.bind(styles);
 
@@ -75,29 +77,37 @@ const NewFeed = (props: any) => {
     getNewfeed(currentPage);
   }, [currentPage]);
 
+  const key ='AIzaSyDyLJbSf7aGSocPkzyqU7jmjVZb-Og9Ym8'
+  // const key = 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE'
   return (
-    <div className={cx('newFeed-container')}
-    >
-      {
-        dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
-          return (
-            <div key={index}>
-              <Post item={item}/>
-            </div>
-          )
-        }) :null
-      }
-      {
-      totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : (
-        // <Button
-        //   onClick={handleViewMore}
-        //   loading={viewMoreLoading}
-        // >
-        //   View More
-        // </Button>
-        <Spin size="large" style={{margin: '15px 0'}}/>
-      )}
-        
+    <div className={cx('newFeed-container')}>
+      <div className={cx(`newFeed-container-child`)}>
+        <div className={cx(`newFeed-left`)}>
+            {
+              dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
+                return (
+                  <div key={index}>
+                    <Post item={item}/>
+                  </div>
+                )
+              }) :null
+            }
+            {
+            totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : (
+              <Spin size="large" style={{margin: '15px 0'}}/>
+            )}
+          </div>
+        <div className={cx(`newFeed-right`)}>
+          <Weather />
+
+           <GoogleMapCom
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`}
+            loadingElement={<div style={{ height: `500px`, width: '400px' }} />}
+            containerElement={<div style={{ height: `500px`, width: '400px'  }} />}
+            mapElement={<div style={{ height: `500px`, width: '400px' }} />}
+          />
+        </div>
+      </div>
     </div>
   );
 };
