@@ -101,9 +101,54 @@
       top: 10px;
       right: 10px;
       cursor: pointer;
-      color: #e0bf88
+      color: #68d1c8
     }
+
+    .lat-lng {
+      font-size: 20px;
+      font-weight: bold;
+      position: absolute;
+      top: 15px;
+      right: 50px;
+      color: white;
+      opacity: 0;
+      padding: 0px 15px
+    }
+
+    .localtion-icon:hover .lat-lng {
+      opacity: 0.7;
+    }
+
+    .location-info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      align-content: center;
+      color: #68d1c8;
+
+      .locate {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        opacity: 0.7;
+        padding: 5px 15px
+      }
+
+      .city {
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        opacity: 0.8;
+        padding: 0px 15px
+      }
+    }
+
     
+
   }
   
 
@@ -186,6 +231,7 @@
           cursor: pointer;
           padding: 5px 15px;
         }
+
     }
 
     .footer-footer {

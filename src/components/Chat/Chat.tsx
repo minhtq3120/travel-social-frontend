@@ -189,7 +189,7 @@ const Chat = (props: any) => {
                   //   padding: 15,
                   // },
                   pSender: {
-                      backgroundColor: '#e0bf88',
+                      backgroundColor: '#68d1c8',
                       fontSize: 16,
                       fontWeight: '300',
                       margin: 15,
@@ -242,8 +242,8 @@ const Chat = (props: any) => {
                 className={cx('comment-button')}
                 htmlType="submit"
             >
-                <span style={{margin: '0 5px', color: '#e0bf88'}}>Post</span>
-                <FaLocationArrow style={{ color: '#e0bf88'}} />
+                <span style={{margin: '0 5px', color: '#68d1c8'}}>Post</span>
+                <FaLocationArrow style={{ color: '#68d1c8'}} />
             </Button>
             </Form.Item>
         </Form>

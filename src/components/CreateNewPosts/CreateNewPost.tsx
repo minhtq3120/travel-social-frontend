@@ -212,7 +212,7 @@ const CreateNewPost = (props: any) => {
                         htmlType="submit"
                     >
                         Post now
-                        {/* <FaLocationArrow style={{ color: '#e0bf88'}} /> */}
+                        {/* <FaLocationArrow style={{ color: '#68d1c8'}} /> */}
                     </Button>
                     </Form.Item>
                 </Form>

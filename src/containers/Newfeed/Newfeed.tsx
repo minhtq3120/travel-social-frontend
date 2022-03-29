@@ -84,9 +84,9 @@ const NewFeed = (props: any) => {
   return (
     <div className={cx('newFeed-container')}>
       <div className={cx(`newFeed-container-child`)}>
-        <div className={cx(`newFeed-left`)}>
+        {/* <div className={cx(`newFeed-left`)}>
           <Recents />
-        </div>
+        </div> */}
         <div className={cx(`newFeed-middle`)}>
             {
               dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {

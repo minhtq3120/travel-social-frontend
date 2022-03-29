@@ -37,7 +37,8 @@ const WeatherInfo = ({data}) => {
     >
       <div className={cx(`header`)}>
         <div className={cx(`name`)}>
-          {`${data.name}`}
+          <FaLocationArrow color='#68d1c8' size={20} style={{margin: '0 10px'}}/> 
+         <div className={cx(`name-child`)}>{`${data.name}`}</div>
         </div>
         <div className={cx(`coord`)}>
           {`${data.coord.lon} - ${data.coord.lat}`}

@@ -71,11 +71,11 @@ const Maps = (props: any) => {
   }
 
   return (
-    <div style={{width: '500px', height: '500px'}}>
+    <div style={{width: '400px', height: '500px'}}>
       <MapContainer
        center={positionInit}
         zoom={14}  
-        style={{ height: "500px", width: "500px", borderRadius: '10px' }}
+        style={{ height: "500px", width: "400px", borderRadius: '10px' }}
          scrollWheelZoom={false}
         >
       <TileLayer

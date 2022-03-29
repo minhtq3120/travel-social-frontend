@@ -24,6 +24,16 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 const cx = classNames.bind(styles);
 
+const positions = [{
+  lat: 21.027763, lng: 105.834160, label: "position 1"
+}, {
+  lat: 21.027763, lng: 106, label: "position 2"
+}, {
+  lat: 21.127763, lng: 106.1, label: "position 3"
+}]
+
+
+
 const Post = (props: any) => {
     const [form] = Form.useForm();
     const [images, setImages] = useState<any>([])
@@ -33,7 +43,8 @@ const Post = (props: any) => {
     const [numLikes, setNumLikes] = useState<any>(props?.item?.likes)
     const [numComments, setNumComments] = useState<any>(props?.item?.comments)
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
-
+    const [latLng, setLatLng] = useState<any>(null)
+    console.log(latLng)
     const handleFinish = async (values) => {
         try {
             console.log(values)
@@ -173,8 +184,16 @@ const Post = (props: any) => {
             images?.length > 0 ? (
                 <div className={cx(`post-body`)}>
                     <Slideshow/>
-                    <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
-
+                    <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {setLatLng({
+                        lat: positions[0].lat,
+                        lng: positions[0].lng
+                    })}}
+                    />
+                    <div className={cx('location-info')}>
+                        <div className={cx('locate')}>Location</div>
+                        <div className={cx('city')}>Newyork</div>
+                    </div>
+                    <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div>
                 </div>
             ) : null
         }
@@ -186,7 +205,7 @@ const Post = (props: any) => {
                         {
                             liked ? (
                                 <>
-                                    <FaHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: 'red'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
+                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: '#68d1c8'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
                                     <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
                             ) : (
@@ -225,7 +244,7 @@ const Post = (props: any) => {
                             props?.item?.description ? 
                             <ReactHashtag
                                 renderHashtag={(hashtagValue) => (
-                                    <span className={cx(`hashtag`)} onClick={()=> console.log(hashtagValue)}><Tag color="#e0bf88">{hashtagValue}</Tag></span>
+                                    <span className={cx(`hashtag`)} onClick={()=> console.log(hashtagValue)}><Tag color="#68d1c8">{hashtagValue}</Tag></span>
                                 )}
                             >
                                 {props.item.description}
@@ -270,8 +289,8 @@ const Post = (props: any) => {
                     className={cx('comment-button')}
                     htmlType="submit"
                 >
-                    <span style={{margin: '0 5px', color: '#e0bf88'}}>Post</span>
-                    <FaLocationArrow style={{ color: '#e0bf88'}} />
+                    <span style={{margin: '0 5px', color: '#68d1c8'}}>Post</span>
+                    <FaLocationArrow style={{ color: '#68d1c8'}} />
                 </Button>
                 </Form.Item>
             </Form>
