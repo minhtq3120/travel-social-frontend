@@ -28,10 +28,13 @@ import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { Card } from 'semantic-ui-react'
 import moment from 'moment';
+import Maps from './CurrentLocation';
 
 const WeatherInfo = ({data}) => {
   return (
-    <div className={cx(`weather-info-container`)}>
+    <div className={cx(`weather-info-container`)}
+      style={{backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%),url(https://i.pinimg.com/736x/f6/f9/cb/f6f9cbb958cfe546e4d6be69fbe1bbe7.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}
+    >
       <div className={cx(`header`)}>
         <div className={cx(`name`)}>
           {`${data.name}`}
@@ -70,8 +73,8 @@ const cx = classNames.bind(styles);
 const Weather = (props: any) => {
   
   
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
+  const [lat, setLat] = useState(null);
+  const [long, setLong] = useState(null);
   const [data, setData] = useState<any>([]);
 
   
@@ -99,7 +102,13 @@ const Weather = (props: any) => {
     <>
       {(typeof data?.main != 'undefined') ? (
         <WeatherInfo data={data}/>
-      ): null}
+      ): <div className={cx(`weather-info-container`)}
+      style={{backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%),url(https://i.pinimg.com/736x/f6/f9/cb/f6f9cbb958cfe546e4d6be69fbe1bbe7.jpg)`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}
+      ><Spin size="large" style={{padding: '5px 0'}}/></div>}
+      {
+       lat && long ? <Maps lat={lat} long={long}/> :null
+      }
+
     </>
       
   )

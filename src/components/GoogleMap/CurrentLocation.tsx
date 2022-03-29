@@ -22,46 +22,77 @@ import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { ChatEngine } from 'react-chat-engine'
 import styles from 'src/styles/Chat.module.scss';
-import { Map, GoogleApiWrapper , InfoWindow, Marker } from 'google-maps-react';
 
 import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
+import "leaflet/dist/leaflet.css";
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import L from 'leaflet';
 
 const cx = classNames.bind(styles);
 
-const mapStyles = {
-  map: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%'
-  }
-};
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
 
-const currentLocationDefault = {
-  zoom: 14,
-  initialCenter: {
-    lat: -1.2884,
-    lng: 36.8233
-  },
-  centerAroundCurrentLocation: false,
-  visible: true
-};
+L.Marker.prototype.options.icon = DefaultIcon;
 
-const CurrentLocation = (props: any) => {
-  
-  const { lat, lng } = currentLocationDefault.initialCenter;
 
-  const [currentLocation, setCurrentLocation] = useState({
-      lat,
-      lng
+const Maps = (props: any) => {
+  const positionInit: any = [props.lat, props.long]
+
+  const [position, setPosition] = useState<any>(positionInit)
+
+  const LocationMarker = () => {
+    const map = useMapEvents({
+      click() {
+        map.locate()
+      },
+      locationfound(e: any) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
     })
 
+    return position === null ? null : (
+      <Marker position={position}  
+              eventHandlers={{
+                click: (e) => {
+                  console.log('marker clicked', e)
+                },
+              }}
+        >
+        <Popup keepInView>{props?.locationName ? props.locationName: `You are here`}</Popup>
+      </Marker>
+    )
+  }
+
   return (
-    <>
-     
-    </>
+    <div style={{width: '500px', height: '500px'}}>
+      <MapContainer
+       center={positionInit}
+        zoom={14}  
+        style={{ height: "500px", width: "500px", borderRadius: '10px' }}
+         scrollWheelZoom={false}
+        >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <LocationMarker />
+{/* 
+      <Marker position={position}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker> */}
+    </MapContainer>
+    </div>
       
   )
 };
 
-export default CurrentLocation
+export default Maps

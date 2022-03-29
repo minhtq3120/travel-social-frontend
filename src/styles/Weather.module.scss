@@ -1,7 +1,8 @@
 
 
 .weather-info-container{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
   border-radius: 10px;
   width: 100%;
   height: auto;
@@ -15,7 +16,7 @@
 
   .header {
     width: 100%;
-     eight: auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

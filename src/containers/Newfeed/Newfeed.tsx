@@ -15,6 +15,8 @@ import Avatar from "antd/lib/avatar/avatar";
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import GoogleMapCom from "src/components/GoogleMap/GoogleMap";
 import Weather from "src/components/GoogleMap/Weather";
+import Maps from "src/components/GoogleMap/CurrentLocation";
+import Recents from "src/components/Recents/Recents";
 
 const cx = classNames.bind(styles);
 
@@ -83,6 +85,9 @@ const NewFeed = (props: any) => {
     <div className={cx('newFeed-container')}>
       <div className={cx(`newFeed-container-child`)}>
         <div className={cx(`newFeed-left`)}>
+          <Recents />
+        </div>
+        <div className={cx(`newFeed-middle`)}>
             {
               dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
                 return (
@@ -99,13 +104,12 @@ const NewFeed = (props: any) => {
           </div>
         <div className={cx(`newFeed-right`)}>
           <Weather />
-
-           <GoogleMapCom
+           {/* <GoogleMapCom
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ height: `500px`, width: '400px' }} />}
             containerElement={<div style={{ height: `500px`, width: '400px'  }} />}
             mapElement={<div style={{ height: `500px`, width: '400px' }} />}
-          />
+          /> */}
         </div>
       </div>
     </div>

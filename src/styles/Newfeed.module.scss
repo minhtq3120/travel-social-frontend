@@ -8,7 +8,7 @@
     justify-content: center;
 
     .newFeed-container-child {
-        width: 70%;
+        width: 100%;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -16,18 +16,34 @@
         align-content: center;
         justify-content: space-around;
 
-
         .newFeed-left {
-        width: 65%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
+            width: 500px;
+            height: 800px;
+            margin: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: flex-start;
+            position: sticky;
+            top: 70px;
+
+           
+        }
+
+
+        .newFeed-middle {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
         }
 
         .newFeed-right {
-            width: 400px;
+            width: 500px;
             margin: 20px 0;
             border-radius: 10px;
             display: flex;
