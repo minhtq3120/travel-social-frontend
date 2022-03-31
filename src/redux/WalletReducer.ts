@@ -12,7 +12,10 @@ const initialState = {
   modalWrongNetwork: false,
   userInfo: null,
   socket: null,
-  notification: null
+  notification: null,
+  weatherData: null,
+  currentPosition: null,
+  weatherPosition: null
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -57,8 +60,26 @@ export const walletSlice = createSlice({
         notification: action.payload
       };
     },
+    setWeatherData: (state, action) => {
+      return {
+        ...state,
+        weatherData: action.payload
+      };
+    },
+    setCurrentPosition: (state, action) => {
+      return {
+        ...state,
+        currentPosition: action.payload
+      };
+    },
+    setWeatherPosition: (state, action) => {
+      return {
+        ...state,
+        weatherPosition: action.payload
+      };
+    },
   }
 });
-export const { setAccountAddress, setConnected, setLoginResult, setSocket, setNotifications } = walletSlice.actions;
+export const { setAccountAddress, setConnected, setLoginResult, setSocket, setNotifications, setWeatherData, setCurrentPosition, setWeatherPosition } = walletSlice.actions;
 const { reducer: walletReducer } = walletSlice;
 export default walletReducer;

@@ -6,7 +6,7 @@ import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
 import styles from 'src/styles/Layout.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, Route, Switch, useHistory } from 'react-router-dom';
-import { setAccountAddress, setConnected, setLoginResult, setNotifications, setSocket } from 'src/redux/WalletReducer';
+import { setAccountAddress, setConnected, setCurrentPosition, setLoginResult, setNotifications, setSocket, setWeatherData, setWeatherPosition } from 'src/redux/WalletReducer';
 import { RootState } from 'src/redux/store';
 import classNames from 'classnames/bind';
 import { PieChartOutlined, UsergroupAddOutlined } from '@ant-design/icons';
@@ -40,6 +40,10 @@ const LayoutComponent = (props: any) => {
 
   const dispatch = useDispatch();
 
+  const [lat, setLat] = useState(null);
+  const [long, setLong] = useState(null);
+  const [data, setData] = useState<any>([]);
+
   const [activeStep, setActiveStep] = useState(0);
   const [_activestep, _setActiveStep] = useState(0);
   const [dataNoti, setDataNoti] = useState<any>(null)
@@ -58,6 +62,20 @@ const LayoutComponent = (props: any) => {
     }
   }
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      navigator.geolocation.getCurrentPosition(function(position: any) {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
+        dispatch(setCurrentPosition([position.coords.latitude, position.coords.longitude]))
+        dispatch(setWeatherPosition([position.coords.latitude, position.coords.longitude]))
+      });
+    }
+
+    console.log('latal', lat, '=====', long)
+    fetchWeather()
+    }, [lat, long]);
   
 
   useEffect(() => {

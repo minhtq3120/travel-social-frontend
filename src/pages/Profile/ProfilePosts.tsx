@@ -99,7 +99,7 @@ const ProfilePosts = (props: any) => {
                 setPostId(item.postId)
               }}>
               {
-                item.files[3].type === "image" ? (
+                item?.files[3]?.type === "image" ? (
                   <>
                     <div className={cx('img-container')}>
                       <img src={item?.files[0]?.url} alt="img" className={cx('img')}/> 
@@ -117,7 +117,7 @@ const ProfilePosts = (props: any) => {
                   <>
                     <div className={cx('img-container')} style={{borderRadius: '10px'}}>
                       <ReactPlayer
-                        url={item?.files[0]?.url}
+                        url={item?.files[0]?.url || ''}
                         light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
                         playing={false}
                         loop={true}

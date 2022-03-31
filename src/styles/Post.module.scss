@@ -99,7 +99,16 @@
     .localtion-icon {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 70px;
+      cursor: pointer;
+      color: #68d1c8
+    }
+
+
+    .localtion-icon-temp {
+      position: absolute;
+      top: 13px;
+      right: 20px;
       cursor: pointer;
       color: #68d1c8
     }
@@ -111,7 +120,7 @@
       top: 15px;
       right: 50px;
       color: white;
-      opacity: 0;
+      opacity: 0.7;
       padding: 0px 15px
     }
 

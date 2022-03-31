@@ -41,7 +41,7 @@ const HeaderContainer = (props: any) => {
   }
 
   const iconClicked = {
-    fontSize: '32px', margin: '0 7px', cursor: 'pointer',color: '#68d1c8'
+    fontSize: '32px', margin: '0 7px', cursor: 'pointer',color: 'white'
   }
 
   const [iconStyle, setIconStyle] = useState(iconNotClick)

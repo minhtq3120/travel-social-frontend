@@ -1,10 +1,11 @@
-import { Button, Form, Input, Tag } from 'antd';
+import { Button, Form, Input, Spin, Tag } from 'antd';
 import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 import styles from 'src/styles/Post.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import { BsThreeDots, BsPersonCircle,BsFlag } from 'react-icons/bs';
 import { MdLocationOn} from 'react-icons/md';
+import {FaTemperatureHigh} from 'react-icons/fa'
 import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart} from 'react-icons/fa';
 import ReactHashtag from "react-hashtag";
 import ImageGallery from 'react-image-gallery';
@@ -20,12 +21,15 @@ import PostDetail from '../PostDetail/PostDetail';
 import { commentToPost } from 'src/services/comment-service';
 import { SEND_NOTIFICATION } from '../Notification/Notification';
 import { NotificationAction } from 'src/pages/Layout/layout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
+import Weather from '../GoogleMap/Weather';
+import Maps from '../GoogleMap/CurrentLocation';
+import { setWeatherPosition } from 'src/redux/WalletReducer';
 const cx = classNames.bind(styles);
 
 const positions = [{
-  lat: 21.027763, lng: 105.834160, label: "position 1"
+  lat:10.835605681883571, lng:106.65673978501039, label: "position 1"
 }, {
   lat: 21.027763, lng: 106, label: "position 2"
 }, {
@@ -39,12 +43,17 @@ const Post = (props: any) => {
     const [images, setImages] = useState<any>([])
     const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
     const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false);
+    const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
+    
     const [liked, setLiked] = useState<boolean>(props?.item?.liked || false)
     const [numLikes, setNumLikes] = useState<any>(props?.item?.likes)
     const [numComments, setNumComments] = useState<any>(props?.item?.comments)
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
     const [latLng, setLatLng] = useState<any>(null)
-    console.log(latLng)
+
+    const dispatch = useDispatch()
+
+
     const handleFinish = async (values) => {
         try {
             console.log(values)
@@ -147,6 +156,7 @@ const Post = (props: any) => {
     const handleCancel = () => {
         setIsModalVisibleLikes(false)
         setIsModalVisibleDetail(false)
+        setIsModalVisibleMap(false)
     };
 
   return (
@@ -184,16 +194,24 @@ const Post = (props: any) => {
             images?.length > 0 ? (
                 <div className={cx(`post-body`)}>
                     <Slideshow/>
-                    <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {setLatLng({
-                        lat: positions[0].lat,
-                        lng: positions[0].lng
-                    })}}
+                    <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {
+                        setIsModalVisibleMap(true)
+                        setLatLng({
+                            lat: positions[0].lat,
+                            lng: positions[0].lng
+                        })
+                    }}
+                    />
+                    <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
+                        onClick={() => {
+                            dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
+                        }}
                     />
                     <div className={cx('location-info')}>
                         <div className={cx('locate')}>Location</div>
                         <div className={cx('city')}>Newyork</div>
                     </div>
-                    <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div>
+                    {/* <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div> */}
                 </div>
             ) : null
         }
@@ -296,12 +314,16 @@ const Post = (props: any) => {
             </Form>
         </div>
       </div>
-      <Modal title={`Likes (${props?.item?.likes})`} visible={isModalVisibleLikes} footer={[]} onCancel={handleCancel} style={{borderRadius: '10px'}}>
+      <Modal title={`Likes (${props?.item?.likes})`} visible={isModalVisibleLikes} footer={null} onCancel={handleCancel} style={{borderRadius: '10px'}}>
         <InfinityList  typeList="likes" queryAPI={async (params: any) => await getLikeOfPots(params)}  postId={props?.item?.postId}/>
       </Modal>
 
-      <Modal visible={isModalVisibleDetail} footer={[]} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1400}  closable={false} bodyStyle={{padding: '0'}}>
+      <Modal visible={isModalVisibleDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1400}  closable={false} bodyStyle={{padding: '0'}}>
         {images ? <PostDetail images={images} postId={props?.item?.postId} info={props.item} setNumComments={setNumComments} numComments={numComments}/> : null}
+      </Modal>
+
+      <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+        {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} /> : <Spin size='large'/> }
       </Modal>
 
     </React.Fragment>
