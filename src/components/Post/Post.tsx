@@ -200,28 +200,51 @@ const Post = (props: any) => {
                     <Slideshow/>
                     <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {
                         setIsModalVisibleMap(true)
-                        setLatLng({
-                            lat: positions[0].lat,
-                            lng: positions[0].lng
-                        })
+                        if(props?.item?.place) {
+                            setLatLng({
+                                lat: props.item.place?.coordinate?.latitude,
+                                lng: props.item.place?.coordinate?.longitude,
+                            })
+                        }
+                        else {
+                            setLatLng({
+                                lat: positions[0].lat,
+                                lng: positions[0].lng
+                            })
+                        }
                     }}
                     />
                     <FaLocationArrow size={33} className={cx(`localtion-icon-direct`)} 
                         onClick={() => {
                             setIsModalVisibleMapDirection(true)
-                            setLatLng({
-                            lat: positions[0].lat,
-                            lng: positions[0].lng
-                        })
+                            if(props?.item?.place) {
+                                setLatLng({
+                                    lat: props.item.place?.coordinate?.latitude,
+                                    lng: props.item.place?.coordinate?.longitude,
+                                })
+                            }
+                            else {
+                                setLatLng({
+                                    lat: positions[0].lat,
+                                    lng: positions[0].lng
+                                })
+                            }
                         }} />
                     <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
                         onClick={() => {
-                            dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
+                            if(props?.item?.place) {
+                                console.log("???", props?.item?.place)
+
+                                dispatch(setWeatherPosition([props.item.place?.coordinate?.latitude,props.item.place?.coordinate?.longitude]))
+                            }
+                            else {
+                                dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
+                            }
                         }}
                     />
                     <div className={cx('location-info')}>
                         <div className={cx('locate')}>Location</div>
-                        <div className={cx('city')}>Newyork</div>
+                        <div className={cx('city')}>{props?.item?.place?.name || 'con cac'}</div>
                     </div>
                     {/* <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div> */}
                 </div>

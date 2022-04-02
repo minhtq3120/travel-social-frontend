@@ -1,17 +1,15 @@
 .recents-container {
     // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: white;
     border-radius: 10px;
-    width: 400px;
+    margin-top: 40px;
+    width: 800px;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     align-content: center;
     justify-content: center;
-    position: fixed;
-    bottom: 30px;
-    
+
     .recents-header {
         width: 100%;
         display: flex;
@@ -45,18 +43,19 @@
     }
 
     .recent-body {
-        width: 100%;
+        width:800px;
         height: auto;
         position: relative;
+        border-radius: 5px;
         cursor: pointer;
-
     .slider-container2{ 
         height: auto;
+        border-radius: 5px;
 
         .recent-container {
             width: 100%;
             border-radius: 5px;
-            padding: 10px 0px;
+            padding: 10px 10px;
             height: auto;
             display: flex;
             align-items: center;
@@ -69,11 +68,10 @@
                 justify-content: center;
                 align-items: center;
                 align-content: center;
-                border-radius: 10px;
                 width: 100%;
+                background-color: black;
                 border-radius: 10px !important;
-                padding: 0 10px;
-                height: 170px;
+                height: 220px;
                 object-fit: cover;
             }
 
@@ -118,22 +116,107 @@
 
             .location-name {
                 position: absolute;
-                top: 15px;
-                left: 20px;
+                top: 20px;
+                left: 45px;
                 font-weight: bold;
                 color: white;
                 font-size: 20px;  
-                opacity: 0.8;
+                opacity: 0.9;
             }
 
             .location-pos {
                 position: absolute;
-                bottom: 15px;
-                right: 20px;
+                top: 20px;
+                left: 15px;
                 font-weight: bold;
                 color: white;
                 font-size: 25px; 
                 cursor: pointer; 
+                
+                .location-icon {
+                    opacity: 0.8;
+
+                }
+            }
+
+            .visited {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                
+                cursor: pointer; 
+                
+                .icon {
+                    opacity: 1;
+                    margin: 0 5px;
+                }
+                .count {
+                    opacity: 0.9;
+                    color: white;
+                    font-size: 25px; 
+                }
+            }
+
+            .visited-user {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                
+                .avatar {
+                    // padding: 1px;
+                    border: 2px solid white;
+                    
+                }
+
+                .mot {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                     border: 2px solid white;
+                }
+                .hai {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 35px;
+                     border: 2px solid white;
+                }
+                .ba {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 70px;
+                     border: 2px solid white;
+                }
+                .ba-more {
+                    display: flex;
+                    justify-content:center;
+                    align-items: center;
+                    align-content: center;
+                    position: absolute;
+                    bottom: 1px;
+                    left: 85px;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #68d1c8;
+                    border: 2px solid white;
+
+                    .num-more {
+                        color: white;
+                        font-size: 17px;
+                        opacity: 0.8;
+                        font-weight: bold;
+                    }
+                }
             }
         }
         }

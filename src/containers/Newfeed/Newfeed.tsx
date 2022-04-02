@@ -16,7 +16,7 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import GoogleMapCom from "src/components/GoogleMap/GoogleMap";
 import Weather from "src/components/GoogleMap/Weather";
 import Maps from "src/components/GoogleMap/CurrentLocation";
-import Recents from "src/components/Recents/Recents";
+import Discovery from "src/components/Discovery/Discovery";
 
 const cx = classNames.bind(styles);
 
@@ -88,12 +88,16 @@ const NewFeed = (props: any) => {
           <Recents />
         </div> */}
         <div className={cx(`newFeed-middle`)}>
+            <Discovery />
             {
               dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
                 return (
-                  <div key={index}>
-                    <Post item={item}/>
-                  </div>
+                  <>
+                    <div key={index}>
+                      <Post item={item}/>
+                    </div>
+                  </>
+                  
                 )
               }) :null
             }
