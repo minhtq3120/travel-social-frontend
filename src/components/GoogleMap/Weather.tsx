@@ -32,6 +32,7 @@ import ReactWeather, { useOpenWeather } from 'react-open-weather';
 
 import Maps from './CurrentLocation';
 import { setWeatherData } from 'src/redux/WalletReducer';
+import Recents from '../Recents/Recents';
 
 const customStyles = {
 	fontFamily:  'Helvetica, sans-serif',
@@ -126,7 +127,7 @@ const Weather = (props: any) => {
   const dispatch = useDispatch()
   const weatherData: any = useSelector((state: RootState) => state.wallet.weatherData);
   const weatherPosition: any = useSelector((state: RootState) => state.wallet.weatherPosition);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchWeather = async () => {
       setLoading(true)
@@ -134,20 +135,21 @@ const Weather = (props: any) => {
       await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${weatherPosition[0]}&lon=${weatherPosition[1]}&lang=vi&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(result => {
-        setLoading(false)
         dispatch(setWeatherData(result))
+        setLoading(false)
+
       });
     }
 
     if(weatherPosition) fetchWeather()
     }, [weatherPosition]);
 
-  return (
+    return (
     <>
-      {weatherData && weatherData?.cod !=='404' && !loading ? (
+      {weatherData && weatherData?.cod !=='404' && weatherPosition && !loading? (
         <WeatherInfoDetail data={weatherData}/>
       ): (
-        <div className={cx(`weather-info-container`)} style={{minHeight: '500px', background: 'linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%)'}}>
+        <div className={cx(`weather-info-container`)} style={{minHeight: '500px', }}>
           <Spin size="large" style={{padding: '5px 0'}}/>
         </div>
       )
@@ -157,7 +159,7 @@ const Weather = (props: any) => {
             <Maps lat={lat} long={long} />
         ) :null
       } */}
-
+        <Recents />
     </>
       
   )

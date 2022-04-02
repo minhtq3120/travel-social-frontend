@@ -189,7 +189,7 @@ const Chat = (props: any) => {
                   //   padding: 15,
                   // },
                   pSender: {
-                      backgroundColor: '#68d1c8',
+                      color: '#68d1c8',
                       fontSize: 16,
                       fontWeight: '300',
                       margin: 15,

@@ -119,8 +119,13 @@ const UploadLogo = (props: any) => {
               height: '200px',
               cursor: 'pointer'
               }}>
-              
-              {imageBase64 && props?.file ? <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} /> : uploadButton}
+              {console.log(props.file)}
+              {imageBase64 && props?.file ? (
+                <video width="400" controls>
+    <source src={URL.createObjectURL(props.file)}/>
+</video>
+              // <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} /> 
+              ): uploadButton}
 
             </div>
         }

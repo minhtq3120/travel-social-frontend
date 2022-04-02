@@ -6,7 +6,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { BsThreeDots, BsPersonCircle,BsFlag } from 'react-icons/bs';
 import { MdLocationOn} from 'react-icons/md';
 import {FaTemperatureHigh} from 'react-icons/fa'
-import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart} from 'react-icons/fa';
+import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart, } from 'react-icons/fa';
 import ReactHashtag from "react-hashtag";
 import ImageGallery from 'react-image-gallery';
 import { Slide, Fade } from 'react-slideshow-image';
@@ -44,6 +44,9 @@ const Post = (props: any) => {
     const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
     const [isModalVisibleDetail, setIsModalVisibleDetail] = useState(false);
     const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
+    const [isModalVisibleMapDirection, setIsModalVisibleMapDirection] = useState(false);
+
+    
     
     const [liked, setLiked] = useState<boolean>(props?.item?.liked || false)
     const [numLikes, setNumLikes] = useState<any>(props?.item?.likes)
@@ -157,6 +160,7 @@ const Post = (props: any) => {
         setIsModalVisibleLikes(false)
         setIsModalVisibleDetail(false)
         setIsModalVisibleMap(false)
+        setIsModalVisibleMapDirection(false)
     };
 
   return (
@@ -202,6 +206,14 @@ const Post = (props: any) => {
                         })
                     }}
                     />
+                    <FaLocationArrow size={33} className={cx(`localtion-icon-direct`)} 
+                        onClick={() => {
+                            setIsModalVisibleMapDirection(true)
+                            setLatLng({
+                            lat: positions[0].lat,
+                            lng: positions[0].lng
+                        })
+                        }} />
                     <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
                         onClick={() => {
                             dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
@@ -324,6 +336,10 @@ const Post = (props: any) => {
 
       <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
         {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} /> : <Spin size='large'/> }
+      </Modal>
+
+      <Modal visible={isModalVisibleMapDirection} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+        {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} mapType="direction"/> : <Spin size='large'/> }
       </Modal>
 
     </React.Fragment>

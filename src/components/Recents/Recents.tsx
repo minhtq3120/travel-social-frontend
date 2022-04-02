@@ -1,4 +1,4 @@
-import { Button, Form, Input, Tag } from 'antd';
+import { Button, Form, Input, Spin, Tag } from 'antd';
 import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 import styles from 'src/styles/Recents.module.scss';
@@ -23,67 +23,79 @@ import { NotificationAction } from 'src/pages/Layout/layout';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import Avatar from 'antd/lib/avatar/avatar';
+import Maps from '../GoogleMap/CurrentLocation';
 const cx = classNames.bind(styles);
 
-const Recent = () => {
-    return (
-        <div className={cx('recent-container')}>
-            <img src={`https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
-             alt="img" className={cx('img')}/> 
-             <div className={cx('info')}>
-                <Avatar src={''} className={cx(`avatar`)}/>
-                <div className={cx('detail')}>
-                    <div className={cx('name')}>{`Tran Quang Minh`}</div>
-                    <div className={cx('time')}>{`2h ago`}</div>
-                </div>
-            </div>
-            <div className={cx('location-name')}>
-                Dubai
-            </div>
-            <div className={cx('location-pos')}>
-                <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
-            </div>
-        </div>
-    )
-}
+
 
 const Recents = (props: any) => {
     const temp = [
         {
             id:1,
-            url: 'haha'
+            url: 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'
         },
         {
             id:2,
-            url: 'haha'
+            url: 'https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/places-to-travel-in-2018-1522385995-785X440.jpg'
         },
         {
             id:3,
-            url: 'haha'
-        },
-        {
-            id:4,
-            url: 'haha'
-        },
-        {
-            id:5,
-            url: 'haha'
-        },
-        {
-            id:6,
-            url: 'haha'
+            url: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg'
         },
 
     ]
+
+
+
+
+    const locactionVisited = [
+        {
+            lat:10.835605681883571, lng:106.65673978501039, label: "position 1"
+        }, 
+        {
+            lat: 20.11520273105653, lng: 105.91904437239343, label: "position 2"
+        }, 
+        {
+            lat:19.76182095856043 , lng: 105.78529397239737, label: "position 3"
+        },
+        {
+            lat:18.76182095856043 , lng: 105.78529397239737, label: "position 3"
+        },
+         {
+            lat:16.234182095856043 , lng: 107.78529397239737, label: "position 3"
+        },
+        {
+            lat:13.561180692551591 , lng: 109.19309496872849, label: "position 3"
+        },
+         {
+            lat:12.630239302777985, lng: 108.70969647059705, label: "position 3"
+        },
+    ]
+
+    
+
+
     const [images, setImages] = useState<any>([])
+    const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
+    const [centerVisited, setCenterVisited] = useState<any>(null)
+
+    const handleCancel = () => {
+        setIsModalVisibleMap(false)
+    };
 
 
-    // useEffect(() => {
-    //     if(props?.item.files?.length>0){
-    //         setImages(props?.item.files)
-    //     }
-    // },[props?.item])
+    useEffect(() => {
+        if(locactionVisited) {
+            let tempLat = 0
+            let tempLng = 0
+            locactionVisited.forEach((item) => {
+                tempLat += item.lat;
+                tempLng += item.lng
+            })
+            setCenterVisited([tempLat / locactionVisited.length, tempLng /  locactionVisited.length])
+        }
+    }, [])
 
     const properties = {
         duration: 5000,
@@ -92,36 +104,39 @@ const Recents = (props: any) => {
         arrows: true,
         infinite: true,
         easing: "ease",
-        indicators: true
+        indicators: false
     };
 
     const Slideshow = () => {
         return (
-        <div className={`slide-container ${cx('slider-container2')}`} >
+         <div className={`slide-container ${cx('slider-container2')}`} >
             <Slide
                 {...properties}
             >
-                {
-                    images?.map((item: any, index: any) => {
+                    {
+                    temp?.map((item: any, index: any) => {
                         return (
-                            <div key={index} className={cx('img-video-container')}>
-                                {
-                                    item.type === "image" ? <img src={item.url} alt="img" className={cx('img')}/> 
-                                    : <ReactPlayer
-                                        url={item?.url}
-                                        playing={false}
-                                        loop={true}
-                                        controls={true}
-                                        width="100%"
-                                        height="100%"
-                                        />
-                                }
-                                
+                           <div className={cx('recent-container')} key={index}>
+                                <img src={`${item.url}`}
+                                alt="img" className={cx('img')}/> 
+                                {/* <div className={cx('info')}>
+                                    <Avatar src={''} className={cx(`avatar`)}/>
+                                    <div className={cx('detail')}>
+                                        <div className={cx('name')}>{`Tran Quang Minh`}</div>
+                                        <div className={cx('time')}>{`2h ago`}</div>
+                                    </div>
+                                </div> */}
+                                <div className={cx('location-name')}>
+                                    Dubai
+                                </div>
+                                {/* <div className={cx('location-pos')}>
+                                    <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
+                                </div> */}
                             </div>
                         )
                     })
                 }
-            </Slide>
+             </Slide>
         </div>
         )
     }
@@ -132,19 +147,19 @@ const Recents = (props: any) => {
         <React.Fragment>
         <div className={cx(`recents-container`)}>
             <div className={cx(`recents-header`)}>
-            Recents
+                <div className={cx(`left`)}>Recents visited
+                </div>
+                <div className={cx(`right`)} onClick={() => {setIsModalVisibleMap(true)}}>View all
+                </div>
             </div>
-            
-            <div className={cx(`recents-body`)}>
-                {
-                    temp.map((item, index) => {
-                        return (
-                            <Recent key={index}/>
-                        )
-                    })
-                }
+            <div className={cx(`recent-body`)}>
+                <Slideshow />
             </div>
         </div>
+
+        <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+            {  locactionVisited && centerVisited ? <Maps lat={centerVisited[0]} lng={centerVisited[1]}  locationVisited={locactionVisited }/> : <Spin size='large'/> }
+        </Modal>
         </React.Fragment>
     );
 };

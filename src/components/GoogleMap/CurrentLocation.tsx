@@ -22,7 +22,7 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { ChatEngine } from 'react-chat-engine'
-import styles from 'src/styles/Chat.module.scss';
+import styles from 'src/styles/Weather.module.scss';
 
 import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
@@ -32,7 +32,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 import RoutingMachine from './RoutineMachine';
-
+import { MdLocationOn} from 'react-icons/md';
 const cx = classNames.bind(styles);
 
 let DefaultIcon = L.icon({
@@ -41,6 +41,22 @@ let DefaultIcon = L.icon({
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
+
+const LocationPopup = () => {
+    return (
+        <div className={cx('recent-container')}>
+            <img src={`https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
+             alt="img" className={cx('img')}/> 
+             <div className={cx('info')}>
+                <div className={cx('detail')}>
+                    <div className={cx('name')}>{`Las Vegas`}</div>
+                    <div className={cx('time')}>{`August 5, 2018`}</div>
+                    <div className={cx('description')}>{`asdfjk aksdfjk afoiwa ajskdf aisodf kasjdfk ioafsd klasdjklfd asdfjk aksdfjk afoiwa ajskdf aisodf kasjdfk ioafsd klasdjklfd k kasldfiowe l ajksd`}</div>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 
 const Maps = (props: any) => {
@@ -51,6 +67,7 @@ const Maps = (props: any) => {
 
   useEffect(() => {
     setCurrentPosition(currentPos)
+    console.log(currentPos)
   }, [currentPos])
 
   const [map, setMap] = useState(null);
@@ -61,6 +78,10 @@ const Maps = (props: any) => {
   const [markers, setMarkers] = useState<any>([position])
   const [activePark, setActivePark] = useState(null);
   const [selectedPosition, setSelectedPosition] = useState<[number, number] | null>(null);
+
+  useEffect(() => {
+    if(props.locationVisited) setMarkers(props.locationVisited)
+  }, [props.locationVisited])
 
   const [draggable, setDraggable] = useState(false)
   const markerRef: any = useRef(null)
@@ -82,6 +103,7 @@ const Maps = (props: any) => {
   const LocationMarker = () => {
     const map = useMapEvents({
       click(e: any) {
+        if(!props.locationVisited) {
         console.log('recieved event', e.latlng)
         map.locate()
          setSelectedPosition([
@@ -92,6 +114,7 @@ const Maps = (props: any) => {
               e.latlng.lat,
               e.latlng.lng
           ]])
+        }
       },
       locationfound(e: any) {
         console.log('localtion found',selectedPosition)
@@ -112,7 +135,13 @@ const Maps = (props: any) => {
             key={index}
             position={marker}
             >
-              <Popup> {marker.toString()}</Popup>
+              {
+                props.locationVisited ? (
+                  <Popup minWidth={400} maxHeight={250}> 
+                    <LocationPopup/>
+                  </Popup>
+                ) : <Popup> {marker.toString()}</Popup>
+              }
             </Marker>
           })
     )
@@ -130,24 +159,32 @@ const Maps = (props: any) => {
       {
         currentPosition !== null ? (
           <MapContainer
-          center={position}
-            zoom={14}  
+          center={ props?.mapType === 'direction' ?
+           [(currentPosition[0] + position[0]) / 2 , (currentPosition[1] + position[1]) / 2 ] : 
+           props.locationVisited ?  [props.lat, props.lng] :
+           position}
+            zoom={ props?.mapType === 'direction'|| props.locationVisited  ? 5: 10}  
             style={{ height: "700px", width: "1200px", borderRadius: '10px' }}
             scrollWheelZoom={false}
             whenCreated={(map : any) => setMap(map)}
             >
-             <LocationMarker /> 
-              {/* <RoutingMachine 
-                from={{lat: currentPosition[0], lng: currentPosition[1]}}
-                to={{lat: position[0], lng: position[1]}}
-              /> */}
+              {
+                props?.mapType === 'direction' ?  (
+                  <RoutingMachine 
+                    from={{lat: currentPosition[0], lng: currentPosition[1]}}
+                    to={{lat: position[0], lng: position[1]}}
+                  />
+                ) : ( <LocationMarker /> ) 
+              }
+            
+{/*               
               <LayersControl position="topright">
-                <LayersControl.BaseLayer checked name="Map">
+                <LayersControl.BaseLayer checked name="Map"> */}
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
-                  </LayersControl.BaseLayer>
+                  {/* </LayersControl.BaseLayer>
                 <LayersControl.BaseLayer  name="noroad">
 
                   <TileLayer
@@ -156,7 +193,7 @@ const Maps = (props: any) => {
                   />
                   </LayersControl.BaseLayer>
                 
-              </LayersControl>
+              </LayersControl> */}
           </MapContainer>
          ) : <Spin size='large'/>
     }

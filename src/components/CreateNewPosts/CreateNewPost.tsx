@@ -134,7 +134,7 @@ const CreateNewPost = (props: any) => {
                     file={file}
                     setImageBase64Arr={setImageBase64Arr}
                     imageBase64Arr={imageBase64Arr}
-                    // listType="picture-card"
+                    listType="picture-card"
                     custom={
                         <div  className={cx('uploadContainer')} >
                             <div className={cx('uploadIcon')}>
