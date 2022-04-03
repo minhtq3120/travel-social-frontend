@@ -1,87 +1,146 @@
 .createNewPostContainer {
-    height: 700px;
-    width: 100%;
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+  .left {
+    width: 70%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
-    .left {
-        width: 70%;
+    border-right: 1px solid #ccc;
+    .edit-image {
+      height: 100%;
+      width: 100%;
+      transition: all 0.5s;
+      .img-post {
         height: 100%;
+        width: 100%;
+        border-bottom-left-radius: 16px;
+        position: relative;
+        z-index: 1;
+      }
+      .icon-edit {
+        position: absolute;
+        z-index: 2;
+        top: 93%;
+        left: 2%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
 
-        .uploadContainer {
-            width: 650px;
-            height: 700px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            align-content: center;
-
-            .uploadText {
-                font-weight: bold;
-                font-size: 25px;
-                margin: 10px 0;
-            }
-
-            .filelistArr {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                align-items: center;
-            }
+        .icon-1,
+        .icon-2 {
+          background: rgba(26, 26, 26, 0.8);
+          border-radius: 50%;
+          // box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+          cursor: pointer;
+          transition-duration: 0.2s;
+          transition-property: opacity;
+          opacity: 1;
+          padding: 8px;
+          color: rgb(255, 255, 255);
+          font-size: 16px;
         }
-
+        .icon-1 {
+          margin-right: 10px;
+        }
+      }
+    }
+    .full-size {
+      width: 100%;
+    }
+    .image-origin{
+      width: 70%;
+    }
+    .image-origin-2{
+      width: 70%;
+    }
+    .fix-height{
+      height: 70%;
     }
 
-    .right {
-        width: 30%;
+    .uploadContainer {
+      width: 650px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+
+      .uploadText {
+        font-weight: bold;
+        font-size: 25px;
+        margin: 10px 0;
+      }
+
+      .filelistArr {
+        width: 100%;
         height: 100%;
         display: flex;
-        border-radius: 5px;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         align-items: center;
-        justify-content: space-between;
-        align-content: center;
-        .info {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            align-content: center;
-            margin: 5px 0;
-
-            .name {
-                font-weight: bold;
-                opacity: 0.7;
-                margin: 0px 10px;
-            }
-        }        
-        .input {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .button {
-            border-radius: 10px;
-            padding: 30px 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            align-content: center;            
-        }
+      }
     }
-    
-   
+  }
+
+  .right {
+    width: 30%;
+    height: 100%;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+    .info {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      align-content: center;
+      margin: 5px 0;
+      padding-bottom: 10px;
+      .name {
+        font-weight: bold;
+        opacity: 0.7;
+        margin: 0px 10px;
+      }
+    }
+    .input {
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .emoji {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .location {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      padding-top: 10px;
+    }
+    .button {
+      border-radius: 10px;
+      padding: 30px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
 }

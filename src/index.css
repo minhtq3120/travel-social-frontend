@@ -74,20 +74,48 @@ input#dynamic_form_item_collectionAddress {
   content: '' !important;
 } */
 
-
 .ant-input {
   background-color: none !important;
 }
 
-.ant-input-affix-wrapper .ant-input-affix-wrapper-focused{
+.ant-input-affix-wrapper .ant-input-affix-wrapper-focused {
   background-color: none !important;
-} 
-/* Change the white to any color */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 
+.ant-input:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  border-right-width: 0 !important;
+
+}
+
+.ant-upload-list-text-container {
+  display: none !important;
+}
+
+.reactEasyCrop_CropArea {
+  box-shadow: none !important;
+  display: none !important;
+}
+
+.reactEasyCrop_CropArea::before {
+  content: none !important;
+}
+
+.reactEasyCrop_CropArea::after {
+  content: none !important;
+}
+
+.reactEasyCrop_Contain {
+  height: 100% !important;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+}

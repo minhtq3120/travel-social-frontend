@@ -33,6 +33,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 import RoutingMachine from './RoutineMachine';
 import { MdLocationOn} from 'react-icons/md';
+import moment from 'moment';
 const cx = classNames.bind(styles);
 
 let DefaultIcon = L.icon({
@@ -42,16 +43,17 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const LocationPopup = () => {
+const LocationPopup = (props: any) => {
+  console.log(props)
     return (
         <div className={cx('recent-container')}>
-            <img src={`https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
+            <img src={props?.marker?.data?.url || `https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
              alt="img" className={cx('img')}/> 
              <div className={cx('info')}>
                 <div className={cx('detail')}>
-                    <div className={cx('name')}>{`Las Vegas`}</div>
-                    <div className={cx('time')}>{`August 5, 2018`}</div>
-                    <div className={cx('description')}>{`asdfjk aksdfjk afoiwa ajskdf aisodf kasjdfk ioafsd klasdjklfd asdfjk aksdfjk afoiwa ajskdf aisodf kasjdfk ioafsd klasdjklfd k kasldfiowe l ajksd`}</div>
+                    <div className={cx('name')}>{props?.marker?.data?.place?.name}</div>
+                    <div className={cx('time')}>{moment(props?.marker?.data?.lastVisitedDate).format('DD MMM YYYY HH:mm').toString()}</div>
+                    <div className={cx('description')}>{props?.marker?.data?.place?.formattedAddress}</div>
                 </div>
             </div>
         </div>
@@ -130,6 +132,7 @@ const Maps = (props: any) => {
       markers?.length > 0 &&
           markers?.map((marker,index) => {
             console.log(marker)
+            console.log(marker)
             return <Marker 
             draggable={false}
             key={index}
@@ -138,7 +141,7 @@ const Maps = (props: any) => {
               {
                 props.locationVisited ? (
                   <Popup minWidth={400} maxHeight={250}> 
-                    <LocationPopup/>
+                    <LocationPopup marker={marker}/>
                   </Popup>
                 ) : <Popup> {marker.toString()}</Popup>
               }

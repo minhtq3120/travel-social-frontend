@@ -31,6 +31,7 @@
     "classnames": "2.3.1",
     "comma-number": "2.1.0",
     "crypto": "^1.0.1",
+    "emoji-picker-react": "^3.5.1",
     "ethers": "^5.5.2",
     "google-maps-react": "^2.0.6",
     "history": "5.1.0",

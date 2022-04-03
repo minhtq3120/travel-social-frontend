@@ -244,7 +244,7 @@ const Post = (props: any) => {
                     />
                     <div className={cx('location-info')}>
                         <div className={cx('locate')}>Location</div>
-                        <div className={cx('city')}>{props?.item?.place?.name || 'con cac'}</div>
+                        <div className={cx('city')}>{props?.item?.place?.name}</div>
                     </div>
                     {/* <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div> */}
                 </div>

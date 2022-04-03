@@ -24,56 +24,80 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import Avatar from 'antd/lib/avatar/avatar';
 import Maps from '../GoogleMap/CurrentLocation';
+import _ from 'lodash';
+import { getRecentsVisited } from 'src/services/place-service';
+import { sleep } from 'src/containers/Newfeed/Newfeed';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+
 const cx = classNames.bind(styles);
 
 
 
 const Recents = (props: any) => {
-    const temp = [
-        {
-            id:1,
-            url: 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'
-        },
-        {
-            id:2,
-            url: 'https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/places-to-travel-in-2018-1522385995-785X440.jpg'
-        },
-        {
-            id:3,
-            url: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg'
-        },
+    const handleFetchMore = async () => {
+    await sleep();
+        setCurentPage(currentPage + 1)
+    }
+    const scrollRef: any = useBottomScrollListener(() => {
+        // console.log("REACH BOTTOM")
+        totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+    });
 
-    ]
-
-
-
-
-    const locactionVisited = [
-        {
-            lat:10.835605681883571, lng:106.65673978501039, label: "position 1"
-        }, 
-        {
-            lat: 20.11520273105653, lng: 105.91904437239343, label: "position 2"
-        }, 
-        {
-            lat:19.76182095856043 , lng: 105.78529397239737, label: "position 3"
-        },
-        {
-            lat:18.76182095856043 , lng: 105.78529397239737, label: "position 3"
-        },
-         {
-            lat:16.234182095856043 , lng: 107.78529397239737, label: "position 3"
-        },
-        {
-            lat:13.561180692551591 , lng: 109.19309496872849, label: "position 3"
-        },
-         {
-            lat:12.630239302777985, lng: 108.70969647059705, label: "position 3"
-        },
-    ]
-
+    const [data, setData] = useState<any>([]);
+    const [totalItem, setTotalItem] = useState(0);
+    const [totalPage, setTotalPage] = useState(0);
+    const [textSearch, setTextSearch] = useState('');
+    const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [currentPage, setCurentPage] = useState(0);
+   
+    const [loading,setLoading] = useState(false)
     
+    const [dataVisited, setDataVisited] = useState<any>([]);
 
+    const fetchRecents  = async (page?: number) => {
+        let params = {
+            page: page
+        }
+        setLoading(true)
+        const result = await getRecentsVisited(params)
+
+        if(result) {
+            const dataSource = _.get(result, 'data.items', []);
+            const totalItem = _.get(result, 'data.meta.totalItems', 0);
+            const totalPages = _.get(result, 'data.meta.totalPages', 0);
+            const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
+            const currentPage = _.get(result, 'data.meta.currentPage', 0);
+
+            setData(dataSource);
+            setTotalItem(parseInt(totalItem));
+            setTotalPage(parseInt(totalPages));
+            setItemsPerPage(parseInt(itemsPerPage));
+            setCurentPage(parseInt(currentPage));
+
+            let temp = data.concat(dataSource)
+            setData(temp)
+            setLoading(false)
+        }
+        setLoading(false)
+    }
+    
+    useEffect(() => {
+        fetchRecents(currentPage)
+    }, [currentPage])
+
+    useEffect(() => {
+        let temp: any = []
+        if(data?.length > 0 ) {
+            data?.map((item) => {
+                return temp.push({
+                    lat: item?.place?.coordinate?.latitude,
+                    lng: item?.place?.coordinate?.longitude,
+                    data: item
+                })
+            })
+        }
+        setDataVisited(temp)
+    }, [data])
 
     const [images, setImages] = useState<any>([])
     const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
@@ -86,16 +110,16 @@ const Recents = (props: any) => {
 
 
     useEffect(() => {
-        if(locactionVisited) {
+        if(dataVisited) {
             let tempLat = 0
             let tempLng = 0
-            locactionVisited.forEach((item) => {
+            dataVisited.forEach((item) => {
                 tempLat += item.lat;
                 tempLng += item.lng
             })
-            setCenterVisited([tempLat / locactionVisited.length, tempLng /  locactionVisited.length])
+            setCenterVisited([tempLat / dataVisited.length, tempLng /  dataVisited.length])
         }
-    }, [])
+    }, [dataVisited])
 
     const properties = {
         duration: 5000,
@@ -114,10 +138,10 @@ const Recents = (props: any) => {
                 {...properties}
             >
                     {
-                    temp?.map((item: any, index: any) => {
+                    data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index}>
-                                <img src={`${item.url}`}
+                                <img src={`${item?.place?.url || 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'}`}
                                 alt="img" className={cx('img')}/> 
                                 {/* <div className={cx('info')}>
                                     <Avatar src={''} className={cx(`avatar`)}/>
@@ -127,7 +151,7 @@ const Recents = (props: any) => {
                                     </div>
                                 </div> */}
                                 <div className={cx('location-name')}>
-                                    Dubai
+                                    {item?.place?.name}
                                 </div>
                                 {/* <div className={cx('location-pos')}>
                                     <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
@@ -153,12 +177,12 @@ const Recents = (props: any) => {
                 </div>
             </div>
             <div className={cx(`recent-body`)}>
-                <Slideshow />
+                 {!loading && dataVisited && centerVisited ? <Slideshow /> : <Spin size='large'/> }
             </div>
         </div>
 
         <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
-            {  locactionVisited && centerVisited ? <Maps lat={centerVisited[0]} lng={centerVisited[1]}  locationVisited={locactionVisited }/> : <Spin size='large'/> }
+            { !loading && dataVisited && centerVisited ? <Maps lat={centerVisited[0]} lng={centerVisited[1]}  locationVisited={dataVisited }/> : <Spin size='large'/> }
         </Modal>
         </React.Fragment>
     );

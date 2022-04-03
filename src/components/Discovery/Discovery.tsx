@@ -25,7 +25,10 @@ import { RootState } from 'src/redux/store';
 import Avatar from 'antd/lib/avatar/avatar';
 import Maps from '../GoogleMap/CurrentLocation';
 import Gallery from 'react-grid-gallery';
- 
+import { getDiscovery, getDiscoveryDetail } from 'src/services/place-service';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+ import _ from 'lodash';
+import { sleep } from 'src/containers/Newfeed/Newfeed';
 const cx = classNames.bind(styles);
 
 const  shuffleArray = (array) => {
@@ -46,143 +49,102 @@ const  shuffleArray = (array) => {
   return array;
 }
 
-const images =  shuffleArray([
-        {
-            src: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
-            thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
-            thumbnailWidth: 240,
-            thumbnailHeight: 320,
-            caption: "8H (gratisography.com)",
-            thumbnailCaption: "8H"
-        },
-        {
-            src: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg",
-            thumbnail: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 190,
-            caption: "286H (gratisography.com)",
-            thumbnailCaption: "286H"
-        },
-        {
-            src: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
-            thumbnail: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 148,
-            caption: "315H (gratisography.com)",
-            thumbnailCaption: "315H"
-        },
-        {
-            src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
-            thumbnail: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "201H (gratisography.com)",
-            thumbnailCaption: "201H"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_n.jpg",
-            thumbnailWidth: 248,
-            thumbnailHeight: 320,
-            caption: "Big Ben (Tom Eversley - isorepublic.com)",
-            thumbnailCaption: "Big Ben"
-        },
-        {
-            src: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg",
-            thumbnail: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 113,
-            caption: "Red Zone - Paris (Tom Eversley - isorepublic.com)",
-            thumbnailCaption: (<span style={{color: "darkred"}}>Red Zone - <i>Paris</i></span>)
-        },
-        {
-            src: "https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_b.jpg",
-            thumbnail: "https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_n.jpg",
-            thumbnailWidth: 313,
-            thumbnailHeight: 320,
-            caption: "Wood Glass (Tom Eversley - isorepublic.com)",
-            thumbnailCaption: "Wood Glass"
-        },
-        {
-            src: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg",
-            thumbnail: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 213,
-            caption: "Flower Interior Macro (Tom Eversley - isorepublic.com)",
-            thumbnailCaption: "Flower Interior Macro"
-        }
-    ])
-
-
-
 const Discovery = (props: any) => {
-    const temp = [
-        {
-            id:1,
-            url: 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'
-        },
-        {
-            id:2,
-            url: 'https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/places-to-travel-in-2018-1522385995-785X440.jpg'
-        },
-        {
-            id:3,
-            url: 'https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg'
-        },
-
-    ]
-
-
-
-
-    const locactionVisited = [
-        {
-            lat:10.835605681883571, lng:106.65673978501039, label: "position 1"
-        }, 
-        {
-            lat: 20.11520273105653, lng: 105.91904437239343, label: "position 2"
-        }, 
-        {
-            lat:19.76182095856043 , lng: 105.78529397239737, label: "position 3"
-        },
-        {
-            lat:18.76182095856043 , lng: 105.78529397239737, label: "position 3"
-        },
-         {
-            lat:16.234182095856043 , lng: 107.78529397239737, label: "position 3"
-        },
-        {
-            lat:13.561180692551591 , lng: 109.19309496872849, label: "position 3"
-        },
-         {
-            lat:12.630239302777985, lng: 108.70969647059705, label: "position 3"
-        },
-    ]
-
-    
-
+    const handleFetchMore = async () => {
+    await sleep();
+        setCurentPage(currentPage + 1)
+    }
+    const scrollRef: any = useBottomScrollListener(() => {
+        // console.log("REACH BOTTOM")
+        totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+    });
 
     const [images, setImages] = useState<any>([])
     const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
     const [centerVisited, setCenterVisited] = useState<any>(null)
+    const [placeId, setPlaceId] = useState<null | string>(null)
+    const [postId, setPostId] = useState<null | string>(null)
+    const [discovery, setDiscovery] = useState([])
+
+    const [data, setData] = useState<any>([]);
+    const [totalItem, setTotalItem] = useState(0);
+    const [totalPage, setTotalPage] = useState(0);
+    const [textSearch, setTextSearch] = useState('');
+    const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [currentPage, setCurentPage] = useState(0);
+    
 
     const handleCancel = () => {
         setIsModalVisibleMap(false)
+        setPlaceId(null)
+        setData([])
     };
+   
+    useEffect(() => {
+        const fetchDiscovery  = async () => {
+            let params = {}
+            const rs = await getDiscovery(params)
+            if(rs) {
+                const dataSource = _.get(rs, 'data');
+                setDiscovery(dataSource)
 
+            }
+        }
+
+        fetchDiscovery()
+    }, [])
+
+    const fetchDiscoveryDetail  = async (page?: number) => {
+        let params = {
+            placeId,
+            page: page
+        }
+        const result = await getDiscoveryDetail(params)
+
+        if(result) {
+            const dataSource = _.get(result, 'data.items', []);
+            const totalItem = _.get(result, 'data.meta.totalItems', 0);
+            const totalPages = _.get(result, 'data.meta.totalPages', 0);
+            const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
+            const currentPage = _.get(result, 'data.meta.currentPage', 0);
+
+            setData(dataSource);
+            setTotalItem(parseInt(totalItem));
+            setTotalPage(parseInt(totalPages));
+            setItemsPerPage(parseInt(itemsPerPage));
+            setCurentPage(parseInt(currentPage));
+
+            let temp = data.concat(dataSource)
+            setData(temp)
+        }
+    }
+    
+    useEffect(() => {
+        if(placeId) fetchDiscoveryDetail(currentPage)
+    }, [placeId, currentPage])
 
     useEffect(() => {
-        if(locactionVisited) {
-            let tempLat = 0
-            let tempLng = 0
-            locactionVisited.forEach((item) => {
-                tempLat += item.lat;
-                tempLng += item.lng
+        let temp: any  = []
+        if(data?.length > 0) data?.map((item) => {
+            return temp.push({
+                src: item?.files[0].url,
+                thumbnail: item?.files[0].type ===  'image' ? item.files[0].url  : "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
+                thumbnailWidth: Math.floor(Math.random() * (450 - 250) ) + 250,
+                thumbnailHeight: 300,
+                // caption: <><Avatar src={item?.userAvatar}/> <p>{item?.userDisplayName}</p></>,
+                thumbnailCaption: <div style={{display: 'flex', flexDirection: 'row' ,justifyContent: 'flex-start',  alignItems: 'center', alignContent: 'center', margin: '10px 0'}}>
+                    <Avatar src={item?.userAvatar}/> <div style={{fontWeight: 'bold', opacity: '0.7', margin: '0 10px'}}>{item?.userDisplayName}</div></div>,
             })
-            setCenterVisited([tempLat / locactionVisited.length, tempLng /  locactionVisited.length])
-        }
-    }, [])
+        })
+        setImages(temp)
+    }, [data])
+
+    useBottomScrollListener(() => {
+        console.log('REACRT ENDNDNDN')
+        // handleFetchMore()
+
+    });
 
     const properties = {
         duration: 5000,
@@ -203,39 +165,45 @@ const Discovery = (props: any) => {
                 {...properties}
             >
                     {
-                    temp?.map((item: any, index: any) => {
+                    discovery?.map((item: any, index: any) => {
                         return (
-                           <div className={cx('recent-container')} key={index}>
-                                <img src={`${item.url}`}
-                                alt="img" className={cx('img')}/> 
-                                {/* <div className={cx('info')}>
-                                    <Avatar src={''} className={cx(`avatar`)}/>
-                                    <div className={cx('detail')}>
-                                        <div className={cx('name')}>{`Tran Quang Minh`}</div>
-                                        <div className={cx('time')}>{`2h ago`}</div>
-                                    </div>
-                                </div> */}
+                           <div className={cx('recent-container')} key={index} onClick={() => {
+                                setPlaceId(item._id)
+                                setIsModalVisibleMap(true)
+                            }}>
+                                
+                                {
+                                    item?.post?.mediaFiles[0].type === "image" ? <img src={`${item?.post?.mediaFiles[0].url}`} alt="img" className={cx('img')}/> 
+                                    : <ReactPlayer
+                                        url={item?.post?.mediaFiles[0].url}
+                                        playing={false}
+                                        loop={true}
+                                        controls={true}
+                                        width="100%"
+                                        height="100%"
+                                        />
+                                }
                                 <div className={cx('location-pos')}>
                                     <MdLocationOn size={30} className={cx(`location-icon`)}/>
                                 </div>
                                 <div className={cx('location-name')}>
-                                    Dubai
+                                    {item?.name}
                                 </div>
                                 <div className={cx('visited')}>
                                     <div className={cx('icon')}>
                                         <BsFiles size={25} color={'white'}/>
                                     </div>
                                     <div className={cx('count')}>
-                                        50+ 
+                                        {item?.visits} 
                                     </div>
                                 </div>
                                 <div className={cx('visited-user')}>
-                                    <Avatar src={''} className={cx(`mot`)} size={40}/>
-                                    <Avatar src={''} className={cx(`hai`)} size={40}/>
+                                    <Avatar src={item?.suggestedVisitors[0]?.avatar} className={cx(`mot`)} size={40}/>
+                                    <Avatar src={item?.suggestedVisitors[1]?.avatar} className={cx(`hai`)} size={40}/>
                                     {
-                                        index % 2 === 0  ? <Avatar src={''} className={cx(`ba`)} size={40}/> : (
+                                        item?.suggestedVisitors?.length <= 3 ? <Avatar src={item?.suggestedVisitors[2]?.avatar} className={cx(`ba`)} size={40}/> : (
                                             <div className={cx(`ba-more`)}>
-                                                <div className={cx(`num-more`)}>+6</div>
+                                                <div className={cx(`num-more`)}>{`+${item?.suggestedVisitors?.length - 2}`}</div>
                                             </div>
                                         )
                                         
@@ -257,15 +225,27 @@ const Discovery = (props: any) => {
                 display: "block",
                 minHeight: "1px",
                 width: "100%",
+                height: '800px',
                 border: "1px solid #ddd",
-                overflow: "auto",
+                overflow: "scroll",
                 textAlign: "center",
                 background: "white"
-            }}>
+            }}
+            ref={scrollRef }
+            >
                 <Gallery
                     images={images}
                     enableImageSelection={false}
+                    rowHeight={300}
+                    margin={10}
+                    onClickThumbnail={(e) => {console.log('asdfjkladsfkl', e)}}
                 />
+                {
+                totalPage - 1 === currentPage || data?.length === 0 ? null : (
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                        <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+                    </div>  
+                )}
             </div>
         );
     }
@@ -282,12 +262,14 @@ const Discovery = (props: any) => {
                 </div> */}
             </div>
             <div className={cx(`recent-body`)}>
-                <Slideshow />
+               {discovery?.length>0 ?  <Slideshow />  : <Spin size='large'/> }
             </div>
         </div>
 
         <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
-            {  locactionVisited && centerVisited ? <div></div>: <Spin size='large'/> }
+            {  images?.length >0 ? (
+                <GridDiscovery />
+            ): <Spin size='large'/> }
         </Modal>
         </React.Fragment>
     );
