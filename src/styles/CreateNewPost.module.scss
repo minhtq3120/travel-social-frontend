@@ -17,16 +17,52 @@
     justify-content: center;
     align-content: center;
     border-right: 1px solid #ccc;
+    position: relative;
+    
     .edit-image {
       height: 100%;
-      width: 100%;
+      width: 700px;
       transition: all 0.5s;
       .img-post {
-        height: 100%;
-        width: 100%;
+        width: 700px;
+        height: auto;
         border-bottom-left-radius: 16px;
+        display: flex;
+        flex-direction: row;
         position: relative;
         z-index: 1;
+
+       .slider-container2{ 
+        height: auto;
+        width: 700px;
+
+        .recent-container {
+             width: 700px;
+            border-radius: 5px;
+            padding: 10px 0px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            position: relative;
+            
+            .img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                border-radius: 10px;
+                 width: 700px;
+                border-radius: 10px !important;
+                padding: 0 10px;
+                height: 650px;
+                object-fit: cover;
+            }
+
+          }
+        }
+
       }
       .icon-edit {
         position: absolute;
@@ -51,7 +87,17 @@
         .icon-1 {
           margin-right: 10px;
         }
+        
+        
       }
+      .icon-3 {
+          z-index: 2;
+          position: absolute;
+          top: 93%;
+          right: 5%;
+          cursor: pointer;
+        }
+      
     }
     .full-size {
       width: 100%;

@@ -47,7 +47,7 @@ const LocationPopup = (props: any) => {
   console.log(props)
     return (
         <div className={cx('recent-container')}>
-            <img src={props?.marker?.data?.url || `https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
+            <img src={props?.marker?.data?.lastestPost?.mediaFiles[0]?.url|| `https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
              alt="img" className={cx('img')}/> 
              <div className={cx('info')}>
                 <div className={cx('detail')}>

@@ -60,3 +60,19 @@ export const getRecentsVisited = async (params) => {
             }
         });
 };
+
+export const getPlaces = async (params) => {
+    let queryString = `/places/search`;
+    if (params?.input) {
+        const queryInput = `?input=${params.input}`;
+        queryString = queryString.concat(queryInput);
+    }
+    console.log(queryString)
+    return await axiosInstance
+        .get(queryString)
+        .catch(function (error) {
+            if (error.response) {
+                return error.response.status;
+            }
+        });
+};

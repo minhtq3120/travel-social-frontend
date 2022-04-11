@@ -122,8 +122,8 @@ const Recents = (props: any) => {
     }, [dataVisited])
 
     const properties = {
-        duration: 5000,
-        autoplay: false,
+        duration: 3000,
+        autoplay: true,
         transitionDuration: 500,
         arrows: true,
         infinite: true,
@@ -141,7 +141,7 @@ const Recents = (props: any) => {
                     data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index}>
-                                <img src={`${item?.place?.url || 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'}`}
+                                <img src={`${item?.lastestPost?.mediaFiles[0]?.url || 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'}`}
                                 alt="img" className={cx('img')}/> 
                                 {/* <div className={cx('info')}>
                                     <Avatar src={''} className={cx(`avatar`)}/>

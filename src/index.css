@@ -116,6 +116,11 @@ input:-webkit-autofill:active {
 
 .reactEasyCrop_Contain {
   height: 100% !important;
+  
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
+}
+
+.ant-upload-list .ant-upload-list-picture-card {
+  
 }

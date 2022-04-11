@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo, useCallback, useMemo } from 'react';
 import { Upload, message, Button } from 'antd';
 import { LoadingOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import { BsMoonStars, BsInfoCircle, BsImages, BsUpload } from 'react-icons/bs';
-
+import {AiOutlinePlus, AiOutlinePlusCircle} from 'react-icons/ai'
 const UploadLogo = memo(
   (props: any) => {
     const { className, setUploaded } = props;
@@ -15,18 +15,29 @@ const UploadLogo = memo(
       reader.addEventListener('load', () => callback(reader.result));
       reader.readAsDataURL(img);
     }
+
+    //  useEffect(() => {
+    //   let temp: any = [];
+    //   props.fileList.map((item) => {
+    //     return getBase64(item.originFileObj, (imageUrl) => {
+    //         temp.push(imageUrl);
+    //     });
+    //   })
+    //   props.setImageBase64Arr(temp);
+    // }, [props.fileList])
+
     const uploadButton = (
       <div
         style={{
-          display: 'flex',
-          alignContent: 'center',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-          width: '200px',
-          height: '200px',
-          cursor: 'pointer'
+          // display: 'flex',
+          // alignContent: 'center',
+          // alignItems: 'center',
+          // justifyContent: 'center',
+          // flexDirection: 'column',
+          // boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+          // width: '200px',
+          // height: '200px',
+          // cursor: 'pointer'
         }}>
         {loading ? <LoadingOutlined /> : <BsUpload />} {props?.title}
       </div>
@@ -43,7 +54,6 @@ const UploadLogo = memo(
       },
       beforeUpload: (file: any) => {
         if (props?.createPostType) {
-          console.log('come');
           const isValid = file?.name.match(
             /\.(jpg|jpeg|png|gif|PNG|mp4|3gp|3gpp|mov|wmv|flv|m3u8|avi)$/
           );
@@ -63,7 +73,22 @@ const UploadLogo = memo(
         if (info.file.status !== 'uploading') {
           setLoading(true);
           console.log(info.file, info.fileList);
-          if (props?.setFileList) props.setFileList(info.fileList);
+          
+            
+          if (props?.setFileList){
+            props.setFileList(info.fileList);
+          }
+          
+          let temp: any = []
+            info.fileList?.map(async (item) => {
+            return await getBase64(item?.originFileObj, (imageUrl) => {
+                temp.push({
+                  uid: item.uid,
+                  imageUrl
+                });
+                props.setImageBase64Arr(temp);
+            });
+          })
           if (info.fileList.length === 0) {
             props.setFile(null);
             setLoading(false);
@@ -78,16 +103,7 @@ const UploadLogo = memo(
             props.setFile(null);
             setLoading(false);
           } else {
-            getBase64(info.file.originFileObj, (imageUrl) => {
-              if (props?.setImageBase64Arr) {
-                let temp = props.imageBase64Arr;
-                temp.push(imageUrl);
-                props.setImageBase64Arr(temp);
-              }
-              setImageBase64(imageUrl);
-              setLoading(false);
-              setUploaded(true);
-            });
+            
             message.success(`${info.file.name} file uploaded successfully`);
             setUploaded(true);
             props.setFile(info?.file?.originFileObj);
@@ -115,40 +131,41 @@ const UploadLogo = memo(
         maxCount={props.maxCount}
         disabled={props.disabled}
         // listType="picture-card"
-        listType={props.listType}>
+        listType={props.listType}
+        >
         {props?.custom ? (
           props.custom
         ) : (
-          <div
-            style={{
-              display: 'flex',
-              alignContent: 'center',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column',
-              boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-              width: '200px',
-              height: '200px',
-              cursor: 'pointer'
-            }}>
-            {imageBase64 && props?.file ? (
-              <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} />
-            ) : (
-              uploadButton
-            )}
-          </div>
+          <AiOutlinePlusCircle  size={40} style={{opacity: 0.6}}/>
+        //   <div
+        //     style={{
+        //       // display: 'flex',
+        //       // alignContent: 'center',
+        //       // alignItems: 'center',
+        //       // justifyContent: 'center',
+        //       // flexDirection: 'row',
+        //       // width: '500px',
+        //       // height: '200px',
+        //       // cursor: 'pointer'
+        //     }}>
+        //     {/* {imageBase64 && props?.file ? (
+        //       <img src={imageBase64} alt="avatar" style={{ width: '100px', height: 'auto' }} />
+        //     ) : ( */}
+              
+        //    )} 
+        //     </div>
         )}
       </Upload>
     );
   },
-  (prevProps: any, nextProps: any) => {
-    return (
-      prevProps.setfile === nextProps.setfile &&
-      prevProps.file === nextProps.file &&
-      prevProps.setFileList === nextProps.setfileList &&
-      prevProps.fileList === nextProps.fileList
-    );
-  }
+  // (prevProps: any, nextProps: any) => {
+  //   return (
+  //     prevProps.setfile === nextProps.setfile &&
+  //     prevProps.file === nextProps.file &&
+  //     prevProps.setFileList === nextProps.setfileList &&
+  //     prevProps.fileList === nextProps.fileList
+  //   );
+  // }
 );
 
 export default UploadLogo;

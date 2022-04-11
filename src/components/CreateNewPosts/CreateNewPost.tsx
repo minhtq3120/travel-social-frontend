@@ -5,16 +5,24 @@ import { useForm } from 'antd/lib/form/Form';
 import TextArea from 'antd/lib/input/TextArea';
 import classNames from 'classnames/bind';
 import Picker from 'emoji-picker-react';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { FcAddImage } from 'react-icons/fc';
 import { GoLocation } from 'react-icons/go';
 import ReactPlayer from 'react-player';
 import 'react-slideshow-image/dist/styles.css';
 import { createPost } from 'src/services/post-service';
 import styles from 'src/styles/CreateNewPost.module.scss';
+import { BsThreeDots, BsPersonCircle,BsFlag, BsFiles } from 'react-icons/bs';
 import UploadLogo from '../Upload';
 import Cropper from 'react-easy-crop';
 import './override.scss';
+import { Select } from 'antd';
+import {AiOutlinePlus} from 'react-icons/ai'
+import { getPlaces } from 'src/services/place-service';
+import { Slide, Fade } from 'react-slideshow-image';
+import _ from 'lodash';
+const { Option } = Select;
+
 const cx = classNames.bind(styles);
 export const FILE_TYPE_VIDEO = [
   'video/mp4',
@@ -31,41 +39,109 @@ const handleCustomRequest = ({ onSuccess }: any) => {
   ``;
 };
 
-const renderPreView = (data: any) => {
-  return (
-    <>
-      {data.type.includes(FILE_TYPE_VIDEO) ? (
-        <ReactPlayer
-          src={data.thumbUrl}
-          // playing
-          controls={true}
-          width="100%"
-          height="100%"
-          className="shareImg"
-        />
-      ) : (
-        <img src={data.thumbUrl} alt="" className="shareImg" />
-      )}
-    </>
-  );
-};
+const Slideshow2 = ({fileList, imageBase64Arr}: any) => {
+  const properties = {
+        duration: 5000,
+        autoplay: false,
+        transitionDuration: 500,
+        arrows: true,
+        infinite: true,
+        easing: "ease",
+        indicators: true
+    };
 
+    const Slider = () => {
+      return (<div className={`slide-container ${cx('slider-container2')}`} >
+            <Slide
+                {...properties}
+            >
+                    {
+                    fileList?.map((item: any, index: any) => {
+                      console.log('fileList', fileList) 
+                      console.log('imageBase64', imageBase64Arr )
+                        return (
+                           <div className={cx('recent-container')} key={index}>
+                                {FILE_TYPE_VIDEO.includes(item.type) ? 
+                                  // <video
+                                  //     src={
+                                  //       imageBase64Arr[index]
+                                  //     }
+                                  //     width='700px'
+                                  //     height='700px'                        // playing
+                                  //     // light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                                  //     // controls={true}
+                                  //     className={cx('img')}
+                                  // />
+                                  <video width="700px" height="620px" controls>
+                                      <source src={URL.createObjectURL(item.originFileObj)}/>
+                                  </video>
+                                   : 
+                                    //  <Cropper
+                                    //   image={imageBase64Arr[index]}
+                                    //   crop={crop}
+                                    //   zoom={zoom}
+                                    //   //   aspect={4 / 3}
+                                    //   onCropChange={setCrop}
+                                    //   onCropComplete={onCropComplete}
+                                    //   onZoomChange={setZoom}
+                                    // />
+
+                                  <img
+                                      src={
+                                       imageBase64Arr?.filter((it) => it.uid === item.uid)[0]?.imageUrl
+                                      }
+                                      alt="img"
+                                      className={cx('img')}
+                                  />
+                                  }
+                            </div>
+                        )
+                    })
+                }
+             </Slide>
+        </div>)
+    }
+    
+
+        return (
+           <div className={cx('img-post')}>
+                {
+                  fileList?.length > 0 ? (
+                      <Slider />
+         
+                  ) : (
+                      <div className={cx('uploadContainer')}>
+                        <div className={cx('uploadIcon')}>
+                          <FcAddImage
+                            style={{ fontSize: '100px', marginRight: '10px', cursor: 'pointer' }}
+                          />
+                        </div>
+                        <div className={cx('uploadText')}>Share your images and videos</div>
+                      </div>
+                  )
+                }
+              </div>
+        )
+  }
+  
 const CreateNewPost = memo(
   (props: any) => {
     const { uploaded, setUploaded } = props;
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
     const [previewTitle, setPreviewTitle] = useState('');
-    const [fileList, setFileList] = useState<any>([]);
     const [file, setFile] = useState<any>(null);
     const [form] = useForm();
-    const [imageBase64Arr, setImageBase64Arr] = useState([]);
+    const [imageBase64Arr, setImageBase64Arr] = useState<any>([]);
+    const [fileList, setFileList] = useState<any>([])
     const [showPicker, setShowPicker] = useState(false);
     const [value, setValue] = useState('');
     const [visible, setVisible] = useState(false);
     const [visibleSize, setVisibleSize] = useState(false);
+    const [visibleUpload, setVisibleUpload] = useState(false);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
+    const [cropImg, setCropImg] = useState<any>(null)
     const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
       console.log(croppedArea, croppedAreaPixels);
     }, []);
@@ -74,26 +150,45 @@ const CreateNewPost = memo(
     const [sizeImage3, setSizeImage3] = useState(false);
     const [sizeImage4, setSizeImage4] = useState(false);
 
-    // function getBase64(img: any, callback: any) {
-    //     const reader = new FileReader();
-    //     reader.addEventListener("load", () => callback(reader.result));
-    //     reader.readAsDataURL(img);
-    // }
+    const [seachPlace, setSearchPlace] = useState<any>(null)
+    const [dataPlaces, setDataPlaces] = useState<any>([])
 
-    // const convertImg = async (data) => {
-    //     let temp:any = [];
-    //     console.log("?????????", data)
-    //     data.map((item: any) => {
-    //         return getBase64(item.originFileObj, (imageUrl) => {
-    //             temp.push(imageUrl)
-    //         });
-    //     })
-    //     setImageBase64Arr(temp)
-    // }
+    const [placeId, setPlaceId] = useState('')
 
-    // useEffect(() => {
-    //     convertImg(fileList)
-    // }, [fileList])
+    useEffect(() => {
+      const fetchPlace = async () =>{
+        const rs = await getPlaces({
+          input: seachPlace
+        })
+        const dataSource = _.get(rs, 'data');
+        setDataPlaces(dataSource)
+      }
+
+      fetchPlace()
+    }, [seachPlace])
+
+   
+
+    function getBase64(img: any, callback: any) {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => callback(reader.result));
+      reader.readAsDataURL(img);
+    }
+    
+
+     
+
+      //    <Cropper
+      //       image={imageBase64Arr[index]}
+      //       crop={crop}
+      //       zoom={zoom}
+      //       //   aspect={4 / 3}
+      //       onCropChange={setCrop}
+      //       onCropComplete={onCropComplete}
+      //       onZoomChange={setZoom}
+      //     />
+
+      
 
     const handleOnEmoji = useCallback((event: any, emojiObject: any) => {
       setShowPicker(false);
@@ -102,6 +197,10 @@ const CreateNewPost = memo(
 
     const handleVisibleChange = (visible) => {
       setVisible(visible);
+    };
+
+    const handleVisibleUploadChange = (visible) => {
+      setVisibleUpload(visible);
     };
     const handleVisibleSizeChange = (visible) => {
       setVisibleSize(visible);
@@ -118,9 +217,9 @@ const CreateNewPost = memo(
           return mediaFiles.push(item.originFileObj);
         });
         const formData = new FormData();
-        console.log('asdfadsf', mediaFiles);
         mediaFiles.map((file) => formData.append('mediaFiles', file));
         formData.append('description', values.description);
+        formData.append('placeId', placeId)
         const create = await createPost(formData);
         console.log(create);
         return;
@@ -138,15 +237,10 @@ const CreateNewPost = memo(
     const handleCancel = () => {
       setPreviewVisible(false);
     };
-
-    console.log('sizeImage1', sizeImage1);
-    console.log('sizeImage2', sizeImage2);
-    console.log('sizeImage3', sizeImage3);
-    console.log('sizeImage4', sizeImage4);
     return (
       <div className={cx('createNewPostContainer')}>
         <div className={cx('left')}>
-          {!uploaded ? (
+        
             <div
               className={cx('edit-image', {
                 'image-origin': sizeImage1,
@@ -154,17 +248,47 @@ const CreateNewPost = memo(
                 'image-origin-2': sizeImage3,
                 'fix-height': sizeImage4
               })}>
-              <div className={cx('img-post')}>
-                <Cropper
-                  image="https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg"
-                  crop={crop}
-                  zoom={zoom}
-                  //   aspect={4 / 3}
-                  onCropChange={setCrop}
-                  onCropComplete={onCropComplete}
-                  onZoomChange={setZoom}
-                />
-              </div>
+                <Slideshow2 imageBase64Arr={imageBase64Arr} fileList={fileList}/>
+             
+               <Popover
+                  visible={visibleUpload}
+                  onVisibleChange={handleVisibleUploadChange}
+                  trigger="click"
+                  className={cx('icon-3')}
+                  overlayInnerStyle={{width: '600px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignContent: 'center', alignItems: 'center'}}
+                  content={
+                    <div style={{width: '600px'}}>
+                      <UploadLogo
+                      fileList={fileList}
+                      createPostType={true}
+                      name="creat post"
+                      title={() => <AiOutlinePlus />}
+                      setFile={setFile}
+                      setFileList={setFileList}
+                      maxCount={10}
+                      file={file}
+                      setImageBase64Arr={setImageBase64Arr}
+                      imageBase64Arr={imageBase64Arr}
+                      setUploaded={setUploaded}
+                      listType="picture-card"
+                      // custom={
+                      //   <div className={cx('uploadContainer')}>
+                      //     <div className={cx('uploadIcon')}>
+                      //       <FcAddImage
+                      //         style={{ fontSize: '100px', marginRight: '10px', cursor: 'pointer' }}
+                      //       />
+                      //     </div>
+                      //     <div className={cx('uploadText')}>Upload load your photos and videos here</div>
+                      //   </div>
+                      // }
+                    />
+                    </div>
+                    
+                  }>
+                   <BsFiles size={30} />
+                </Popover>
+                 {
+                  fileList?.length > 0 ? (
               <div className={cx('icon-edit')}>
                 <Popover
                   trigger="click"
@@ -222,64 +346,14 @@ const CreateNewPost = memo(
                   }>
                   <ZoomInOutlined className={cx('icon-2')} />
                 </Popover>
+               
               </div>
+                  ) :null
+                }
             </div>
-          ) : (
-            <UploadLogo
-              fileList={fileList}
-              createPostType={true}
-              name="creat post"
-              title="upload file photo"
-              setFile={setFile}
-              setFileList={setFileList}
-              maxCount={10}
-              file={file}
-              setImageBase64Arr={setImageBase64Arr}
-              imageBase64Arr={imageBase64Arr}
-              setUploaded={setUploaded}
-              // listType="picture-card"
-              custom={
-                <div className={cx('uploadContainer')}>
-                  <div className={cx('uploadIcon')}>
-                    <FcAddImage
-                      style={{ fontSize: '100px', marginRight: '10px', cursor: 'pointer' }}
-                    />
-                  </div>
-                  <div className={cx('uploadText')}>Upload load your photos and videos here</div>
-                </div>
-              }
-            />
-          )}
 
-          {/* {
-                    <div className={cx('filelistArr')}>
-                    { 
-                        fileList.map((item: any, index: any) => {
-                            console.log(item.type, 'check-----', FILE_TYPE_VIDEO.includes(item.type))
-                            return (
-                                FILE_TYPE_VIDEO.includes(item.type) ? 
-                                    <ReactPlayer
-                                        src={imageBase64Arr[index]}
-                                        // playing
-                        light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
 
-                                        controls={true}
-                                        width="300px"
-                                        height="300px"
-                                        className="shareImg"
-                                    />
-                                    : 
-                                    <img
-                                        style={{width: '300px', height: '300px'}}
-                                        src={imageBase64Arr[index]}
-                                        alt=""
-                                        className="shareImg"
-                                    />
-                            )
-                            })
-                        }
-                    </div>
-                } */}
+          
         </div>
 
         <Form
@@ -290,18 +364,23 @@ const CreateNewPost = memo(
           className={cx('right')}>
           <div className={cx('info')}>
             <Avatar src={props?.profile?.avatar} />
-            <div className={cx('name')}>{`props?.profile?.displayName`}</div>
+            <div className={cx('name')}>{props?.profile?.displayName}</div>
           </div>
           <Form.Item
             name="description"
             className={cx(`input`)}
             rules={[
-              ({ getFieldValue }) => ({
-                validator(_, value: string) {
-                  return Promise.resolve();
-                }
-              })
-            ]}>
+                  ({ getFieldValue }) => ({
+                    validator(_, value: string) {
+                      if (!value || value?.length <= 0) {
+                        return Promise.reject(
+                          new Error('Please tell something about this post')
+                        );
+                      }
+                      return Promise.resolve();
+                    }
+                  })
+                ]}>
             <TextArea
               rows={25}
               placeholder="Write a caption..."
@@ -318,21 +397,56 @@ const CreateNewPost = memo(
               value={value}
               onChange={onChangevalue}
             />
-            <div className={cx('emoji')}>
-              <SmileOutlined
-                style={{ cursor: 'pointer', paddingLeft: '10px' }}
-                onClick={() => setShowPicker((val) => !val)}
-              />
-              {showPicker && (
-                <Picker onEmojiClick={handleOnEmoji} pickerStyle={{ width: '100%' }} />
-              )}
-            </div>
-            <div className={cx('location')}>
-              <Input placeholder="Thêm vị tri" bordered={false} />
-              <GoLocation style={{ paddingRight: '10px', fontSize: '25px', cursor: 'pointer' }} />
-            </div>
+            
           </Form.Item>
 
+          <Form.Item
+            name="location"
+            rules={[
+              ({ getFieldValue }) => ({
+                validator(_, value: string) {
+                  if (!value || placeId?.length <= 0) {
+                    return Promise.reject(
+                      new Error('Please select location')
+                    );
+                  }
+                  return Promise.resolve();
+                }
+              })
+            ]}
+          >
+            <div className={cx('location')}>
+              <Select
+              
+                showSearch
+                style={{ width: '100%' }}
+                optionFilterProp="children"
+                placeholder="Thêm vị tri"
+                bordered={false} 
+                 onSelect={(value: any) => {
+                   setPlaceId(value)
+                  }}
+                  showArrow={false}
+                filterOption={(input, option: any) => {
+                  // console.log(option)
+                  return true
+                  // return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }}
+
+                onSearch={(e)=> {
+                 setSearchPlace(e)
+                }}
+              >
+                {dataPlaces?.length > 0 && dataPlaces?.map((item: any) => {
+                  return (
+                    <Option key={item.placeId} value={item.placeId}>
+                      {item?.mainText}
+                    </Option>
+                  )})}
+              </Select>
+              <GoLocation style={{ paddingRight: '10px', fontSize: '25px', cursor: 'pointer' }} />
+              </div>
+          </Form.Item>
           <Form.Item>
             <Button className={cx('button')} htmlType="submit">
               Post now

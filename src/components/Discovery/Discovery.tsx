@@ -194,7 +194,7 @@ const Discovery = (props: any) => {
                                         <BsFiles size={25} color={'white'}/>
                                     </div>
                                     <div className={cx('count')}>
-                                        {item?.visits} 
+                                        {item?.relatedPosts} 
                                     </div>
                                 </div>
                                 <div className={cx('visited-user')}>
@@ -203,7 +203,7 @@ const Discovery = (props: any) => {
                                     {
                                         item?.suggestedVisitors?.length <= 3 ? <Avatar src={item?.suggestedVisitors[2]?.avatar} className={cx(`ba`)} size={40}/> : (
                                             <div className={cx(`ba-more`)}>
-                                                <div className={cx(`num-more`)}>{`+${item?.suggestedVisitors?.length - 2}`}</div>
+                                                <div className={cx(`num-more`)}>{`+${item?.visits - 2}`}</div>
                                             </div>
                                         )
                                         

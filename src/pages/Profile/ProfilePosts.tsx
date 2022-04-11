@@ -118,7 +118,8 @@ const ProfilePosts = (props: any) => {
                     <div className={cx('img-container')} style={{borderRadius: '10px'}}>
                       <ReactPlayer
                         url={item?.files[0]?.url || ''}
-                        light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                        // light="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                        light={true}
                         playing={false}
                         loop={true}
                         controls={true}
