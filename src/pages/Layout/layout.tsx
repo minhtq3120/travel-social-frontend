@@ -129,7 +129,7 @@ const LayoutComponent = (props: any) => {
   // }, [])
 
   socket?.on(RECEIVE_NOTIFICATION, (data) => {
-    console.log(data)
+    console.log('+++++++++++++++++++++++++++++=', data)
     setDataNoti(data)
     dispatch(setSocket(null))
     dispatch(setNotifications(null))

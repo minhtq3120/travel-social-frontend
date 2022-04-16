@@ -61,8 +61,8 @@ const NotificationList = (props: any) => {
         setItemsPerPage(parseInt(itemsPerPage));
         setCurentPage(parseInt(currentPage));
 
-        let temp = data.concat(dataSource)
-        setData(temp)
+        // let temp = data.concat(dataSource)
+        // setData(temp)
         setLoading(false)
       }
     

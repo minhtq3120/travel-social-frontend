@@ -10,8 +10,6 @@ const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 500;
 
-const SEND_NOTIFICATION = 'sendNotification';
-const RECEIVE_NOTIFICATION = 'receiveNotification';
 import { io } from "socket.io-client";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';

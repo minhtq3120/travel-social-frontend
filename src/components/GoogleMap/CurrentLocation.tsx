@@ -11,8 +11,6 @@ const fakeDataUrl =
 const ContainerHeight = 500;
 // import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 
-const SEND_NOTIFICATION = 'sendNotification';
-const RECEIVE_NOTIFICATION = 'receiveNotification';
 import { io } from "socket.io-client";
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
