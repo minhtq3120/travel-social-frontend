@@ -22,7 +22,8 @@ import { io } from "socket.io-client";
 import { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
 import Watch from 'src/components/Watch/Watch';
 import Avatar from 'antd/lib/avatar/avatar';
-import Chat from 'src/components/Chat/Chat';
+import Chat, { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
+import axiosInstance from 'src/config/config';
 
 export enum NotificationAction {
   Like = 'like',
@@ -111,12 +112,30 @@ const LayoutComponent = (props: any) => {
     }
   }, [])
 
+
+  //  useEffect(() => {
+  //    const fetchTravel = async () => {
+  //      let queryString ='https://hotels4.p.rapidapi.com/locations/v2/search';
+  //       const x =  await axiosInstance
+  //         .get(queryString)
+  //         .catch(function (error) {
+  //             if (error.response) {
+  //                 return error.response.status;
+  //             }
+  //         });
+  //         console.log(x)
+  //    }
+  //    fetchTravel()
+  // }, [])
+
   socket?.on(RECEIVE_NOTIFICATION, (data) => {
     console.log(data)
     setDataNoti(data)
     dispatch(setSocket(null))
     dispatch(setNotifications(null))
   })
+
+  
 
   useEffect(() => {
     dispatch(setNotifications(dataNoti))

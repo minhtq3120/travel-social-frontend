@@ -153,7 +153,7 @@ const CreateNewPost = memo(
     const [seachPlace, setSearchPlace] = useState<any>(null)
     const [dataPlaces, setDataPlaces] = useState<any>([])
 
-    const [placeId, setPlaceId] = useState('')
+    const [placeId, setPlaceId] = useState<any>(null)
 
     useEffect(() => {
       const fetchPlace = async () =>{
@@ -187,8 +187,6 @@ const CreateNewPost = memo(
       //       onCropComplete={onCropComplete}
       //       onZoomChange={setZoom}
       //     />
-
-      
 
     const handleOnEmoji = useCallback((event: any, emojiObject: any) => {
       setShowPicker(false);
@@ -405,7 +403,8 @@ const CreateNewPost = memo(
             rules={[
               ({ getFieldValue }) => ({
                 validator(_, value: string) {
-                  if (!value || placeId?.length <= 0) {
+                  console.log(value)
+                  if (!value || !placeId) {
                     return Promise.reject(
                       new Error('Please select location')
                     );

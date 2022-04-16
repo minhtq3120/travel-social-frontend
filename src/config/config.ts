@@ -8,9 +8,14 @@ const axiosInstance = axios.create({
   baseURL: `${options.baseUrl}`,
   timeout: Number(process.env.REACT_APP_TIMEOUT),
   responseType: 'json',
+  // params: { query: 'ha noi', locale: 'vi_VN' },
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
+    //'X-RapidAPI-Host': 'hotels4.p.rapidapi.com',
+    // 'X-RapidAPI-Host': 'covid-19-tracking.p.rapidapi.com',
+    //'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+
   }
 });
 
