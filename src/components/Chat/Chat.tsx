@@ -11,7 +11,7 @@ const fakeDataUrl =
 const ContainerHeight = 500;
 
 import { io } from "socket.io-client";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import { NotificationAction } from 'src/pages/Layout/layout';
 
@@ -28,6 +28,8 @@ import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
 import Search from './SearchUserChat';
+import { setOldChat } from 'src/redux/WalletReducer';
+import { getCurrUserProfile } from 'src/services/user-service';
 
 const JOIN_ROOM ='joinRoom';
 const JOIN_ROOM_SUCCESS ='joinRoomSuccess'
@@ -35,7 +37,6 @@ export const SEND_MESSAGE = 'sendMessage';
 export const RECEIVE_MESSAGE = 'receiveMessage'
 
 const cx = classNames.bind(styles);
-
 
 const Chat = (props: any) => {
   const [form] = Form.useForm();
@@ -47,13 +48,15 @@ const Chat = (props: any) => {
      totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
   });
 
+  const dispatch = useDispatch()
+
   const [data, setData] = useState<any>([]);
   const [totalItem, setTotalItem] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
   const [textSearch, setTextSearch] = useState('');
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurentPage] = useState(0);
-  const [trigger, setTrigger] = useState(false)
+  const [trigger, setTrigger] = useState<any>(null)
   const [isTyping, setIsTyping] = useState(false)
   const [isModalVisibleNewChat, setIsModalVisiblNewChat] = useState(false);
 
@@ -62,21 +65,39 @@ const Chat = (props: any) => {
   const [chatDetail, setChatDetail] = useState<any>(null)
   const [createNewChat, setCreateNewChat] = useState<boolean>(false)
   const [messages, setMessages] = useState<any>(null)
-
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
+  const oldMessages: any = useSelector((state: RootState) => state.wallet.oldChat);
+  const getCurrentUser = async() => {
+    const user = await getCurrUserProfile()
+    console.log(user)
+  }
 
-  socket?.on(RECEIVE_MESSAGE, (data) => {
-    console.log('?????????????//')
-    if(messages) setMessages([...messages, new Message({
-      id: data?.isCurrentUserMessage === true ? 0 : data?.userId,
-      message: data?.message,
-      senderName: data?.displayName
-    })])
-  })
+  useEffect(() => {
+    socket?.on(RECEIVE_MESSAGE, (data) => {
+      
+      console.log('?????????????//')
+    //  if(messages) setMessages([...messages, new Message({
+    //     id: data?.isCurrentUserMessage === true ? 0 : data?.userId,
+    //     message: data?.message,
+    //     senderName: data?.displayName
+    //   })])
+    if(data?.isCurrentUserMessage === false) setTrigger(new Message({
+        id:  data?.userId,
+        message: data?.message,
+        senderName: data?.displayName
+      }))
+    })
+    // getCurrentUser()
+  }, [socket])
+
+  useEffect(() => {
+    console.log("TRIGGER ACTIVE")
+    if(trigger && messages)setMessages([...messages, trigger])
+  }, [trigger])
 
   const getChatDetail = async (groupChatId: string) => {
     let params =  {
-        groupChatId
+        groupChatId,
     }
     const result = await getChatDetailById(params)
     if(result) {
@@ -98,6 +119,7 @@ const Chat = (props: any) => {
         )
       ]})
       setMessages(mapMess);
+      dispatch(setOldChat(mapMess))
       // setTotalItem(parseInt(totalItem));
       // setTotalPage(parseInt(totalPages));
       // setItemsPerPage(parseInt(itemsPerPage));
@@ -113,14 +135,12 @@ const Chat = (props: any) => {
         setIsModalVisiblNewChat(false)
     };
 
-
-
-  
-  
-  
-
-  const handleFinish = async (values) => {
+    const handleFinish = async (values) => {
         try {
+            setMessages([...messages, new Message({
+               id:  0,
+               message: values.message
+            })])
             socket.emit(SEND_MESSAGE, {
               message: values.message,
               chatGroupId: chatDetail._id || chatDetail?.chatGroupId
@@ -236,7 +256,7 @@ const Chat = (props: any) => {
   }
 
   
-  const ChatInbox =() => {
+  const ChatInbox = ()  => {
      return (
        messages?
         <div style={{width: '95%', overflowX: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'column-reverse', minHeight: '650px'}}>

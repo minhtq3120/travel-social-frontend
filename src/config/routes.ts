@@ -37,5 +37,13 @@ export const routes = [
   {
     path: "/chats",
     component: LayoutComponent
+  },
+  {
+    path: "/suggestion",
+    component: LayoutComponent
+  },
+  {
+    path: "/suggestionDetail",
+    component: LayoutComponent
   }
 ];

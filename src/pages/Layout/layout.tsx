@@ -24,6 +24,8 @@ import Watch from 'src/components/Watch/Watch';
 import Avatar from 'antd/lib/avatar/avatar';
 import Chat, { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
 import axiosInstance from 'src/config/config';
+import Suggestion from '../Suggestion/Suggestion';
+import SuggestionDetail from '../Suggestion/SuggestionDetail';
 
 export enum NotificationAction {
   Like = 'like',
@@ -204,6 +206,22 @@ const LayoutComponent = (props: any) => {
             </Content>
           </Layout>
         </Route>
+        <Route exact path="/suggestion">
+          <Layout className={cx('body')}>
+            <Content>
+              <Suggestion />
+            </Content>
+          </Layout>
+        </Route>
+
+        <Route exact path="/suggestionDetail">
+          <Layout className={cx('body')}>
+            <Content>
+              <SuggestionDetail />
+            </Content>
+          </Layout>
+        </Route>
+        
       </Switch>
     </Layout>
 

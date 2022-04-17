@@ -17,7 +17,8 @@ const initialState = {
   currentPosition: null,
   weatherPosition: null,
   messageNotifi: 0,
-  otherNotifi: 0
+  otherNotifi: 0,
+  oldChat: []
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -92,8 +93,14 @@ export const walletSlice = createSlice({
         otherNotifi: state.otherNotifi + 1
       };
     },
+    setOldChat: (state, action) => {
+      return {
+        ...state,
+        oldChat: action.payload
+      };
+    },
   }
 });
-export const { setAccountAddress, setConnected, setLoginResult, setSocket, setNotifications, setWeatherData, setCurrentPosition, setWeatherPosition, setOtherNotifi, setMessageNotifi } = walletSlice.actions;
+export const { setAccountAddress, setConnected, setLoginResult, setSocket, setNotifications, setWeatherData, setCurrentPosition, setWeatherPosition, setOtherNotifi, setMessageNotifi, setOldChat } = walletSlice.actions;
 const { reducer: walletReducer } = walletSlice;
 export default walletReducer;
