@@ -45,5 +45,5 @@ export const routes = [
   {
     path: "/suggestionDetail",
     component: LayoutComponent
-  }
+  },
 ];

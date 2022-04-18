@@ -41,7 +41,6 @@ const ProfilePosts = (props: any) => {
   const [files, setFiles] = useState<any>([])
   const [item, setItem] = useState<any>(null)
 
-
   const handleCancel = () => {
         setPostId(null)
         setFiles([])
@@ -56,9 +55,10 @@ const ProfilePosts = (props: any) => {
         postLimit: 'profile',
 
       }
-      const result = await getNewFeedPost({
-        params
-      })
+      if(props?.userId?.userId) {
+        params["userId"] = props.userId.userId
+      }
+      const result = await getNewFeedPost(params)
 
       const dataSource = _.get(result, 'data.items', []);
       const totalItem = _.get(result, 'data.meta.totalItems', 0);
@@ -80,7 +80,7 @@ const ProfilePosts = (props: any) => {
 
   useEffect(() => {
     getNewfeed(currentPage);
-  }, [currentPage]);
+  }, [currentPage, props?.userId]);
 
 
   return (
@@ -99,7 +99,7 @@ const ProfilePosts = (props: any) => {
                 setPostId(item.postId)
               }}>
               {
-                item?.files[3]?.type === "image" ? (
+                item?.files[0]?.type === "image" ? (
                   <>
                     <div className={cx('img-container')}>
                       <img src={item?.files[0]?.url} alt="img" className={cx('img')}/> 

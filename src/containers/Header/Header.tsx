@@ -32,6 +32,7 @@ import CreateNewPost from 'src/components/CreateNewPosts/CreateNewPost';
 import InfinityList from 'src/components/InfinityScroll/InfinityScroll';
 import { getFollowers } from 'src/services/follow-service';
 import NotificationList from 'src/components/Notification/Notification';
+import SearchBar from './SearchBar';
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -57,6 +58,8 @@ const HeaderContainer = (props: any) => {
   };
 
   const [iconStyle, setIconStyle] = useState(iconNotClick);
+  const [keyword, setKeyword] = useState<string>('')
+
   const handleOnChange = (event: any) => {
     console.log(event.target.value);
   };
@@ -64,6 +67,7 @@ const HeaderContainer = (props: any) => {
   const onSearch = async (value: string) => {
     const params = {};
     console.log(value);
+    setKeyword(value)
   };
 
   const getStyleIcon = (key) => {
@@ -145,11 +149,14 @@ const HeaderContainer = (props: any) => {
           src={Logo}
           alt="logo"
           onClick={() => {
-            history.push('/');
+            history.push('/');  
           }}
         />
         <div className={cx(`header-search`)}>
           <RenderSearch onSearch={onSearch} onChange={onSearch} placeholder={'Search..'} />
+          {
+            keyword?.length > 0 ?<SearchBar keyword={keyword}/> : null
+          }
         </div>
 
         <div className={cx('header-icon')}>

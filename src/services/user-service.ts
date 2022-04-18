@@ -8,11 +8,12 @@ export const getCurrUserProfile = async () => {
         throw error;
     }
 };
-export const getUserProfileById = async (id) => {
+export const getUserProfileById = async (userId?: string) => {
     let url = "/user/profile";
-
-    if (!!id) url += `?userId=${id}`;
-
+    if (userId) {
+        let query = `?userId=${userId}`
+        url += query
+    }
     return axiosInstance
         .get(url)
         .then((res) => res.data)

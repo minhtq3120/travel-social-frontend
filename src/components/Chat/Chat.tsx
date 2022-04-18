@@ -239,7 +239,9 @@ const Chat = (props: any) => {
       let body = payload?.length === 1 ? bodyPrivateTrue : bodyPrivateFalse
       const creatNewGroupChat = await createChatGroup(body)
       const newChat = _.get(creatNewGroupChat, 'data', null);
+      console.log('what the fuck', creatNewGroupChat, newChat)
       if(newChat) {
+        console.log('come here')
         setChatDetail({
           ...newChat,
           avatar: newChat.image[0]

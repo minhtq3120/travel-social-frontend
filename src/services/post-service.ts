@@ -8,6 +8,10 @@ export const getNewFeedPost = async (params?: any) => {
     const queryPage = `?postLimit=${params.postLimit}`;
     queryString = queryString.concat(queryPage);
   }
+  if (params?.userId) {
+    const queryPage = `&userId=${params.userId}`;
+    queryString = queryString.concat(queryPage);
+  }
   if (params?.page) {
     const queryPage = `&page=${params.page}`;
     queryString = queryString.concat(queryPage);

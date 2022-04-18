@@ -6,7 +6,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { BsPersonCircle } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import closeImg from 'src/assets/icon/close-icon.svg';
 import Logo from 'src/assets/MadLogo.png';
 import BaseButton from 'src/components/Button';
@@ -17,7 +17,7 @@ import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
 import { getFollowers, getFollowing } from 'src/services/follow-service';
-import { getCurrUserProfile } from 'src/services/user-service';
+import { getCurrUserProfile, getUserProfileById } from 'src/services/user-service';
 import styles from 'src/styles/Profile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
 import ProfilePosts from './ProfilePosts';
@@ -38,10 +38,10 @@ const { TabPane } = Tabs;
 //   )
 // }
 
-const TabProfile = () => (
+const TabProfile = (userId) => (
   <Tabs defaultActiveKey="1" centered tabPosition='top' style={{width: '100%'}}>
     <TabPane tab="Posts" key="1">
-      <ProfilePosts />
+      <ProfilePosts userId={userId}/>
     </TabPane>
     <TabPane tab="Saved" key="2">
       Content of Tab Pane 2
@@ -62,22 +62,36 @@ const Profile = (props: any) => {
   const [isModalVisibleFollowers, setIsModalVisibleFollowers] = useState(false);
   const [isModalVisibleFollowings, setIsModalVisibleFollowings] = useState(false);
   const [scrollList, setScrollList] = useState<string | null>(null)
+  const [userId, setUserId] = useState<any>(null)
   const history = useHistory()
+   const params = useParams();
+  const search = useLocation().search;
+  const x = new URLSearchParams(search).get("userId");
   
   const handleCancel = () => {
     setIsModalVisibleFollowers(false)
     setIsModalVisibleFollowings(false)
   };
-
+  useEffect(() => {
+    console.log(x)
+    if(x) setUserId(x)
+    else setUserId(null)
+  }, [x])
 
   useEffect(() => {
-    getCurrentUserProfile() 
-  }, [])
+    getCurrentUserProfile(userId) 
+  }, [userId])
 
-  const getCurrentUserProfile = async () => {
+  const getCurrentUserProfile = async (userId?: any) => {
     try {
-      const user = await getCurrUserProfile()
-      setProfile(user)
+      if(userId) {
+        const user = await getUserProfileById(userId.toString())
+        setProfile(user)
+      }
+      else {
+        const user = await getUserProfileById()
+        setProfile(user)
+      }
     }
     catch (err) {
       console.log(err)
@@ -143,7 +157,7 @@ const Profile = (props: any) => {
     </div>
 
      <div className={cx('profile-body')}>
-          <TabProfile />
+          <TabProfile userId={userId}/>
      </div>
     </div>
       <Modal  title={`Followers (${profile?.followers})`} visible={isModalVisibleFollowers} footer={null} onCancel={handleCancel} style={{borderRadius: '10px'}} width={550}>

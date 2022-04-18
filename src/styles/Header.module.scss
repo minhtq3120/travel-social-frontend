@@ -24,7 +24,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-            
+        position: relative;
     }
 
 
@@ -34,11 +34,13 @@
         padding-left: 15px;
 
     }
+
     .header-search .ant-input-search-button {
         border-radius: 15px !important;
         padding: 5px;
     }
-    .header-search .ant-btn .ant-btn-icon-only{
+
+    .header-search .ant-btn .ant-btn-icon-only {
         padding: 5px !important;
 
     }
