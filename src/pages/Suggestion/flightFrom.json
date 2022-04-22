@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "icao": "VVNB",
+            "iata": "HAN",
+            "name": "Hanoi, Noi Bai",
+            "shortName": "Noi Bai",
+            "municipalityName": "Hanoi",
+            "location": {
+                "lat": 21.2212,
+                "lon": 105.807
+            },
+            "countryCode": "VN"
+        },
+        {
+            "icao": "VVCI",
+            "iata": "HPH",
+            "name": "Haiphong, Cat Bi",
+            "shortName": "Cat Bi",
+            "municipalityName": "Haiphong",
+            "location": {
+                "lat": 20.8194,
+                "lon": 106.725
+            },
+            "countryCode": "VN"
+        }
+    ]
+}

@@ -1,0 +1,330 @@
+.flight-suggestion-detail-container {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+
+  .left {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    //   rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    cursor: pointer;
+    padding: 0px 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+
+    .class {
+      margin-top: 20px;
+      padding: 5px 0px;
+      font-size: 18px;
+      font-weight: bold;
+      opacity: 0.7;
+    }
+
+    .from-to-location-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      position: relative;
+
+
+
+      .icon-arrow {
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // padding: 0 5px;
+        cursor: pointer;
+        opacity: 0.8;
+        // border-radius: 50%;
+        padding: 10px;
+      }
+
+      .from {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+        border-radius: 5px;
+        // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        //   rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        border: 1px solid;
+        border-color: #68d1c8;
+        cursor: pointer;
+
+        .top {
+          padding: 5px 25px;
+          padding-top: 10px;
+          font-size: 16px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          align-content: center;
+        }
+
+        .name {
+          padding: 5px 25px;
+          padding-bottom: 0px;
+          font-size: 30px;
+          font-weight: bold;
+          opacity: 0.6;
+        }
+
+        .iata {
+          padding: 0px 25px;
+          padding-bottom: 10px;
+          font-size: 15;
+          opacity: 0.7;
+        }
+      }
+
+      // .from:hover {
+      //   background-color: lightcyan;
+      // }
+    }
+
+    .from-to-departure {
+      // margin: 5px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      position: relative;
+
+      .icon-arrow {
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        padding: 0 5px;
+        cursor: pointer;
+        opacity: 0.8
+      }
+
+
+
+      .from:hover {
+        background-color: lightcyan;
+      }
+    }
+
+    .class-type {
+      // margin: 20px 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: center;
+      position: relative;
+
+      // .class {
+      //   padding: 5px 0px;
+      //   font-size: 18px;
+      //   font-weight: bold;
+      //   opacity: 0.7;
+      // }
+
+      .class-select {
+        padding: 5px 0;
+
+      }
+    }
+
+    .button-search {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 5px;
+      padding: 10px 15px;
+      height: auto;
+      display: flex;
+      flex-direction: center;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      color: white;
+      // background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%);
+      background-color: #68d1c8;
+    }
+
+  }
+
+  .right {
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 10px;
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    //   rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    background: transparent;
+    // background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%);
+
+    .flight-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      // margin-top: 10px;
+
+
+      .flight-detail-cotainer {
+        width: 95%;
+        margin: 5px 20px;
+        padding: 5px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        border-radius: 10px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+          rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        background-color: white;
+        cursor: pointer;
+
+        .durration {
+          margin: 0 20px;
+        }
+
+        .flight-info {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          align-content: center;
+
+          .airline-info {
+            font-weight: bold;
+            font-size: 18px;
+            opacity: 0.8;
+            padding: 5px 20px;
+
+            .logo {
+              width: 50px;
+              height: 30px;
+              border-radius: 5px;
+              object-fit: cover;
+              margin-right: 15px;
+            }
+          }
+
+          .time-flight {
+            width: auto;
+            min-width: 450px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+
+            .time {
+              padding: 5px 10px;
+              width: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+
+              .flight-duration {
+                font-weight: bold;
+                font-size: 16px;
+                opacity: 0.6;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+              }
+
+              .line {
+                width: 100%;
+                height: 2px;
+                margin: 5px 0;
+                background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%);
+              }
+
+              .stop-quantity {
+                font-size: 15px;
+                opacity: 0.8;
+              }
+            }
+
+            .from {
+              width: auto;
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+              border-radius: 5px;
+              cursor: pointer;
+
+              .top {
+                padding: 0px 25px;
+                font-size: 16px;
+              }
+
+              .time {
+                padding: 5px 25px;
+                padding-bottom: 0px;
+                font-size: 17px;
+                font-weight: bold;
+                opacity: 1;
+              }
+
+              .date {
+                padding: 0px 25px;
+                padding-bottom: 10px;
+                font-size: 15;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+
+
+
+        .img {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

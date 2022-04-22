@@ -49,10 +49,22 @@ const SuggestionDetail = (props: any) => {
   const lat=new URLSearchParams(search).get("lat");
   const lon=new URLSearchParams(search).get("lon");
   const destinationId=new URLSearchParams(search).get("destinationId");
+  const [hotelForm, setFormHotel] = useState({
+    destinationId: destinationId,
+    // pageNumber: payload?.pageNumber || '1',
+    // pageSize: payload?.pageSize || '25',
+    // checkIn: payload?.checkIn || '2022-04-17',
+    // checkOut: payload?.checkOut || '2022-05-01',
+    // adults1: payload?.people || '4',
+    // sortOrder: payload?.sortOrder || 'PRICE',
+    locale: 'vi_VN',
+    currency: 'VND'
+})
 
 
   const getSugeestionCityDetail = async () => {
     if(destinationId) {
+      
       const suggest = await getSuggestionDetail(destinationId);
       console.log(suggest)
       const rs = _.get(suggest, 'data', null);

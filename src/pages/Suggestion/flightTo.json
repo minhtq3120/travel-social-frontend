@@ -1,0 +1,64 @@
+{
+    "items": [
+        {
+            "icao": "VVDL",
+            "iata": "DLI",
+            "name": "Dalat, Lien Khuong",
+            "shortName": "Lien Khuong",
+            "municipalityName": "Dalat",
+            "location": {
+                "lat": 11.75,
+                "lon": 108.367
+            },
+            "countryCode": "VN"
+        },
+        {
+            "icao": "VVPR",
+            "iata": "PHA",
+            "name": "Phan Rang",
+            "shortName": "Phan Rang",
+            "municipalityName": "Phan Rang",
+            "location": {
+                "lat": 11.6335,
+                "lon": 108.952
+            },
+            "countryCode": "VN"
+        },
+        {
+            "icao": "VVCR",
+            "iata": "CXR",
+            "name": "Nha Trang, Cam Ranh",
+            "shortName": "Cam Ranh",
+            "municipalityName": "Nha Trang",
+            "location": {
+                "lat": 11.9982,
+                "lon": 109.219
+            },
+            "countryCode": "VN"
+        },
+        {
+            "icao": "VVNT",
+            "iata": "NHA",
+            "name": "Nha Trang, Nha Trang Air Base",
+            "shortName": "Air Base",
+            "municipalityName": "Nha Trang",
+            "location": {
+                "lat": 12.227499,
+                "lon": 109.192
+            },
+            "countryCode": "VN"
+        },
+        {
+            "icao": "VVBM",
+            "iata": "BMV",
+            "name": "Buon Ma Thuot",
+            "shortName": "Buon Ma Thuot",
+            "municipalityName": "Buon Ma Thuot",
+            "location": {
+                "lat": 12.668299,
+                "lon": 108.12
+            },
+            "countryCode": "VN"
+        }
+    ]
+}

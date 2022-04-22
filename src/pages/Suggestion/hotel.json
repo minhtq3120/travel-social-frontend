@@ -1,0 +1,2157 @@
+{
+    "header": "Thành phố Hồ Chí Minh, Việt Nam",
+    "query": {
+        "destination": {
+            "id": "1633619",
+            "value": "Thành phố Hồ Chí Minh, Việt Nam",
+            "resolvedLocation": "CITY:1633619:UNKNOWN:UNKNOWN"
+        }
+    },
+    "searchResults": {
+        "totalCount": 2077,
+        "results": [
+            {
+                "id": 628612,
+                "name": "Sakura Hostel Saigon",
+                "starRating": 1.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "39/26 Nguyễn Trãi",
+                    "extendedAddress": "P.Bến Thành, Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 7.2,
+                    "rating": "7,2",
+                    "total": 12,
+                    "scale": 10,
+                    "badge": "good",
+                    "badgeText": "Tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,3 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,3 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "69.581 ₫",
+                        "exactCurrent": 69581
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Bến Thành",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.770261,
+                    "lon": 106.69285
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 16189463,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/17000000/16190000/16189500/16189463/86e53d87_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 478415,
+                "name": "Khách sạn Vilion Central",
+                "starRating": 3,
+                "urls": {},
+                "address": {
+                    "streetAddress": "41-43 Lê Anh Xuân",
+                    "extendedAddress": "P.Bến Thành, Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "70000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 6.2,
+                    "rating": "6,2",
+                    "total": 12,
+                    "scale": 10,
+                    "badge": "good",
+                    "badgeText": "Tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,0 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,0 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "93.463 ₫",
+                        "exactCurrent": 93463,
+                        "old": "143.755 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Bến Thành",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.771745,
+                    "lon": 106.695249
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 9317029,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/10000000/9320000/9317100/9317029/6c2c145f_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 622057152,
+                "name": "The Luci's House - Hostel",
+                "starRating": 1,
+                "urls": {},
+                "address": {
+                    "streetAddress": "174/4 Lê Lai, Q.1",
+                    "extendedAddress": "",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 7.8,
+                    "rating": "7,8",
+                    "total": 7,
+                    "scale": 10,
+                    "badge": "good",
+                    "badgeText": "Tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,5 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,5 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "103.568 ₫",
+                        "exactCurrent": 103568
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Bến Thành",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.76928,
+                    "lon": 106.69109
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 19408036,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/20000000/19410000/19408100/19408036/13e458c6_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1412325184,
+                "name": "The Art - Nice To Home Saigon - Hostel",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "187/18B, Cô Giang",
+                    "extendedAddress": "Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "2,0 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "2,0 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "108.849 ₫",
+                        "exactCurrent": 108849
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 1",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13",
+                "coordinate": {
+                    "lat": 10.761355,
+                    "lon": 106.693391
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 44103912,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/45000000/44110000/44104000/44103912/f64df4bd_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 456320,
+                "name": "Long Hostel",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "373/10 Phạm Ngũ Lão",
+                    "extendedAddress": "Q.1",
+                    "locality": "TP. Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 8.6,
+                    "rating": "8,6",
+                    "total": 8,
+                    "scale": 10,
+                    "badge": "fabulous",
+                    "badgeText": "Tuyệt vời"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,8 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,8 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "121.939 ₫",
+                        "exactCurrent": 121939
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.767041,
+                    "lon": 106.689281
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 8083662,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/9000000/8090000/8083700/8083662/4955500d_y.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 452392,
+                "name": "Khách sạn Eden Garden",
+                "starRating": 3,
+                "urls": {},
+                "address": {
+                    "streetAddress": "28/12 Bùi Viện",
+                    "extendedAddress": "P.Phạm Ngũ Lão, Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 7.8,
+                    "rating": "7,8",
+                    "total": 17,
+                    "scale": 10,
+                    "badge": "good",
+                    "badgeText": "Tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,3 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,3 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "152.481 ₫",
+                        "exactCurrent": 152481,
+                        "old": "304.732 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|HRW|TESCO",
+                "coordinate": {
+                    "lat": 10.767576,
+                    "lon": 106.694334
+                },
+                "providerType": "MULTISOURCE",
+                "supplierHotelId": 7768447,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/8000000/7770000/7768500/7768447/61bbb3f9_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1724815552,
+                "name": "Khách sạn Hồng Lực",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "740/1 Âu Cơ, P.14",
+                    "extendedAddress": "Q.Tân Bình",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "6,9 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "6,9 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "163.963 ₫",
+                        "exactCurrent": 163963,
+                        "old": "496.941 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận Tân Bình",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "D13",
+                "coordinate": {
+                    "lat": 10.788676,
+                    "lon": 106.640686
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 53869236,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/54000000/53870000/53869300/53869236/441f6ca0_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 612847744,
+                "name": "Ace Home Viet Nam",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "180 Cống Quỳnh",
+                    "extendedAddress": "Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,8 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,8 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "174.067 ₫",
+                        "exactCurrent": 174067
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.76633,
+                    "lon": 106.68968
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 19120242,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/20000000/19130000/19120300/19120242/8834bad7_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 678436,
+                "name": "Saigon Marvel Hostel",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "47 Đỗ Quang Đẩu",
+                    "extendedAddress": "Quận 1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "100000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,7 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,7 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "176.823 ₫",
+                        "exactCurrent": 176823
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.76656,
+                    "lon": 106.69071
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 17825100,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/18000000/17830000/17825100/17825100/619fe0e1_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1361875232,
+                "name": "Phòng nghỉ Lê Bôi",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "Số 40, D9, Khu dân cư Sài Gòn Chợ Lớn",
+                    "extendedAddress": "P.7, Q.8",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "11000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "12 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "12 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "182.793 ₫",
+                        "exactCurrent": 182793
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 8",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13",
+                "coordinate": {
+                    "lat": 10.704772,
+                    "lon": 106.62106
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 42527351,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/43000000/42530000/42527400/42527351/4ad79246_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1224400320,
+                "name": "Language Exchange Hostel 2",
+                "starRating": 1.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "361/21/8 Nguyễn Đình Chiểu",
+                    "extendedAddress": "",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "TP.Hồ Chí Minh",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 8,
+                    "rating": "8,0",
+                    "total": 5,
+                    "scale": 10,
+                    "badge": "very-good",
+                    "badgeText": "Rất tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,4 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,3 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "191.520 ₫",
+                        "exactCurrent": 191520
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 3",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|HRW|TESCO",
+                "coordinate": {
+                    "lat": 10.77913,
+                    "lon": 106.690738
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 38231260,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/39000000/38240000/38231300/38231260/cef09663_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 874560768,
+                "name": "Language Exchange Hostel 1",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "399/43/5 Nguyễn Đình Chiểu, Q.3",
+                    "extendedAddress": "",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "1500",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 8,
+                    "rating": "8,0",
+                    "total": 5,
+                    "scale": 10,
+                    "badge": "very-good",
+                    "badgeText": "Rất tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,5 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,5 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "191.520 ₫",
+                        "exactCurrent": 191520
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Bùi Thị Xuân",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.769667,
+                    "lon": 106.690529
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 27298774,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/28000000/27300000/27298800/27298774/ce5c974f_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1287490944,
+                "name": "Yelo 2 Hostel",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "131 Trần Đình Xu",
+                    "extendedAddress": "P.Nguyễn Cư Trinh, Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": ".",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "2,2 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "2,2 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "195.883 ₫",
+                        "exactCurrent": 195883
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 1",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13",
+                "coordinate": {
+                    "lat": 10.762716,
+                    "lon": 106.687827
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 40202842,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/41000000/40210000/40202900/40202842/c7358fa2_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1383584928,
+                "name": "OYO 521 Hoang Anh Hotel",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "Số 2--4, đường 205, P.Tân Phú, Q.9",
+                    "extendedAddress": "",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "70000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "3,3 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "3,4 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "204.380 ₫",
+                        "exactCurrent": 204380,
+                        "old": "474.896 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 7",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13",
+                "coordinate": {
+                    "lat": 10.746569,
+                    "lon": 106.705784
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 43205779,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/44000000/43210000/43205800/43205779/b99efa48_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1126441216,
+                "name": "Khách sạn Vạn Phúc",
+                "starRating": 2.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "Số 33, đường 27, Bình Tân",
+                    "extendedAddress": "Bình Trị Đông B",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "71908",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 2,
+                    "rating": "2,0",
+                    "total": 2,
+                    "scale": 10
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "10 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "9,9 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "204.839 ₫",
+                        "exactCurrent": 204839
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Khu Công nghiệp Hàn Quốc",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.7552,
+                    "lon": 106.614
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 35170038,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/36000000/35180000/35170100/35170038/ae845acc_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1634438624,
+                "name": "Khách sạn Thái Bình Dương 2",
+                "starRating": 1.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "143 Xuyên Á, Bình Dương 3",
+                    "extendedAddress": "P.An Bình",
+                    "locality": "Dĩ An",
+                    "postalCode": "",
+                    "region": "Bình Dương",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "12 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "12 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "204.839 ₫",
+                        "exactCurrent": 204839
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Dĩ An",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "D13|HRW",
+                "coordinate": {
+                    "lat": 10.875647,
+                    "lon": 106.753001
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 51044957,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/52000000/51050000/51045000/51044957/afffe1d9_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 856906304,
+                "name": "S Phuot Airport Homestay",
+                "starRating": 1,
+                "urls": {},
+                "address": {
+                    "streetAddress": "3A Lam Sơn, P.2",
+                    "extendedAddress": "Q.Tân Bình",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 9.4,
+                    "rating": "9,4",
+                    "total": 3,
+                    "scale": 10,
+                    "badge": "exceptional",
+                    "badgeText": "Ngoại hạng"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "5,3 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "5,2 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "210.350 ₫",
+                        "exactCurrent": 210350,
+                        "old": "300.369 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận Tân Bình",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.80729,
+                    "lon": 106.66629
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 26747072,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/27000000/26750000/26747100/26747072/76fe73b3_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 859107072,
+                "name": "Bến Thành Motel",
+                "starRating": 2.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "24/10 Thủ Khoa Huân, Q.1",
+                    "extendedAddress": "",
+                    "locality": "TP. Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 10,
+                    "rating": "10,0",
+                    "total": 1,
+                    "scale": 10,
+                    "badge": "exceptional",
+                    "badgeText": "Ngoại hạng"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "0,7 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "0,6 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "234.922 ₫",
+                        "exactCurrent": 234922,
+                        "old": "276.487 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.77342,
+                    "lon": 106.6975
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 26815846,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/27000000/26820000/26815900/26815846/dbf17178_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1423464832,
+                "name": "Khách sạn Như Ý",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "Số 185, đường số 16",
+                    "extendedAddress": "P.Bình Trị Đông B, Q.Bình Tân",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "763160",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "10 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "10 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "235.151 ₫",
+                        "exactCurrent": 235151
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Khu Công nghiệp Hàn Quốc",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13",
+                "coordinate": {
+                    "lat": 10.743532,
+                    "lon": 106.617488
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 44452026,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/45000000/44460000/44452100/44452026/6f1f0b18_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1057159264,
+                "name": "The Six Hotel - Hoàng Long Sơn 3",
+                "starRating": 3,
+                "urls": {},
+                "address": {
+                    "streetAddress": "68 Đường số 18",
+                    "extendedAddress": "P.Hiệp Bình Chánh, Q.Thủ Đức",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "5,7 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "5,6 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "236.300 ₫",
+                        "exactCurrent": 236300,
+                        "old": "266.842 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận Thủ Đức",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.824743,
+                    "lon": 106.719183
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 33004977,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/34000000/33010000/33005000/33004977/ad8fae9b_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1687881344,
+                "name": "Khách sạn Viễn Đông",
+                "starRating": 2.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "59 An Điềm",
+                    "extendedAddress": "P.10, Q.5",
+                    "locality": "Thành phố Hồ Chí Minh",
+                    "postalCode": "70000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "4,9 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "4,9 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "243.878 ₫",
+                        "exactCurrent": 243878
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận 5",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "D13",
+                "coordinate": {
+                    "lat": 10.751536,
+                    "lon": 106.66548
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 52715042,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/53000000/52720000/52715100/52715042/c77cfbc9_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 750290400,
+                "name": "Aloha Saigon - Hostel - Chỉ người lớn",
+                "starRating": 2,
+                "urls": {},
+                "address": {
+                    "streetAddress": "24/3 Đỗ Quang Đẩu, Q.1",
+                    "extendedAddress": "",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "1,7 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "1,6 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "243.878 ₫",
+                        "exactCurrent": 243878
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Trung tâm Thành phố Hồ Chí Minh",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.76672,
+                    "lon": 106.69127
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 23415325,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/24000000/23420000/23415400/23415325/901f5075_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 875641632,
+                "name": "Saigon Capsule Hostel - Chỉ người lớn",
+                "starRating": 1.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "36 Lê Lợi",
+                    "extendedAddress": "P.Bến Nghé, Q.1",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 6,
+                    "rating": "6,0",
+                    "total": 1,
+                    "scale": 10,
+                    "badge": "good",
+                    "badgeText": "Tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "0,4 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "0,4 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "243.878 ₫",
+                        "exactCurrent": 243878
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Đồng Khởi",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.774342,
+                    "lon": 106.700328
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 27332551,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/28000000/27340000/27332600/27332551/5b1e8c62_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 456621,
+                "name": "Khách sạn Lan Anh",
+                "starRating": 2.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "251/28 Lê Văn Thọ",
+                    "extendedAddress": "P.9, Gò Vấp",
+                    "locality": "TP. Hồ Chí Minh",
+                    "postalCode": "",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 10,
+                    "rating": "10,0",
+                    "total": 1,
+                    "scale": 10,
+                    "badge": "exceptional",
+                    "badgeText": "Ngoại hạng"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "9,0 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "8,9 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "244.796 ₫",
+                        "exactCurrent": 244796,
+                        "old": "408.070 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận Gò Vấp",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.843585,
+                    "lon": 106.657139
+                },
+                "providerType": "MULTISOURCE",
+                "supplierHotelId": 8091082,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/9000000/8100000/8091100/8091082/5c671bf1_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            },
+            {
+                "id": 1154910976,
+                "name": "Khách sạn Huỳnh Anh",
+                "starRating": 1.5,
+                "urls": {},
+                "address": {
+                    "streetAddress": "10 Đường số 51",
+                    "extendedAddress": "Phường 14",
+                    "locality": "TP.Hồ Chí Minh",
+                    "postalCode": "700000",
+                    "region": "",
+                    "countryName": "Việt Nam",
+                    "countryCode": "vn",
+                    "obfuscate": false
+                },
+                "guestReviews": {
+                    "unformattedRating": 8,
+                    "rating": "8,0",
+                    "total": 3,
+                    "scale": 10,
+                    "badge": "very-good",
+                    "badgeText": "Rất tốt"
+                },
+                "landmarks": [
+                    {
+                        "label": "Trung tâm thành phố",
+                        "distance": "10 km"
+                    },
+                    {
+                        "label": "Đường Đồng Khởi",
+                        "distance": "10 km"
+                    }
+                ],
+                "geoBullets": [],
+                "ratePlan": {
+                    "price": {
+                        "current": "245.026 ₫",
+                        "exactCurrent": 245026,
+                        "old": "365.817 ₫"
+                    },
+                    "features": {
+                        "paymentPreference": false,
+                        "noCCRequired": false
+                    }
+                },
+                "neighbourhood": "Quận Gò Vấp",
+                "deals": {},
+                "messaging": {},
+                "badging": {},
+                "pimmsAttributes": "DoubleStamps|D13|TESCO",
+                "coordinate": {
+                    "lat": 10.846269,
+                    "lon": 106.642699
+                },
+                "providerType": "LOCAL",
+                "supplierHotelId": 36059718,
+                "isAlternative": false,
+                "optimizedThumbUrls": {
+                    "srpDesktop": "https://exp.cdn-hotels.com/hotels/37000000/36060000/36059800/36059718/637d8df6_z.jpg?impolicy=fcrop&w=250&h=140&q=high"
+                }
+            }
+        ],
+        "pagination": {
+            "currentPage": 1,
+            "pageGroup": "EXPEDIA_IN_POLYGON",
+            "nextPageStartIndex": 25,
+            "nextPageNumber": 2,
+            "nextPageGroup": "EXPEDIA_IN_POLYGON"
+        }
+    },
+    "sortResults": {
+        "options": [
+            {
+                "label": "Xếp hạng sao",
+                "itemMeta": "star",
+                "choices": [
+                    {
+                        "label": "Sao (cao tới thấp)",
+                        "value": "STAR_RATING_HIGHEST_FIRST",
+                        "selected": false
+                    },
+                    {
+                        "label": "Sao (thấp tới cao)",
+                        "value": "STAR_RATING_LOWEST_FIRST",
+                        "selected": false
+                    }
+                ],
+                "enhancedChoices": []
+            },
+            {
+                "label": "Khoảng cách",
+                "itemMeta": "distance",
+                "choices": [
+                    {
+                        "label": "Khoảng cách đến trung tâm thành phố",
+                        "value": "DISTANCE_FROM_LANDMARK",
+                        "selected": false
+                    }
+                ],
+                "enhancedChoices": [
+                    {
+                        "label": "Địa danh",
+                        "itemMeta": "landmarks",
+                        "choices": [
+                            {
+                                "label": "Trung tâm thành phố",
+                                "id": 1633619
+                            },
+                            {
+                                "label": "Bưu điện Trung tâm Sài Gòn",
+                                "id": 1715891
+                            },
+                            {
+                                "label": "Bệnh viện Chợ Rẫy",
+                                "id": 11426489
+                            },
+                            {
+                                "label": "Chợ An Đông",
+                                "id": 1760137
+                            },
+                            {
+                                "label": "Chợ Bến Thành",
+                                "id": 10236092
+                            },
+                            {
+                                "label": "Chợ Ẩm thực Đường phố Bến Thành",
+                                "id": 10801930
+                            },
+                            {
+                                "label": "Công viên Vinhomes Central Park",
+                                "id": 11422007
+                            },
+                            {
+                                "label": "HCMC Museum",
+                                "id": 10599524
+                            },
+                            {
+                                "label": "Nhà hát Lớn",
+                                "id": 1672664
+                            },
+                            {
+                                "label": "Nhà thờ Đức Bà Sài Gòn",
+                                "id": 1672659
+                            },
+                            {
+                                "label": "Phạm Ngũ Lão",
+                                "id": 1765074
+                            },
+                            {
+                                "label": "Phố đi bộ Nguyễn Huệ",
+                                "id": 11424737
+                            },
+                            {
+                                "label": "Quảng trường Ủy ban Nhân dân TP.HCM",
+                                "id": 1765099
+                            },
+                            {
+                                "label": "Saigon Skydeck",
+                                "id": 1765107
+                            },
+                            {
+                                "label": "Sài Gòn Square",
+                                "id": 1765177
+                            },
+                            {
+                                "label": "Trung tâm Thương mại Vincom",
+                                "id": 1751700
+                            },
+                            {
+                                "label": "Trung tâm Triển lãm & Hội chợ Tân Bình",
+                                "id": 1765100
+                            },
+                            {
+                                "label": "Đường Đồng Khởi",
+                                "id": 1765067
+                            },
+                            {
+                                "label": "Đại học Quốc gia Thành phố Hồ Chí Minh",
+                                "id": 1672669
+                            },
+                            {
+                                "label": "Ủy ban Nhân dân TP.HCM",
+                                "id": 1672662
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Nhà ga",
+                        "itemMeta": "stations",
+                        "choices": [
+                            {
+                                "label": "Ga Sài Gòn",
+                                "id": 1765106
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Sân bay",
+                        "itemMeta": "airports",
+                        "choices": [
+                            {
+                                "label": "Sân bay Quốc tế Tân Sơn Nhất - Quận Tân Bình (SGN)",
+                                "id": 1650012
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Xếp hạng của khách",
+                "itemMeta": "rating",
+                "choices": [
+                    {
+                        "label": "Xếp hạng của khách",
+                        "value": "GUEST_RATING",
+                        "selected": false
+                    }
+                ],
+                "enhancedChoices": []
+            },
+            {
+                "label": "Giá",
+                "itemMeta": "price",
+                "selectedChoiceLabel": "Giá (thấp tới cao)",
+                "choices": [
+                    {
+                        "label": "Giá (cao tới thấp)",
+                        "value": "PRICE_HIGHEST_FIRST",
+                        "selected": false
+                    },
+                    {
+                        "label": "Giá (thấp tới cao)",
+                        "value": "PRICE",
+                        "selected": true
+                    }
+                ],
+                "enhancedChoices": []
+            }
+        ],
+        "distanceOptionLandmarkId": 1633619
+    },
+    "filters": {
+        "applied": false,
+        "name": {
+            "item": {
+                "value": ""
+            },
+            "autosuggest": {
+                "additionalUrlParams": {
+                    "resolved-location": "CITY:1633619:UNKNOWN:UNKNOWN",
+                    "q-destination": "Thành phố Hồ Chí Minh, Việt Nam",
+                    "destination-id": "1633619"
+                }
+            }
+        },
+        "starRating": {
+            "applied": false,
+            "items": [
+                {
+                    "value": 5
+                },
+                {
+                    "value": 4
+                },
+                {
+                    "value": 3
+                },
+                {
+                    "value": 2
+                },
+                {
+                    "value": 1
+                }
+            ]
+        },
+        "guestRating": {
+            "range": {
+                "min": {
+                    "defaultValue": 0
+                },
+                "max": {
+                    "defaultValue": 10
+                }
+            }
+        },
+        "landmarks": {
+            "selectedOrder": [],
+            "items": [
+                {
+                    "label": "Trung tâm thành phố",
+                    "value": "1633619"
+                },
+                {
+                    "label": "Đường Đồng Khởi",
+                    "value": "1765067"
+                },
+                {
+                    "label": "Phạm Ngũ Lão",
+                    "value": "1765074"
+                },
+                {
+                    "label": "Chợ Bến Thành",
+                    "value": "10236092"
+                },
+                {
+                    "label": "Sân bay Quốc tế Tân Sơn Nhất - Quận Tân Bình (SGN)",
+                    "value": "1650012"
+                },
+                {
+                    "label": "Sài Gòn Square",
+                    "value": "1765177"
+                },
+                {
+                    "label": "HCMC Museum",
+                    "value": "10599524"
+                },
+                {
+                    "label": "Chợ Ẩm thực Đường phố Bến Thành",
+                    "value": "10801930"
+                },
+                {
+                    "label": "Phố đi bộ Nguyễn Huệ",
+                    "value": "11424737"
+                },
+                {
+                    "label": "Ủy ban Nhân dân TP.HCM",
+                    "value": "1672662"
+                },
+                {
+                    "label": "Nhà thờ Đức Bà Sài Gòn",
+                    "value": "1672659"
+                },
+                {
+                    "label": "Nhà hát Lớn",
+                    "value": "1672664"
+                },
+                {
+                    "label": "Bưu điện Trung tâm Sài Gòn",
+                    "value": "1715891"
+                },
+                {
+                    "label": "Đại học Quốc gia Thành phố Hồ Chí Minh",
+                    "value": "1672669"
+                },
+                {
+                    "label": "Bệnh viện Chợ Rẫy",
+                    "value": "11426489"
+                },
+                {
+                    "label": "Saigon Skydeck",
+                    "value": "1765107"
+                },
+                {
+                    "label": "Quảng trường Ủy ban Nhân dân TP.HCM",
+                    "value": "1765099"
+                },
+                {
+                    "label": "Trung tâm Triển lãm & Hội chợ Tân Bình",
+                    "value": "1765100"
+                },
+                {
+                    "label": "Ga Sài Gòn",
+                    "value": "1765106"
+                },
+                {
+                    "label": "Trung tâm Thương mại Vincom",
+                    "value": "1751700"
+                }
+            ],
+            "distance": []
+        },
+        "neighbourhood": {
+            "applied": false,
+            "items": [
+                {
+                    "label": "Quận 1",
+                    "value": "1762890"
+                },
+                {
+                    "label": "Trung tâm Thành phố Hồ Chí Minh",
+                    "value": "10873739"
+                },
+                {
+                    "label": "Quận 3",
+                    "value": "1762900"
+                },
+                {
+                    "label": "Khu Công nghiệp Hàn Quốc",
+                    "value": "10873705"
+                },
+                {
+                    "label": "Quận 5",
+                    "value": "1649997"
+                },
+                {
+                    "label": "Quận 7",
+                    "value": "1762905"
+                },
+                {
+                    "label": "Quận 2",
+                    "value": "1762891"
+                },
+                {
+                    "label": "Quận 10",
+                    "value": "1762913"
+                },
+                {
+                    "label": "Quận 4",
+                    "value": "1762901"
+                },
+                {
+                    "label": "Đồng Khởi",
+                    "value": "1737694"
+                },
+                {
+                    "label": "Bến Thành",
+                    "value": "11426847"
+                },
+                {
+                    "label": "Phố đi bộ Nguyễn Huệ",
+                    "value": "10873681"
+                },
+                {
+                    "label": "Quận 9",
+                    "value": "1762912"
+                },
+                {
+                    "label": "Quận Tân Bình",
+                    "value": "1708231"
+                },
+                {
+                    "label": "Bùi Thị Xuân",
+                    "value": "1737703"
+                },
+                {
+                    "label": "Phú Mỹ Hưng",
+                    "value": "10565525"
+                },
+                {
+                    "label": "Quận Gò Vấp",
+                    "value": "1705920"
+                },
+                {
+                    "label": "Quận Bình Thạnh",
+                    "value": "1649959"
+                },
+                {
+                    "label": "Quận 12",
+                    "value": "1762916"
+                },
+                {
+                    "label": "Quận Phú Nhuận",
+                    "value": "1649961"
+                },
+                {
+                    "label": "Quận Thủ Đức",
+                    "value": "1712605"
+                },
+                {
+                    "label": "Thảo Điền",
+                    "value": "10565522"
+                },
+                {
+                    "label": "Phố Nhật",
+                    "value": "10565523"
+                },
+                {
+                    "label": "Khu người Hoa",
+                    "value": "10873466"
+                },
+                {
+                    "label": "Quận 6",
+                    "value": "1762904"
+                },
+                {
+                    "label": "Quận Bình Tân",
+                    "value": "1762950"
+                },
+                {
+                    "label": "Quận 11",
+                    "value": "1762914"
+                },
+                {
+                    "label": "Hóc Môn",
+                    "value": "1706601"
+                },
+                {
+                    "label": "Quận Tân Phú",
+                    "value": "1762954"
+                },
+                {
+                    "label": "Quận 8",
+                    "value": "1762907"
+                },
+                {
+                    "label": "Nhà Bè",
+                    "value": "1712611"
+                },
+                {
+                    "label": "Khu vực Ven sông Bạch Đằng",
+                    "value": "10873741"
+                },
+                {
+                    "label": "Quận Tân Phú",
+                    "value": "10873900"
+                },
+                {
+                    "label": "Khu Chế xuất Linh Trung",
+                    "value": "10873728"
+                },
+                {
+                    "label": "Nguyễn Thái Bình",
+                    "value": "11426379"
+                },
+                {
+                    "label": "Bến Nghé",
+                    "value": "11389761"
+                },
+                {
+                    "label": "Hàng Xanh",
+                    "value": "10873730"
+                },
+                {
+                    "label": "Thủ Thiêm",
+                    "value": "10565527"
+                },
+                {
+                    "label": "An Phú",
+                    "value": "12501743"
+                },
+                {
+                    "label": "Bình Thuận",
+                    "value": "12532617"
+                },
+                {
+                    "label": "Đa Kao",
+                    "value": "12501635"
+                },
+                {
+                    "label": "Bình Chánh",
+                    "value": "12478916"
+                }
+            ]
+        },
+        "accommodationType": {
+            "applied": false,
+            "items": [
+                {
+                    "label": "B&B",
+                    "value": "5"
+                },
+                {
+                    "label": "Biệt thự",
+                    "value": "14"
+                },
+                {
+                    "label": "Căn hộ",
+                    "value": "15"
+                },
+                {
+                    "label": "Hostel",
+                    "value": "12"
+                },
+                {
+                    "label": "Khách sạn",
+                    "value": "1"
+                },
+                {
+                    "label": "Khách sạn căn hộ",
+                    "value": "20"
+                },
+                {
+                    "label": "Khách sạn con nhộng",
+                    "value": "43"
+                },
+                {
+                    "label": "Motel",
+                    "value": "7"
+                },
+                {
+                    "label": "Nhà khách",
+                    "value": "30"
+                },
+                {
+                    "label": "Nhà nghỉ du lịch",
+                    "value": "4"
+                },
+                {
+                    "label": "Resort",
+                    "value": "3"
+                }
+            ]
+        },
+        "facilities": {
+            "applied": false,
+            "items": [
+                {
+                    "label": "Bãi đậu xe",
+                    "value": "134234112"
+                },
+                {
+                    "label": "Bao gồm bữa sáng",
+                    "value": "2048"
+                },
+                {
+                    "label": "Có bếp",
+                    "value": "32"
+                },
+                {
+                    "label": "Có bồn tắm trong phòng",
+                    "value": "517"
+                },
+                {
+                    "label": "Có dịch vụ đưa đón sân bay",
+                    "value": "513"
+                },
+                {
+                    "label": "Có dịch vụ hành chánh, văn phòng",
+                    "value": "519"
+                },
+                {
+                    "label": "Có dịch vụ trông giữ trẻ",
+                    "value": "521"
+                },
+                {
+                    "label": "Có hồ bơi",
+                    "value": "128"
+                },
+                {
+                    "label": "Có khu gym",
+                    "value": "2"
+                },
+                {
+                    "label": "Có khu phòng họp",
+                    "value": "1"
+                },
+                {
+                    "label": "Có khu vực hút thuốc riêng",
+                    "value": "537"
+                },
+                {
+                    "label": "Có nhà hàng",
+                    "value": "256"
+                },
+                {
+                    "label": "Có phòng thông nhau",
+                    "value": "523"
+                },
+                {
+                    "label": "Có quán bar",
+                    "value": "515"
+                },
+                {
+                    "label": "Điểm sạc xe điện",
+                    "value": "1073743315"
+                },
+                {
+                    "label": "Được mang theo thú nuôi",
+                    "value": "64"
+                },
+                {
+                    "label": "Gồm Wifi",
+                    "value": "527"
+                },
+                {
+                    "label": "Không hút thuốc",
+                    "value": "529"
+                },
+                {
+                    "label": "Quầy tiếp tân 24 giờ",
+                    "value": "2063"
+                },
+                {
+                    "label": "Sòng bạc",
+                    "value": "2112"
+                },
+                {
+                    "label": "Spa",
+                    "value": "539"
+                },
+                {
+                    "label": "Trang bị Internet",
+                    "value": "8"
+                },
+                {
+                    "label": "Trang bị nôi/cũi",
+                    "value": "525"
+                },
+                {
+                    "label": "Với đường trượt tuyết vào/ra trực tiếp",
+                    "value": "535"
+                }
+            ]
+        },
+        "themesAndTypes": {
+            "applied": false,
+            "items": [
+                {
+                    "label": "Bãi biển",
+                    "value": "6"
+                },
+                {
+                    "label": "Boutique",
+                    "value": "4"
+                },
+                {
+                    "label": "Chào đón khách LGBTQ",
+                    "value": "21"
+                },
+                {
+                    "label": "Có nhà máy rượu vang/vườn nho",
+                    "value": "19"
+                },
+                {
+                    "label": "Golf",
+                    "value": "26"
+                },
+                {
+                    "label": "Mạo hiểm",
+                    "value": "18"
+                },
+                {
+                    "label": "Phù hợp cho gia đình",
+                    "value": "25"
+                },
+                {
+                    "label": "Phù hợp với khách đi công tác",
+                    "value": "14"
+                },
+                {
+                    "label": "Sang trọng",
+                    "value": "15"
+                },
+                {
+                    "label": "Sòng bạc",
+                    "value": "8"
+                },
+                {
+                    "label": "Spa",
+                    "value": "27"
+                },
+                {
+                    "label": "Suối nước nóng",
+                    "value": "22"
+                },
+                {
+                    "label": "Trượt tuyết",
+                    "value": "28"
+                }
+            ]
+        },
+        "price": {
+            "label": "Giá mỗi đêm",
+            "range": {
+                "min": {
+                    "defaultValue": 0
+                },
+                "max": {
+                    "defaultValue": 10000000
+                },
+                "increments": 100000
+            },
+            "multiplier": 1
+        },
+        "welcomeRewards": {
+            "label": "Hotels.com™ Rewards",
+            "items": [
+                {
+                    "label": "Tích lũy tem",
+                    "value": "collect"
+                },
+                {
+                    "label": "Đổi đêm thưởng*",
+                    "value": "redeem"
+                }
+            ]
+        }
+    },
+    "pointOfSale": {
+        "currency": {
+            "code": "VND",
+            "symbol": "₫",
+            "separators": ".,",
+            "format": "{0} ₫"
+        }
+    },
+    "miscellaneous": {
+        "pageViewBeaconUrl": "/taps/v1/PageView?deviceType=App-Phone&sort-order=PRICE&rooms=1&destRegionID=1633619&hotelIds=628612,478415,622057152,1412325184,456320,452392,1724815552,612847744,678436,1361875232,1224400320,874560768,1287490944,1383584928,1126441216,1634438624,856906304,859107072,1423464832,1057159264,1687881344,750290400,875641632,456621,1154910976&adults=4&userAgent=Hotels.com/Android%2080.0.1.9.release-80_0%20(80000660)&userGuid=5829ea05-0672-44c0-ba1a-3fc7978359f6&pageName=Hotel-Search&slots=HSR_A,HSR_B,HSR_C,HSR_D,HSR_E,HSR_F,HSR_G,HSR_H,HSR_I,HSR_J&children=0&culture=vi_VN&testVersionOverride=4961.0,904.0,7561.0,7215.0,8218.0,8711.0,8928.1,9008.0,8347.2,9004.0,8952.0,7992.2,8915.0,9729.0,9864.0,10155.0,10185.0,10473.0,10320.0,10361.0&domain=vi.hotels.com&userIP=127.0.0.1&action=pageview&publisher=expedia&programId=1",
+        "showLegalInfoForStrikethroughPrices": true,
+        "legalInfoForStrikethroughPrices": "Giá gạch bỏ dựa trên giá tiêu chuẩn của nơi lưu trú trên app của chúng tôi, do nơi lưu trú xác định và cung cấp thông tin."
+    },
+    "pageInfo": {
+        "pageType": "dateless"
+    }
+}

@@ -116,11 +116,40 @@ input:-webkit-autofill:active {
 
 .reactEasyCrop_Contain {
   height: 100% !important;
-  
+
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
 }
 
-.ant-upload-list .ant-upload-list-picture-card {
-  
+.ant-upload-list .ant-upload-list-picture-card {}
+
+.ant-checkbox-group {
+  display: flex;
+  flex-direction: column;
 }
+
+.ant-radio-checked .ant-radio-inner {
+  border-color: #68d1c8 !important;
+}
+
+.ant-radio-checked .ant-radio-inner:after {
+  background-color: #68d1c8;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: #68d1c8;
+}
+
+.ant-radio-button-checked,
+.ant-radio-button-inner,
+.ant-radio-button-inner,
+.ant-radio-button-wrapper-checked,
+.ant-radio-button-input:focus,
+.ant-radio-button-inner {
+  border-color: #68d1c8 !important;
+  background-color: #68d1c8 !important;
+}
+
+/* .ant-steps-item-process .ant-steps-item-icon {
+  background: white !important;
+} */

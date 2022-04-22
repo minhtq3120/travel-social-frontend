@@ -1,0 +1,209 @@
+{
+    "term": "viet nam",
+    "moresuggestions": 10,
+    "autoSuggestInstance": null,
+    "trackingID": "3b22188507fe4a00b51328e321cf4e80",
+    "misspellingfallback": false,
+    "suggestions": [
+        {
+            "group": "CITY_GROUP",
+            "entities": [
+                {
+                    "geoId": "3140",
+                    "destinationId": "1633619",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 10.776308,
+                    "longitude": 106.702867,
+                    "searchDetail": null,
+                    "caption": "Thành phố Hồ Chí Minh, Việt <span class='highlighted'>Nam</span>",
+                    "name": "Thành phố Hồ Chí Minh"
+                },
+                {
+                    "geoId": "6054458",
+                    "destinationId": "1634382",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 21.035911,
+                    "longitude": 105.839431,
+                    "searchDetail": null,
+                    "caption": "Hà Nội, Việt <span class='highlighted'>Nam</span>",
+                    "name": "Hà Nội"
+                },
+                {
+                    "geoId": "553248633193997665",
+                    "destinationId": "10794695",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 21.342054287124405,
+                    "longitude": 105.37043229435604,
+                    "searchDetail": null,
+                    "caption": "Việt trì, Phú Thọ (tỉnh), Việt <span class='highlighted'>Nam</span>",
+                    "name": "Việt trì"
+                },
+                {
+                    "geoId": "6297250",
+                    "destinationId": "1785921",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 16.06076,
+                    "longitude": 108.217039,
+                    "searchDetail": null,
+                    "caption": "Đà Nẵng, Việt <span class='highlighted'>Nam</span>",
+                    "name": "Đà Nẵng"
+                },
+                {
+                    "geoId": "1030",
+                    "destinationId": "1567425",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 11.920841126744323,
+                    "longitude": 108.4633779754247,
+                    "searchDetail": null,
+                    "caption": "Đà Lạt, Lâm Đồng (tỉnh), Việt <span class='highlighted'>Nam</span>",
+                    "name": "Đà Lạt"
+                },
+                {
+                    "geoId": "6054414",
+                    "destinationId": "1644864",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 10.34589,
+                    "longitude": 107.076462,
+                    "searchDetail": null,
+                    "caption": "Vũng Tàu, Bà Rịa-Vũng Tàu (tỉnh), Việt <span class='highlighted'>Nam</span>",
+                    "name": "Vũng Tàu"
+                },
+                {
+                    "geoId": "6141655",
+                    "destinationId": "1573031",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 10.155761374158999,
+                    "longitude": 103.95255816593348,
+                    "searchDetail": null,
+                    "caption": "Phú Quốc, Kiên Giang (tỉnh), Việt <span class='highlighted'>Nam</span>",
+                    "name": "Phú Quốc"
+                },
+                {
+                    "geoId": "6054439",
+                    "destinationId": "1644861",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 12.24959,
+                    "longitude": 109.190704,
+                    "searchDetail": null,
+                    "caption": "Nha Trang, Khánh Hòa (tỉnh), Việt <span class='highlighted'>Nam</span>",
+                    "name": "Nha Trang"
+                },
+                {
+                    "geoId": "6034264",
+                    "destinationId": "1644860",
+                    "landmarkCityDestinationId": null,
+                    "type": "CITY",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 15.87749,
+                    "longitude": 108.331009,
+                    "searchDetail": null,
+                    "caption": "Hội An, Quảng <span class='highlighted'>Nam</span> (tỉnh), Việt Nam",
+                    "name": "Hội An"
+                }
+            ]
+        },
+        {
+            "group": "HOTEL_GROUP",
+            "entities": [
+                {
+                    "geoId": "34562570",
+                    "destinationId": "1107002240",
+                    "landmarkCityDestinationId": null,
+                    "type": "HOTEL",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 10.773498,
+                    "longitude": 106.675111,
+                    "searchDetail": null,
+                    "caption": "<span class='highlighted'>Viet</span> <span class='highlighted'>Nam</span> Vacation, Thành phố Hồ Chí Minh, Việt Nam",
+                    "name": "Viet Nam Vacation"
+                }
+            ]
+        },
+        {
+            "group": "LANDMARK_GROUP",
+            "entities": [
+                {
+                    "geoId": "6115812",
+                    "destinationId": "1672752",
+                    "landmarkCityDestinationId": "12477024",
+                    "type": "LANDMARK",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 21.005361,
+                    "longitude": 105.78781,
+                    "searchDetail": null,
+                    "caption": "Trung tâm Hội nghị Quốc gia Việt <span class='highlighted'>Nam</span>, Hà Nội, Việt Nam",
+                    "name": "Trung tâm Hội nghị Quốc gia Việt Nam"
+                },
+                {
+                    "geoId": "6268411",
+                    "destinationId": "1771056",
+                    "landmarkCityDestinationId": "1634382",
+                    "type": "LANDMARK",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 21.025258,
+                    "longitude": 105.858171,
+                    "searchDetail": null,
+                    "caption": "Bảo tàng Cách mạng Việt <span class='highlighted'>Nam</span>, Hà Nội, Việt Nam",
+                    "name": "Bảo tàng Cách mạng Việt Nam"
+                },
+                {
+                    "geoId": "6268421",
+                    "destinationId": "1771061",
+                    "landmarkCityDestinationId": "1634382",
+                    "type": "LANDMARK",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 20.999611,
+                    "longitude": 105.82875,
+                    "searchDetail": null,
+                    "caption": "Bảo tàng Phòng không - Không quân Việt <span class='highlighted'>Nam</span>, Hà Nội, Việt Nam",
+                    "name": "Bảo tàng Phòng không - Không quân Việt Nam"
+                },
+                {
+                    "geoId": "553248635939591742",
+                    "destinationId": "11427051",
+                    "landmarkCityDestinationId": "10378883",
+                    "type": "LANDMARK",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 10.729497,
+                    "longitude": 106.692835,
+                    "searchDetail": null,
+                    "caption": "Cơ sở <span class='highlighted'>Nam</span> Sài Gòn, Đại học RMIT Việt Nam, Thành phố Hồ Chí Minh, Việt Nam",
+                    "name": "Cơ sở Nam Sài Gòn, Đại học RMIT Việt Nam"
+                },
+                {
+                    "geoId": "6286773",
+                    "destinationId": "1780462",
+                    "landmarkCityDestinationId": "1634382",
+                    "type": "LANDMARK",
+                    "redirectPage": "DEFAULT_PAGE",
+                    "latitude": 21.27708,
+                    "longitude": 105.803602,
+                    "searchDetail": null,
+                    "caption": "Việt Phủ Thành Chương, Hà Nội, Việt <span class='highlighted'>Nam</span>",
+                    "name": "Việt Phủ Thành Chương"
+                }
+            ]
+        },
+        {
+            "group": "TRANSPORT_GROUP",
+            "entities": []
+        }
+    ],
+    "geocodeFallback": false
+}
