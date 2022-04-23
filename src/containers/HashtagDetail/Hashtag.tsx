@@ -51,7 +51,6 @@ const history = useHistory()
     setViewMoreLoading(true);
     setCurentPage(currentPage + 1)
   }
-  console.log(htag)
 
   const getNewfeed = async (hashtag: string, page?: number) => {
     try {

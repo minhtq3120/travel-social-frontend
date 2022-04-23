@@ -46,7 +46,36 @@ export const searchEverything = async (params) => {
         queryString = queryString.concat(queryPage);
     }
 
-    console.log(queryString)
+    return await axiosInstance
+        .get(queryString)
+        .catch(function (error) {
+            if (error.response) {
+                return error.response.status;
+            }
+        });
+};
+
+
+
+export const searchEverythingAll = async (params) => {
+    let queryString = `/searchs/all/detail`;
+    if (params?.filter) {
+        const queryPage = `?filter=${params.filter}`;
+        queryString = queryString.concat(queryPage);
+    }
+    if (params?.keyword) {
+        const queryPage = params?.keyword[0] === '#' && params.keyword.length > 1 ? `&search=%23${params.keyword.slice(1, params.keyword.length)}` : `&search=${params.keyword}`;
+        queryString = queryString.concat(queryPage);
+    }
+    if (params?.perPage) {
+        const queryPage = `&perPage=${params.perPage}`;
+        queryString = queryString.concat(queryPage);
+    }
+    if (params?.page) {
+        const queryPage = `&page=${params.page}`;
+        queryString = queryString.concat(queryPage);
+    }
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

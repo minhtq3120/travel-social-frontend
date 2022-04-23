@@ -1,17 +1,18 @@
 import { Input } from 'antd';
 import React from 'react';
 import './RenderSearch.scss';
-
-interface Props {
-  onSearch?: (val: string) => void;
-  onChange?: (val: string) => void;
-  placeholder?: string;
-}
+import {AiOutlineSearch } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/redux/store';
 const { Search } = Input;
-const RenderSearch: React.FC<Props> = (props) => {
+const RenderSearch = (props) => {
+  const searchValue: any = useSelector((state: RootState) => state.wallet.searchValue);
+
+
   const { 
     onSearch = () => {} ,
     onChange = () => {},
+    handleEnter = () => {},
     placeholder
   } = props;
   const handleOnChange = (event: any) => {
@@ -26,13 +27,16 @@ const RenderSearch: React.FC<Props> = (props) => {
         justifyContent: 'flex-end',
         width: 'auto',
       }}>
-      <Search
+      <Input
         placeholder={placeholder}
-        onSearch={(val: string) => {
-          onSearch(val);
-        }}
+        // onSearch={(val: string) => {
+        //   onSearch(val);
+        // }}
+        suffix={<AiOutlineSearch size={20}/>}
+        onPressEnter={props?.handlePressEnterSearch}
         onChange={handleOnChange}
-        style={{ width: 400, padding: 20, borderRadius: 10 }}
+        defaultValue={localStorage.getItem('searchValue') || ''}
+        style={{ width: '500px', padding: '10px', borderRadius: 10 }}
         
       />
     </div>

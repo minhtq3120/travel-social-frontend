@@ -50,4 +50,8 @@ export const routes = [
     path: "/hashtagDetail",
     component: LayoutComponent
   },
+  {
+    path: "/searchDetail",
+    component: LayoutComponent
+  },
 ];

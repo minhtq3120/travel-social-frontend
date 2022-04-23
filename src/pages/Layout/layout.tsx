@@ -27,6 +27,7 @@ import axiosInstance from 'src/config/config';
 import Suggestion from '../Suggestion/Suggestion';
 import SuggestionDetail from '../Suggestion/SuggestionDetail';
 import HashtagDetail from 'src/containers/HashtagDetail/Hashtag';
+import SearchDetail from 'src/containers/SearchDetail/SearchDetail';
 
 export enum NotificationAction {
   Like = 'like',
@@ -227,6 +228,14 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <HashtagDetail />
+            </Content>
+          </Layout>
+        </Route>
+
+        <Route exact path="/searchDetail">
+          <Layout className={cx('body')}>
+            <Content>
+              <SearchDetail />
             </Content>
           </Layout>
         </Route>

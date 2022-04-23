@@ -33,6 +33,7 @@ import InfinityList from 'src/components/InfinityScroll/InfinityScroll';
 import { getFollowers } from 'src/services/follow-service';
 import NotificationList from 'src/components/Notification/Notification';
 import SearchBar from './SearchBar';
+import { setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -57,6 +58,8 @@ const HeaderContainer = (props: any) => {
     color: 'white'
   };
 
+
+
   const [iconStyle, setIconStyle] = useState(iconNotClick);
   const [keyword, setKeyword] = useState<string>('')
 
@@ -65,8 +68,6 @@ const HeaderContainer = (props: any) => {
   };
 
   const onSearch = async (value: string) => {
-    const params = {};
-    console.log(value);
     setKeyword(value)
   };
 
@@ -140,7 +141,6 @@ const HeaderContainer = (props: any) => {
 
   const notifi = <NotificationList />;
 
-  console.log(uploaded,'uploaded')
   return (
     <>
       <div className={cx('header-container')}>
@@ -153,7 +153,15 @@ const HeaderContainer = (props: any) => {
           }}
         />
         <div className={cx(`header-search`)}>
-          <RenderSearch onSearch={onSearch} onChange={onSearch} placeholder={'Search..'} />
+          <RenderSearch onChange={onSearch} placeholder={'Search..'} handlePressEnterSearch={
+            () => {
+              console.log("???")
+              if(keyword?.length > 0) dispatch(setSearchValue(keyword))
+              dispatch(setTriggerSearch(''))
+              setKeyword('')
+              history.push(`/searchDetail`)}
+            
+          }/>
           {
             keyword?.length > 0 ?<SearchBar keyword={keyword} setKeyword={setKeyword}/> : null
           }
