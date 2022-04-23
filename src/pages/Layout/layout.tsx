@@ -26,6 +26,7 @@ import Chat, { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
 import axiosInstance from 'src/config/config';
 import Suggestion from '../Suggestion/Suggestion';
 import SuggestionDetail from '../Suggestion/SuggestionDetail';
+import HashtagDetail from 'src/containers/HashtagDetail/Hashtag';
 
 export enum NotificationAction {
   Like = 'like',
@@ -218,6 +219,14 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <SuggestionDetail />
+            </Content>
+          </Layout>
+        </Route>
+
+        <Route exact path="/hashtagDetail">
+          <Layout className={cx('body')}>
+            <Content>
+              <HashtagDetail />
             </Content>
           </Layout>
         </Route>

@@ -155,7 +155,7 @@ const HeaderContainer = (props: any) => {
         <div className={cx(`header-search`)}>
           <RenderSearch onSearch={onSearch} onChange={onSearch} placeholder={'Search..'} />
           {
-            keyword?.length > 0 ?<SearchBar keyword={keyword}/> : null
+            keyword?.length > 0 ?<SearchBar keyword={keyword} setKeyword={setKeyword}/> : null
           }
         </div>
 

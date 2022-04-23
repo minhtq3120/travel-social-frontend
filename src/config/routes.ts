@@ -46,4 +46,8 @@ export const routes = [
     path: "/suggestionDetail",
     component: LayoutComponent
   },
+  {
+    path: "/hashtagDetail",
+    component: LayoutComponent
+  },
 ];

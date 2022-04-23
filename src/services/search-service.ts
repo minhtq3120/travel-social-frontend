@@ -34,7 +34,7 @@ export const searchAllUser = async (params) => {
 export const searchEverything = async (params) => {
     let queryString = `/searchs/all`;
     if (params?.keyword) {
-        const queryPage = `?search=${params.keyword}`;
+        const queryPage = params?.keyword[0] === '#' && params.keyword.length > 1 ? `?search=%23${params.keyword.slice(1, params.keyword.length)}` : `?search=${params.keyword}`;
         queryString = queryString.concat(queryPage);
     }
     if (params?.perPage) {

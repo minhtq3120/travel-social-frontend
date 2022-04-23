@@ -37,6 +37,30 @@ export const getNewFeedPost = async (params?: any) => {
     });
 };
 
+export const getHashtagPosts = async (params?: any) => {
+  console.log(params)
+  let queryString = `/post/hashtag-detail`;
+  if (params?.keyword) {
+    const queryPage = `?hashtag=%23${params.keyword.slice(1, params.keyword.length)}`;
+    queryString = queryString.concat(queryPage);
+  }
+  if (params?.page) {
+    const queryPage = `&page=${params.page}`;
+    queryString = queryString.concat(queryPage);
+  }
+  if (params?.limit) {
+    const queryLimit = `&limit=${params.limit}`;
+    queryString = queryString.concat(queryLimit);
+  }
+  return await axiosInstance
+    .get(queryString)
+    .catch(function (error) {
+      if (error.response) {
+        return error.response.status;
+      }
+    });
+};
+
 export const createPost = async (
   payload
 ) => {
