@@ -25,7 +25,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import Weather from '../GoogleMap/Weather';
 import Maps from '../GoogleMap/CurrentLocation';
-import { setWeatherPosition } from 'src/redux/WalletReducer';
+import { setHashtagSearch, setWeatherPosition } from 'src/redux/WalletReducer';
+import { useHistory } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 const positions = [{
@@ -46,7 +47,7 @@ const Post = (props: any) => {
     const [isModalVisibleMap, setIsModalVisibleMap] = useState(false);
     const [isModalVisibleMapDirection, setIsModalVisibleMapDirection] = useState(false);
 
-    
+    const history = useHistory()
     
     const [liked, setLiked] = useState<boolean>(props?.item?.liked || false)
     const [numLikes, setNumLikes] = useState<any>(props?.item?.likes)
@@ -297,7 +298,11 @@ const Post = (props: any) => {
                             props?.item?.description ? 
                             <ReactHashtag
                                 renderHashtag={(hashtagValue) => (
-                                    <span className={cx(`hashtag`)} onClick={()=> console.log(hashtagValue)}><Tag color="#68d1c8">{hashtagValue}</Tag></span>
+                                    <span className={cx(`hashtag`)} onClick={()=> {
+                                        console.log(hashtagValue)
+                                        dispatch(setHashtagSearch({hashtag: hashtagValue}))
+                                         history.push(`/hashtagDetail`)
+                                    }}><Tag color="#68d1c8">{hashtagValue}</Tag></span>
                                 )}
                             >
                                 {props.item.description}

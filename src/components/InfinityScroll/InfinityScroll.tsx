@@ -19,7 +19,60 @@ import { NotificationAction } from 'src/pages/Layout/layout';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import { sleep } from 'src/containers/Newfeed/Newfeed';
- 
+import { useHistory } from 'react-router-dom';
+
+import classNames from 'classnames/bind';
+import styles from 'src/styles/UserList.module.scss';
+const cx = classNames.bind(styles);
+
+
+const FakeFollow2 = (props) => {
+  const socket: any = useSelector((state: RootState) => state.wallet.socket);
+
+  const [isFollow, setIsFollow] = useState<boolean>((props?.item?.followed && !props?.item?.isCurrentUser && (props?.typeList === 'followers' || props?.typeList === 'followings')) || 
+                (props?.item?.isFollowed && props?.typeList === 'likes'))
+  const handleFollow  = async (userId: string) => {
+    try {
+      const follow = await followId(userId)
+      socket.emit(SEND_NOTIFICATION, {
+        receiver: userId,
+        action: NotificationAction.Follow
+      })
+      return follow
+    }
+    catch (err){
+      console.log(err)
+    }
+  }
+
+  const handleUnFollow  = async (userId: string) => {
+    try {
+      const unfollow = await unfollowId(userId)
+      return unfollow
+    }
+    catch (err){
+      console.log(err)
+    }
+  }
+  return (
+    isFollow? (
+      <Button className={cx('button')} onClick={() => {
+        setIsFollow(!isFollow)
+        handleUnFollow(props?.item?.userId)
+      }}>
+        Unfollow
+      </Button>
+    ) : (
+      <Button className={cx('button')}  onClick={() => {
+          setIsFollow(!isFollow)
+         handleFollow(props?.item?.userId)
+        }}> 
+        Follow
+      </Button>
+      )
+  )
+}
+
 
 const InfinityList = (props: any) => {
 
@@ -32,7 +85,7 @@ const InfinityList = (props: any) => {
   const scrollRef: any = useBottomScrollListener(() => {
      totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
   });
-
+  const history = useHistory()
   const [data, setData] = useState<any>([]);
   const [totalItem, setTotalItem] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -42,7 +95,6 @@ const InfinityList = (props: any) => {
   const [trigger, setTrigger] = useState(false)
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
-  console.log(data, '-------', totalPage, '-------', currentPage)
   const appendData =  async (page?: number) => {
     let params = {}
     if(props?.typeList === 'followers' || props?.typeList === 'followings') {
@@ -78,36 +130,6 @@ const InfinityList = (props: any) => {
     
   };
 
-  const handleFollow  = async (userId: string) => {
-    try {
-      const follow = await followId(userId)
-      socket.emit(SEND_NOTIFICATION, {
-        receiver: userId,
-        action: NotificationAction.Follow
-      })
-      setCurentPage(0)
-      setData([])
-      setTrigger(!trigger)
-      return follow
-    }
-    catch (err){
-      console.log(err)
-    }
-  }
-
-  const handleUnFollow  = async (userId: string) => {
-    try {
-      const unfollow = await unfollowId(userId)
-      setCurentPage(0)
-      setData([])
-      setTrigger(!trigger)
-      return unfollow
-    }
-    catch (err){
-      console.log(err)
-    }
-  }
-
 
   useEffect(() => {
     appendData(currentPage);
@@ -122,33 +144,34 @@ const InfinityList = (props: any) => {
 
 
   return (
-     <div  ref={scrollRef } style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
-      {
-      data.map((item: any, index: any) => (
-            <div key={index} style={{width: '100%',display:'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '10px 0'}}>
-              <div>
-                <Avatar src={item?.avatar} />
-                <a href="https://ant.design">{item?.displayName}</a>
-                <div>{item?.userId}</div>
-              </div>
-              <div>
-                {
-                (item?.followed && !item?.isCurrentUser && (props?.typeList === 'followers' || props?.typeList === 'followings')) || 
-                (item?.isFollowed && props?.typeList === 'likes')
-                ? (
-                  <Button onClick={() => {handleUnFollow(item.userId)}}>
-                    Unfollow
-                  </Button>
-                ) : (
-                  <Button onClick={() => {handleFollow(item.userId)}}> 
-                    Follow
-                  </Button>
-                  )
-                }
-              </div>
-            </div>
-        ))
-      }
+     <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+
+      {data?.map((item: any, index: any) => {
+                return (
+                    <div key={index} className={cx('user-list-container')}>
+                      <div className={cx('user-left')}>
+                        <div onClick={() => {
+                             history.push(`/profile?userId=${item.userId}`)
+                          }}>
+                          <Avatar src={item?.avatar} size={40} className={cx('user-avatar')}
+                          
+                        />
+                        </div>
+                        
+                        <div className={cx('user-info')}> 
+                           <div className={cx('name')} onClick={() => {
+                             history.push(`/profile?userId=${item.userId}`)
+                          }}>{item?.displayName}</div>
+                        </div>
+                       
+                      </div>
+                      <div className={cx('user-right')}> 
+                        <FakeFollow2 item={item} typeList={props?.typeList}/>
+                      </div>
+                    </div>
+                  
+                )
+              })}
       {
       totalPage - 1 === currentPage || data?.length === 0 ? null : (
         <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
@@ -156,42 +179,6 @@ const InfinityList = (props: any) => {
     </div>
   )
 
-  return (
-    <List>
-      <VirtualList
-        data={data}
-        height={ContainerHeight}
-        itemHeight={47}
-        itemKey="email"
-        onScroll={onScroll}
-      >
-        {(item: any, index: any) => (
-          <List.Item key={index}>
-            <List.Item.Meta
-              avatar={<Avatar src={item?.avatar} />}
-              title={<a href="https://ant.design">{item?.displayName}</a>}
-              description={item?.userId}
-            />
-            <div>
-              {
-              (item?.followed && !item?.isCurrentUser && (props?.typeList === 'followers' || props?.typeList === 'followings')) || 
-              (item?.isFollowed && props?.typeList === 'likes')
-              ? (
-                <Button onClick={() => {handleUnFollow(item.userId)}}>
-                  Unfollow
-                </Button>
-              ) : (
-                <Button onClick={() => {handleFollow(item.userId)}}> 
-                  Follow
-                </Button>
-                )
-              }
-            </div>
-          </List.Item>
-        )}
-      </VirtualList>
-    </List>
-  );
 };
 
 export default InfinityList

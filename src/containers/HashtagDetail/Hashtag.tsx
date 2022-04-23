@@ -35,11 +35,14 @@ const HashtagDetail = (props: any) => {
   const [currentPage, setCurentPage] = useState(0);
   const [trigger, setTrigger] = useState(false)
   const [viewMoreLoading, setViewMoreLoading] = useState(false);
+  const [popular, setPopular] = useState<any>(null)
+
 const history = useHistory()
   const search = useLocation().search;
   const hashtag=new URLSearchParams(search).get("hashtag");
 
   const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch);
+  console.log(htag)
   useBottomScrollListener(() => {
     console.log('REACRT ENDNDNDN')
     handleFetchMore()
@@ -66,6 +69,7 @@ const history = useHistory()
       const totalPages = _.get(result, 'data.posts.meta.totalPages', 0);
       const itemsPerPage = _.get(result, 'data.posts.meta.perPage', 0);
       const currentPage = _.get(result, 'data.posts.meta.currentPage', 0);
+      const popular = _.get(result, 'data.popular', null);
       let temp = dataSrc.concat(dataSource)
       setDataSrc(temp);
       setTotalItem(parseInt(totalItem));
@@ -73,6 +77,7 @@ const history = useHistory()
       setItemsPerPage(parseInt(itemsPerPage));
       setCurentPage(parseInt(currentPage));
       setViewMoreLoading(false);
+      setPopular(popular)
     }
     catch (err) {
       setViewMoreLoading(false);
@@ -102,9 +107,12 @@ const history = useHistory()
                 <div className={cx('hashtag-name')}>
                   {htag?.hashtag}
                 </div>
-                <div className={cx('hashtag-posts')}>
-                  <b>{htag?.popular}</b> posts
-                </div>
+                {
+                  popular ?  <div className={cx('hashtag-posts')}>
+                  <b>{popular}</b> posts
+                  </div> : null
+                }
+               
               </div>
             ) : null
           }
