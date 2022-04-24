@@ -24,6 +24,7 @@ import ProfilePosts from './ProfilePosts';
 
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
+import { getNewFeedPost } from 'src/services/post-service';
  
 
 
@@ -38,19 +39,19 @@ const { TabPane } = Tabs;
 //   )
 // }
 
-const TabProfile = (userId) => (
-  <Tabs defaultActiveKey="1" centered tabPosition='top' style={{width: '100%'}}>
+const TabProfile = (userId) => {
+  return <Tabs defaultActiveKey="1" centered tabPosition='top' style={{width: '100%'}}>
     <TabPane tab="Posts" key="1">
       <ProfilePosts userId={userId}/>
     </TabPane>
-    <TabPane tab="Saved" key="2">
+    {/* <TabPane tab="Saved" key="2">
       Content of Tab Pane 2
     </TabPane>
     <TabPane tab="Tagged" key="3">
       Content of Tab Pane 3
-    </TabPane>
+    </TabPane> */}
   </Tabs>
-);
+};
 
 const Profile = (props: any) => {
   const scrollRef: any = useBottomScrollListener(() => {
@@ -62,28 +63,36 @@ const Profile = (props: any) => {
   const [isModalVisibleFollowers, setIsModalVisibleFollowers] = useState(false);
   const [isModalVisibleFollowings, setIsModalVisibleFollowings] = useState(false);
   const [scrollList, setScrollList] = useState<string | null>(null)
-  const [userId, setUserId] = useState<any>(null)
+  // const [userId, setUserId] = useState<any>(null)
+  const [totalPosts, setTotalPosts] = useState<any>(null)
   const history = useHistory()
    const params = useParams();
   const search = useLocation().search;
-  const x = new URLSearchParams(search).get("userId");
+  const userId = new URLSearchParams(search).get("userId");
   
   const handleCancel = () => {
     setIsModalVisibleFollowers(false)
     setIsModalVisibleFollowings(false)
   };
-  useEffect(() => {
-    console.log(x)
-    if(x) setUserId(x)
-    else setUserId(null)
-  }, [x])
 
   useEffect(() => {
+    // setUserId(x)
     getCurrentUserProfile(userId) 
   }, [userId])
+  
 
   const getCurrentUserProfile = async (userId?: any) => {
     try {
+
+    const params = {
+        postLimit: 'profile',
+      }
+      if(userId) {
+        params["userId"] = userId
+      }
+      const result = await getNewFeedPost(params)
+      const total = _.get(result, 'data.meta.totalItems', null);
+      setTotalPosts(total)
       if(userId) {
         const user = await getUserProfileById(userId.toString())
         setProfile(user)
@@ -122,30 +131,30 @@ const Profile = (props: any) => {
                 history.push('/account')
               }}
             >Edit profile</div>
-            <AiOutlineSetting style={{fontSize: '25px', margin: '0 5px', cursor: 'pointer', opacity: '0.5'}}/>
+            <AiOutlineSetting style={{fontSize: '25px', marginLeft: '15px', cursor: 'pointer'}}/>
           </Button>
         </div>
         <div className={cx('posts-follow')}>
           <div className={cx('total')}>
-            <span style={{width: '10px', fontWeight: 'bold'}}>10</span> posts
+            {totalPosts ? <><span style={{width: '10px', fontWeight: 'bold', fontSize: '22px'}}>{totalPosts}</span> posts</> : null}
           </div>
           <div className={cx('total')} onClick={() => {
               setIsModalVisibleFollowers(true)
             }}>
-             <span style={{width: '10px', fontWeight: 'bold'}}>{profile?.followers}</span>  followers
+             <span style={{width: '10px', fontWeight: 'bold', fontSize: '22px'}}>{profile?.followers}</span>  followers
           </div>
           <div className={cx('total')} onClick={() => {
               setIsModalVisibleFollowings(true)
             }}>
-             <span style={{width: '10px', fontWeight: 'bold'}}>{profile?.followings}</span>  followings
+             <span style={{width: '10px', fontWeight: 'bold', fontSize: '22px'}}>{profile?.followings}</span>  followings
           </div>
         </div>
         <div className={cx('bios')}>
           <div className={cx('gender')}>
-            Sex: {profile?.sex}
+            Giới tính: {profile?.sex}
           </div>
           <div className={cx('bio')}>
-            Bio: Contrary to popular belief, ced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+            Giới thiệu: {profile?.bio}
           </div>
         </div>
 
@@ -153,8 +162,8 @@ const Profile = (props: any) => {
      </div>
      </div>
 
-    <div className={cx('middle')}>
-    </div>
+    {/* <div className={cx('middle')}>
+    </div> */}
 
      <div className={cx('profile-body')}>
           <TabProfile userId={userId}/>

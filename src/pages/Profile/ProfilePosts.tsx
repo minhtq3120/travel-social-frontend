@@ -1,5 +1,5 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Button, DatePicker, Form, Input, Select, Tag, Tooltip, Upload, Switch, message, notification, InputNumber, Modal, Tabs } from 'antd';
+import { Button, DatePicker, Form, Input, Select, Tag, Tooltip, Upload, Switch, message, notification, InputNumber, Modal, Tabs, Spin } from 'antd';
 import classNames from 'classnames/bind';
 import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
@@ -25,6 +25,8 @@ import { getCurrentUser } from 'src/utils/utils';
 import { FaRegComment, FaRegHeart, FaShareAlt,FaRegShareSquare , FaLocationArrow, FaHeart} from 'react-icons/fa';
 import {BsFiles} from 'react-icons/bs'
 import PostDetail from 'src/components/PostDetail/PostDetail';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+const sleep = (ms = 1500) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const cx = classNames.bind(styles);
 const { TabPane } = Tabs;
@@ -40,6 +42,18 @@ const ProfilePosts = (props: any) => {
   const [postId, setPostId] = useState<any>(null)
   const [files, setFiles] = useState<any>([])
   const [item, setItem] = useState<any>(null)
+  
+
+  useBottomScrollListener(() => {
+    console.log('REACRT ENDNDNDN')
+    handleFetchMore()
+
+  });
+
+  const handleFetchMore = async () => {
+    await sleep();
+    setCurentPage(currentPage + 1)
+  }
 
   const handleCancel = () => {
         setPostId(null)
@@ -47,11 +61,10 @@ const ProfilePosts = (props: any) => {
         setItem(null)
         setIsModalVisibleDetail(false)
     };
-
   const getNewfeed = async (page?: number) => {
     try {
       const params = {
-        page: 0,
+        page: page,
         postLimit: 'profile',
 
       }
@@ -66,7 +79,9 @@ const ProfilePosts = (props: any) => {
       const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
       const currentPage = _.get(result, 'data.meta.currentPage', 0);
 
-      setDataSrc(dataSource);
+      let temp = dataSrc.concat(dataSource)
+      setDataSrc(temp);
+
       setTotalItem(parseInt(totalItem));
       setTotalPage(parseInt(totalPages));
       setItemsPerPage(parseInt(itemsPerPage));
@@ -80,7 +95,7 @@ const ProfilePosts = (props: any) => {
 
   useEffect(() => {
     getNewfeed(currentPage);
-  }, [currentPage, props?.userId]);
+  }, [currentPage]);
 
 
   return (
@@ -92,7 +107,6 @@ const ProfilePosts = (props: any) => {
         dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
           return (
             <div key={index} className={cx('profile-post')} onClick={() => {
-                console.log(item)
                 setItem(item)
                 setIsModalVisibleDetail(true)
                 setFiles(item.files)
@@ -146,6 +160,10 @@ const ProfilePosts = (props: any) => {
           )
         }) : null
       }
+      {
+      totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : (
+        <Spin size="large" style={{margin: '15px 0'}}/>
+      )}
       
       </div>
     </div>

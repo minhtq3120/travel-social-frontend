@@ -176,6 +176,8 @@ const Post = (props: any) => {
                                 src={props?.item?.userAvatar}
                                 alt="user-avatar"
                                 className={cx('user-avatar')}
+                                style={{cursor: 'pointer'}}
+                                onClick={() => {history.push(`/profile?userId=${props?.item?.userId}`)}}
                             />
                         ) : 
                         <BsPersonCircle style={{ fontSize: '40px', margin: '0 10px', cursor: 'pointer'}}/>
@@ -183,7 +185,9 @@ const Post = (props: any) => {
                     
                 </div>
                 <div className={cx(`name-time`)}>
-                    <div className={cx(`name`)}>
+                    <div className={cx(`name`)} style={{cursor: 'pointer'}}
+                    onClick={() => {history.push(`/profile?userId=${props?.item?.userId}`)}}    
+                    >
                         {props.item.userDisplayName}
                     </div>
                     <div className={cx(`time`)}>
@@ -259,29 +263,29 @@ const Post = (props: any) => {
                         {
                             liked ? (
                                 <>
-                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: '#68d1c8'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
-                                    <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
+                                    <FaRegHeart style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer', color: '#68d1c8'}}onClick={() => {handleUnlike(props?.item?.postId)}} />
+                                    <div style={{cursor: 'pointer' ,fontSize: '17px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
                             ) : (
                                 <>
-                                    <FaRegHeart style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
+                                    <FaRegHeart style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
                                         handleLike(props?.item?.postId, props?.item?.userId)
                                         }}
                                     /> 
-                                     <div style={{cursor: 'pointer'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
+                                     <div style={{cursor: 'pointer',fontSize: '17px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
                             )
                         }
                     </div>
                     <div className={cx('num')}>
-                        <FaRegComment style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
-                        {numComments}
+                        <FaRegComment style={{ fontSize: '30px', margin: '0 15px', cursor: 'pointer'}}/>
+                         <div style={{cursor: 'pointer',fontSize: '17px'}}>{numComments}</div>
                     </div>
 
-                    <div className={cx('num')}>
-                        <FaRegShareSquare style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
-                        10
-                    </div>
+                    {/* <div className={cx('num')}>
+                        <FaRegShareSquare style={{ fontSize: '30px', margin: '0 15px', cursor: 'pointer'}}/>
+                         <div style={{cursor: 'pointer',fontSize: '17px'}}></div>10
+                    </div> */}
                     
                 </div>
                 <div className={cx(`right`)}>

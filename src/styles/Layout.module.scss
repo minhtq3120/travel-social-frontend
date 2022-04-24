@@ -1,7 +1,7 @@
 .header {
   display: flex;
-  background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%) !important;
-  background-color: white;
+  // background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%) !important;
+  background-color: white I !important;
   // border: 0.2px grey solid;
   // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   align-items: center;
@@ -11,12 +11,13 @@
   z-index: 1000;
 
 }
+
 .content {
   padding-left: 23px;
   padding-right: 16px;
-  
+
 }
 
 .body {
-  margin-top: 60px ;
+  margin-top: 60px;
 }

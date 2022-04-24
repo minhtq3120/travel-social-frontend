@@ -154,3 +154,7 @@ input:-webkit-autofill:active {
 /* .ant-steps-item-process .ant-steps-item-icon {
   background: white !important;
 } */
+
+.ant-layout-header {
+  background-color: #68d1c8 !important;
+}
