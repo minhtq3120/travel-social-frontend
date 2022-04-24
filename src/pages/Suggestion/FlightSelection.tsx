@@ -93,12 +93,13 @@ const FlightSelect = (props: any) => {
     date_departure: null,
     class_type: CLASS_TYPE.ECO,
     itinerary_type: ITINERARY_TYPE.ONE_WAY,
-    location_arrival: 'SGN',
-    location_departure: 'HAN',
+    location_arrival: null,
+    location_departure: null,
     sort_order: 'PRICE',
     date_departure_return: null,
     // number_of_passengers: '2'
   })
+  
 
  
   function disabledDate(current) {
@@ -124,36 +125,42 @@ const FlightSelect = (props: any) => {
     //   console.log(rs)
     //   setAirline(rs?.airline)
     //   setData(rs)
-    setData(dataRoundTrop)
-    setAirline(dataRoundTrop.airline)
     // }
-    
+     setData(dataRoundTrop)
+    setAirline(dataRoundTrop.airline)
   }
 
   useEffect(() => {
     if(props?.destinationInfo) {
-      getAirportSelect(props?.destinationInfo?.lat, props?.destinationInfo?.lon, 'from')
+      getAirportSelect(props?.destinationInfo?.lat, props?.destinationInfo?.lon, 'to')
     }
   }, [props?.destinationInfo])
 
   useEffect(() => {
     if(currentPosition) {
-      getAirportSelect(currentPosition[0], currentPosition[1], 'to')
+      console.log(currentPosition)
+      getAirportSelect(currentPosition[0], currentPosition[1], 'from')
     }
   }, [currentPosition])
 
   const getAirportSelect = async (lat: number, lon:number, type: string) => {
     // const suggest = await getAirport(lat, lon, {});
     // const rs = _.get(suggest, 'data', null);
-    // if(type==='from') setAirportFrom(rs)
-    // if(type==='to') setAirportTo(rs)
-    //console.log("++++++++++++++++++++++++++",rs)
+    // if(type==='from') {
+    //   setFlightForm({...flightForm, location_departure: rs?.items[0]?.iata})
+    //   setAirportFrom(rs)
+    // }
+    // if(type==='to') {
+    //   setFlightForm({...flightForm, location_arrival: rs?.items[0]?.iata})
+    //   setAirportTo(rs)
+    // }
+    // console.log("++++++++++++++++++++++++++",rs)
 
     if(type==='from') setAirportFrom(flightFrom)
     if(type==='to') setAirportTo(flightTo)
   }
 
-  
+  console.log("FROM", airportFrom, "To", airportTo)
   useEffect(() => {
 
   }, [])

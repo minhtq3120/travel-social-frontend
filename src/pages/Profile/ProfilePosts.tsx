@@ -42,6 +42,7 @@ const ProfilePosts = (props: any) => {
   const [postId, setPostId] = useState<any>(null)
   const [files, setFiles] = useState<any>([])
   const [item, setItem] = useState<any>(null)
+  const [trigger, setTrigger] = useState<boolean>(false)
   
 
   useBottomScrollListener(() => {
@@ -94,8 +95,14 @@ const ProfilePosts = (props: any) => {
   }
 
   useEffect(() => {
+    setDataSrc([])
+    if(currentPage === 0) setTrigger(!trigger)
+    setCurentPage(0)
+  }, [props?.userId?.userId])
+
+  useEffect(() => {
     getNewfeed(currentPage);
-  }, [currentPage]);
+  }, [currentPage, trigger]);
 
 
   return (

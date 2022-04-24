@@ -167,7 +167,7 @@
   }
 
   .right {
-    width: 70% !important;
+    width: auto !important;
     height: auto;
     position: relative;
     border-radius: 5px;
@@ -185,10 +185,10 @@
       border-radius: 10px;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      align-content: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+      gap: 20px;
       background-color: white;
       box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
         rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
@@ -205,7 +205,7 @@
         justify-content: center;
         position: relative;
         z-index: 999;
-        flex: 1;
+        // flex: 1;
 
         .title {
           position: absolute;
@@ -234,6 +234,7 @@
           border-radius: 10px !important;
           height: 200px;
           object-fit: cover;
+          flex: 1
         }
 
         .info {
