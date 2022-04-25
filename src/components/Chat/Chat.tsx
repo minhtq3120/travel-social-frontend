@@ -42,6 +42,7 @@ const Chat = (props: any) => {
   const [form] = Form.useForm();
   const handleFetchMore = async () => {
     await sleep();
+    console.log("DIT CON ME MAY")
     setCurentPage(currentPage + 1)
   }
   const scrollRef: any = useBottomScrollListener(() => {
@@ -89,14 +90,15 @@ const Chat = (props: any) => {
     })
     // getCurrentUser()
   }, [socket])
-
   useEffect(() => {
     console.log("TRIGGER ACTIVE")
     if(trigger && messages)setMessages([...messages, trigger])
   }, [trigger])
 
+
   const getChatDetail = async (groupChatId: string) => {
     let params =  {
+      // perPage:20,
         groupChatId,
     }
     const result = await getChatDetailById(params)
@@ -120,10 +122,10 @@ const Chat = (props: any) => {
       ]})
       setMessages(mapMess);
       dispatch(setOldChat(mapMess))
-      // setTotalItem(parseInt(totalItem));
-      // setTotalPage(parseInt(totalPages));
-      // setItemsPerPage(parseInt(itemsPerPage));
-      // setCurentPage(parseInt(currentPage));
+      setTotalItem(parseInt(totalItem));
+      setTotalPage(parseInt(totalPages));
+      setItemsPerPage(parseInt(itemsPerPage));
+      setCurentPage(parseInt(currentPage));
     }
   }
 

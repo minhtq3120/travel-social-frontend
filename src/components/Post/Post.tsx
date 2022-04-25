@@ -196,7 +196,11 @@ const Post = (props: any) => {
                 </div>
             </div>
             <div className={cx(`right`)}>
-                <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}/>
+                <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}}
+                    onClick={() => {
+                        history.push(`/postDetail?postId=${props?.item?.postId}`)
+                    }}
+                />
             </div>
         </div>
         {

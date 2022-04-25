@@ -16,7 +16,7 @@ import { OPP_NO_ADMIN, OPP_SOMETHING_WRONG, WRONG_EMAIL_OR_PASSWORD } from 'src/
 import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register } from 'src/services/auth-service';
-import { getFollowers, getFollowing } from 'src/services/follow-service';
+import { followId, getFollowers, getFollowing, unfollowId } from 'src/services/follow-service';
 import { getCurrUserProfile, getUserProfileById } from 'src/services/user-service';
 import styles from 'src/styles/Profile.module.scss';
 import { getCurrentUser } from 'src/utils/utils';
@@ -25,6 +25,8 @@ import ProfilePosts from './ProfilePosts';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import { getNewFeedPost } from 'src/services/post-service';
+import { SEND_NOTIFICATION } from 'src/components/Notification/Notification';
+import { NotificationAction } from '../Layout/layout';
  
 
 
@@ -52,6 +54,55 @@ const TabProfile = (userId) => {
     </TabPane> */}
   </Tabs>
 };
+
+const FakeFollow3 = (props) => {
+  const socket: any = useSelector((state: RootState) => state.wallet.socket);
+  const [isFollow, setIsFollow] = useState<boolean>(props?.profile?.isFollowed)
+  useEffect(() => {
+    setIsFollow(props?.profile?.isFollowed)
+  }, [props?.profile?.isFollowed])
+  const handleFollow  = async (userId: string) => {
+    try {
+      const follow = await followId(userId)
+      socket.emit(SEND_NOTIFICATION, {
+        receiver: userId,
+        action: NotificationAction.Follow
+      })
+      return follow
+    }
+    catch (err){
+      console.log(err)
+    }
+  }
+
+  const handleUnFollow  = async (userId: string) => {
+    try {
+      const unfollow = await unfollowId(userId)
+      return unfollow
+    }
+    catch (err){
+      console.log(err)
+    }
+  }
+  return (
+    isFollow? (
+     <Button className={cx('follow-btn')}
+                    onClick={() => {
+        setIsFollow(!isFollow)
+        handleUnFollow(props?.userId)
+      }}>
+       <div className={cx('text')} >Unfollow</div>
+      </Button>
+    ) : (
+      <Button className={cx('follow-btn')} onClick={() => {
+          setIsFollow(!isFollow)
+         handleFollow(props?.userId)
+        }}> 
+        <div className={cx('text')} >Follow</div>
+      </Button>
+      )
+  )
+}
 
 const Profile = (props: any) => {
   const scrollRef: any = useBottomScrollListener(() => {
@@ -106,7 +157,6 @@ const Profile = (props: any) => {
       console.log(err)
     }
   }
-
   return (
     <>
    <div className={cx('profile-container')}>
@@ -125,14 +175,20 @@ const Profile = (props: any) => {
       <div className={cx('info')}> 
         <div className={cx('name-follow')}>
           <div className={cx('name')}>{profile?.displayName}</div>
-          <Button className={cx('follow-btn')}>
-            <div className={cx('text')}
-              onClick={() => {
-                history.push('/account')
-              }}
-            >Edit profile</div>
-            <AiOutlineSetting style={{fontSize: '25px', marginLeft: '15px', cursor: 'pointer'}}/>
-          </Button>
+         
+            {   
+              profile?.isCurrentUser ? (
+                 <Button className={cx('follow-btn')}>
+                    <div className={cx('text')}
+                      onClick={() => {
+                        history.push('/account')
+                      }}
+                    >Edit profile</div>
+                    <AiOutlineSetting style={{fontSize: '25px', marginLeft: '15px', cursor: 'pointer'}}/>
+                 </Button>
+              )
+               : <FakeFollow3 profile={profile} userId={userId}/>
+            }
         </div>
         <div className={cx('posts-follow')}>
           <div className={cx('total')}>

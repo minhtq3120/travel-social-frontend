@@ -404,7 +404,7 @@ const CreateNewPost = memo(
               ({ getFieldValue }) => ({
                 validator(_, value: string) {
                   console.log(value)
-                  if (!value || !placeId) {
+                  if (!value) {
                     return Promise.reject(
                       new Error('Please select location')
                     );

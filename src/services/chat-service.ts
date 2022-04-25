@@ -23,8 +23,8 @@ export const getChatDetailById = async (params) => {
         const queryPage = `/${params.groupChatId}`;
         queryString = queryString.concat(queryPage);
     }
-    if (params?.page) {
-        const queryPage = `?page=${params.page}`;
+    if (params?.perPage) {
+        const queryPage = `?perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);
     }
     console.log(queryString)

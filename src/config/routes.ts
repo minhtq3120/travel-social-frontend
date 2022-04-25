@@ -54,4 +54,8 @@ export const routes = [
     path: "/searchDetail",
     component: LayoutComponent
   },
+  {
+    path: "/postDetail",
+    component: LayoutComponent
+  },
 ];

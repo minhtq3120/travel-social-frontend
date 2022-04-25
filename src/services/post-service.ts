@@ -75,3 +75,17 @@ export const createPost = async (
       }
     });
 };
+
+
+export const getPostDetail = async (
+  postId
+) => {
+  let queryString = `/post/post/${postId}`;
+  return await axiosInstance
+    .get(queryString)
+    .catch(function (error) {
+      if (error.response) {
+        return error.response.status;
+      }
+    });
+};

@@ -1,33 +1,32 @@
 .post-detail-container {
-  width: 1400px;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   align-content: center;
+  margin-top: 30px;
 
 
   .post-left {
     width: 900px;
-    height: 900px;
+    height: 800px;
     background-color: white;
 
     .slider-container2 {
-      background-color: black;
 
       .img-video-container {
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
-        background-color: black;
         width: 100%;
-        height: 900px;
+        height: 800px;
 
         .img {
           width: 900px;
-          height: 900px;
+          height: 800px;
           object-fit: cover;
         }
       }
@@ -70,6 +69,7 @@
       justify-content: flex-start;
       padding: 0 15px;
 
+      // height: 7;
       .comment-info {
         display: flex;
         flex-direction: row;

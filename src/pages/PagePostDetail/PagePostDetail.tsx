@@ -1,7 +1,7 @@
 import { Button, Form, Input, List, Spin, Tag } from 'antd';
 import classNames from 'classnames/bind';
 import React, { useCallback, useEffect, useState } from 'react';
-import styles from 'src/styles/PostDetail.module.scss';
+import styles from 'src/styles/PagePostDetail.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import { BsThreeDots, BsPersonCircle,BsFlag } from 'react-icons/bs';
 import { AiOutlineHeart , AiOutlineShareAlt} from 'react-icons/ai';
@@ -15,21 +15,66 @@ import AwesomeSlider from 'react-awesome-slider';
 import moment from 'moment';
 import { getLikeOfPots, likePost, unLikePost } from 'src/services/like-service';
 import Modal from 'antd/lib/modal/Modal';
-import InfinityList from '../InfinityScroll/InfinityScroll';
 import { followId, unfollowId } from 'src/services/follow-service';
 import _ from 'lodash'
 import { commentToPost, getCommentsOfPost, getReplyOfComment, replyToComment } from 'src/services/comment-service';
 import VirtualList from 'rc-virtual-list';
 import Avatar from 'antd/lib/avatar/avatar';
-import Reply from './Reply';
+import Reply from './PostReply';
 import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
+import { getPostDetail } from 'src/services/post-service';
+import { useLocation } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 const ContainerHeight = 850;
 
-const PostDetail = (props: any) => {
+const ListReplys = (props) => {
+    const [item, setItem] = useState(props?.item)
+    
+    return (
+        <Reply commentId={item?.item?.commentId} 
+        // form={form} setReplyCommentId={setReplyCommentId}
+        />
+    )
+}
+
+const ReplyNoOneSeeThis = (props) => {
+    const [showReply, setShowReply] = useState(props?.showReply)
+    const [item, setItem] = useState(props?.item)
+
+    return (
+        <>
+            {
+                item?.replys <= 0 ? null   
+                : showReply.includes(item?.commentId) ? <div className={cx('view-replys')} onClick={() => {
+                    let temp = showReply.filter((it:any) => it !== item.commentId)
+                    setShowReply(temp)
+                    props?.setShowReply(temp)
+                }}>
+                    {`----- Hide replies (${item?.replys}) -----`}
+                </div>  : <div className={cx('view-replys')} onClick={() => {
+                    let temp = showReply
+                    console.log('?????')
+                    temp.push(item?.commentId)
+                    setShowReply(temp)
+                    props?.setShowReply(temp)
+                }}>
+                    {`----- View replies (${item?.replys}) -----`}
+                </div> 
+            }
+            {
+                props?.showReply.includes(item?.commentId) ? (
+                    <ListReplys item={item}/>
+                ) : null
+            }
+        </>
+        
+    )
+}
+
+const PagePostDetail = (props: any) => {
 
     const handleFetchMore = async () => {
     await sleep();
@@ -38,6 +83,10 @@ const PostDetail = (props: any) => {
     const scrollRef: any = useBottomScrollListener(() => {
         totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
     });
+
+    const search = useLocation().search;
+    const postId=new URLSearchParams(search).get("postId");
+
     const [data, setData] = useState<any>([]);
 
     const [totalItem, setTotalItem] = useState(0);
@@ -47,13 +96,15 @@ const PostDetail = (props: any) => {
     const [trigger, setTrigger] = useState(false)
     const [replyCommentId, setReplyCommentId] = useState(null)
 
+    const [postDetailInfo, setPostDetailInfo] = useState<any>(null)
+
     const [form] = Form.useForm();
     const [showReply, setShowReply] = useState<any>([])
 
 
-    const appendData =  async (page?: number) => {
+    const appendData =  async (postId:string, page?: number) => {
         let params = {
-            postId: props.postId,
+            postId: postId,
             page: page
         }
         const result = await getCommentsOfPost(params)
@@ -75,12 +126,24 @@ const PostDetail = (props: any) => {
         }
     };
 
+    const getPostDetailInfo = async (postId: string) => {
+        const result = await getPostDetail(postId)
+        if(result) {
+            const rs = _.get(result, 'data', null);
+            setPostDetailInfo(rs)
+        }
+    }
+
 
     useEffect(() => {
-        appendData(currentPage);
-    }, [currentPage, trigger, props?.postId]);
+        if(postId) getPostDetailInfo(postId)
+    }, [postId])
 
+    useEffect(() => {
+       if(postId) appendData(postId, currentPage);
+    }, [currentPage, trigger, postId]);
 
+    
 
     const properties = {
         duration: 5000,
@@ -112,8 +175,9 @@ const PostDetail = (props: any) => {
     }
 
 
+
     const ListComments = useCallback(() => {
-     return <div  ref={scrollRef } style={{width: '100%',height: '93%', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+     return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
          {
             data.map((item: any, index: any) => (
                  <div className={cx('comment-container')} key={index}>
@@ -131,7 +195,30 @@ const PostDetail = (props: any) => {
                         }}>{`Reply`}</div>
                     </div>
                     <ListReplys item={item}/>
-                
+                    {/* {
+                        item?.replys <= 0 ? null   
+                        : showReply.includes(item?.commentId) ? <div className={cx('view-replys')} onClick={() => {
+                            let temp = showReply.filter((it:any) => it !== item.commentId)
+                            setShowReply(temp)
+                        }}>
+                            {`----- Hide replies (${item?.replys}) -----`}
+                            <ListReplys item={item}/>
+                        </div>  : <div className={cx('view-replys')} onClick={() => {
+                            let temp = showReply
+                            console.log('?????')
+                            temp.push(item?.commentId)
+                            setShowReply(temp)
+                        }}>
+                            {`----- View replies (${item?.replys}) -----`}
+                        </div> 
+                    } */}
+
+                    {/* {
+                        showReply.includes(item?.commentId) ? ( */}
+                            
+                        {/* ) : null
+                    } */}
+                {/* <ReplyNoOneSeeThis item={item} showReply={showReply} setShowReply={setShowReply}/> */}
                 </div>
             ))
         }
@@ -142,16 +229,16 @@ const PostDetail = (props: any) => {
             </div>  
         )}
     </div>
-    }, [data])
+    }, [data, showReply])
 
-    const Slideshow = () => {
+    const Slideshow = (props) => {
         return (
         <div className={`slide-container ${cx('slider-container2')}`} >
             <Slide
                 {...properties}
             >
                 {
-                    props?.images?.map((item: any, index: any) => {
+                    props?.detail?.files?.map((item: any, index: any) => {
                         return (
                             <div key={index} className={cx('img-video-container')}>
                                 {
@@ -177,9 +264,9 @@ const PostDetail = (props: any) => {
     const handleFinish = async (values) => {
         try {
             console.log(values)
-            props.setNumComments(props.numComments + 1)
+            // props.setNumComments(props.numComments + 1)
             const addCommentToPost = {
-                postId: props.postId,
+                postId: postId,
                 comment: values.comment
             }
             const addReplyComment = {
@@ -201,14 +288,17 @@ const PostDetail = (props: any) => {
 
     return (
         <div className={cx(`post-detail-container`)}>
+            {
+                !postDetailInfo ? null : 
+                <>
             <div className={cx(`post-left`)}>
-                <Slideshow/>
+                <Slideshow detail={postDetailInfo}/>
              </div>
              <div className={cx(`post-right`)}>
                  <div className={cx('info')}>
                     <div className={cx('left')}>
-                         <Avatar src={props?.info?.userAvatar} />
-                        <div className={cx('name')}>{props?.info?.userDisplayName}</div>
+                         <Avatar src={postDetailInfo?.userAvatar} />
+                        <div className={cx('name')}>{postDetailInfo?.userDisplayName}</div>
                     </div>
                     
                     <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} />
@@ -251,8 +341,11 @@ const PostDetail = (props: any) => {
                 </Form.Item>
             </Form>
             </div>
+            </>
+            }
          </div>
+         
   );
 };
 
-export default PostDetail;
+export default PagePostDetail;

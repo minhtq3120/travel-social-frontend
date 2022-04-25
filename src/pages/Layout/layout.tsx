@@ -28,6 +28,7 @@ import Suggestion from '../Suggestion/Suggestion';
 import SuggestionDetail from '../Suggestion/SuggestionDetail';
 import HashtagDetail from 'src/containers/HashtagDetail/Hashtag';
 import SearchDetail from 'src/containers/SearchDetail/SearchDetail';
+import PagePostDetail from '../PagePostDetail/PagePostDetail';
 
 export enum NotificationAction {
   Like = 'like',
@@ -236,6 +237,14 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <SearchDetail />
+            </Content>
+          </Layout>
+        </Route>
+
+         <Route exact path="/postDetail">
+          <Layout className={cx('body')}>
+            <Content>
+              <PagePostDetail />
             </Content>
           </Layout>
         </Route>

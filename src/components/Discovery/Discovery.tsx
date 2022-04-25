@@ -94,6 +94,7 @@ const Discovery = (props: any) => {
 
         fetchDiscovery()
     }, [])
+    
 
     const fetchDiscoveryDetail  = async (page?: number) => {
         let params = {
@@ -128,6 +129,7 @@ const Discovery = (props: any) => {
         let temp: any  = []
         if(data?.length > 0) data?.map((item) => {
             return temp.push({
+                postId: item?.postId,
                 src: item?.files[0].url,
                 thumbnail: item?.files[0].type ===  'image' ? item.files[0].url  : "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
                 thumbnailWidth: Math.floor(Math.random() * (450 - 250) ) + 250,
@@ -157,6 +159,11 @@ const Discovery = (props: any) => {
         slidesToShow: 3,
         slidesToScroll: 1,
     };
+
+    function myTileViewportStyleFn(props) {
+        if (props?.item?.isSelected)
+            console.log(props)
+        }
 
     const Slideshow = () => {
         return (
@@ -239,6 +246,7 @@ const Discovery = (props: any) => {
                     rowHeight={300}
                     margin={10}
                     onClickThumbnail={(e) => {console.log('asdfjkladsfkl', e)}}
+                    // tileViewportStyle={myTileViewportStyleFn}
                 />
                 {
                 totalPage - 1 === currentPage || data?.length === 0 ? null : (
