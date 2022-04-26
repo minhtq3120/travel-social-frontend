@@ -83,7 +83,8 @@ const Search = (props: any) => {
     }
     
   };
-
+    // console.log('====', data , '===', currentPage, '===', totalPage, "__________________", totalPage - 1 === currentPage)
+  
   useEffect(() => {
     if(keyword?.length > 0) appendData(keyword, currentPage);
     else setData([])
@@ -140,7 +141,7 @@ const Search = (props: any) => {
                         ))
                         }
                         {
-                        totalPage - 1 === currentPage || data?.length === 0 ? null : (
+                        totalPage - 1 === currentPage || data?.length === 0 || (totalPage === 0 && currentPage === 0) ? null : (
                             <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
                                 <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
                             </div>  

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { List, message, Avatar, Skeleton, Divider, Button, Spin, Form, Input, Modal } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import { followId, getFollowers, getFollowing, unfollowId } from 'src/services/follow-service';
@@ -30,6 +30,10 @@ import moment from 'moment';
 import Search from './SearchUserChat';
 import { setOldChat } from 'src/redux/WalletReducer';
 import { getCurrUserProfile } from 'src/services/user-service';
+import { MessageList } from 'react-chat-elements'
+import ScrollToBottom,  { useScrollToBottom, useSticky , useAtTop} from 'react-scroll-to-bottom';
+import { css } from '@emotion/css';
+
 
 const JOIN_ROOM ='joinRoom';
 const JOIN_ROOM_SUCCESS ='joinRoomSuccess'
@@ -42,11 +46,22 @@ const Chat = (props: any) => {
   const [form] = Form.useForm();
   const handleFetchMore = async () => {
     await sleep();
-    console.log("DIT CON ME MAY")
     setCurentPage(currentPage + 1)
   }
   const scrollRef: any = useBottomScrollListener(() => {
      totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
+  });
+  
+
+
+  const handleFetchMore2 = async () => {
+    await sleep();
+    console.log("DIT CON ME MAY")
+    setCurentPage2(currentPage2 + 1)
+  }
+  const scrollRef2: any = useBottomScrollListener(() => {
+    console.log('HELLLO')
+     totalPage2 - 1 === currentPage2 || messages?.length === 0 ? null : handleFetchMore2()
   });
 
   const dispatch = useDispatch()
@@ -65,7 +80,13 @@ const Chat = (props: any) => {
 
   const [chatDetail, setChatDetail] = useState<any>(null)
   const [createNewChat, setCreateNewChat] = useState<boolean>(false)
+
   const [messages, setMessages] = useState<any>(null)
+  const [totalItem2, setTotalItem2] = useState(0);
+  const [totalPage2, setTotalPage2] = useState(0);
+  const [itemsPerPage2, setItemsPerPage2] = useState(5);
+  const [currentPage2, setCurentPage2] = useState(0);
+
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
   const oldMessages: any = useSelector((state: RootState) => state.wallet.oldChat);
   const getCurrentUser = async() => {
@@ -92,13 +113,17 @@ const Chat = (props: any) => {
   }, [socket])
   useEffect(() => {
     console.log("TRIGGER ACTIVE")
-    if(trigger && messages)setMessages([...messages, trigger])
+    if(trigger && messages){
+      let temp = [trigger].concat(messages)
+      setMessages(temp)
+    }
   }, [trigger])
 
 
-  const getChatDetail = async (groupChatId: string) => {
+  const getChatDetail = async (groupChatId: string, page) => {
     let params =  {
-      // perPage:20,
+      page: page,
+      perPage:20,
         groupChatId,
     }
     const result = await getChatDetailById(params)
@@ -111,7 +136,7 @@ const Chat = (props: any) => {
 
       
       let mapMess: any = []
-      dataSource.reverse().map((item) => {[
+      dataSource.map((item) => {[
         mapMess.push(
           new Message({
             id: item?.isCurrentUserMessage ? 0 : item?.userId,
@@ -120,18 +145,22 @@ const Chat = (props: any) => {
           })
         )
       ]})
-      setMessages(mapMess);
-      dispatch(setOldChat(mapMess))
-      setTotalItem(parseInt(totalItem));
-      setTotalPage(parseInt(totalPages));
-      setItemsPerPage(parseInt(itemsPerPage));
-      setCurentPage(parseInt(currentPage));
+      let temp: any = []
+      if(!messages) temp = mapMess
+      else temp = messages.concat(mapMess)
+      console.log(temp)
+      setMessages(temp);
+      dispatch(setOldChat(temp))
+      setTotalItem2(parseInt(totalItem));
+      setTotalPage2(parseInt(totalPages));
+      setItemsPerPage2(parseInt(itemsPerPage));
+      setCurentPage2(parseInt(currentPage));
     }
   }
 
   useEffect(() => {
-    if(chatDetail?._id) getChatDetail(chatDetail?._id)
-  }, [chatDetail])
+    if(chatDetail?._id) getChatDetail(chatDetail?._id, currentPage2)
+  }, [chatDetail, currentPage2])
 
   const handleCancel = () => {
         setIsModalVisiblNewChat(false)
@@ -139,10 +168,15 @@ const Chat = (props: any) => {
 
     const handleFinish = async (values) => {
         try {
-            setMessages([...messages, new Message({
+          let temp = [new Message({
                id:  0,
                message: values.message
-            })])
+            })].concat(messages)
+            // setMessages([...messages, new Message({
+            //    id:  0,
+            //    message: values.message
+            // })])
+            setMessages(temp)
             socket.emit(SEND_MESSAGE, {
               message: values.message,
               chatGroupId: chatDetail._id || chatDetail?.chatGroupId
@@ -154,6 +188,7 @@ const Chat = (props: any) => {
             console.log(err)
         }
     }
+    // console.log('====', messages , '===', currentPage2, '===', totalPage2)
     const ListRecentsChat = () => {
      return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
          {
@@ -162,6 +197,8 @@ const Chat = (props: any) => {
                   key={index}
                   onClick={() => {
                     console.log(item)
+                    setMessages([])
+                    setCurentPage2(0)
                     setChatDetail({
                       avatar: item?.image[0] || '',
                       _id: item.chatGroupId,
@@ -222,6 +259,7 @@ const Chat = (props: any) => {
   useEffect(() => {
     appendData(currentPage);
   }, [currentPage]);
+
 
   const handleCreateChat = async (payload) => {
     try {
@@ -297,6 +335,148 @@ const Chat = (props: any) => {
      )
   }
 
+  const onScroll = async () => {
+    if (scrollRef2.current) {
+      const { scrollTop, scrollHeight, clientHeight } = scrollRef2.current;
+      console.log('======', scrollTop, '========', scrollHeight, "========", clientHeight)
+      if ((-(clientHeight - scrollHeight) + scrollTop < 10) && !( totalPage2 - 1 === currentPage2 || messages?.length === 0  || (totalPage2 === 0 && currentPage2 === 0))) {
+        // TO SOMETHING HERE
+        await sleep()
+        setCurentPage2(currentPage2 + 1)
+      }
+    }
+  };
+
+
+
+
+  const ChatInbox2 = ()  => {
+    // const messagesEndRef: any = useRef(null);
+    // const scrollToBottom = () => {
+    //   console.log('????')
+    //   messagesEndRef?.current?.scrollIntoView({ behavior: "smooth" });
+    // };
+    // useEffect(scrollToBottom, [messages]);
+     return (
+       messages?
+        <div ref={scrollRef2} style={{width: '95%', overflowX: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'column-reverse', height: '650px'}}
+       onScroll={() => onScroll()}
+       >
+         
+          {
+            messages.map((mess, index) => {
+              return (
+                <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
+                  <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>
+                   {
+                     mess.id === 0 ? (
+                       <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: '#68d1c8', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
+                     ) : (
+                       <>
+                       {
+                         messages[index]?.id !== messages[index+1]?.id ? 
+                           <div style={{fontSize: '15px', fontWeight: 'bold', opacity: '0.7', marginLeft: '60px', marginBottom: '5px'}}>{mess?.senderName}</div>
+                        : null
+                       }
+                        <div style={{width: 'auto',display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}} >
+                        {messages[index]?.id === messages[index-1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden'}} /> : (
+                          <>
+                           <Avatar size={40} style={{margin: '0 10px'}} />
+                          </>
+                       
+                        )}
+                          
+                          <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: 'lightgrey', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
+                          </div>
+                        {/* <div style={{fontSize: '15px', opacity: '0.8', marginLeft: '15px'}}>{mess?.senderName}</div> */}
+                       </>
+
+                     )
+
+                       
+                   }
+                    
+                  </div>
+                </div>
+              )
+            })
+          }  
+           {
+          totalPage2 - 1 === currentPage2 ||  messages?.length === 0 || (totalPage2 === 0 && currentPage2 === 0) ? null : (
+              <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                  <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+              </div>  
+          )}
+          
+        </div> : null
+     )
+  }
+  const ROOT_CSS = css({
+    height: 650,
+    width: '95%'
+  });
+
+  const ChatInbox3 = ()  => {
+    const [atTop] = useAtTop();
+    const [sticky] = useSticky();
+    console.log(sticky)
+
+     return (
+       messages?
+        // <div ref={scrollRef2} style={{width: '95%', overflowX: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'column-reverse', minHeight: '650px'}}
+        // >
+           <ScrollToBottom className={ROOT_CSS}  mode="top"  sticky={true}
+           >
+          {
+          totalPage2 - 1 === currentPage2 ||  messages?.length === 0 ? null : (
+              <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                  <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+              </div>  
+          )}
+          {
+            messages.map((mess, index) => {
+              return (
+                <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
+                  <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>
+                   {
+                     mess.id === 0 ? (
+                       <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: '#68d1c8', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
+                     ) : (
+                       <>
+                       {
+                         messages[index]?.id !== messages[index-1]?.id ? 
+                           <div style={{fontSize: '15px', fontWeight: 'bold', opacity: '0.7', marginLeft: '60px', marginBottom: '5px'}}>{mess?.senderName}</div>
+                        : null
+                       }
+                        <div style={{width: 'auto',display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}} >
+                        {messages[index]?.id === messages[index+1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden'}} /> : (
+                          <>
+                           <Avatar size={40} style={{margin: '0 10px'}} />
+                          </>
+                       
+                        )}
+                          
+                          <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: 'lightgrey', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
+                          </div>
+                        {/* <div style={{fontSize: '15px', opacity: '0.8', marginLeft: '15px'}}>{mess?.senderName}</div> */}
+                       </>
+
+                     )
+
+                       
+                   }
+                    
+                  </div>
+                </div>
+              )
+            })
+          }  
+          </ScrollToBottom>
+        //  </div>
+         : null
+     )
+  }
+
   const ChatDetail = () => {
     return (
       chatDetail  ?
@@ -305,7 +485,7 @@ const Chat = (props: any) => {
               <Avatar src={chatDetail?.avatar} className={cx(`avatar`)}/>
               <div className={cx('name')}>{chatDetail?.chatGroupName}</div>
           </div>
-          <ChatInbox />
+          <ChatInbox2 />
           <Form
               form={form}
               className={cx('footer-footer')}
