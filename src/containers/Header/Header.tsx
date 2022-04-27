@@ -31,9 +31,10 @@ import { RootState } from 'src/redux/store';
 import CreateNewPost from 'src/components/CreateNewPosts/CreateNewPost';
 import InfinityList from 'src/components/InfinityScroll/InfinityScroll';
 import { getFollowers } from 'src/services/follow-service';
-import NotificationList from 'src/components/Notification/Notification';
+import NotificationList, { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
 import SearchBar from './SearchBar';
-import { setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
+import { setChatNotSeen, setNotiNotSeen, setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
+import { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -55,14 +56,14 @@ const HeaderContainer = (props: any) => {
     fontSize: '32px',
     margin: '0 7px',
     cursor: 'pointer',
-    color: 'white'
+    color: '#68d1c8'
   };
 
 
 
   const [iconStyle, setIconStyle] = useState(iconNotClick);
   const [keyword, setKeyword] = useState<string>('')
-
+  const socket: any = useSelector((state: RootState) => state.wallet.socket);
   const handleOnChange = (event: any) => {
     console.log(event.target.value);
   };
@@ -95,10 +96,61 @@ const HeaderContainer = (props: any) => {
     }
   };
 
+  const [chatNotSeenCount, setChatNotSeenCount] = useState(0)
+    const [notiNotSeenCoung, setNotiNotSeenCount] = useState(0)
+    const [trigger, setTrigger] = useState<any>(false)
+    const [trigger2, setTrigger2] = useState<any>(false)
+
+    const chatNotSeen: any = useSelector((state: RootState) => state.wallet.chatNotSeen);
+  const notiNotSeen: any= useSelector((state: RootState) => state.wallet.notiNotSeen);
+    useEffect(() => {
+    socket?.on(RECEIVE_MESSAGE, (data) => {
+      console.log('?????????????//, CHAT')
+      if(data?.isCurrentUserMessage === false) {
+        console.log("WORKKKKKKKKKKKKKKKKKKKk")
+        setTrigger(data?.createdAt)
+      }
+    })
+  }, [socket])
+
+  useEffect(() => {
+    socket?.on(RECEIVE_NOTIFICATION, (data) => {
+      console.log('?????????????//, NOTIFICATIOn',data )
+      // if(data?.isCurrentUserMessage === false) {
+      //   console.log("WORKKKKKKKKKKKKKKKKKKKk")
+      //   setTrigger(data?.createdAt)
+      // }
+      setTrigger2(data?.createdAt)
+    })
+  }, [socket])
+
+  useEffect(() => {
+      console.log('COMER+HEERRELKREKLJER', chatNotSeen)
+      dispatch(setChatNotSeen(chatNotSeen + 1))
+      console.log('AFTER DISPATCH', chatNotSeen)
+  }, [trigger])
+
+   useEffect(() => {
+      console.log('COMER+HEERRELKREKLJER',  notiNotSeen)
+      dispatch(setNotiNotSeen(notiNotSeen + 1))
+      console.log('AFTER DISPATCH NOTI', notiNotSeen)
+  }, [trigger2])
+
+  useEffect(() => {
+    console.log('bruh')
+    setChatNotSeenCount(chatNotSeen)
+  }, [chatNotSeen])
+  
+  useEffect(() => {
+      setNotiNotSeenCount(notiNotSeen)
+    }, [notiNotSeen])
+
+  console.log('==========', chatNotSeen, "============", notiNotSeen)
   const handleLogout = () => {
     localStorage.clear();
     history.push('/login');
   };
+  
 
   const menu = (
     <Menu onClick={handleMenuClick}>
@@ -176,13 +228,26 @@ const HeaderContainer = (props: any) => {
                 dispatch(setIconTabKey('1'));
               }}
             />
-            <AiOutlineMessage
-              style={account === '2' ? iconClicked : iconNotClick}
-              onClick={() => {
-                history.push('/chats');
-                dispatch(setIconTabKey('2'));
-              }}
-            />
+            <div style={{width: 'auto', display: 'flex', alignContent: 'center', justifyContent: 'center', position: 'relative'}} onClick={() => {
+                  history.push('/chats');
+                  dispatch(setIconTabKey('2'));
+                }}>
+              <AiOutlineMessage
+                style={account === '2' ? iconClicked : iconNotClick}
+                
+              />
+              {
+                chatNotSeenCount === 0 ? null : 
+                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: '#68d1c8',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',textAlign: 'center', 
+                position: 'absolute', top: '-5px', right: '-5px',
+                fontWeight: 'bold', color: 'white' 
+                }}>
+                  {chatNotSeenCount}
+                </div>
+              }
+            </div>
+            
             <AiOutlinePlusSquare
               style={account === '3' ? iconClicked : iconNotClick}
               onClick={() => {
@@ -203,12 +268,30 @@ const HeaderContainer = (props: any) => {
               trigger={['click']}
               arrow
               placement="bottomRight">
+              <div style={{width: 'auto', display: 'flex', alignContent: 'center', justifyContent: 'center', position: 'relative'}} onClick={() => {
+                  dispatch(setIconTabKey('5'));
+                }}>
               <IoMdNotificationsOutline
+                style={account === '5' ? iconClicked : iconNotClick}
+                
+              />
+              {
+                notiNotSeenCoung === 0 ? null : 
+                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: '#68d1c8',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',textAlign: 'center', 
+                position: 'absolute', top: '-5px', right: '-5px',
+                fontWeight: 'bold', color: 'white' 
+                }}>
+                  {notiNotSeenCoung}
+                </div>
+              }
+            </div>
+              {/* <IoMdNotificationsOutline
                 style={account === '5' ? iconClicked : iconNotClick}
                 onClick={() => {
                   dispatch(setIconTabKey('5'));
                 }}
-              />
+              /> */}
             </Dropdown>
           </div>
           <div className={cx('icon-profile')}>

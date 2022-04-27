@@ -10,6 +10,8 @@ const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 500;
 
+import { GoPrimitiveDot } from 'react-icons/go';
+
 import { io } from "socket.io-client";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
@@ -28,7 +30,7 @@ import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
 import Search from './SearchUserChat';
-import { setOldChat } from 'src/redux/WalletReducer';
+import { setChatNotSeen, setOldChat } from 'src/redux/WalletReducer';
 import { getCurrUserProfile } from 'src/services/user-service';
 import { MessageList } from 'react-chat-elements'
 import ScrollToBottom,  { useScrollToBottom, useSticky , useAtTop} from 'react-scroll-to-bottom';
@@ -88,7 +90,8 @@ const Chat = (props: any) => {
   const [currentPage2, setCurentPage2] = useState(0);
 
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
-  const oldMessages: any = useSelector((state: RootState) => state.wallet.oldChat);
+  const chatNotSeen: any = useSelector((state: RootState) => state.wallet.chatNotSeen);
+
   const getCurrentUser = async() => {
     const user = await getCurrUserProfile()
     console.log(user)
@@ -103,11 +106,14 @@ const Chat = (props: any) => {
     //     message: data?.message,
     //     senderName: data?.displayName
     //   })])
-    if(data?.isCurrentUserMessage === false) setTrigger(new Message({
+    if(data?.isCurrentUserMessage === false) {
+      setTrigger(new Message({
         id:  data?.userId,
         message: data?.message,
         senderName: data?.displayName
       }))
+      dispatch(setChatNotSeen(chatNotSeen + 1))
+    }
     })
     // getCurrentUser()
   }, [socket])
@@ -190,10 +196,10 @@ const Chat = (props: any) => {
     }
     // console.log('====', messages , '===', currentPage2, '===', totalPage2)
     const ListRecentsChat = () => {
-     return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+     return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden', marginTop: '10px'}} >
          {
             data.map((item: any, index: any) => (
-                 <div style={{width: '100%', display: 'flex',flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer'}}
+                 <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
                   onClick={() => {
                     console.log(item)
@@ -210,15 +216,19 @@ const Chat = (props: any) => {
                   }
                   
                   >
+                    <>
                     <div className={cx('chat-info')} style={{display: 'flex',flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center'}}>
-                        <Avatar src={item?.image[0]} size={50}/>
+                        <Avatar src={item?.image[0]} size={50} />
                        <div style={{height: '100%',display: 'flex',flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', alignContent: 'center'}}>
                         <div className={cx('name')} style={{fontWeight: 'bold', fontSize: '16px', padding: '0px 10px', opacity: '0.8'}}>{item?.chatGroupName}</div>
-                        <div style={{ fontSize: '14px', padding: '0px 10px', opacity: '0.8'}}>{item?.message}</div>
+                        <div style={item?.seen ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
+                         {fontWeight: 'bold', color: '#68d1c8', fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis'}}>{item?.message}</div>
                         <div style={{ fontSize: '13px', padding: '0px 10px', opacity: '0.7'}}>{moment(item?.createdAt).format('YYYY-MM-DD HH-MM')}</div>
                       </div>
                     </div>
-                    <div className={cx('chat')}>{item?.lastChat}</div>
+                    <div className={cx('chat')} style={item?.seen ? {} : {fontWeight: 'bold', color: '#68d1c8'}}>{item?.lastChat}</div>
+                    </>
+                    {item?.seen ? null: <GoPrimitiveDot size={20} color='#68d1c8'style={{marginRight: '20px'}} />}
                 </div>
             ))
         }
@@ -379,9 +389,9 @@ const Chat = (props: any) => {
                         : null
                        }
                         <div style={{width: 'auto',display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}} >
-                        {messages[index]?.id === messages[index-1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden'}} /> : (
+                        {messages[index]?.id === messages[index-1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden' , minWidth: '40px'}} /> : (
                           <>
-                           <Avatar size={40} style={{margin: '0 10px'}} />
+                           <Avatar size={40} style={{margin: '0 10px', minWidth: '40px'}} />
                           </>
                        
                         )}

@@ -87,17 +87,17 @@ const NotificationList = (props: any) => {
       <div style={{fontWeight: 'bold', fontSize: '16px', padding: '5px 15px'}}>
         Notifications
       </div>
-      <div ref={scrollRef }  style={{width: '100%',height: '93%', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}}>
+      <div ref={scrollRef }  style={{padding: '0 5px',width: '100%',height: '93%', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}}>
           {
             data.map((item: any, index: any) => (
-              <div key={index} style={{width: '100%',display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+              <div key={index} style={{borderLeft: item?.seen ? '' : '5px solid#68d1c8',width: '100%',display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '5px 0', margin: '5px 0'}}>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center', padding: '20px 15px', cursor: 'pointer'}}>
                   <Avatar src={item?.sender?.avatar} />
                   <div style={{fontWeight: 'bold', fontSize: '15px', margin: '0 10px', padding: '5px 0'}}>{item?.sender?.displayName}</div>
-                  <div>{item?.action} your Post</div>
+                  <div>{item?.action} {item?.action === 'follow' ? 'starting follow you' : 'your Post'}</div>
                 </div>
                 <div>
-                  {item?.seen ? <GoPrimitiveDot color='grey' style={{marginRight: '20px'}}/> : <GoPrimitiveDot color='blue'style={{marginRight: '20px'}} />}
+                  {item?.seen ? null: <GoPrimitiveDot color='#68d1c8'style={{marginRight: '20px'}} />}
                 </div>
                 
               </div>

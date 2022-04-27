@@ -6,7 +6,7 @@ import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
 import styles from 'src/styles/Layout.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Link, Route, Switch, useHistory } from 'react-router-dom';
-import { setAccountAddress, setConnected, setCurrentPosition, setLoginResult, setNotifications, setSocket, setWeatherData, setWeatherPosition } from 'src/redux/WalletReducer';
+import { setAccountAddress, setChatNotSeen, setConnected, setCurrentPosition, setLoginResult, setNotifications, setNotiNotSeen, setSocket, setWeatherData, setWeatherPosition } from 'src/redux/WalletReducer';
 import { RootState } from 'src/redux/store';
 import classNames from 'classnames/bind';
 import { PieChartOutlined, UsergroupAddOutlined } from '@ant-design/icons';
@@ -29,6 +29,9 @@ import SuggestionDetail from '../Suggestion/SuggestionDetail';
 import HashtagDetail from 'src/containers/HashtagDetail/Hashtag';
 import SearchDetail from 'src/containers/SearchDetail/SearchDetail';
 import PagePostDetail from '../PagePostDetail/PagePostDetail';
+import { getRecentsChat } from 'src/services/chat-service';
+import _ from 'lodash';
+import { getNotifi } from 'src/services/notifi-service';
 
 export enum NotificationAction {
   Like = 'like',
@@ -96,7 +99,7 @@ const LayoutComponent = (props: any) => {
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center'}}>
                 <Avatar src={data?.sender?.avatar} />
                 <div style={{fontWeight: 'bold', margin: '0 10px'}}>{data?.sender?.displayName}</div>
-                <div>{` ${data?.action} your Post`}</div>
+                <div>{` ${data?.action} ${data?.action === 'follow' ? 'starting follow you' : 'your Post'}`}</div>
           </div>,  
       placement,
       style: {width: '500px'},
@@ -117,6 +120,36 @@ const LayoutComponent = (props: any) => {
     }
   }, [])
 
+  const getTotalNotifi = async () => {
+    let params =  {
+        page: 0
+    }
+     const resultChat = await getRecentsChat(params)
+     const resultNoti = await getNotifi(params)
+
+     const dataChat = _.get(resultChat, 'data.items', []);
+    const dataNoti = _.get(resultNoti, 'data.items', []);
+    
+    let tempCountChat = 0;
+    let tempCountNoti = 0
+    dataChat.forEach((it) => {
+      if(!it?.seen) tempCountChat+=1
+     })
+    dataNoti.forEach((it) => {
+      if(!it?.seen) tempCountNoti+=1
+     })
+     console.log({
+       tempCountChat,
+       tempCountNoti
+     })
+     dispatch(setChatNotSeen(tempCountChat))
+     dispatch(setNotiNotSeen(tempCountNoti))
+  }
+
+  useEffect(() => {
+    getTotalNotifi()
+  }, [])
+
 
   //  useEffect(() => {
   //    const fetchTravel = async () => {
@@ -132,12 +165,13 @@ const LayoutComponent = (props: any) => {
   //    }
   //    fetchTravel()
   // }, [])
-
+  const notiNotSeen: any = useSelector((state: RootState) => state.wallet.notiNotSeen);
   socket?.on(RECEIVE_NOTIFICATION, (data) => {
     console.log('+++++++++++++++++++++++++++++=', data)
     setDataNoti(data)
     dispatch(setSocket(null))
     dispatch(setNotifications(null))
+    // dispatch(setNotiNotSeen(notiNotSeen + 1))
   })
 
   

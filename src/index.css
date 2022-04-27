@@ -156,7 +156,8 @@ input:-webkit-autofill:active {
 } */
 
 .ant-layout-header {
-  background-color: #68d1c8 !important;
+  background-color: white !important;
+  border: 1px solid #68d1c8 !important;
 }
 
 .ant-layout-content {
