@@ -25,7 +25,12 @@ import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
 import { getPostDetail } from 'src/services/post-service';
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/redux/store';
+import { SEND_NOTIFICATION } from 'src/components/Notification/Notification';
+import { NotificationAction } from '../Layout/layout';
+import InfinityList from 'src/components/InfinityScroll/InfinityScroll';
 
 const cx = classNames.bind(styles);
 const ContainerHeight = 850;
@@ -89,6 +94,9 @@ const PagePostDetail = (props: any) => {
 
     const [data, setData] = useState<any>([]);
 
+    
+
+
     const [totalItem, setTotalItem] = useState(0);
     const [totalPage, setTotalPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(5);
@@ -97,6 +105,23 @@ const PagePostDetail = (props: any) => {
     const [replyCommentId, setReplyCommentId] = useState(null)
 
     const [postDetailInfo, setPostDetailInfo] = useState<any>(null)
+
+    const history = useHistory()
+
+    console.log(postDetailInfo)
+
+     const [liked, setLiked] = useState<boolean>(postDetailInfo?.liked || false)
+    const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
+    const [numLikes, setNumLikes] = useState<any>(postDetailInfo?.likes)
+
+    useEffect(() => {
+        if(postDetailInfo) {
+            setLiked(postDetailInfo?.liked)
+            setNumLikes(postDetailInfo?.likes)
+        }
+    }, [postDetailInfo])
+
+    const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
     const [form] = Form.useForm();
     const [showReply, setShowReply] = useState<any>([])
@@ -174,10 +199,40 @@ const PagePostDetail = (props: any) => {
         )
     }
 
+    const handleLike = async (postId: string, userId: string) => {
+        try {
+            const like = await likePost(postId)
+            setLiked(true)
+            setNumLikes(numLikes + 1)
+            socket.emit(SEND_NOTIFICATION, {
+                receiver: userId,
+                action: NotificationAction.Like,
+                postId: postId
+            })
+            return
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
+    const handleUnlike = async (postId: string) => {
+        try {
+            const unlike = await unLikePost(postId)
+            setLiked(false)
+            setNumLikes(numLikes - 1)
+            return
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
 
     const ListComments = useCallback(() => {
-     return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+     return <div  ref={scrollRef } style={{width: '100%',height: '660px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
          {
             data.map((item: any, index: any) => (
                  <div className={cx('comment-container')} key={index}>
@@ -287,6 +342,7 @@ const PagePostDetail = (props: any) => {
     }
 
     return (
+        <>
         <div className={cx(`post-detail-container`)}>
             {
                 !postDetailInfo ? null : 
@@ -296,7 +352,9 @@ const PagePostDetail = (props: any) => {
              </div>
              <div className={cx(`post-right`)}>
                  <div className={cx('info')}>
-                    <div className={cx('left')}>
+                    <div className={cx('left')} onClick={() => {
+                        history.push(`/profile?userId=${props?.info?.userId}`)
+                    }}>
                          <Avatar src={postDetailInfo?.userAvatar} />
                         <div className={cx('name')}>{postDetailInfo?.userDisplayName}</div>
                     </div>
@@ -304,6 +362,30 @@ const PagePostDetail = (props: any) => {
                     <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} />
                 </div>
                 <ListComments />
+                <div className={cx('like-container')}>
+                    <div className={cx('like-container-child')}>
+                        {
+                            liked ? (
+                                <>
+                                    <FaRegHeart style={{ fontSize: '30px', margin: '0 20px',marginRight: '10px', cursor: 'pointer', color: '#68d1c8'}}onClick={() => {handleUnlike(postDetailInfo.postId)}} />
+                                    <div style={{cursor: 'pointer' ,fontSize: '17px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{liked ? `Liked by you and ${numLikes-1} peoples` : `Liked by ${numLikes} peoples`}</div>
+                                </>
+                            ) : (
+                                <>
+                                    <FaRegHeart style={{ fontSize: '30px', margin: '0 20px',marginRight: '10px', cursor: 'pointer'}} onClick={() => {
+                                        handleLike(postDetailInfo.postId, postDetailInfo.userId)
+                                        }}
+                                    /> 
+                                        <div style={{cursor: 'pointer',fontSize: '16px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{liked ? `Liked by you and ${numLikes-1} peoples` : `Liked by ${numLikes} peoples`}</div>
+                                </>
+                            )
+                        }
+                    </div>
+                    
+                    <div className={cx('time-create')}>
+                        {moment(postDetailInfo?.createdAt).format('YYYY-MM-DD HH-MM')}
+                    </div>
+                </div>
                  <Form
                     form={form}
                     className={cx('footer-footer')}
@@ -344,6 +426,10 @@ const PagePostDetail = (props: any) => {
             </>
             }
          </div>
+         <Modal title={`Likes (${postDetailInfo?.likes})`} visible={isModalVisibleLikes} footer={null} onCancel={() => setIsModalVisibleLikes(false)} style={{borderRadius: '10px'}}>
+                <InfinityList  typeList="likes" queryAPI={async (params: any) => await getLikeOfPots(params)}  postId={postDetailInfo?.postId}/>
+            </Modal>
+         </>
          
   );
 };
