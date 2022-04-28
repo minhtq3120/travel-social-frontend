@@ -101,17 +101,13 @@ const Chat = (props: any) => {
     socket?.on(RECEIVE_MESSAGE, (data) => {
       
       console.log('?????????????//')
-    //  if(messages) setMessages([...messages, new Message({
-    //     id: data?.isCurrentUserMessage === true ? 0 : data?.userId,
-    //     message: data?.message,
-    //     senderName: data?.displayName
-    //   })])
     if(data?.isCurrentUserMessage === false) {
-      setTrigger(new Message({
+      setTrigger({
         id:  data?.userId,
         message: data?.message,
-        senderName: data?.displayName
-      }))
+        senderName: data?.displayName,
+        avatar: data?.avatar
+      })
       dispatch(setChatNotSeen(chatNotSeen + 1))
     }
     })
@@ -144,11 +140,12 @@ const Chat = (props: any) => {
       let mapMess: any = []
       dataSource.map((item) => {[
         mapMess.push(
-          new Message({
+          {
             id: item?.isCurrentUserMessage ? 0 : item?.userId,
             message: item?.message,
-            senderName: item?.displayName
-          })
+            senderName: item?.displayName,
+            avatar: item?.avatar
+          }
         )
       ]})
       let temp: any = []
@@ -174,14 +171,10 @@ const Chat = (props: any) => {
 
     const handleFinish = async (values) => {
         try {
-          let temp = [new Message({
+          let temp = [{
                id:  0,
                message: values.message
-            })].concat(messages)
-            // setMessages([...messages, new Message({
-            //    id:  0,
-            //    message: values.message
-            // })])
+            }].concat(messages)
             setMessages(temp)
             socket.emit(SEND_MESSAGE, {
               message: values.message,
@@ -199,14 +192,14 @@ const Chat = (props: any) => {
      return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden', marginTop: '10px'}} >
          {
             data.map((item: any, index: any) => (
-                 <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
+                 <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
                   onClick={() => {
                     console.log(item)
                     setMessages([])
                     setCurentPage2(0)
                     setChatDetail({
-                      avatar: item?.image[0] || '',
+                      avatar: item?.image,
                       _id: item.chatGroupId,
                       chatGroupName: item.chatGroupName
                     })
@@ -218,7 +211,17 @@ const Chat = (props: any) => {
                   >
                     <>
                     <div className={cx('chat-info')} style={{display: 'flex',flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center'}}>
-                        <Avatar src={item?.image[0]} size={50} />
+                        {
+                          item?.image?.length === 1 ?  <div style={{width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Avatar style={{ border: '2px solid white'}} src={item?.image[0]} size={50} /></div> :
+                          item?.image?.length > 1 ? (
+                            <div style={{width: '70px',position: 'relative', height: '50px'}}>
+                               <Avatar src={item?.image[0]} size={50} style={{position: 'absolute', top: '0px', left: '-5px', border: '2px solid white'}}/>
+                              <Avatar src={item?.image[1]} size={50} style={{position: 'absolute', top: '-20px', right: '5px', border: '2px solid white'}}/>
+                              <Avatar src={item?.image[2]} size={50} style={{position: 'absolute', top: '15px', right: '0px', border: '2px solid white'}}/>
+                            </div>
+                          ): null
+                        }
+                        
                        <div style={{height: '100%',display: 'flex',flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', alignContent: 'center'}}>
                         <div className={cx('name')} style={{fontWeight: 'bold', fontSize: '16px', padding: '0px 10px', opacity: '0.8'}}>{item?.chatGroupName}</div>
                         <div style={item?.seen ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
@@ -294,7 +297,7 @@ const Chat = (props: any) => {
         console.log('come here')
         setChatDetail({
           ...newChat,
-          avatar: newChat.image[0]
+          avatar: newChat.image
         })
         setMessages([])
         socket.emit(JOIN_ROOM, {
@@ -307,44 +310,7 @@ const Chat = (props: any) => {
     }
   }
 
-  
-  const ChatInbox = ()  => {
-     return (
-       messages?
-        <div style={{width: '95%', overflowX: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'column-reverse', minHeight: '650px'}}>
-            <ChatFeed
-              messages={messages} // Array: list of message objects
-              isTyping={isTyping} // Boolean: is the recipient typing
-              hasInputField={false} // Boolean: use our input, or use your own
-              showSenderName // show the name of the user who sent the message
-              bubblesCentered={false} //Boolean should the bubbles be centered in the feed?
-              bubbleStyles={
-                {
-                  pSender: {
-                      color: '#68d1c8',
-                      fontSize: 16,
-                      fontWeight: '300',
-                      margin: 15,
-                      padding: 15,
-                      borderRadius: 20,
-                  },
-                  pRecipient: {
-                      color: 'grey',
-                      fontSize: 16,
-                      fontWeight: '300',
-                      margin: 15,
-                      borderRadius: 20,
-                      padding: 15
-                  }
-                }
-                
-              }
-              
-            />
-          </div> : null
-     )
-  }
-
+ 
   const onScroll = async () => {
     if (scrollRef2.current) {
       const { scrollTop, scrollHeight, clientHeight } = scrollRef2.current;
@@ -375,6 +341,7 @@ const Chat = (props: any) => {
          
           {
             messages.map((mess, index) => {
+              console.log(mess)
               return (
                 <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
                   <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>
@@ -389,9 +356,9 @@ const Chat = (props: any) => {
                         : null
                        }
                         <div style={{width: 'auto',display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}} >
-                        {messages[index]?.id === messages[index-1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden' , minWidth: '40px'}} /> : (
+                        {messages[index]?.id === messages[index-1]?.id ?  <Avatar src={mess?.avatar}size={40} style={{margin: '0 10px', visibility: 'hidden' , minWidth: '40px'}} /> : (
                           <>
-                           <Avatar size={40} style={{margin: '0 10px', minWidth: '40px'}} />
+                           <Avatar  src={mess?.avatar} size={40} style={{margin: '0 10px', minWidth: '40px'}} />
                           </>
                        
                         )}
@@ -426,73 +393,24 @@ const Chat = (props: any) => {
     width: '95%'
   });
 
-  const ChatInbox3 = ()  => {
-    const [atTop] = useAtTop();
-    const [sticky] = useSticky();
-    console.log(sticky)
 
-     return (
-       messages?
-        // <div ref={scrollRef2} style={{width: '95%', overflowX: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'column-reverse', minHeight: '650px'}}
-        // >
-           <ScrollToBottom className={ROOT_CSS}  mode="top"  sticky={true}
-           >
-          {
-          totalPage2 - 1 === currentPage2 ||  messages?.length === 0 ? null : (
-              <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
-                  <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
-              </div>  
-          )}
-          {
-            messages.map((mess, index) => {
-              return (
-                <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
-                  <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>
-                   {
-                     mess.id === 0 ? (
-                       <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: '#68d1c8', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
-                     ) : (
-                       <>
-                       {
-                         messages[index]?.id !== messages[index-1]?.id ? 
-                           <div style={{fontSize: '15px', fontWeight: 'bold', opacity: '0.7', marginLeft: '60px', marginBottom: '5px'}}>{mess?.senderName}</div>
-                        : null
-                       }
-                        <div style={{width: 'auto',display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}} >
-                        {messages[index]?.id === messages[index+1]?.id ?  <Avatar size={40} style={{margin: '0 10px', visibility: 'hidden'}} /> : (
-                          <>
-                           <Avatar size={40} style={{margin: '0 10px'}} />
-                          </>
-                       
-                        )}
-                          
-                          <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: 'lightgrey', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
-                          </div>
-                        {/* <div style={{fontSize: '15px', opacity: '0.8', marginLeft: '15px'}}>{mess?.senderName}</div> */}
-                       </>
-
-                     )
-
-                       
-                   }
-                    
-                  </div>
-                </div>
-              )
-            })
-          }  
-          </ScrollToBottom>
-        //  </div>
-         : null
-     )
-  }
 
   const ChatDetail = () => {
     return (
       chatDetail  ?
       <>
       <div className={cx('chat-info')}>
-              <Avatar src={chatDetail?.avatar} className={cx(`avatar`)}/>
+              {
+                chatDetail?.avatar.length === 1 ?  <div style={{width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Avatar className={cx(`avatar`)} style={{ border: '2px solid white'}} src={chatDetail?.avatar[0]} size={50} /></div> :
+                chatDetail?.avatar.length > 1 ? (
+                  <div style={{width: '150px',position: 'relative', height: '50px', marginLeft: '0px'}}>
+                      <Avatar src={chatDetail?.avatar[0]} size={50} className={cx(`avatar`)} style={{position: 'absolute', top: '-8px', right: '0px', border: '2px solid white'}}/>
+                    <Avatar src={chatDetail?.avatar[1]} size={50} className={cx(`avatar`)} style={{position: 'absolute', top: '-8px', right: '30px', border: '2px solid white'}}/>
+                    <Avatar src={chatDetail?.avatar[2]} size={50} className={cx(`avatar`)} style={{position: 'absolute', top: '-8px', right: '60px', border: '2px solid white'}}/>
+                  </div>
+                ): null
+              }
+              {/* <Avatar src={chatDetail?.avatar[0]} className={cx(`avatar`)}/> */}
               <div className={cx('name')}>{chatDetail?.chatGroupName}</div>
           </div>
           <ChatInbox2 />

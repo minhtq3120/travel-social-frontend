@@ -35,6 +35,9 @@ import NotificationList, { RECEIVE_NOTIFICATION } from 'src/components/Notificat
 import SearchBar from './SearchBar';
 import { setChatNotSeen, setNotiNotSeen, setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
 import { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
+import { getRecentsChat } from 'src/services/chat-service';
+import { getNotifi } from 'src/services/notifi-service';
+import _ from 'lodash'
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -49,14 +52,15 @@ const HeaderContainer = (props: any) => {
   const iconNotClick = {
     fontSize: '32px',
     margin: '0 7px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    color: 'white'
   };
 
   const iconClicked = {
     fontSize: '32px',
     margin: '0 7px',
     cursor: 'pointer',
-    color: '#68d1c8'
+    color: 'white'
   };
 
 
@@ -95,9 +99,38 @@ const HeaderContainer = (props: any) => {
       }
     }
   };
+  const getTotalNotifi = async () => {
+    let params =  {
+        page: 0
+    }
+     const resultChat = await getRecentsChat(params)
+     const resultNoti = await getNotifi(params)
 
-  const [chatNotSeenCount, setChatNotSeenCount] = useState(0)
-    const [notiNotSeenCoung, setNotiNotSeenCount] = useState(0)
+     const dataChat = _.get(resultChat, 'data.items', []);
+    const dataNoti = _.get(resultNoti, 'data.items', []);
+    
+    let tempCountChat = 0;
+    let tempCountNoti = 0
+    dataChat.forEach((it) => {
+      if(!it?.seen) tempCountChat+=1
+     })
+    dataNoti.forEach((it) => {
+      if(!it?.seen) tempCountNoti+=1
+     })
+     console.log({
+       tempCountChat,
+       tempCountNoti
+     })
+     dispatch(setChatNotSeen(tempCountChat))
+     dispatch(setNotiNotSeen(tempCountNoti))
+  }
+
+  useEffect(() => {
+    getTotalNotifi()
+  }, [])
+
+  const [chatNotSeenCount, setChatNotSeenCount] = useState(null)
+    const [notiNotSeenCoung, setNotiNotSeenCount] = useState(null)
     const [trigger, setTrigger] = useState<any>(false)
     const [trigger2, setTrigger2] = useState<any>(false)
 
@@ -137,15 +170,16 @@ const HeaderContainer = (props: any) => {
   }, [trigger2])
 
   useEffect(() => {
-    console.log('bruh')
-    setChatNotSeenCount(chatNotSeen)
+    if(chatNotSeen)setChatNotSeenCount(chatNotSeen)
+    console.log('bruh', chatNotSeen, '====', chatNotSeenCount)
+
   }, [chatNotSeen])
   
   useEffect(() => {
-      setNotiNotSeenCount(notiNotSeen)
+      if(notiNotSeen)setNotiNotSeenCount(notiNotSeen)
     }, [notiNotSeen])
 
-  console.log('==========', chatNotSeen, "============", notiNotSeen)
+  // console.log('==========', chatNotSeen, "============", notiNotSeen)
   const handleLogout = () => {
     localStorage.clear();
     history.push('/login');
@@ -237,11 +271,11 @@ const HeaderContainer = (props: any) => {
                 
               />
               {
-                chatNotSeenCount === 0 ? null : 
-                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: '#68d1c8',
+                !chatNotSeenCount || !chatNotSeen || chatNotSeenCount === 0 ? null : 
+                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: 'red',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',textAlign: 'center', 
                 position: 'absolute', top: '-5px', right: '-5px',
-                fontWeight: 'bold', color: 'white' 
+                fontWeight: 'bold', color: 'white' ,
                 }}>
                   {chatNotSeenCount}
                 </div>
@@ -276,8 +310,8 @@ const HeaderContainer = (props: any) => {
                 
               />
               {
-                notiNotSeenCoung === 0 ? null : 
-                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: '#68d1c8',
+                !notiNotSeenCoung || !notiNotSeen || notiNotSeenCoung === 0 ? null : 
+                <div style={{width: '25px', height: '25px', borderRadius: '50%', backgroundColor: 'red',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',textAlign: 'center', 
                 position: 'absolute', top: '-5px', right: '-5px',
                 fontWeight: 'bold', color: 'white' 
@@ -317,7 +351,7 @@ const HeaderContainer = (props: any) => {
         width={1000}
         footer={null}
         closable={false}>
-        <CreateNewPost profile={props.profile} setUploaded={setUploaded} uploaded={uploaded} />
+        <CreateNewPost profile={props.profile} setOpenCreatePost={setOpenCreatePost} setUploaded={setUploaded} uploaded={uploaded} />
       </Modal>
     </>
   );

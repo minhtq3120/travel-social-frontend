@@ -63,13 +63,7 @@ const FlightSelect = (props: any) => {
   const [data, setData] = useState<any>(null)
   const [airline, setAirline] = useState<any>(null)
 
-  const [currentPosition, setCurrentPosition] = useState<any>(null)
-
-  const currentPos: any = useSelector((state: RootState) => state.wallet.currentPosition);
-
-  useEffect(() => {
-    setCurrentPosition(currentPos)
-  }, [currentPos])
+  
 
   const CLASS_TYPE = {
     ECO: "ECO",
@@ -136,12 +130,17 @@ const FlightSelect = (props: any) => {
     }
   }, [props?.destinationInfo])
 
-  useEffect(() => {
-    if(currentPosition) {
-      console.log(currentPosition)
-      getAirportSelect(currentPosition[0], currentPosition[1], 'from')
+  // useEffect(() => {
+  //   if(currentPosition) {
+  //     console.log(currentPosition)
+  //     getAirportSelect(currentPosition[0], currentPosition[1], 'from')
+  //   }
+  // }, [currentPosition])
+   useEffect(() => {
+    if(props?.startInfo) {
+      getAirportSelect(props?.startInfo?.lat, props?.startInfo?.lon, 'from')
     }
-  }, [currentPosition])
+  }, [props?.startInfo])
 
   const getAirportSelect = async (lat: number, lon:number, type: string) => {
     // const suggest = await getAirport(lat, lon, {});
@@ -306,20 +305,20 @@ const FlightSelect = (props: any) => {
                   </div>
                 </div>
 
-                <div className={cx('class')}>Thời gian</div>
+                {/* <div className={cx('class')}>Thời gian</div>
 
                 <div className={cx('from-to-departure')}>
-                  
+                   */}
                   {/* <Modal visible={pickerOpen} footer={null} onCancel={() => {setpickerOpen(false)}}  width={500} closable={false} > */}
-                    <RangePicker disabledDate={disabledDate} style={{width: '100%'}} onChange={(e: any) => {
+                    {/* <RangePicker disabledDate={disabledDate} style={{width: '100%'}} onChange={(e: any) => {
                         if(e) {
                           let start = moment(e[0]).format('YYYY-MM-DD')
                           let end = moment(e[1]).format('YYYY-MM-DD')
                           setFlightForm({...flightForm, date_departure: start, date_departure_return: end})
                         }
-                      }}/>
+                      }}/> */}
                   {/* </Modal> */}
-                </div>
+                {/* </div> */}
 
                 <div className={cx('class')}>Hạng vé</div>
                 <div className={cx('class-type')}>

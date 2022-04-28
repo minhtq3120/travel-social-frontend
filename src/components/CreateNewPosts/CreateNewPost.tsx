@@ -6,7 +6,7 @@ import TextArea from 'antd/lib/input/TextArea';
 import classNames from 'classnames/bind';
 import Picker from 'emoji-picker-react';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { FcAddImage } from 'react-icons/fc';
+import { FaRegImages } from 'react-icons/fa';
 import { GoLocation } from 'react-icons/go';
 import ReactPlayer from 'react-player';
 import 'react-slideshow-image/dist/styles.css';
@@ -112,8 +112,9 @@ const Slideshow2 = ({fileList, imageBase64Arr}: any) => {
                   ) : (
                       <div className={cx('uploadContainer')}>
                         <div className={cx('uploadIcon')}>
-                          <FcAddImage
-                            style={{ fontSize: '100px', marginRight: '10px', cursor: 'pointer' }}
+                          <FaRegImages
+                          size={50}
+                            style={{  marginRight: '10px', cursor: 'pointer' }}
                           />
                         </div>
                         <div className={cx('uploadText')}>Share your images and videos</div>
@@ -387,7 +388,7 @@ const CreateNewPost = memo(
                 borderRadius: '10px',
                 border: 'none',
                 resize: 'none',
-                height: '144px',
+                height: '250px',
                 padding: 0,
                 outline: 'none',
                 paddingLeft: '10px'
@@ -446,11 +447,14 @@ const CreateNewPost = memo(
               <GoLocation style={{ paddingRight: '10px', fontSize: '25px', cursor: 'pointer' }} />
               </div>
           </Form.Item>
-          <Form.Item>
-            <Button className={cx('button')} htmlType="submit">
+          <Form.Item >
+            {/* <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100px'}}> */}
+              <Button className={cx('button')} htmlType="submit">
               Post now
               {/* <FaLocationArrow style={{ color: '#68d1c8'}} /> */}
             </Button>
+            {/* </div> */}
+            
           </Form.Item>
         </Form>
       </div>

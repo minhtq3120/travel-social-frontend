@@ -73,6 +73,7 @@ const Maps = (props: any) => {
   const [map, setMap] = useState(null);
 
   const positionInit: any = [props.lat, props.long]
+  console.log(positionInit, '=====', currentPosition)
 
   const [position, setPosition] = useState<any>(positionInit)
   const [markers, setMarkers] = useState<any>([position])
@@ -101,27 +102,27 @@ const Maps = (props: any) => {
   }, [])
 
   const LocationMarker = () => {
-    const map = useMapEvents({
-      click(e: any) {
-        if(!props.locationVisited) {
-        console.log('recieved event', e.latlng)
-        map.locate()
-         setSelectedPosition([
-              e.latlng.lat,
-              e.latlng.lng
-          ]);
-          setMarkers([...markers ,[
-              e.latlng.lat,
-              e.latlng.lng
-          ]])
-        }
-      },
-      locationfound(e: any) {
-        console.log('localtion found',selectedPosition)
-        // setPosition(e.latlng)
-        if(selectedPosition)map.flyTo(selectedPosition, map.getZoom())
-      },
-    })
+    // const map = useMapEvents({
+    //   click(e: any) {
+    //     if(!props.locationVisited) {
+    //     console.log('recieved event', e.latlng)
+    //     map.locate()
+    //      setSelectedPosition([
+    //           e.latlng.lat,
+    //           e.latlng.lng
+    //       ]);
+    //       setMarkers([...markers ,[
+    //           e.latlng.lat,
+    //           e.latlng.lng
+    //       ]])
+    //     }
+    //   },
+    //   locationfound(e: any) {
+    //     console.log('localtion found',selectedPosition)
+    //     // setPosition(e.latlng)
+    //     if(selectedPosition)map.flyTo(selectedPosition, map.getZoom())
+    //   },
+    // })
 
     // console.log('position ', position)
     console.log('markers',  markers)
@@ -154,18 +155,18 @@ const Maps = (props: any) => {
 
   return null;
 }
-
+  console.log(props?.mapWidth)
   return (
-    <div style={{width: '1200px', height: '700px'}}>
+    <div style={{width: props?.mapWidth ? props.mapWidth : '1200px', height: props?.mapHeight ? props.mapHeight : '700px'}}>
       {
-        currentPosition !== null ? (
+        currentPosition && position ? (
           <MapContainer
           center={ props?.mapType === 'direction' ?
            [(currentPosition[0] + position[0]) / 2 , (currentPosition[1] + position[1]) / 2 ] : 
            props.locationVisited ?  [props.lat, props.lng] :
            position}
             zoom={ props?.mapType === 'direction'|| props.locationVisited  ? 5: 10}  
-            style={{ height: "700px", width: "1200px", borderRadius: '10px' }}
+            style={{ width: props?.mapWidth ? props.mapWidth : '1200px', height: props?.mapHeight ? props.mapHeight : '700px', borderRadius: '10px' }}
             scrollWheelZoom={false}
             whenCreated={(map : any) => setMap(map)}
             >

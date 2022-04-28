@@ -149,9 +149,10 @@
     }
 
     .button-search {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
+      // position: absolute;
+      // right: 10px;
+      // bottom: 10px;
+      margin: 20px 0;
       border-radius: 5px;
       padding: 10px 15px;
       height: auto;
@@ -161,7 +162,7 @@
       align-items: center;
       align-content: center;
       color: white;
-      background: linear-gradient(90deg, #0181C2 0%, #68d1c8 47.71%, #4BC4F7 100%);
+      background-color: #68d1c8
     }
 
   }

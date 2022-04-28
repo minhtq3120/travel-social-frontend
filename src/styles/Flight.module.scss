@@ -15,14 +15,15 @@
     justify-content: flex-start;
     align-items: flex-start;
     align-content: center;
-    // box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-    //   rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+      rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     cursor: pointer;
     padding: 0px 15px;
     padding-bottom: 15px;
     border-radius: 10px;
     background-color: white;
     position: relative;
+    border-color: #68d1c8;
 
     .class {
       margin-top: 20px;

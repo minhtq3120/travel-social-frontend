@@ -8,6 +8,7 @@
   align-content: center;
   border-top: 1px solid #ccc;
   margin-top: 10px;
+
   .left {
     width: 70%;
     height: 100%;
@@ -18,11 +19,12 @@
     align-content: center;
     border-right: 1px solid #ccc;
     position: relative;
-    
+
     .edit-image {
       height: 100%;
       width: 700px;
       transition: all 0.5s;
+
       .img-post {
         width: 700px;
         height: auto;
@@ -32,12 +34,12 @@
         position: relative;
         z-index: 1;
 
-       .slider-container2{ 
-        height: auto;
-        width: 700px;
+        .slider-container2 {
+          height: auto;
+          width: 700px;
 
-        .recent-container {
-             width: 700px;
+          .recent-container {
+            width: 700px;
             border-radius: 5px;
             padding: 10px 0px;
             height: auto;
@@ -46,24 +48,25 @@
             align-content: center;
             justify-content: center;
             position: relative;
-            
+
             .img {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                align-content: center;
-                border-radius: 10px;
-                 width: 700px;
-                border-radius: 10px !important;
-                padding: 0 10px;
-                height: 650px;
-                object-fit: cover;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+              border-radius: 10px;
+              width: 700px;
+              border-radius: 10px !important;
+              padding: 0 10px;
+              height: 650px;
+              object-fit: cover;
             }
 
           }
         }
 
       }
+
       .icon-edit {
         position: absolute;
         z-index: 2;
@@ -84,31 +87,37 @@
           color: rgb(255, 255, 255);
           font-size: 16px;
         }
+
         .icon-1 {
           margin-right: 10px;
         }
-        
-        
+
+
       }
+
       .icon-3 {
-          z-index: 2;
-          position: absolute;
-          top: 93%;
-          right: 5%;
-          cursor: pointer;
-        }
-      
+        z-index: 2;
+        position: absolute;
+        top: 93%;
+        right: 5%;
+        cursor: pointer;
+      }
+
     }
+
     .full-size {
       width: 100%;
     }
-    .image-origin{
+
+    .image-origin {
       width: 70%;
     }
-    .image-origin-2{
+
+    .image-origin-2 {
       width: 70%;
     }
-    .fix-height{
+
+    .fix-height {
       height: 70%;
     }
 
@@ -125,6 +134,8 @@
         font-weight: bold;
         font-size: 25px;
         margin: 10px 0;
+        opacity: 0.8;
+        color: #68d1c8;
       }
 
       .filelistArr {
@@ -145,6 +156,7 @@
     border-radius: 5px;
     padding-top: 10px;
     padding-left: 10px;
+
     .info {
       width: 100%;
       display: flex;
@@ -154,12 +166,14 @@
       align-content: center;
       margin: 5px 0;
       padding-bottom: 10px;
+
       .name {
         font-weight: bold;
         opacity: 0.7;
         margin: 0px 10px;
       }
     }
+
     .input {
       width: 100%;
       border-radius: 5px;
@@ -170,6 +184,7 @@
       border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
     }
+
     .location {
       display: flex;
       align-items: center;
@@ -177,9 +192,12 @@
       padding-bottom: 5px;
       padding-top: 10px;
     }
+
     .button {
-      border-radius: 10px;
-      padding: 30px 50px;
+      background-color: #68d1c8;
+      color: white;
+      border-radius: 25px;
+      padding: 25px 50px;
       display: flex;
       flex-direction: column;
       align-items: center;

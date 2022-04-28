@@ -207,7 +207,7 @@ const Post = (props: any) => {
             images?.length > 0 ? (
                 <div className={cx(`post-body`)}>
                     <Slideshow/>
-                    <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {
+                    {/* <MdLocationOn size={45} className={cx(`localtion-icon`)} onClick={() => {
                         setIsModalVisibleMap(true)
                         if(props?.item?.place) {
                             setLatLng({
@@ -222,8 +222,8 @@ const Post = (props: any) => {
                             })
                         }
                     }}
-                    />
-                    <FaLocationArrow size={33} className={cx(`localtion-icon-direct`)} 
+                    /> */}
+                    {/* <FaLocationArrow size={33} className={cx(`localtion-icon-direct`)} 
                         onClick={() => {
                             setIsModalVisibleMapDirection(true)
                             if(props?.item?.place) {
@@ -238,21 +238,41 @@ const Post = (props: any) => {
                                     lng: positions[0].lng
                                 })
                             }
-                        }} />
-                    <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
-                        onClick={() => {
-                            if(props?.item?.place) {
-                                console.log("???", props?.item?.place)
+                        }} /> */}
+                    <div className={cx('localtion-icon-temp-container')}>
+                        <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
+                            onClick={() => {
+                                if(props?.item?.place) {
+                                    console.log("???", props?.item?.place)
 
-                                dispatch(setWeatherPosition([props.item.place?.coordinate?.latitude,props.item.place?.coordinate?.longitude]))
-                            }
-                            else {
-                                dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
-                            }
-                        }}
-                    />
-                    <div className={cx('location-info')}>
-                        <div className={cx('locate')}>Location</div>
+                                    dispatch(setWeatherPosition([props.item.place?.coordinate?.latitude,props.item.place?.coordinate?.longitude]))
+                                }
+                                else {
+                                    dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
+                                }
+                            }}
+                        />
+                    </div>
+                    
+                    <div className={cx('location-info')} 
+                         onClick={() => {
+                        setIsModalVisibleMap(true)
+                        if(props?.item?.place) {
+                            setLatLng({
+                                lat: props.item.place?.coordinate?.latitude,
+                                lng: props.item.place?.coordinate?.longitude,
+                            })
+                        }
+                        else {
+                            setLatLng({
+                                lat: positions[0].lat,
+                                lng: positions[0].lng
+                            })
+                        }
+                    }}
+                    >
+                        {/* <div className={cx('locate')}>Location</div> */}
+                        <MdLocationOn size={30} className={cx(`locate`)}/>
                         <div className={cx('city')}>{props?.item?.place?.name}</div>
                     </div>
                     {/* <div className={cx('lat-lng')}>{`${positions[0].lat} - ${positions[0].lng}`}</div> */}

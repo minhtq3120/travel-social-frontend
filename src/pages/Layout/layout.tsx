@@ -120,35 +120,7 @@ const LayoutComponent = (props: any) => {
     }
   }, [])
 
-  const getTotalNotifi = async () => {
-    let params =  {
-        page: 0
-    }
-     const resultChat = await getRecentsChat(params)
-     const resultNoti = await getNotifi(params)
-
-     const dataChat = _.get(resultChat, 'data.items', []);
-    const dataNoti = _.get(resultNoti, 'data.items', []);
-    
-    let tempCountChat = 0;
-    let tempCountNoti = 0
-    dataChat.forEach((it) => {
-      if(!it?.seen) tempCountChat+=1
-     })
-    dataNoti.forEach((it) => {
-      if(!it?.seen) tempCountNoti+=1
-     })
-     console.log({
-       tempCountChat,
-       tempCountNoti
-     })
-     dispatch(setChatNotSeen(tempCountChat))
-     dispatch(setNotiNotSeen(tempCountNoti))
-  }
-
-  useEffect(() => {
-    getTotalNotifi()
-  }, [])
+  
 
 
   //  useEffect(() => {

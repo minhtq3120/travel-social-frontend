@@ -190,12 +190,14 @@ const Discovery = (props: any) => {
                                         height="100%"
                                         />
                                 }
-                                <div className={cx('location-pos')}>
+                                <div className={cx('location-pos-name')}>
                                     <MdLocationOn size={30} className={cx(`location-icon`)}/>
+                                    <div className={cx('location-name')}>
+                                        {item?.name}
+                                    </div>
                                 </div>
-                                <div className={cx('location-name')}>
-                                    {item?.name}
-                                </div>
+
+                               
                                 <div className={cx('visited')}>
                                     <div className={cx('icon')}>
                                         <BsFiles size={25} color={'white'}/>

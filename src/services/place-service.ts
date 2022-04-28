@@ -39,6 +39,22 @@ export const getDiscoveryDetail = async (params) => {
         });
 };
 
+export const getPlacesDetail = async (placeId: string) => {
+    let queryString = `/places/place-detail`;
+    if (placeId) {
+        const queryPage = `/${placeId}`;
+        queryString = queryString.concat(queryPage);
+    }
+    console.log(queryString)
+    return await axiosInstance
+        .get(queryString)
+        .catch(function (error) {
+            if (error.response) {
+                return error.response.status;
+            }
+        });
+};
+
 export const getRecentsVisited = async (params) => {
     let queryString = `/places/visited-places`;
     if (params?.time) {

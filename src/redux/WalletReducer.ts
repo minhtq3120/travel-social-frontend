@@ -23,8 +23,8 @@ const initialState = {
   searchValue: '',
   searchFilter: 'post',
   triggerSearch: false,
-  chatNotSeen: 0,
-  notiNotSeen: 0
+  chatNotSeen: null,
+  notiNotSeen: null
 };
 export const walletSlice = createSlice({
   name: 'wallet',

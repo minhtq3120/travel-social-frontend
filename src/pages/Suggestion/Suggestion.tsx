@@ -54,7 +54,8 @@ const { RangePicker } = DatePicker;
 import { Calendar } from 'react-date-range';
 import ddddd from './test2.json'
 import fffff from './test.json'
-import { getPlaces } from 'src/services/place-service';
+import { getPlaces, getPlacesDetail } from 'src/services/place-service';
+import TransportSuggestion from './TransportSuggestion';
 
 const cx = classNames.bind(styles);
 const {Option} = Select
@@ -65,6 +66,14 @@ const Suggestion = (props: any) => {
 
   const [seachPlace, setSearchPlace] = useState<any>(null)
   const [dataPlaces, setDataPlaces] = useState<any>([])
+
+  const [currentPosition, setCurrentPosition] = useState<any>(null)
+
+  const currentPos: any = useSelector((state: RootState) => state.wallet.currentPosition);
+
+  useEffect(() => {
+    setCurrentPosition(currentPos)
+  }, [currentPos])
 
   useEffect(() => {
       const fetchPlace = async () =>{
@@ -101,7 +110,20 @@ const Suggestion = (props: any) => {
 
   const [destinationInfo, setDestinationInfo] = useState<any>(null)
 
+  const [startInfo, setStartInfo] = useState<any>(null)
+
   const [thingsToDo, setThingsTodo] = useState<any>(fffff)
+
+  const setStartPosFromPlaceId = async (placeId: string) => {
+    const placeDetail = await getPlacesDetail(placeId)
+    const rs = _.get(placeDetail, 'data', null);
+    console.log(rs)
+    setStartInfo({
+      lat: rs?.coordinate?.latitude,
+      lon: rs?.coordinate?.longitude
+    })
+    setCurrentStep(currentStep + 1)
+  }
 
   const TravelType = [
     {
@@ -193,18 +215,18 @@ const Suggestion = (props: any) => {
           size='small'
            type="navigation"
         >
-          <Step  title="Step 1" />
-          
+          <Step  title="Step 1"  />
           <Step  title="Step 2" />
-          <Step  title="Step 3"/>
-          <Step  title="Step 4" />
-          <Step  title="Step 5"/>
-          <Step  title="Step 6"/>
-          <Step  title="Step 2.2" />
-          <Step  title="Step 3.2"/>
-          <Step  title="Step 4.2" />
-          <Step  title="Step 5.2"/>
-          <Step  title="Step 6.2"/>
+          <Step  title="Step 3"  /> 
+          <Step  title="Step 4"   />
+          <Step  title="Step 5"  />
+          <Step  title="Step 6"  />
+          <Step  title="Step 2.2"   />
+          <Step  title="Step 3.2"  />
+          <Step  title="Step 4.2"   />
+          <Step  title="Step 5.2"  />
+          <Step  title="Step 6.2"  />
+          
         </Steps>
 
         {
@@ -288,11 +310,17 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              <div className={cx('btn-next-container')} onClick={() => {
+              <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                console.log(selectedTypeTravel)
+                setCurrentStep(currentStep - 1)
+              }}>
+                  Quay lại
+                </Button>
+                <Button className={cx('btn-next')} onClick={() => {
                 console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
-                <Button className={cx('btn-next')}>
                   Tiếp theo
                 </Button>
               </div>
@@ -318,11 +346,17 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              <div className={cx('btn-next-container')} onClick={() => {
+              <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                console.log(selectedTypeTravel)
+                setCurrentStep(currentStep - 1)
+              }}>
+                  Quay lại
+                </Button>
+                <Button className={cx('btn-next')} onClick={() => {
                 console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
-                <Button className={cx('btn-next')}>
                   Tiếp theo
                 </Button>
               </div>
@@ -341,6 +375,12 @@ const Suggestion = (props: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
                             console.log(item)
+                            setDestinationInfo({
+                              // destinationId: item?.destinationId,
+                              lat: item?.result_object?.latitude,
+                              lon: item?.result_object?.longitude
+                            })
+                            setCurrentStep(currentStep + 1)
                             }}>
                                    <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
                                 {/* <div className={cx('location-pos')}>
@@ -383,14 +423,20 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              <div className={cx('btn-next-container')} onClick={() => {
+              {/* <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                console.log(selectedTypeTravel)
+                setCurrentStep(currentStep - 1)
+              }}>
+                  Quay lại
+                </Button>
+                <Button className={cx('btn-next')} onClick={() => {
                 console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
-                <Button className={cx('btn-next')}>
                   Tiếp theo
                 </Button>
-              </div>
+              </div> */}
             </div>
             ): currentStep === 4 ? (
             <div className={cx('suggestion-step5')}>
@@ -400,8 +446,14 @@ const Suggestion = (props: any) => {
                     Bạn muốn xuất phát ở đâu?
                   </div>
                   <div className={cx(`travel-type`)} >
-                    <div className={cx('current-pos')}>
-                      <div className={cx('text')}>Vị trí hiện tại </div>
+                    <div className={cx('current-pos')} onClick={() => {
+                          setStartInfo({
+                              lat: currentPosition[0],
+                              lon: currentPosition[1]
+                            })
+                          setCurrentStep(currentStep + 1)
+                        }}>
+                      <div className={cx('text')} >Vị trí hiện tại </div>
                       <BiCurrentLocation size={30} color='white'/>
                     </div>
                     <div style={{fontSize: '16px', margin: '0 15px'}}>Hoặc</div>
@@ -414,6 +466,7 @@ const Suggestion = (props: any) => {
                       suffixIcon={() => <GoLocation style={{ paddingRight: '10px', fontSize: '25px', cursor: 'pointer', zIndex: '988' }} />}
                       onSelect={(value: any) => {
                           console.log(value)
+                          setStartPosFromPlaceId(value)
                       }}
                         showArrow={false}
                       filterOption={(input, option: any) => {
@@ -435,14 +488,35 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              <div className={cx('btn-next-container')} onClick={() => {
+              {/* <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                console.log(selectedTypeTravel)
+                setCurrentStep(currentStep - 1)
+              }}>
+                  Quay lại
+                </Button>
+                <Button className={cx('btn-next')} onClick={() => {
                 console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
-                <Button className={cx('btn-next')}>
                   Tiếp theo
                 </Button>
+              </div> */}
+            </div>
+            ): currentStep === 5 ? (
+            <div className={cx('suggestion-step5')}>
+              <div className={cx(`setup-tour`)}>
+                <div className={cx('choose-travel-type')}>
+                  <div className={cx(`text`)}>
+                    Đề xuất phương tiện đi lại cho bạn.
+                  </div>
+                  <div className={cx(`travel-type`)} >
+                    <TransportSuggestion destinationInfo={destinationInfo} startInfo={startInfo} setCurrentStep={setCurrentStep} currentStep={currentStep}/>
+                    
+                  </div>
+                </div>
               </div>
+             
             </div>
             ) :
            currentStep === 6 ? (
@@ -451,7 +525,21 @@ const Suggestion = (props: any) => {
                 Các chuyến bay tới địa điểm của bạn
               </div>
                 <div className={cx(`suggestion-body2`)}>
-                  <FlightSelect destinationInfo={destinationInfo}/>
+                  <FlightSelect destinationInfo={destinationInfo} startInfo={startInfo}/>
+                  <div className={cx('btn-next-container')} style={{margin: '10px 0'}}>
+                    {/* <Button className={cx('btn-next')} onClick={() => {
+                    console.log(selectedTypeTravel)
+                    setCurrentStep(currentStep - 1)
+                  }}>
+                      Quay lại
+                    </Button> */}
+                    <Button className={cx('btn-next')} onClick={() => {
+                    console.log(selectedTypeTravel)
+                    setCurrentStep(currentStep + 1)
+                  }}>
+                      Tiếp theo
+                    </Button>
+                  </div>
               </div>
             </>
           ) :currentStep === 7 ? (
@@ -461,6 +549,14 @@ const Suggestion = (props: any) => {
               </div>
                 <div className={cx(`suggestion-body2`)}>
                   <HotelSuggestion/>
+                   <div className={cx('btn-next-container')} >
+                    <Button className={cx('btn-next')} onClick={() => {
+                    console.log(selectedTypeTravel)
+                    setCurrentStep(currentStep + 1)
+                  }}>
+                      Tiếp theo
+                    </Button>
+                  </div>
               </div>
             </>
             // ) : currentStep === 6 ? (

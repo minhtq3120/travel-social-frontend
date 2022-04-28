@@ -412,13 +412,17 @@ const HotelSuggestion = (props: any) => {
               {hotelStyles}
             </Select>
 
-          <Button className={cx('button-search')} onClick={() => form.submit()}>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+              <Button className={cx('button-search')} onClick={() => form.submit()}>
                 SEARCH
               </Button>
+            </div>
+
+          
         </div>
 
         <div className={cx('right')}>
-              {data ?  <Slideshow />  : <Spin size='large'/> }
+              {data ?  <Slideshow />  : null }
         </div>
         
         
