@@ -58,4 +58,8 @@ export const routes = [
     path: "/postDetail",
     component: LayoutComponent
   },
+  {
+    path: "/staking",
+    component: LayoutComponent
+  },
 ];

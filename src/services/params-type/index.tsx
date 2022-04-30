@@ -10,6 +10,19 @@ export type RegisterParams = {
   displayName: string,
 };
 
+export type LoginParamsWalletAddress = {
+  walletAddress: string,
+  signature: string,
+  email:string
+};
+
+
+export type RegisterParamsWalletAddress = {
+  email: string,
+  walletAddress: string
+};
+
+
 export type ActivateParams = {
   email: string,
   activationCode: string,

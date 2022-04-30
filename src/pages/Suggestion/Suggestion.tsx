@@ -201,7 +201,10 @@ const Suggestion = (props: any) => {
     key: 'selection',
   }])
 
-  console.log(moment(selectionRange[0].startDate).format('YYYY-MM-DD'))
+  // useEffect(() => {
+  //   set
+  // },[selectionRange])
+  console.log(selectionRange,"=======" ,moment(selectionRange[0].startDate).format('YYYY-MM-DD'))
 
   
 
@@ -221,11 +224,11 @@ const Suggestion = (props: any) => {
           <Step  title="Step 4"   />
           <Step  title="Step 5"  />
           <Step  title="Step 6"  />
-          <Step  title="Step 2.2"   />
-          <Step  title="Step 3.2"  />
-          <Step  title="Step 4.2"   />
-          <Step  title="Step 5.2"  />
-          <Step  title="Step 6.2"  />
+          <Step  title="Step 7"   />
+          <Step  title="Step 8"  />
+          <Step  title="Step 9"   />
+          <Step  title="Step 10"  />
+          <Step  title="Step 11"  />
           
         </Steps>
 
@@ -525,7 +528,10 @@ const Suggestion = (props: any) => {
                 Các chuyến bay tới địa điểm của bạn
               </div>
                 <div className={cx(`suggestion-body2`)}>
-                  <FlightSelect destinationInfo={destinationInfo} startInfo={startInfo}/>
+                  <FlightSelect destinationInfo={destinationInfo} startInfo={startInfo}
+                   startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
+                  endDate={moment(selectionRange[1]?.startDate).format('YYYY-MM-DD')}
+                   />
                   <div className={cx('btn-next-container')} style={{margin: '10px 0'}}>
                     {/* <Button className={cx('btn-next')} onClick={() => {
                     console.log(selectedTypeTravel)

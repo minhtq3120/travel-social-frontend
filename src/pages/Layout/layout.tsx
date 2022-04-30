@@ -32,6 +32,7 @@ import PagePostDetail from '../PagePostDetail/PagePostDetail';
 import { getRecentsChat } from 'src/services/chat-service';
 import _ from 'lodash';
 import { getNotifi } from 'src/services/notifi-service';
+import StakingPage from '../Staking/StakingPage';
 
 export enum NotificationAction {
   Like = 'like',
@@ -251,6 +252,14 @@ const LayoutComponent = (props: any) => {
           <Layout className={cx('body')}>
             <Content>
               <PagePostDetail />
+            </Content>
+          </Layout>
+        </Route>
+
+        <Route exact path="/staking">
+          <Layout className={cx('body')}>
+            <Content>
+              <StakingPage />
             </Content>
           </Layout>
         </Route>

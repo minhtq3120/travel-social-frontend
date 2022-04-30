@@ -74,11 +74,17 @@ const Discovery = (props: any) => {
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [currentPage, setCurentPage] = useState(0);
     
+    const [isModalVisibleMap2, setIsModalVisibleMap2] = useState(false);
+
+    const [latLng, setLatLng] = useState<any>(null)
+
 
     const handleCancel = () => {
         setIsModalVisibleMap(false)
+        setIsModalVisibleMap2(false)
         setPlaceId(null)
         setData([])
+        setLatLng(null)
     };
    
     useEffect(() => {
@@ -174,13 +180,17 @@ const Discovery = (props: any) => {
                     {
                     discovery?.map((item: any, index: any) => {
                         return (
-                           <div className={cx('recent-container')} key={index} onClick={() => {
-                                setPlaceId(item._id)
-                                setIsModalVisibleMap(true)
-                            }}>
+                           <div className={cx('recent-container')} key={index} 
+                           
+                            >
                                 
                                 {
-                                    item?.post?.mediaFiles[0].type === "image" ? <img src={`${item?.post?.mediaFiles[0].url}`} alt="img" className={cx('img')}/> 
+                                    item?.post?.mediaFiles[0].type === "image" ? <img src={`${item?.post?.mediaFiles[0].url}`} alt="img" className={cx('img')}
+                                    onClick={() => {
+                                            setPlaceId(item._id)
+                                            setIsModalVisibleMap(true)
+                                        }}
+                                    /> 
                                     : <ReactPlayer
                                         url={item?.post?.mediaFiles[0].url}
                                         playing={false}
@@ -188,9 +198,20 @@ const Discovery = (props: any) => {
                                         controls={true}
                                         width="100%"
                                         height="100%"
+                                        onClick={() => {
+                                            setPlaceId(item._id)
+                                            setIsModalVisibleMap(true)
+                                        }}
                                         />
                                 }
-                                <div className={cx('location-pos-name')}>
+                                <div className={cx('location-pos-name')} onClick={() => {
+                                    console.log('????')
+                                    setLatLng({
+                                        lat: item?.coordinate?.latitude,
+                                        lng: item?.coordinate?.longitude
+                                    })
+                                    setIsModalVisibleMap2(true)
+                                }}>
                                     <MdLocationOn size={30} className={cx(`location-icon`)}/>
                                     <div className={cx('location-name')}>
                                         {item?.name}
@@ -198,7 +219,7 @@ const Discovery = (props: any) => {
                                 </div>
 
                                
-                                <div className={cx('visited')}>
+                                <div className={cx('visited')} > 
                                     <div className={cx('icon')}>
                                         <BsFiles size={25} color={'white'}/>
                                     </div>
@@ -280,6 +301,10 @@ const Discovery = (props: any) => {
             {  images?.length >0 ? (
                 <GridDiscovery />
             ): <Spin size='large'/> }
+        </Modal>
+
+        <Modal visible={isModalVisibleMap2} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+            {  latLng?.lat && latLng?.lng ? <Maps lat={latLng.lat} long={latLng.lng} /> : <Spin size='large'/> }
         </Modal>
         </React.Fragment>
     );

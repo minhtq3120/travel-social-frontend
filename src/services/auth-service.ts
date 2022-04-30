@@ -1,5 +1,5 @@
 import axiosInstance from 'src/config/config';
-import { ActivateParams, LoginParams, RegisterParams, ResetPassword } from "./params-type";
+import { ActivateParams, LoginParams, LoginParamsWalletAddress, RegisterParams, RegisterParamsWalletAddress, ResetPassword } from "./params-type";
 
 export const login = async (payload: LoginParams) => {
   return await axiosInstance
@@ -19,6 +19,25 @@ export const register = async (payload: RegisterParams) => {
       password,
       displayName,
     });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const loginWalletAddress = async (payload: LoginParamsWalletAddress) => {
+  console.log(payload)
+  return await axiosInstance
+    .post('/user/auth/loginWalletAddress', payload)
+    .catch(function (error) {
+      if (error.response) {
+        return error.response.status;
+      }
+    });
+};
+
+export const registerWalletAddress = async (payload: RegisterParamsWalletAddress) => {
+  try {
+    return await axiosInstance.post(`/user/auth/registerWalletAddress`, payload);
   } catch (error) {
     throw error;
   }

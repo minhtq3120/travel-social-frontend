@@ -1,0 +1,3043 @@
+{
+    "data": [
+        {
+            "location_id": "531337",
+            "name": "The Hanoi Club Hotel & Residences",
+            "latitude": "21.051949",
+            "longitude": "105.837036",
+            "num_reviews": "345",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/05/11/ca/7b/the-hanoi-club.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/05/11/ca/7b/the-hanoi-club.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1064",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/05/11/ca/7b/the-hanoi-club.jpg",
+                        "height": "712"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/05/11/ca/7b/the-hanoi-club.jpg",
+                        "height": "368"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/05/11/ca/7b/the-hanoi-club.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2013-11-27T04:02:53-0500",
+                "caption": "Poolside View",
+                "id": "85052027",
+                "helpful_votes": "24",
+                "published_date": "2013-11-27T04:02:53-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2019",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2019"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2015",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2015"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2014",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2014_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2014"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2013",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2013_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2013"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.038185119628906",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "1",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#1 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.076567044429992",
+            "distance_string": null,
+            "bearing": "northeast",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$45 - $112",
+            "hotel_class": "4.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": [
+                    {
+                        "value": "https://www.tripadvisor.com/Commerce?p=TABAIndependentHotels&src=0&geo=531337&from=api&area=&slot=1&matchID=1&oos=0&cnt=1&silo=30355&bucket=875169&ubucket=875169&nrank=1&crank=1&clt=CLM&tm=231110081&managed=false&capped=false&gosox=5_3Y6UYwwGjgw_c7hEwIkYMoMpFkNTQHwaBfBNHLkksxxzHxm-OgRMaU5q4bZnw3Q0_QqAmHqRyWQwSIzJBhXg&bapid=1&cs=1e292515590939a656624744429c4f5b6",
+                        "label": "Hotel website",
+                        "type": "url"
+                    }
+                ]
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "d94ebfa8-b81f-4186-b7e4-aa75ee387fcd"
+        },
+        {
+            "location_id": "1463048",
+            "name": "Hanoi Graceful Hotel",
+            "latitude": "21.034311",
+            "longitude": "105.84756",
+            "num_reviews": "743",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                        "height": "2122"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                        "height": "389"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                        "height": "177"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2018-11-28T02:45:30-0500",
+                "caption": "Suite honeymoon city view",
+                "id": "361336255",
+                "helpful_votes": "0",
+                "published_date": "2018-11-28T02:45:30-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2019",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2019"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2017",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2017"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2016",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2016_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2016"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2015",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2015"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2014",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2014_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2014"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.468423843383789",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "2",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#2 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.2474569802292965",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$15 - $72",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "b9f6d210-c571-495f-a0a3-22876da933d5"
+        },
+        {
+            "location_id": "1910132",
+            "name": "Grand Plaza Hanoi Hotel",
+            "latitude": "21.007845",
+            "longitude": "105.7965",
+            "num_reviews": "176",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/66/d4/93/hotel-lobby.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/66/d4/93/hotel-lobby.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1024",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/66/d4/93/hotel-lobby.jpg",
+                        "height": "684"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/66/d4/93/hotel-lobby.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/66/d4/93/hotel-lobby.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2020-06-12T03:07:46-0400",
+                "caption": "Hotel Lobby",
+                "id": "459723923",
+                "helpful_votes": "0",
+                "published_date": "2020-06-12T03:07:46-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.5104031562805176",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "3",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#3 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "1.9863560236514428",
+            "distance_string": null,
+            "bearing": "southwest",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$$",
+            "price": "$70 - $141",
+            "hotel_class": "5.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "ad898253-e4d9-4456-9c86-93a738db4fa0"
+        },
+        {
+            "location_id": "17484254",
+            "name": "Hanoi Esplendor Hotel",
+            "latitude": "21.033913",
+            "longitude": "105.846954",
+            "num_reviews": "73",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/42/67/e1/hanoi-esplendor-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/42/67/e1/hanoi-esplendor-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1280",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/42/67/e1/hanoi-esplendor-hotel.jpg",
+                        "height": "960"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/42/67/e1/hanoi-esplendor-hotel.jpg",
+                        "height": "412"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/42/67/e1/hanoi-esplendor-hotel.jpg",
+                        "height": "188"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-15T21:56:23-0400",
+                "caption": "",
+                "id": "423782369",
+                "helpful_votes": "0",
+                "published_date": "2019-09-15T21:56:23-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.367284774780273",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "4",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#4 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.2069700328912996",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$22 - $70",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "f4dfd20a-8113-4e69-8938-ba5bc37db5e1"
+        },
+        {
+            "location_id": "12188381",
+            "name": "Hanoi Airport Hotel - Convenient & Friendly",
+            "latitude": "21.205462",
+            "longitude": "105.82966",
+            "num_reviews": "61",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1c/ed/d0/b9/hanoi-airport-hotel-convenient.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1c/ed/d0/b9/hanoi-airport-hotel-convenient.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1800",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/1c/ed/d0/b9/hanoi-airport-hotel-convenient.jpg",
+                        "height": "1080"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/1c/ed/d0/b9/hanoi-airport-hotel-convenient.jpg",
+                        "height": "330"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/1c/ed/d0/b9/hanoi-airport-hotel-convenient.jpg",
+                        "height": "150"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2021-05-02T19:02:27-0400",
+                "caption": "",
+                "id": "485347513",
+                "helpful_votes": "0",
+                "published_date": "2021-05-02T19:02:27-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2019",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2019"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.721856117248535",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "5",
+            "ranking_denominator": "3545",
+            "ranking_category": "other",
+            "ranking": "#5 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hostel",
+            "subcategory_type_label": "Hostel",
+            "distance": "12.034498693338229",
+            "distance_string": null,
+            "bearing": "north",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$12 - $25",
+            "hotel_class": "2.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "46bd0681-2610-47c3-aa62-238f95a2d45c"
+        },
+        {
+            "location_id": "16754836",
+            "name": "Dic Star Hotels & Resorts Vinh Phuc",
+            "latitude": "21.289759",
+            "longitude": "105.61682",
+            "num_reviews": "2",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Vinh Yen, Vinh Phuc Province",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/1c/e9/33/located-at-the-center.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/1c/e9/33/located-at-the-center.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1266",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/19/1c/e9/33/located-at-the-center.jpg",
+                        "height": "627"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/1c/e9/33/located-at-the-center.jpg",
+                        "height": "272"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/1c/e9/33/located-at-the-center.jpg",
+                        "height": "124"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-04T01:40:41-0400",
+                "caption": "Located at the center of Nam Vinh Yen urban as a vibrant heart, next Dam Vac Lake and near The Administrative in Vinh Phuc province, DIC Star Hotels and Resorts Vinh Phuc pioneers in the mission of providing perfect 5-star services for business and leisure travelers.\n",
+                "id": "421325107",
+                "helpful_votes": "1",
+                "published_date": "2019-09-04T01:40:41-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.0646650791168213",
+            "ranking_geo": "Vinh Yen",
+            "ranking_geo_id": "2062763",
+            "ranking_position": "1",
+            "ranking_denominator": "32",
+            "ranking_category": "hotel",
+            "ranking": "#1 Best Value of 32 places to stay in Vinh Yen",
+            "subcategory_type": "resort",
+            "subcategory_type_label": "Resort",
+            "distance": "21.84644035934045",
+            "distance_string": null,
+            "bearing": "northwest",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$59 - $125",
+            "hotel_class": "0.0",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "382ffa4a-5aab-4c0d-9480-6643416bf0cf"
+        },
+        {
+            "location_id": "293924",
+            "ad_position": "inline1",
+            "ad_size": "8X8",
+            "doubleclick_zone": "as.vietnam.hanoi",
+            "ancestors": [
+                {
+                    "subcategory": [
+                        {
+                            "key": "country",
+                            "name": "Country"
+                        }
+                    ],
+                    "name": "Vietnam",
+                    "abbrv": null,
+                    "location_id": "293921"
+                }
+            ],
+            "detail": "0",
+            "page_type": "hotels",
+            "mob_ptype": "app_hotels"
+        },
+        {
+            "location_id": "302753",
+            "name": "Hanoi Daewoo Hotel",
+            "latitude": "21.030642",
+            "longitude": "105.81179",
+            "num_reviews": "642",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/d0/fb/ba/serenity-pool-hanoi-daewoo.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/d0/fb/ba/serenity-pool-hanoi-daewoo.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/d0/fb/ba/serenity-pool-hanoi-daewoo.jpg",
+                        "height": "1329"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/d0/fb/ba/serenity-pool-hanoi-daewoo.jpg",
+                        "height": "365"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/0d/d0/fb/ba/serenity-pool-hanoi-daewoo.jpg",
+                        "height": "166"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2016-12-06T21:36:39-0500",
+                "caption": "Serenity Pool - Hanoi Daewoo Hotel",
+                "id": "231799738",
+                "helpful_votes": "14",
+                "published_date": "2016-12-06T21:36:39-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2019",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2019"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2017",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2017"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2016",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2016_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2016"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2015",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2015"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.204594135284424",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "6",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#6 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "0.12597698820955452",
+            "distance_string": null,
+            "bearing": "southwest",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$64 - $127",
+            "hotel_class": "5.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "0dd36653-f775-415e-b113-b6ea3afa7229"
+        },
+        {
+            "location_id": "11445053",
+            "name": "Hanoi Vision Boutique Hotel",
+            "latitude": "21.029205",
+            "longitude": "105.8488",
+            "num_reviews": "21",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/17/d0/a3/0f/fam-suite-city-view.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/d0/a3/0f/fam-suite-city-view.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/17/d0/a3/0f/fam-suite-city-view.jpg",
+                        "height": "2000"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/17/d0/a3/0f/fam-suite-city-view.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/d0/a3/0f/fam-suite-city-view.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-06-06T02:59:55-0400",
+                "caption": "Fam Suite city view ",
+                "id": "399549199",
+                "helpful_votes": "0",
+                "published_date": "2019-06-06T02:59:55-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2016",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2016_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2016"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2014",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2014_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2014"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.2687723636627197",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "7",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#7 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.332129220637626",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$10 - $34",
+            "hotel_class": "2.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "2a5215c2-b664-482d-a74e-3fee24be5cc4"
+        },
+        {
+            "location_id": "12686700",
+            "name": "Blue Hanoi Inn City Hotel",
+            "latitude": "21.00056",
+            "longitude": "105.84534",
+            "num_reviews": "10",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/10/8c/b6/85/exterrior.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/10/8c/b6/85/exterrior.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/10/8c/b6/85/exterrior.jpg",
+                        "height": "1335"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/10/8c/b6/85/exterrior.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/10/8c/b6/85/exterrior.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2017-09-05T04:43:59-0400",
+                "caption": "Exterrior",
+                "id": "277657221",
+                "helpful_votes": "0",
+                "published_date": "2017-09-05T04:43:59-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.193535089492798",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "8",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#8 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "3.032184702051085",
+            "distance_string": null,
+            "bearing": "southeast",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$11 - $44",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "6af16365-d357-4994-9d52-ef49b5cd5393"
+        },
+        {
+            "location_id": "11716921",
+            "name": "Chio Hotel and Apartment",
+            "latitude": "21.21534",
+            "longitude": "105.78027",
+            "num_reviews": "76",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/72/cd/36/chio-hotel-and-apartment.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/72/cd/36/chio-hotel-and-apartment.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/72/cd/36/chio-hotel-and-apartment.jpg",
+                        "height": "1500"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/72/cd/36/chio-hotel-and-apartment.jpg",
+                        "height": "413"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/0d/72/cd/36/chio-hotel-and-apartment.jpg",
+                        "height": "188"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2016-10-28T11:23:33-0400",
+                "caption": "",
+                "id": "225627446",
+                "helpful_votes": "0",
+                "published_date": "2016-10-28T11:23:33-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.454270124435425",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "9",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#9 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "12.841504838926596",
+            "distance_string": null,
+            "bearing": "north",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$19 - $28",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "ba99114b-47a7-4767-8d10-2a081dd61de1"
+        },
+        {
+            "location_id": "14776336",
+            "name": "Little Charm Hanoi Hostel",
+            "latitude": "21.033962",
+            "longitude": "105.84934",
+            "num_reviews": "491",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/4f/84/95/little-charm-hanoi-hostel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/4f/84/95/little-charm-hanoi-hostel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1024",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/19/4f/84/95/little-charm-hanoi-hostel.jpg",
+                        "height": "683"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/4f/84/95/little-charm-hanoi-hostel.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/4f/84/95/little-charm-hanoi-hostel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-18T22:01:50-0400",
+                "caption": "",
+                "id": "424641685",
+                "helpful_votes": "0",
+                "published_date": "2019-09-18T22:01:50-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.790002346038818",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "10",
+            "ranking_denominator": "3545",
+            "ranking_category": "other",
+            "ranking": "#10 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hostel",
+            "subcategory_type_label": "Hostel",
+            "distance": "2.361108313163494",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$11 - $17",
+            "hotel_class": "2.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "4f4f0a04-3fd5-4f04-bc81-48b19cba4c65"
+        },
+        {
+            "location_id": "15512750",
+            "name": "T&M Luxury Hotel Hanoi",
+            "latitude": "21.028887",
+            "longitude": "105.768974",
+            "num_reviews": "10",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/81/30/c5/exterior.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/81/30/c5/exterior.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3998",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/81/30/c5/exterior.jpg",
+                        "height": "2886"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/81/30/c5/exterior.jpg",
+                        "height": "397"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/81/30/c5/exterior.jpg",
+                        "height": "180"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2020-07-06T02:08:49-0400",
+                "caption": "Exterior",
+                "id": "461451461",
+                "helpful_votes": "0",
+                "published_date": "2020-07-06T02:08:49-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.2258460521698",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "11",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#11 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.840027655576454",
+            "distance_string": null,
+            "bearing": "west",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$26 - $43",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "b718593f-cc48-4c88-a06b-3338a5c5365b"
+        },
+        {
+            "location_id": "17769099",
+            "name": "Matilda Boutique And Spa Hotel",
+            "latitude": "21.03467",
+            "longitude": "105.85348",
+            "num_reviews": "32",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/18/9a/1f/66/matilda-boutique-and.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/18/9a/1f/66/matilda-boutique-and.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/18/9a/1f/66/matilda-boutique-and.jpg",
+                        "height": "2001"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/18/9a/1f/66/matilda-boutique-and.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/18/9a/1f/66/matilda-boutique-and.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-08-02T03:22:18-0400",
+                "caption": "",
+                "id": "412753766",
+                "helpful_votes": "0",
+                "published_date": "2019-08-02T03:22:18-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.5447027683258057",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "12",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#12 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.6304892072473884",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$20 - $60",
+            "hotel_class": "0.0",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "785a8a69-69b2-409d-9806-de855a3887be"
+        },
+        {
+            "location_id": "18928119",
+            "name": "Hanoi Lullaby Hotel and Travel",
+            "latitude": "21.030567",
+            "longitude": "105.84552",
+            "num_reviews": "32",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1a/32/ff/0b/20191201-140819-largejpg.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1a/32/ff/0b/20191201-140819-largejpg.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "622",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/32/ff/0b/20191201-140819-largejpg.jpg",
+                        "height": "1280"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-p/1a/32/ff/0b/20191201-140819-largejpg.jpg",
+                        "height": "1132"
+                    },
+                    "medium": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-p/1a/32/ff/0b/20191201-140819-largejpg.jpg",
+                        "height": "1132"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-12-03T10:22:30-0500",
+                "caption": "",
+                "id": "439549707",
+                "helpful_votes": "0",
+                "published_date": "2019-12-03T10:22:30-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.6506240367889404",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "13",
+            "ranking_denominator": "3545",
+            "ranking_category": "bb",
+            "ranking": "#13 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "small_hotel",
+            "subcategory_type_label": "Small Hotel",
+            "distance": "2.114142456454871",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$$",
+            "price": "$20 - $230",
+            "hotel_class": "0.0",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "4bf5e1e4-30f7-4de2-b979-dcd2f36afb28"
+        },
+        {
+            "location_id": "293924",
+            "ad_position": "inline2",
+            "ad_size": "8X8",
+            "doubleclick_zone": "as.vietnam.hanoi",
+            "ancestors": [
+                {
+                    "subcategory": [
+                        {
+                            "key": "country",
+                            "name": "Country"
+                        }
+                    ],
+                    "name": "Vietnam",
+                    "abbrv": null,
+                    "location_id": "293921"
+                }
+            ],
+            "detail": "0",
+            "page_type": "hotels",
+            "mob_ptype": "app_hotels"
+        },
+        {
+            "location_id": "306195",
+            "name": "Fortuna Hotel Hanoi",
+            "latitude": "21.021343",
+            "longitude": "105.817986",
+            "num_reviews": "389",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/20/2f/2e/fortuna-hotel-hanoi.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/20/2f/2e/fortuna-hotel-hanoi.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1808",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/19/20/2f/2e/fortuna-hotel-hanoi.jpg",
+                        "height": "1206"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/20/2f/2e/fortuna-hotel-hanoi.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/20/2f/2e/fortuna-hotel-hanoi.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-04T22:25:42-0400",
+                "caption": "",
+                "id": "421539630",
+                "helpful_votes": "1",
+                "published_date": "2019-09-04T22:25:42-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2015",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2015"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2013",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2013_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2013"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2011",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2011_en_US-0-5.png"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2011"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.704881191253662",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "14",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#14 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "0.8209492128518329",
+            "distance_string": null,
+            "bearing": "southeast",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$49 - $248",
+            "hotel_class": "4.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "686cebe9-f00f-41c3-80af-34cfe397eaec"
+        },
+        {
+            "location_id": "14182315",
+            "name": "Vision Premier Hotel & Spa",
+            "latitude": "21.029009",
+            "longitude": "105.84778",
+            "num_reviews": "137",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/17/eb/00/28/vision-premier-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/eb/00/28/vision-premier-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/17/eb/00/28/vision-premier-hotel.jpg",
+                        "height": "2005"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/17/eb/00/28/vision-premier-hotel.jpg",
+                        "height": "368"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/eb/00/28/vision-premier-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-06-14T04:01:44-0400",
+                "caption": "",
+                "id": "401276968",
+                "helpful_votes": "0",
+                "published_date": "2019-06-14T04:01:44-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.262282848358154",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "15",
+            "ranking_denominator": "3545",
+            "ranking_category": "bb",
+            "ranking": "#15 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "small_hotel",
+            "subcategory_type_label": "Small Hotel",
+            "distance": "2.2676696483752288",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$12 - $37",
+            "hotel_class": "2.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "0fe42fcf-6bd3-4678-bdfe-f459bd481c50"
+        },
+        {
+            "location_id": "17579486",
+            "name": "Parosand Hanoi Hotel",
+            "latitude": "21.01957",
+            "longitude": "105.9073",
+            "num_reviews": "6",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/53/60/12/parosand-hanoi-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/53/60/12/parosand-hanoi-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1280",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/53/60/12/parosand-hanoi-hotel.jpg",
+                        "height": "960"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/53/60/12/parosand-hanoi-hotel.jpg",
+                        "height": "412"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/53/60/12/parosand-hanoi-hotel.jpg",
+                        "height": "188"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-20T09:21:35-0400",
+                "caption": "",
+                "id": "424894482",
+                "helpful_votes": "0",
+                "published_date": "2019-09-21T08:27:19-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.177077531814575",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "16",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#16 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "6.162374962286442",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$23 - $75",
+            "hotel_class": "0.0",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "d919ab65-5549-45c6-b5db-fec7d4c6c504"
+        },
+        {
+            "location_id": "3856839",
+            "name": "Hotel Bluebell",
+            "latitude": "21.029167",
+            "longitude": "105.848335",
+            "num_reviews": "198",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/03/bc/f5/78/hotel-bluebell.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/03/bc/f5/78/hotel-bluebell.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "800",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/03/bc/f5/78/hotel-bluebell.jpg",
+                        "height": "600"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/03/bc/f5/78/hotel-bluebell.jpg",
+                        "height": "412"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/03/bc/f5/78/hotel-bluebell.jpg",
+                        "height": "187"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2013-04-10T05:35:27-0400",
+                "caption": "Family Room",
+                "id": "62715256",
+                "helpful_votes": "1",
+                "published_date": "2013-04-10T05:35:27-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2017",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2017"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2015",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2015"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2014",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2014_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2014"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.554823398590088",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "17",
+            "ranking_denominator": "3545",
+            "ranking_category": "other",
+            "ranking": "#17 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "lodge",
+            "subcategory_type_label": "Lodge",
+            "distance": "2.302439817758365",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$11 - $23",
+            "hotel_class": "2.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "3f11da91-ae8a-465b-b257-da6a7e76b340"
+        },
+        {
+            "location_id": "12851448",
+            "name": "Blue Hanoi Inn Luxury Hotel",
+            "latitude": "21.02753",
+            "longitude": "105.80919",
+            "num_reviews": "4",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/11/0b/45/af/blue-hanoi-inn-luxury.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/11/0b/45/af/blue-hanoi-inn-luxury.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/11/0b/45/af/blue-hanoi-inn-luxury.jpg",
+                        "height": "1335"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/11/0b/45/af/blue-hanoi-inn-luxury.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/11/0b/45/af/blue-hanoi-inn-luxury.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2017-10-22T01:36:24-0400",
+                "caption": "",
+                "id": "285951407",
+                "helpful_votes": "0",
+                "published_date": "2017-10-22T01:36:24-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.074483871459961",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "18",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#18 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "0.39846361471950265",
+            "distance_string": null,
+            "bearing": "southwest",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$10 - $28",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "11d3617a-9703-4fc9-a63d-dd49e94d9f76"
+        },
+        {
+            "location_id": "1533529",
+            "name": "Imperial Hotel & Spa",
+            "latitude": "21.031206",
+            "longitude": "105.85004",
+            "num_reviews": "123",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/5e/44/17/kha-ch-sa-n-ha-no-i-imperial.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/5e/44/17/kha-ch-sa-n-ha-no-i-imperial.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1280",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/5e/44/17/kha-ch-sa-n-ha-no-i-imperial.jpg",
+                        "height": "961"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/5e/44/17/kha-ch-sa-n-ha-no-i-imperial.jpg",
+                        "height": "413"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/5e/44/17/kha-ch-sa-n-ha-no-i-imperial.jpg",
+                        "height": "188"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-23T22:03:48-0400",
+                "caption": "",
+                "id": "425608215",
+                "helpful_votes": "0",
+                "published_date": "2019-09-23T22:03:48-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2019",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2019"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2017",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2017"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.848756313323975",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "19",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#19 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.403724454806758",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$24 - $95",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "9940d53c-3a4f-4359-8e82-1a9f3176b2ca"
+        },
+        {
+            "location_id": "456956",
+            "name": "Bao Son International Hotel",
+            "latitude": "21.024406",
+            "longitude": "105.81051",
+            "num_reviews": "72",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/15/c0/c4/da/bao-son-international.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/15/c0/c4/da/bao-son-international.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1280",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/c0/c4/da/bao-son-international.jpg",
+                        "height": "487"
+                    },
+                    "large": {
+                        "width": "1280",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/c0/c4/da/bao-son-international.jpg",
+                        "height": "487"
+                    },
+                    "medium": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/15/c0/c4/da/bao-son-international.jpg",
+                        "height": "209"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2018-12-17T02:30:51-0500",
+                "caption": "Bao Son International Hotel  50 Nguyen Chi Thanh - Ha Noi",
+                "id": "364954842",
+                "helpful_votes": "3",
+                "published_date": "2018-12-17T02:30:51-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.1475980281829834",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "20",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#20 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "0.5585911778436659",
+            "distance_string": null,
+            "bearing": "south",
+            "rating": "3.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$35 - $142",
+            "hotel_class": "4.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "9018b6db-6db2-40da-8398-b2c140c2ed19"
+        },
+        {
+            "location_id": "14002032",
+            "name": "Antique Angel Hotel",
+            "latitude": "21.03569",
+            "longitude": "105.84758",
+            "num_reviews": "66",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/12/cc/31/ae/antique-angel-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/12/cc/31/ae/antique-angel-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/12/cc/31/ae/antique-angel-hotel.jpg",
+                        "height": "1333"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/12/cc/31/ae/antique-angel-hotel.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/12/cc/31/ae/antique-angel-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2018-04-30T00:16:45-0400",
+                "caption": "",
+                "id": "315371950",
+                "helpful_votes": "0",
+                "published_date": "2018-04-30T00:16:45-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.5777416229248047",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "21",
+            "ranking_denominator": "3545",
+            "ranking_category": "bb",
+            "ranking": "#21 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "small_hotel",
+            "subcategory_type_label": "Small Hotel",
+            "distance": "2.257157104996289",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$17 - $95",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "6681c2c4-d0a9-4d29-a4e8-a1fa796494a1"
+        },
+        {
+            "location_id": "293924",
+            "ad_position": "inline3",
+            "ad_size": "8X8",
+            "doubleclick_zone": "as.vietnam.hanoi",
+            "ancestors": [
+                {
+                    "subcategory": [
+                        {
+                            "key": "country",
+                            "name": "Country"
+                        }
+                    ],
+                    "name": "Vietnam",
+                    "abbrv": null,
+                    "location_id": "293921"
+                }
+            ],
+            "detail": "0",
+            "page_type": "hotels",
+            "mob_ptype": "app_hotels"
+        },
+        {
+            "location_id": "6509767",
+            "name": "Vong Xua Hotel",
+            "latitude": "20.9964",
+            "longitude": "105.84303",
+            "num_reviews": "60",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/0f/12/65/00/anh-phong-suite.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/0f/12/65/00/anh-phong-suite.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/0f/12/65/00/anh-phong-suite.jpg",
+                        "height": "1333"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0f/12/65/00/anh-phong-suite.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/0f/12/65/00/anh-phong-suite.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2017-04-24T04:58:15-0400",
+                "caption": "anh phong suite vong xua hotel ",
+                "id": "252863744",
+                "helpful_votes": "0",
+                "published_date": "2017-04-24T04:58:15-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.574795722961426",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "22",
+            "ranking_denominator": "3545",
+            "ranking_category": "bb",
+            "ranking": "#22 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "small_hotel",
+            "subcategory_type_label": "Small Hotel",
+            "distance": "3.1517392207943056",
+            "distance_string": null,
+            "bearing": "southeast",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$14 - $34",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "40f66f61-df43-48c3-89e0-601ead9f8a40"
+        },
+        {
+            "location_id": "15140061",
+            "name": "Shining Boutique Hotel & Spa",
+            "latitude": "21.030277",
+            "longitude": "105.84731",
+            "num_reviews": "318",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/17/32/69/25/shining-boutique-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/32/69/25/shining-boutique-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/17/32/69/25/shining-boutique-hotel.jpg",
+                        "height": "2000"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/17/32/69/25/shining-boutique-hotel.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/32/69/25/shining-boutique-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-04-17T20:59:03-0400",
+                "caption": "",
+                "id": "389179685",
+                "helpful_votes": "0",
+                "published_date": "2019-04-17T20:59:03-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.848808288574219",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "23",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#23 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.2308431531235633",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$15 - $56",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "96ce3606-1899-400b-90cb-25b1fc1fb118"
+        },
+        {
+            "location_id": "17653659",
+            "name": "Lucky Budda Inn Villa",
+            "latitude": "21.048836",
+            "longitude": "105.86491",
+            "num_reviews": "73",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/18/0c/4d/b9/getlstd-property-photo.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/18/0c/4d/b9/getlstd-property-photo.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1872",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/18/0c/4d/b9/getlstd-property-photo.jpg",
+                        "height": "1248"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/18/0c/4d/b9/getlstd-property-photo.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/18/0c/4d/b9/getlstd-property-photo.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-06-24T05:24:49-0400",
+                "caption": "getlstd_property_photo",
+                "id": "403459513",
+                "helpful_votes": "0",
+                "published_date": "2019-06-24T05:24:49-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.7935574054718018",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "24",
+            "ranking_denominator": "3545",
+            "ranking_category": "bb",
+            "ranking": "#24 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "bed_and_breakfast",
+            "subcategory_type_label": "Bed and Breakfast",
+            "distance": "3.5542857628549283",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$13 - $24",
+            "hotel_class": "0.0",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "f72cbf96-201b-4ea2-ad88-6ac7bdd111de"
+        },
+        {
+            "location_id": "8501365",
+            "name": "La Casa Hanoi Hotel",
+            "latitude": "21.01644",
+            "longitude": "105.85741",
+            "num_reviews": "221",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1a/38/a9/30/la-casa-hanoi-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1a/38/a9/30/la-casa-hanoi-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/1a/38/a9/30/la-casa-hanoi-hotel.jpg",
+                        "height": "2000"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/1a/38/a9/30/la-casa-hanoi-hotel.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/1a/38/a9/30/la-casa-hanoi-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-12-06T01:48:16-0500",
+                "caption": "",
+                "id": "439920944",
+                "helpful_votes": "0",
+                "published_date": "2019-12-06T01:48:16-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2020",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2020"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                },
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2017",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2017"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.134109973907471",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "25",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#25 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "3.0779537829840318",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "4.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$37 - $107",
+            "hotel_class": "4.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "8de56035-7e91-4e21-8c58-e81c26b18b1a"
+        },
+        {
+            "location_id": "1738109",
+            "name": "Muong Thanh Hanoi Hotel",
+            "latitude": "20.969646",
+            "longitude": "105.82705",
+            "num_reviews": "91",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/27/33/dc/muong-thanh-hanoi-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/27/33/dc/muong-thanh-hanoi-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "2000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/27/33/dc/muong-thanh-hanoi-hotel.jpg",
+                        "height": "1500"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/27/33/dc/muong-thanh-hanoi-hotel.jpg",
+                        "height": "413"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/0d/27/33/dc/muong-thanh-hanoi-hotel.jpg",
+                        "height": "188"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2016-09-30T02:26:53-0400",
+                "caption": "",
+                "id": "220672988",
+                "helpful_votes": "2",
+                "published_date": "2016-09-30T02:26:53-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.088329792022705",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "26",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#26 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "4.422549897167969",
+            "distance_string": null,
+            "bearing": "south",
+            "rating": "3.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$36 - $123",
+            "hotel_class": "4.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "7be5db5e-41d1-4c7f-821a-d7fad7c6ab7e"
+        },
+        {
+            "location_id": "19139312",
+            "name": "Grande Collection Hotel & Spa",
+            "latitude": "21.034529",
+            "longitude": "105.8474",
+            "num_reviews": "150",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/1a/13/17/c5/grande-collection-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/1a/13/17/c5/grande-collection-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/1a/13/17/c5/grande-collection-hotel.jpg",
+                        "height": "2000"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/1a/13/17/c5/grande-collection-hotel.jpg",
+                        "height": "367"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/1a/13/17/c5/grande-collection-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-11-19T05:53:49-0500",
+                "caption": "",
+                "id": "437458885",
+                "helpful_votes": "0",
+                "published_date": "2019-11-19T05:53:49-0500",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2021",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2021_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2021"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "4.842129707336426",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "27",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#27 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.238171158936274",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$21 - $137",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "c16a1b8a-7719-41e8-aa68-25a57878c81e"
+        },
+        {
+            "location_id": "10771464",
+            "name": "West Lake Home Hotel & Spa",
+            "latitude": "21.05565",
+            "longitude": "105.83546",
+            "num_reviews": "73",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/0c/c4/cc/5c/executive-lake-view.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/0c/c4/cc/5c/executive-lake-view.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "1920",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/0c/c4/cc/5c/executive-lake-view.jpg",
+                        "height": "1152"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/0c/c4/cc/5c/executive-lake-view.jpg",
+                        "height": "330"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/0c/c4/cc/5c/executive-lake-view.jpg",
+                        "height": "150"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2016-08-30T23:27:59-0400",
+                "caption": "Executive Lake View",
+                "id": "214223964",
+                "helpful_votes": "0",
+                "published_date": "2016-08-30T23:27:59-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [
+                {
+                    "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                    "year": "2018",
+                    "images": {
+                        "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                        "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                    },
+                    "categories": [],
+                    "display_name": "Certificate of Excellence 2018"
+                }
+            ],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.4975037574768066",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "28",
+            "ranking_denominator": "3545",
+            "ranking_category": "other",
+            "ranking": "#28 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "specialty_hotel",
+            "subcategory_type_label": "Specialty Hotel",
+            "distance": "2.1838729295518386",
+            "distance_string": null,
+            "bearing": "northeast",
+            "rating": "4.5",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$19 - $65",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "de52a879-a5fd-49c0-95e3-b47a1ab0bf60"
+        },
+        {
+            "location_id": "17789383",
+            "name": "Hanoi Gatsby Hotel",
+            "latitude": "21.03258",
+            "longitude": "105.84779",
+            "num_reviews": "11",
+            "timezone": "Asia/Ho_Chi_Minh",
+            "location_string": "Hanoi",
+            "photo": {
+                "images": {
+                    "small": {
+                        "width": "150",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-l/19/64/8e/22/hanoi-gatsby-hotel.jpg",
+                        "height": "150"
+                    },
+                    "thumbnail": {
+                        "width": "50",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-t/19/64/8e/22/hanoi-gatsby-hotel.jpg",
+                        "height": "50"
+                    },
+                    "original": {
+                        "width": "3000",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-o/19/64/8e/22/hanoi-gatsby-hotel.jpg",
+                        "height": "2009"
+                    },
+                    "large": {
+                        "width": "550",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-s/19/64/8e/22/hanoi-gatsby-hotel.jpg",
+                        "height": "368"
+                    },
+                    "medium": {
+                        "width": "250",
+                        "url": "https://media-cdn.tripadvisor.com/media/photo-f/19/64/8e/22/hanoi-gatsby-hotel.jpg",
+                        "height": "167"
+                    }
+                },
+                "is_blessed": true,
+                "uploaded_date": "2019-09-26T06:15:41-0400",
+                "caption": "",
+                "id": "426020386",
+                "helpful_votes": "0",
+                "published_date": "2019-09-26T06:15:41-0400",
+                "user": {
+                    "user_id": null,
+                    "member_id": "0",
+                    "type": "user"
+                }
+            },
+            "awards": [],
+            "preferred_map_engine": "default",
+            "autobroaden_type": "category_integrated",
+            "autobroaden_label": "Hanoi Places to Stay",
+            "raw_ranking": "3.2637686729431152",
+            "ranking_geo": "Hanoi",
+            "ranking_geo_id": "293924",
+            "ranking_position": "29",
+            "ranking_denominator": "3545",
+            "ranking_category": "hotel",
+            "ranking": "#29 Best Value of 3,545 places to stay in Hanoi",
+            "subcategory_type": "hotel",
+            "subcategory_type_label": "Hotel",
+            "distance": "2.2580995171676146",
+            "distance_string": null,
+            "bearing": "east",
+            "rating": "5.0",
+            "is_closed": false,
+            "is_long_closed": false,
+            "price_level": "$",
+            "price": "$18 - $137",
+            "hotel_class": "3.0",
+            "hotel_class_attribution": "This property is classified according to Giata.",
+            "business_listings": {
+                "desktop_contacts": [],
+                "mobile_contacts": []
+            },
+            "special_offers": {
+                "desktop": [],
+                "mobile": []
+            },
+            "listing_key": "0b541c16-87e2-4f52-a253-c2f56ed21858"
+        }
+    ],
+    "status": {
+        "unfiltered_total_size": "3376",
+        "commerce_country_iso_code": "US",
+        "autobroadened": true,
+        "progress": "100",
+        "auction_key": "7e7eb01d776b49b48b93b425f4186576",
+        "primary_geo": "293924",
+        "pricing": "base",
+        "doubleClickZone": "as.vietnam.hanoi"
+    },
+    "paging": {
+        "results": "30",
+        "total_results": "3376"
+    }
+}

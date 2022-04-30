@@ -37,6 +37,7 @@ const cx = classNames.bind(styles);
 import { DatePicker, Space } from 'antd';
 import { Select, Checkbox } from 'antd';
 import dataHotel from './hotel.json'
+import dataHotel2 from './TravidHotel.json'
 import { Slider, Switch } from 'antd';
 
 
@@ -75,7 +76,7 @@ const HotelSuggestion = (props: any) => {
   }, [currentPos])
 
 
-
+  console.log(data)
 
   const search = useLocation().search;
   const name=new URLSearchParams(search).get("name");
@@ -104,12 +105,12 @@ const HotelSuggestion = (props: any) => {
             > */}
                     {
                     // data?.body?.searchResults?.results?.map((item: any, index: any) => {
-                      data?.searchResults?.results?.map((item: any, index: any) => {
+                      data?.data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
 
                             }}>
-                                   <img src={item?.optimizedThumbUrls?.srpDesktop || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
+                                   <img src={item?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
                                 {/* <div className={cx('location-pos')}>
                                     <MdLocationOn size={30} className={cx(`location-icon`)}/>
                                 </div> */}
@@ -120,14 +121,19 @@ const HotelSuggestion = (props: any) => {
                                    <div className={cx('visited')}>
                                       <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
                                       <div className={cx('count')}>
-                                        {item?.guestReviews?.rating || '0'} / {item?.guestReviews?.scale || '10'} 
+                                        {item?.price} 
                                       </div>
                                   </div>
                                   <div className={cx('total')}>
-                                      {item?.guestReviews?.total || '0'} Reviews
+                                      {item?.num_reviews || '0'} Reviews
                                   </div>
                                 </div>
 
+                                <div className={cx('reviews')}>
+                                  <div className={cx('total')}>
+                                      {item?.ranking}
+                                  </div>
+                                </div>
                                  <div className={cx('reviews')}>
                                   <div className={cx('total')}>
                                       {item?.address?.streetAddress}
@@ -274,14 +280,18 @@ const HotelSuggestion = (props: any) => {
     return current && current < moment().endOf('day');
   }
 
+  useEffect(() => {
+    setData(dataHotel2)
+  }, [])
+
   const getListsHotels = async (payload) => {
     // if(payload?.checkIn && payload?.checkOut && payload?.destinationId) {
-      //  const suggest = await getSuggestionDetail(payload)
+    //    const suggest = await getSuggestionHotels({latitude: '21.032188', longitude: '105.81282', limit: '30', distance: '100'})
       // console.log(suggest)
       // const rs = _.get(suggest, 'data.data', null);
       // console.log(rs)
       // setData(rs)
-      setData(dataHotel)
+      setData(dataHotel2)
     // }
    
 
@@ -300,6 +310,8 @@ const HotelSuggestion = (props: any) => {
       ...values,
       ...hotelForm
     }
+    // console.log(payload)
+    // return;
     if(hotelStar) payload["starRatings"] = hotelStar
     await getListsHotels(payload)
   console.log(payload)    

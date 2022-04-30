@@ -7,10 +7,11 @@ export const WALLET_NAMES = {
 const walletAddress = localStorage.getItem('account') || '';
 
 const initialState = {
-  account: Web3.utils.isAddress(walletAddress) ? walletAddress : '',
+  // account: Web3.utils.isAddress(walletAddress) ? walletAddress : null,
+  account: null,
   isConnected: false,
   modalWrongNetwork: false,
-  userInfo: null,
+  userInfo: {},
   socket: null,
   notification: null,
   weatherData: null,
@@ -24,7 +25,7 @@ const initialState = {
   searchFilter: 'post',
   triggerSearch: false,
   chatNotSeen: null,
-  notiNotSeen: null
+  notiNotSeen: null,
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -42,12 +43,17 @@ export const walletSlice = createSlice({
       localStorage.setItem('sex', action.payload.sex as string);
       localStorage.setItem('name', action.payload.name as string);
       localStorage.setItem('avatar', action.payload.avatar as string);
+      localStorage.setItem('email', action.payload.email as string);
       return {
         ...state,
-        accessToken: action.payload.accessToken,
-        sex: action.payload.sex,
-        name: action.payload.name,
-        avatar: action.payload.avatar,
+        userInfo: {
+          accessToken: action.payload.accessToken,
+          sex: action.payload.sex,
+          name: action.payload.name,
+          avatar: action.payload.avatar,
+          email: action.payload.email
+        }
+
       };
     },
     setConnected: (state, action) => {

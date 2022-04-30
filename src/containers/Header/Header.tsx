@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from 'src/styles/Header.module.scss';
 import RenderSearch from 'src/components/render-search/RenderSearch';
@@ -22,7 +22,7 @@ import {
   AiOutlinePlusSquare,
   AiOutlineYoutube
 } from 'react-icons/ai';
-import { Dropdown, Input, Menu, message, Modal } from 'antd';
+import { Button, Dropdown, Input, Menu, message, Modal } from 'antd';
 import { getCurrentUser } from 'src/utils/utils';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,11 +33,14 @@ import InfinityList from 'src/components/InfinityScroll/InfinityScroll';
 import { getFollowers } from 'src/services/follow-service';
 import NotificationList, { RECEIVE_NOTIFICATION } from 'src/components/Notification/Notification';
 import SearchBar from './SearchBar';
-import { setChatNotSeen, setNotiNotSeen, setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
+import { setAccountAddress, setChatNotSeen, setNotiNotSeen, setSearchFilter, setSearchValue, setTriggerSearch } from 'src/redux/WalletReducer';
 import { RECEIVE_MESSAGE } from 'src/components/Chat/Chat';
 import { getRecentsChat } from 'src/services/chat-service';
 import { getNotifi } from 'src/services/notifi-service';
 import _ from 'lodash'
+import { injectedConnector, signWallet } from 'src/constant/contract-service';
+import { useWeb3React } from '@web3-react/core';
+import { loginWalletAddress, registerWalletAddress } from 'src/services/auth-service';
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -62,12 +65,19 @@ const HeaderContainer = (props: any) => {
     cursor: 'pointer',
     color: 'white'
   };
+  const { account : ac, library, chainId , activate} = useWeb3React();
+  const walletAccount = useSelector((state: RootState) => state.wallet.account);
 
 
 
   const [iconStyle, setIconStyle] = useState(iconNotClick);
   const [keyword, setKeyword] = useState<string>('')
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
+  const userInfo: any = useSelector((state: RootState) => state.wallet.userInfo);
+
+
+  const [walletAddress, setWalletAddress] = useState(null)
+
   const handleOnChange = (event: any) => {
     console.log(event.target.value);
   };
@@ -179,11 +189,57 @@ const HeaderContainer = (props: any) => {
       if(notiNotSeen)setNotiNotSeenCount(notiNotSeen)
     }, [notiNotSeen])
 
-  // console.log('==========', chatNotSeen, "============", notiNotSeen)
+  console.log('==========', userInfo, "============", )
   const handleLogout = () => {
     localStorage.clear();
     history.push('/login');
   };
+
+  const handleSignUpWalletAddress = async (email: string, walletAddress: string) => {
+      try {
+        const credentials = {
+          walletAddress,
+         email
+        };
+        const rsSignup = await registerWalletAddress(credentials);
+        console.log(rsSignup)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+  const handleSignInWalletAddress = async (email: string, walletAddress: string) => {
+    try {
+      const signature = await signWallet(library, walletAddress);
+      console.log(signature)
+      const credentials = {
+        email,
+        walletAddress,
+        signature,
+      };
+      const rs= await loginWalletAddress(credentials);
+      console.log(rs)
+    } catch (error) {
+      console.log(error)
+    }
+  };
+  const handleLoginMetamask = async () => {
+    if ((window as any)?.ethereum?.isMetaMask) {
+      await activate(injectedConnector, undefined, true);
+    }
+  };
+
+  useEffect(() => {
+    console.log('HELLLLO MOTHERRRRRRRRRRRRRR FUCKER', ac)
+    const email = localStorage.getItem('email')
+    if(ac && email) {
+      dispatch(setAccountAddress(ac))
+      console.log("USER INFOOOOOOOOOOOOOOOO", userInfo)
+      // handleSignUpWalletAddress(userInfo?.email, ac)
+      handleSignInWalletAddress(email, ac)
+    }
+  },[ac, ])
+
   
 
   const menu = (
@@ -255,6 +311,11 @@ const HeaderContainer = (props: any) => {
 
         <div className={cx('header-icon')}>
           <div className={cx('icon-chat')}>
+              <Button className={cx('btn-next')} onClick={() => {
+                handleLoginMetamask()
+              }}>
+                  Connect wallet
+                </Button>
             <AiOutlineHome
               style={account === '1' ? iconClicked : iconNotClick}
               onClick={() => {

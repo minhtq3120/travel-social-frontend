@@ -94,6 +94,7 @@ const FlightSelect = (props: any) => {
     // number_of_passengers: '2'
   })
   
+  
 
  
   function disabledDate(current) {
@@ -112,7 +113,7 @@ const FlightSelect = (props: any) => {
     //   number_of_passengers: '2'
     // });
     console.log(flightForm)
-    // if(flightForm?.date_departure && flightForm?.date_departure_return) {
+    // if(flightForm?.date_departure && flightForm?.date_departure_return && flightForm?.location_arrival &&  flightForm?.location_departure) {
     //   const suggest = await getFlight(flightForm)
     //   console.log(suggest)
     //   const rs = _.get(suggest, 'data', null);
@@ -125,22 +126,32 @@ const FlightSelect = (props: any) => {
   }
 
   useEffect(() => {
+    if(props?.destinationInfo && props?.startInfo && props?.startDate && props?.endDate) getFLightEJ()
+  }, [props?.destinationInfo, props?.startInfo, props?.startDate , props?.endDate ])
+
+  useEffect(() => {
     if(props?.destinationInfo) {
       getAirportSelect(props?.destinationInfo?.lat, props?.destinationInfo?.lon, 'to')
     }
   }, [props?.destinationInfo])
 
-  // useEffect(() => {
-  //   if(currentPosition) {
-  //     console.log(currentPosition)
-  //     getAirportSelect(currentPosition[0], currentPosition[1], 'from')
-  //   }
-  // }, [currentPosition])
    useEffect(() => {
     if(props?.startInfo) {
       getAirportSelect(props?.startInfo?.lat, props?.startInfo?.lon, 'from')
     }
   }, [props?.startInfo])
+
+  useEffect(() => {
+    if(props?.startDate) {
+      setFlightForm({...flightForm, date_departure: props?.startDate})
+    }
+  }, [props?.startDate])
+
+  useEffect(() => {
+    if(props?.endDate) {
+      setFlightForm({...flightForm,  date_departure_return: props?.endDate})
+    }
+  }, [props?.endDate])
 
   const getAirportSelect = async (lat: number, lon:number, type: string) => {
     // const suggest = await getAirport(lat, lon, {});

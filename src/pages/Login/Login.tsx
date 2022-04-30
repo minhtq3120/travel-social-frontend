@@ -56,7 +56,8 @@ const Login = (props: any) => {
             accessToken,
             sex,
             name,
-            avatar
+            avatar,
+            email: values.email
           })
         );
         history.push('/home');
