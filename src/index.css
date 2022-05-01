@@ -157,6 +157,9 @@ input:-webkit-autofill:active {
 
 .ant-layout-header {
   background-color: #68d1c8 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* border: 1px solid #68d1c8 !important; */
 }
 

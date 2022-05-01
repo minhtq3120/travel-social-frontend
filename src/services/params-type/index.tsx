@@ -22,6 +22,11 @@ export type RegisterParamsWalletAddress = {
   walletAddress: string
 };
 
+export type StakeGetSignature = {
+  poolId: number,
+  walletAddress: string
+};
+
 
 export type ActivateParams = {
   email: string,

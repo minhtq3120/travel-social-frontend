@@ -1,0 +1,206 @@
+.staking-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    // background-color: #68d1c8;
+
+    .pool-container {
+        width: 80%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        margin-top: 100px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+            rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        border-radius: 25px;
+        background-color: white;
+        padding: 30px 10px;
+
+        .totalstaked {
+            .name {
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 20px;
+                opacity: 0.7;
+            }
+
+            .value {
+                font-size: 17px;
+                padding: 5px 20px;
+            }
+        }
+
+        .pool-lockduration {
+            .name {
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 20px;
+                opacity: 0.7;
+            }
+
+            .value {
+                font-size: 17px;
+                padding: 5px 20px;
+            }
+        }
+
+        .pool-minStake {
+            .name {
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 20px;
+                opacity: 0.7;
+            }
+
+            .value {
+                font-size: 17px;
+                padding: 5px 20px;
+            }
+        }
+
+        .pool-apr {
+            .name {
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 20px;
+                opacity: 0.7;
+            }
+
+            .value {
+                font-size: 17px;
+                padding: 5px 20px;
+            }
+        }
+
+        .btn-stake {
+            padding: 10px 35px;
+            border-radius: 30px;
+            height: auto;
+            margin: 10px 30px;
+            background-color: #68d1c8;
+            color: white;
+            border-color: #68d1c8;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+
+}
+
+.stakeinfo-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .stakeData-container {
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        padding: 10px 20px;
+
+        .title {
+            font-size: 25px;
+            font-weight: bold;
+            opacity: 0.8;
+            padding: 10px 20px;
+        }
+
+        .staked {
+            padding: 5px;
+            display: flex;
+            width: auto;
+            height: auto;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+
+            .staked-title {
+                font-size: 15px;
+                opacity: 0.9;
+                padding: 5px 20px;
+                min-width: 150px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+            }
+
+            .staked-value {
+                font-size: 17px;
+                font-weight: bold;
+            }
+        }
+
+        .time {
+            padding: 5px 25px;
+        }
+    }
+
+    .stakeform-container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+
+
+        .forn {
+            width: 90%;
+
+            .formitem {
+                border-radius: 10px !important;
+
+                .search-input {
+                    padding: 15px;
+                    width: 500px !important;
+                    border-radius: 10px !important;
+
+                    .ant-input {
+                        border-radius: 10px !important;
+                    }
+                }
+
+                .ant-input {
+                    border-radius: 10px !important;
+                }
+            }
+
+            .btn-stake {
+                padding: 10px 35px;
+                border-radius: 30px;
+                height: auto;
+                margin: 10px 0px;
+                background-color: #68d1c8;
+                color: white;
+                border-color: #68d1c8;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+        }
+
+    }
+
+}

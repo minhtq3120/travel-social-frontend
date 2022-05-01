@@ -30,6 +30,7 @@
     "antd": "4.18.0",
     "antd-input-tag": "^1.0.14",
     "axios": "0.24.0",
+    "bignumber.js": "^9.0.2",
     "classnames": "2.3.1",
     "comma-number": "2.1.0",
     "crypto": "^1.0.1",

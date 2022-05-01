@@ -36,7 +36,7 @@ const RenderSearch = (props) => {
         onPressEnter={props?.handlePressEnterSearch}
         onChange={handleOnChange}
         defaultValue={localStorage.getItem('searchValue') || ''}
-        style={{ width: '500px', padding: '10px', paddingLeft: '30px', borderRadius: '30px' }}
+        style={{ width: '400px', padding: '10px', paddingLeft: '30px', borderRadius: '30px' }}
         
       />
     </div>

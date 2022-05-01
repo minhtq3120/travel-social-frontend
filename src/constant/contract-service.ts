@@ -1,35 +1,31 @@
 import { MOCK_TOKEN_ABI, STAKING_CONTRACT_ABI } from "./abi";
 import { InjectedConnector } from '@web3-react/injected-connector/';
 
+import Web3 from 'web3';
 
 
 import { providers, ethers } from 'ethers';
+import BigNumber from "bignumber.js";
 
-export const umadToken = async (tokenAddress: string) => {
+export const STAKING_ADDRESS = '0x8952513F0AED52EcAC8fCb12ED747f9abc77710a'
+
+export const MSN_TOKEN_ADDRESS = '0x61ee09f919d7D6F48e83dB94dFBEd55399DAD07d'
+
+
+
+export const msnToken = async () => {
   const umadABI = MOCK_TOKEN_ABI;
-  return await createInstanceContract(tokenAddress, JSON.parse(umadABI));
+  return await createInstanceContract(MSN_TOKEN_ADDRESS, JSON.parse(umadABI));
 };
 
-
-export const nftToken = async () => {
-  const nftABI = MOCK_TOKEN_ABI;
-  const nftAddress = process.env.REACT_APP_NFT_TOKEN_ADDRESS;
-  return await createInstanceContract(nftAddress as string, JSON.parse(nftABI));
-};
-
-export const nftToken2 = async (collectionAddr: string) => {
-  const nftABI = MOCK_TOKEN_ABI;
-  return await createInstanceContract(collectionAddr, JSON.parse(nftABI));
-};
-
-export const stakingNFT = async () => {
+export const staking = async () => {
   const stakingABI = STAKING_CONTRACT_ABI;
-  const stakingAddress = process.env.REACT_APP_STAKING_ADDRESS;
 
-  return await createInstanceContract(stakingAddress as string, JSON.parse(stakingABI));
+  return await createInstanceContract(STAKING_ADDRESS as string, JSON.parse(stakingABI));
 };
 
 export const sleep = (ms = 1000) => new Promise((resolve) => setTimeout(resolve, ms));
+
 
 
 export const createInstanceContract = async (address: string, abi: string) => {
@@ -78,3 +74,4 @@ export const getSigner = async () => {
 }
 
 
+// 

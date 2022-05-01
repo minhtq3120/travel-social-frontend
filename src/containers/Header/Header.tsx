@@ -20,7 +20,8 @@ import {
   AiOutlineHome,
   AiOutlineMessage,
   AiOutlinePlusSquare,
-  AiOutlineYoutube
+  AiOutlineYoutube,
+  AiOutlineWallet
 } from 'react-icons/ai';
 import { Button, Dropdown, Input, Menu, message, Modal } from 'antd';
 import { getCurrentUser } from 'src/utils/utils';
@@ -66,7 +67,7 @@ const HeaderContainer = (props: any) => {
     color: 'white'
   };
   const { account : ac, library, chainId , activate} = useWeb3React();
-  const walletAccount = useSelector((state: RootState) => state.wallet.account);
+  const walletAccount: any = useSelector((state: RootState) => state.wallet.account) || localStorage.getItem('account');
 
 
 
@@ -189,7 +190,7 @@ const HeaderContainer = (props: any) => {
       if(notiNotSeen)setNotiNotSeenCount(notiNotSeen)
     }, [notiNotSeen])
 
-  console.log('==========', userInfo, "============", )
+  console.log('==========', userInfo, "============", walletAccount)
   const handleLogout = () => {
     localStorage.clear();
     history.push('/login');
@@ -238,7 +239,7 @@ const HeaderContainer = (props: any) => {
       // handleSignUpWalletAddress(userInfo?.email, ac)
       handleSignInWalletAddress(email, ac)
     }
-  },[ac, ])
+  },[ac])
 
   
 
@@ -314,7 +315,8 @@ const HeaderContainer = (props: any) => {
               <Button className={cx('btn-next')} onClick={() => {
                 handleLoginMetamask()
               }}>
-                  Connect wallet
+                <AiOutlineWallet size={20}/>
+                  <div style={{margin: '0 5px'}}>{walletAccount?.length > 0 ?  `${walletAccount?.slice(0, 6) + '...' + walletAccount?.slice(-4)}` : `Connect wallet` }</div>
                 </Button>
             <AiOutlineHome
               style={account === '1' ? iconClicked : iconNotClick}
