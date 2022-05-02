@@ -51,6 +51,26 @@ export const getSuggestionAttraction = async (payload?: any) => {
             }
         });
 };
+
+export const getSuggestionActivities = async (payload?: any) => {
+    let queryString = 'https://travel-advisor.p.rapidapi.com/attractions/list';
+    return await axiosInstance
+        .get(queryString, {
+            params: payload,
+            headers: {
+                'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
+                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+            }
+        })
+        .catch(function (error) {
+            if (error.response) {
+                return error.response.status;
+            }
+        });
+};
+
+
+
 export const getSuggestionHotels = async (payload?: any) => {
     let queryString = 'https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng';
     return await axiosInstance

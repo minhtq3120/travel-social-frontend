@@ -1,0 +1,4402 @@
+{
+    "data": [
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "293926",
+                "name": "Huế",
+                "latitude": "16.467237",
+                "longitude": "107.57917",
+                "num_reviews": "191176",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Huế, Tỉnh Thừa Thiên - Huế",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0f/b4/dd/eb/hue-imperial-city-citadel.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0f/b4/dd/eb/hue-imperial-city-citadel.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "4032",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0f/b4/dd/eb/hue-imperial-city-citadel.jpg",
+                            "height": "3024"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0f/b4/dd/eb/hue-imperial-city-citadel.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/0f/b4/dd/eb/hue-imperial-city-citadel.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2017-06-28T05:35:10-0400",
+                    "caption": "Hue Imperial City - Citadel",
+                    "id": "263511531",
+                    "helpful_votes": "13",
+                    "published_date": "2017-06-28T05:35:10-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.hue",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "311",
+                        "attractions": "100",
+                        "nightlife": "10",
+                        "shopping": "37",
+                        "total": "458"
+                    },
+                    "restaurants": {
+                        "total": "484"
+                    },
+                    "accommodations": {
+                        "hotels": "209",
+                        "bbs_inns": "183",
+                        "others": "267",
+                        "total": "659"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Thừa Thiên - Huế",
+                        "abbrv": null,
+                        "location_id": "2146376"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Huế nằm ven bờ sông Hương, con sông chia kinh đô của Triều Nguyễn thành hai nửa. Có vô số di tích lịch sử không thể bỏ qua, đặc biệt là những di tích được UNESCO công nhận là Di sản Thế giới. Các danh lam thắng cảnh có thể bao gồm Hoàng thành trang trí công phu, Cầu Thanh Toàn đầy màu sắc, những ngôi mộ hoàng gia và Tử Cấm Thành. Dành một chút thời gian trầm tư tĩnh lặng nếu bạn tham quan Khe Đá Mài Huế, nơi hàng ngàn người dân đã bị dồn tới chết.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "3320435",
+                "name": "Hòa Bình",
+                "latitude": "20.81333",
+                "longitude": "105.33833",
+                "num_reviews": "170",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hòa Bình, Tỉnh Hòa Bình",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/08/b5/e3/0f/hoa-binh-province.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/08/b5/e3/0f/hoa-binh-province.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1999",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/08/b5/e3/0f/hoa-binh-province.jpg",
+                            "height": "1326"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/08/b5/e3/0f/hoa-binh-province.jpg",
+                            "height": "365"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/08/b5/e3/0f/hoa-binh-province.jpg",
+                            "height": "166"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2015-08-20T23:53:43-0400",
+                    "caption": "Lung Van - Clound Valley - Hoa Binh",
+                    "id": "146137871",
+                    "helpful_votes": "0",
+                    "published_date": "2015-08-21T02:36:20-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "6",
+                        "attractions": "5",
+                        "nightlife": "0",
+                        "shopping": "2",
+                        "total": "13"
+                    },
+                    "restaurants": {
+                        "total": "4"
+                    },
+                    "accommodations": {
+                        "hotels": "12",
+                        "bbs_inns": "10",
+                        "others": "19",
+                        "total": "41"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Hòa Bình",
+                        "abbrv": null,
+                        "location_id": "2146210"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "1544599",
+                "name": "Hà Giang",
+                "latitude": "22.83057",
+                "longitude": "104.98552",
+                "num_reviews": "7689",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Giang, Tỉnh Hà Giang",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/b9/04/f1/another-terraced-rice.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/b9/04/f1/another-terraced-rice.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/b9/04/f1/another-terraced-rice.jpg",
+                            "height": "1125"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/b9/04/f1/another-terraced-rice.jpg",
+                            "height": "309"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/0d/b9/04/f1/another-terraced-rice.jpg",
+                            "height": "141"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2016-11-25T03:49:49-0500",
+                    "caption": "another terraced rice field",
+                    "id": "230229233",
+                    "helpful_votes": "10",
+                    "published_date": "2016-11-25T03:49:49-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "87",
+                        "attractions": "9",
+                        "nightlife": "1",
+                        "shopping": "1",
+                        "total": "98"
+                    },
+                    "restaurants": {
+                        "total": "51"
+                    },
+                    "accommodations": {
+                        "hotels": "26",
+                        "bbs_inns": "39",
+                        "others": "173",
+                        "total": "238"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Hà Giang",
+                        "abbrv": null,
+                        "location_id": "2146208"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "303942",
+                "name": "Cần Thơ",
+                "latitude": "10.034986",
+                "longitude": "105.78888",
+                "num_reviews": "24587",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Cần Thơ, Đồng bằng Mekong",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0e/7d/75/34/ca-n-tho.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0e/7d/75/34/ca-n-tho.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "689",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0e/7d/75/34/ca-n-tho.jpg",
+                            "height": "517"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0e/7d/75/34/ca-n-tho.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/0e/7d/75/34/ca-n-tho.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2017-02-20T23:27:42-0500",
+                    "caption": "",
+                    "id": "243103028",
+                    "helpful_votes": "6",
+                    "published_date": "2017-02-20T23:27:42-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "77",
+                        "attractions": "29",
+                        "nightlife": "6",
+                        "shopping": "11",
+                        "total": "123"
+                    },
+                    "restaurants": {
+                        "total": "185"
+                    },
+                    "accommodations": {
+                        "hotels": "146",
+                        "bbs_inns": "182",
+                        "others": "191",
+                        "total": "519"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Đồng bằng Mekong",
+                        "abbrv": null,
+                        "location_id": "293927"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "municipality",
+                        "name": "Đô thị"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Cần Thơ là thành phố chính của Đồng bằng châu thổ sông Mê Kông, \"đồng bằng sông Cửu Long\" nơi con sông Mê Kông đổ vào Biển Đông. Đây cũng là trung tâm giao thông chính của vùng. Các con kênh rộng mở giúp thuyền bè đi lại dễ dàng và gần đó là chợ nổi cung cấp các đặc sản và trái cây lạ của địa phương. *Hãy bay đến Sân bay Quốc tế Thành phố Hồ Chí Minh, từ đó bạn có thể đón ô tô hoặc xe tải nhỏ (khoảng 4 giờ) để đến Cần Thơ.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "293925",
+                "name": "Thành phố Hồ Chí Minh",
+                "latitude": "10.82293",
+                "longitude": "106.62975",
+                "num_reviews": "796599",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/33/f1/0b/caption.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/33/f1/0b/caption.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "5760",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/33/f1/0b/caption.jpg",
+                            "height": "3277"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/33/f1/0b/caption.jpg",
+                            "height": "313"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/33/f1/0b/caption.jpg",
+                            "height": "142"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2020-03-24T15:27:48-0400",
+                    "caption": "",
+                    "id": "456388875",
+                    "helpful_votes": "5",
+                    "published_date": "2020-03-24T15:27:48-0400",
+                    "user": null
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.ho_chi_minh_city",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "1434",
+                        "attractions": "212",
+                        "nightlife": "238",
+                        "shopping": "465",
+                        "total": "2349"
+                    },
+                    "restaurants": {
+                        "total": "5464"
+                    },
+                    "accommodations": {
+                        "hotels": "1553",
+                        "bbs_inns": "1547",
+                        "others": "1891",
+                        "total": "4991"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Thành phố náo nhiệt lớn nhất Việt Nam luôn dẫn đầu xu hướng về cả văn hóa và kinh tế trong nước. Sài Gòn xưa tự hào bởi nét duyên dáng của kiến trúc thuộc địa Pháp và những đại lộ thênh thang từng một thời đông đúc đến tắc nghẽn. Taxi là phương tiện được nhiều người lựa chọn để thăm thú thành phố rộng lớn này. Bảo tàng chứng tích chiến tranh khắc họa Chiến tranh Việt Nam dưới chính con mắt của người dân đất Việt. Đừng bỏ lỡ Chùa Ngọc Hoàng đầy ấn tượng, và nhớ ghé Chợ Bến Thành muôn phần náo nhiệt, nơi bày bán đồ ăn, hoa hay những chú ếch. Du khách cũng có thể ngao du qua những đồng lúa và nhà thuyền rải rác khắp Đồng bằng Sông Cửu Long.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "293924",
+                "name": "Hà Nội",
+                "latitude": "21.033333",
+                "longitude": "105.84962",
+                "num_reviews": "925500",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Nội",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/33/f7/12/caption.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/33/f7/12/caption.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "6000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg",
+                            "height": "4000"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/33/f7/12/caption.jpg",
+                            "height": "367"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/33/f7/12/caption.jpg",
+                            "height": "167"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2020-03-24T16:18:06-0400",
+                    "caption": "",
+                    "id": "456390418",
+                    "helpful_votes": "16",
+                    "published_date": "2020-03-24T16:18:06-0400",
+                    "user": null
+                },
+                "awards": [
+                    {
+                        "award_type": "Traveler's Choice",
+                        "year": "2022",
+                        "images": {
+                            "small": "https://static.tacdn.com/img2/awards/TC-Color-60x60-updated-green.png",
+                            "large": "https://www.tripadvisor.com.vn/img2/awards/TC_2014_downloadable_LL_TM.jpg"
+                        },
+                        "categories": [
+                            "Điểm đến dành cho người yêu ẩm thực ",
+                            "Điểm đến yêu thích"
+                        ],
+                        "display_name": "Travellers' Choice 2022"
+                    }
+                ],
+                "doubleclick_zone": "as.vietnam.hanoi",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "2079",
+                        "attractions": "292",
+                        "nightlife": "166",
+                        "shopping": "426",
+                        "total": "2963"
+                    },
+                    "restaurants": {
+                        "total": "3810"
+                    },
+                    "accommodations": {
+                        "hotels": "1294",
+                        "bbs_inns": "1074",
+                        "others": "1177",
+                        "total": "3545"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "municipality",
+                        "name": "Đô thị"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Thủ đô duyên dáng của Việt Nam đã trường tồn nghìn năm; bên cạnh việc bảo tồn các di tích như Phố Cổ, tượng đài và kiến trúc thuộc địa, Hà Nội vẫn đang từng ngày phát triể̀n hiện đại hơn. Hà Nội có thể đã không còn giữ những cái tên trước đây như Thăng Long hay còn có nghĩa là \"rồng bay lên\" nhưng Hà Nội chưa bao giờ quên quá khứ oai hùng, như các địa điểm Lăng Chủ tịch Hồ Chí Minh và Nhà tù Hỏa Lò minh chứng. Hồ, công viên, những con đường rợp bóng mát và hơn 600 đền chùa cũng góp phần tạo nên sự hấp dẫn, cuốn hút của thành phố này mà du khách có thể dễ dàng khám phá bằng taxi.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "298085",
+                "name": "Đà Nẵng",
+                "latitude": "16.052067",
+                "longitude": "108.21558",
+                "num_reviews": "234475",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Đà Nẵng",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/33/f3/cf/caption.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/33/f3/cf/caption.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "5838",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/33/f3/cf/caption.jpg",
+                            "height": "3649"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/33/f3/cf/caption.jpg",
+                            "height": "344"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/33/f3/cf/caption.jpg",
+                            "height": "156"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2020-03-24T15:50:24-0400",
+                    "caption": "",
+                    "id": "456389583",
+                    "helpful_votes": "14",
+                    "published_date": "2020-03-24T15:50:24-0400",
+                    "user": null
+                },
+                "awards": [
+                    {
+                        "award_type": "Traveler's Choice",
+                        "year": "2022",
+                        "images": {
+                            "small": "https://static.tacdn.com/img2/awards/TC-Color-60x60-updated-green.png",
+                            "large": "https://www.tripadvisor.com.vn/img2/awards/TC_2014_downloadable_LL_TM.jpg"
+                        },
+                        "categories": [
+                            "Điểm đến yêu thích"
+                        ],
+                        "display_name": "Travellers' Choice 2022"
+                    }
+                ],
+                "doubleclick_zone": "as.vietnam.da_nang",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "651",
+                        "attractions": "116",
+                        "nightlife": "63",
+                        "shopping": "112",
+                        "total": "942"
+                    },
+                    "restaurants": {
+                        "total": "1581"
+                    },
+                    "accommodations": {
+                        "hotels": "900",
+                        "bbs_inns": "628",
+                        "others": "813",
+                        "total": "2341"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "municipality",
+                        "name": "Đô thị"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Đà Nẵng rất thoải mái và thân thiện, có lẽ vì du khách gặp gỡ tất cả mọi người vừa kết thúc một bữa ăn tuyệt vời. Chuyến tham quan ẩm thực là cách phổ biến để trải nghiệm hương vị địa phương theo đúng nghĩa đen. Sau khi bạn no căng với món mì mặn và thức ăn đường phố ngon lành, dạo chơi cho tiêu thức ăn bằng cách khám phá các hang động đá vôi và hang động Phật giáo của Ngũ Hành Sơn.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "airlines",
+            "result_object": {
+                "location_id": "8729180",
+                "name": "Vietnam Airlines",
+                "num_reviews": "7763",
+                "location_string": "Thế giới",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/11/8b/bd/0e/vietnam-airlines.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/11/8b/bd/0e/vietnam-airlines.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/11/8b/bd/0e/vietnam-airlines.jpg",
+                            "height": "1315"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/11/8b/bd/0e/vietnam-airlines.jpg",
+                            "height": "673"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/11/8b/bd/0e/vietnam-airlines.jpg",
+                            "height": "362"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2017-12-19T02:20:58-0500",
+                    "caption": "Vietnam Airlines",
+                    "id": "294370574",
+                    "helpful_votes": "50",
+                    "published_date": "2017-12-19T02:20:58-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "is_long_closed": false,
+                "brand_icon_url": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/VietnamAirlines.png",
+                "hero_image_url": "https://static.tacdn.com/img2/flights/airlines/hero_images/_GenericHero_1168x606.jpg",
+                "alliance_icon_url": "https://static.tacdn.com/img2/flights/airlines/alliances/100x100/skyteam.jpg",
+                "display_phone_number": "011 84 838 320 320",
+                "description": "",
+                "web_url": "",
+                "ancestors": [],
+                "category": {
+                    "key": "airline",
+                    "name": "Hãng hàng không"
+                },
+                "subcategory": [],
+                "guide_count": "0",
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "200 Nguyen Son Str.",
+                    "street2": "Long Bien District",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "postalcode": null
+                },
+                "address": "200 Nguyen Son Str. Long Bien District",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 70 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Tôi là một chàng trai lần đầu tiên đi máy bay của hãng hàng không Vietnam",
+                "spans": [
+                    {
+                        "start_index": 66,
+                        "end_index": 73
+                    }
+                ],
+                "review_id": "758548961"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "298082",
+                "name": "Hội An",
+                "latitude": "15.87944",
+                "longitude": "108.335",
+                "num_reviews": "643106",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hội An, Tỉnh Quảng Nam",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/b4/95/1e/20161110-163943-largejpg.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/b4/95/1e/20161110-163943-largejpg.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "3984",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/b4/95/1e/20161110-163943-largejpg.jpg",
+                            "height": "2988"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/b4/95/1e/20161110-163943-largejpg.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/0d/b4/95/1e/20161110-163943-largejpg.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2016-11-23T11:50:10-0500",
+                    "caption": "",
+                    "id": "229938462",
+                    "helpful_votes": "164",
+                    "published_date": "2016-11-23T11:50:10-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.hoi_an",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "793",
+                        "attractions": "117",
+                        "nightlife": "23",
+                        "shopping": "574",
+                        "total": "1507"
+                    },
+                    "restaurants": {
+                        "total": "1200"
+                    },
+                    "accommodations": {
+                        "hotels": "405",
+                        "bbs_inns": "454",
+                        "others": "400",
+                        "total": "1259"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Quảng Nam",
+                        "abbrv": null,
+                        "location_id": "2146272"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "municipality",
+                        "name": "Đô thị"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Thành phố nằm trên dải bờ biển miền trung Việt Nam này là một hình mẫu được bảo tồn tốt của một thương cảng Đông Nam Á quan trọng từ thế kỷ 15-19. Từng là điểm dừng chân phổ biến đối với khách du lịch ba lô, nơi đây ngày càng trở nên nổi tiếng với khách du lịch. Vào ngày 14 âm lịch hàng tháng, thị trấn này sẽ thay đèn điện bằng những chiếc đèn lồng truyền thống đầy màu sắc. Các thắng cảnh bao gồm Chùa Cầu và Đền Quan Công. Hãy để những thợ may lành nghề của thị trấn may đo cho bạn một vài bộ đồ đặt hàng riêng.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "293928",
+                "name": "Nha Trang",
+                "latitude": "12.24797",
+                "longitude": "109.19042",
+                "num_reviews": "179827",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Nha Trang, Khánh Hòa",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/15/33/fb/69/nha-trang.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/15/33/fb/69/nha-trang.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "3317",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/15/33/fb/69/nha-trang.jpg",
+                            "height": "648"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/15/33/fb/69/nha-trang.jpg",
+                            "height": "107"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/15/33/fb/69/nha-trang.jpg",
+                            "height": "49"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2018-10-30T14:15:50-0400",
+                    "caption": "",
+                    "id": "355728233",
+                    "helpful_votes": "5",
+                    "published_date": "2018-10-30T14:15:50-0400",
+                    "user": null
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.khanh_hoa.nha_trang",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "390",
+                        "attractions": "68",
+                        "nightlife": "38",
+                        "shopping": "57",
+                        "total": "553"
+                    },
+                    "restaurants": {
+                        "total": "817"
+                    },
+                    "accommodations": {
+                        "hotels": "611",
+                        "bbs_inns": "488",
+                        "others": "512",
+                        "total": "1611"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Khánh Hòa",
+                        "abbrv": null,
+                        "location_id": "1184689"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Nha Trang nổi tiếng với những bãi biển đẹp đầy cát. Nhưng du khách cũng sẽ tìm thấy các khu vui chơi, tắm bùn, sân golf và khu di tích lịch sử Tháp Bà Po Ngar, cũng như một loạt khách sạn và nhà hàng. Những thực khách bạo dạn có thể nếm thử món bún chả cá, một món súp làm từ cá cờ và sứa.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "7171779",
+                "name": "Vietnam Adventure Tours",
+                "latitude": "10.773723",
+                "longitude": "106.69701",
+                "num_reviews": "19502",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/15/ff/f0/ae/we-are-vietnam-adventure.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/15/ff/f0/ae/we-are-vietnam-adventure.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/ff/f0/ae/we-are-vietnam-adventure.jpg",
+                            "height": "853"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/15/ff/f0/ae/we-are-vietnam-adventure.jpg",
+                            "height": "683"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/15/ff/f0/ae/we-are-vietnam-adventure.jpg",
+                            "height": "367"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2019-01-06T21:47:12-0500",
+                    "caption": "We are Vietnam Adventure Tours - The leading tour operator in Ho Chi Minh city Vietnam. Our friendly staffs, guides, drivers will deliver the best quality in our services we offer such as: Daily Tours, Package Tour from Ho Chi Minh city and across our country Vietnam. ",
+                    "id": "369094830",
+                    "helpful_votes": "6",
+                    "published_date": "2019-01-06T21:47:12-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "tour_operator",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Thành phố Hồ Chí Minh",
+                        "abbrv": null,
+                        "location_id": "293925"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "36",
+                        "name": "Đồ ăn & Đồ uống"
+                    },
+                    {
+                        "key": "42",
+                        "name": "Chuyến tham quan"
+                    },
+                    {
+                        "key": "55",
+                        "name": "Chuyến tham quan bằng thuyền & thể thao dưới nước"
+                    },
+                    {
+                        "key": "61",
+                        "name": "Hoạt động ngoài trời"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": null,
+                    "street2": "",
+                    "city": "Thành phố Hồ Chí Minh",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "700000"
+                },
+                "address": "Thành phố Hồ Chí Minh 700000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 3 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Chúng tôi đồng ý công ty Vietnam Adventure tour đạt chuẩn quốc tế ⭐️⭐️⭐️",
+                "spans": [
+                    {
+                        "start_index": 25,
+                        "end_index": 32
+                    }
+                ],
+                "review_id": "691319002"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "7333808",
+                "name": "Vietnam Travel Group",
+                "latitude": "10.767089",
+                "longitude": "106.690796",
+                "num_reviews": "5168",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/13/38/29/a5/tet-holiday-vietnam-travel.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/13/38/29/a5/tet-holiday-vietnam-travel.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/13/38/29/a5/tet-holiday-vietnam-travel.jpg",
+                            "height": "870"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/13/38/29/a5/tet-holiday-vietnam-travel.jpg",
+                            "height": "696"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/13/38/29/a5/tet-holiday-vietnam-travel.jpg",
+                            "height": "374"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2018-06-09T00:15:33-0400",
+                    "caption": "Tet-Holiday-vietnam-travel-group-excursion",
+                    "id": "322447781",
+                    "helpful_votes": "0",
+                    "published_date": "2018-06-09T00:15:33-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "tour_operator",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Thành phố Hồ Chí Minh",
+                        "abbrv": null,
+                        "location_id": "293925"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "42",
+                        "name": "Chuyến tham quan"
+                    },
+                    {
+                        "key": "55",
+                        "name": "Chuyến tham quan bằng thuyền & thể thao dưới nước"
+                    },
+                    {
+                        "key": "61",
+                        "name": "Hoạt động ngoài trời"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": null,
+                    "street2": "",
+                    "city": "Thành phố Hồ Chí Minh",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "700000"
+                },
+                "address": "Thành phố Hồ Chí Minh 700000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 8 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Mọi người nên đến Công ty Vietnam Travel Group, để có những trãi nghiệm",
+                "spans": [
+                    {
+                        "start_index": 26,
+                        "end_index": 33
+                    }
+                ],
+                "review_id": "830665763"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "469418",
+                "name": "Đảo Phú Quốc",
+                "latitude": "10.289879",
+                "longitude": "103.98402",
+                "num_reviews": "123224",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Đảo Phú Quốc, Tỉnh Kiên Giang",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/05/ad/a9/2b/sao-beach.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/05/ad/a9/2b/sao-beach.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "3264",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/05/ad/a9/2b/sao-beach.jpg",
+                            "height": "2448"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/05/ad/a9/2b/sao-beach.jpg",
+                            "height": "412"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/05/ad/a9/2b/sao-beach.jpg",
+                            "height": "187"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2014-04-05T01:33:03-0400",
+                    "caption": "Sao Beach",
+                    "id": "95267115",
+                    "helpful_votes": "44",
+                    "published_date": "2014-04-07T08:01:48-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.phu_quoc_island",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "198",
+                        "attractions": "58",
+                        "nightlife": "40",
+                        "shopping": "39",
+                        "total": "335"
+                    },
+                    "restaurants": {
+                        "total": "516"
+                    },
+                    "accommodations": {
+                        "hotels": "360",
+                        "bbs_inns": "282",
+                        "others": "345",
+                        "total": "987"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Kiên Giang",
+                        "abbrv": null,
+                        "location_id": "2146212"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "island",
+                        "name": "Đảo"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Tắm mình trong ánh mặt trời và thưởng thức một số văn hóa của Việt Nam trên Đảo Phú Quốc, nơi có những bờ cát trắng và làn nước nhiệt đới trong xanh thu hút những người thích đi biển ở khắp nơi trên thế giới. Lặn biển, lặn bằng bình khí là môn thể thao dưới nước được ưa chuộng nhất ở nơi đây, mặc dù trò lướt ván bằng tàu cao tốc, lướt ván buồm và câu mực—vâng, đúng là câu mực—cũng là các trò giải trí được ưa chuộng trong tầm tay ở kỳ nghỉ này. Hãy đi đến khu Chợ Dương Đông vào buổi sáng sớm để có những trải nghiệm độc đáo của địa phương.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "447352",
+                "name": "Vietnam Museum of Ethnology",
+                "latitude": "21.04023",
+                "longitude": "105.799576",
+                "num_reviews": "6576",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Nội",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/09/ff/f4/f0/museum-etnologi-vietnam.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/09/ff/f4/f0/museum-etnologi-vietnam.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/09/ff/f4/f0/museum-etnologi-vietnam.jpg",
+                            "height": "1500"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/09/ff/f4/f0/museum-etnologi-vietnam.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/09/ff/f4/f0/museum-etnologi-vietnam.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2016-01-10T07:42:25-0500",
+                    "caption": "museum",
+                    "id": "167769328",
+                    "helpful_votes": "1",
+                    "published_date": "2016-01-10T07:42:25-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "none",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "open_now_text": "Đang đóng cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Hà Nội",
+                        "abbrv": null,
+                        "location_id": "293924"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "49",
+                        "name": "Bảo tàng"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Đường Nguyễn Văn Huyên",
+                    "street2": "Cầu Giấy",
+                    "city": "Hà Nội",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "100000"
+                },
+                "address": "Đường Nguyễn Văn Huyên Cầu Giấy, Hà Nội 100000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "fee": "YES"
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 4 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "một không gian rất rộng, nhiều cây xanh, nhiều khu nhà của các dân tộc Vietnam",
+                "spans": [
+                    {
+                        "start_index": 71,
+                        "end_index": 78
+                    }
+                ],
+                "review_id": "505299084"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "10187217",
+                "name": "Daily Vietnam Tour",
+                "latitude": "21.034077",
+                "longitude": "105.85122",
+                "num_reviews": "198",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Nội",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/17/3e/ca/55/hang-mua-cave.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/3e/ca/55/hang-mua-cave.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/17/3e/ca/55/hang-mua-cave.jpg",
+                            "height": "960"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/17/3e/ca/55/hang-mua-cave.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/3e/ca/55/hang-mua-cave.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2019-04-22T01:06:00-0400",
+                    "caption": "Hang mua cave",
+                    "id": "389990997",
+                    "helpful_votes": "0",
+                    "published_date": "2019-04-22T01:06:00-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "tour_operator",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Hà Nội",
+                        "abbrv": null,
+                        "location_id": "293924"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "42",
+                        "name": "Chuyến tham quan"
+                    },
+                    {
+                        "key": "55",
+                        "name": "Chuyến tham quan bằng thuyền & thể thao dưới nước"
+                    },
+                    {
+                        "key": "61",
+                        "name": "Hoạt động ngoài trời"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "114 Hàng Bạc, Hoàn Kiếm",
+                    "street2": "",
+                    "city": "Hà Nội",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "100000"
+                },
+                "address": "114 Hàng Bạc, Hoàn Kiếm, Hà Nội 100000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 13 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Cảm ơn công daily Vietnam Tour đã đồng hành cùng chuyến đi bổ ích, nhiều",
+                "spans": [
+                    {
+                        "start_index": 18,
+                        "end_index": 25
+                    }
+                ],
+                "review_id": "681404210"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "104863",
+                "name": "Vietnam Veterans Memorial",
+                "latitude": "38.891113",
+                "longitude": "-77.04762",
+                "num_reviews": "11894",
+                "timezone": "America/New_York",
+                "location_string": "Washington DC, Quận Columbia",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/12/a6/eb/96/can-be-slippery-when.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/12/a6/eb/96/can-be-slippery-when.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/12/a6/eb/96/can-be-slippery-when.jpg",
+                            "height": "1500"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/12/a6/eb/96/can-be-slippery-when.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/12/a6/eb/96/can-be-slippery-when.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2018-04-15T20:41:44-0400",
+                    "caption": "Can be slippery when wet!",
+                    "id": "312929174",
+                    "helpful_votes": "3",
+                    "published_date": "2018-04-15T20:41:44-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "none",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Washington DC",
+                        "abbrv": null,
+                        "location_id": "28970"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "state",
+                                "name": "Tiểu bang"
+                            }
+                        ],
+                        "name": "Quận Columbia",
+                        "abbrv": null,
+                        "location_id": "28969"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Hoa Kỳ",
+                        "abbrv": null,
+                        "location_id": "191"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "47",
+                        "name": "Danh lam & Thắng cảnh"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "5 Henry Bacon Dr NW",
+                    "street2": "",
+                    "city": "Washington DC",
+                    "state": "Quận Columbia",
+                    "country": "Hoa Kỳ",
+                    "postalcode": "20002"
+                },
+                "address": "5 Henry Bacon Dr NW, Washington DC, DC 20002",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "1309266",
+                "name": "Nhà hàng Vietnam House",
+                "latitude": "10.774837",
+                "longitude": "106.70414",
+                "num_reviews": "634",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/23/26/00/d4/main-lobby.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/23/26/00/d4/main-lobby.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/23/26/00/d4/main-lobby.jpg",
+                            "height": "853"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/23/26/00/d4/main-lobby.jpg",
+                            "height": "682"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/23/26/00/d4/main-lobby.jpg",
+                            "height": "367"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2022-04-22T05:59:14-0400",
+                    "caption": "Main Lobby",
+                    "id": "589693140",
+                    "helpful_votes": "0",
+                    "published_date": "2022-04-22T05:59:14-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Thành phố Hồ Chí Minh",
+                        "abbrv": null,
+                        "location_id": "293925"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "93-95-97 Đồng Khởi",
+                    "street2": "Quận 1",
+                    "city": "Thành phố Hồ Chí Minh",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "700000"
+                },
+                "address": "93-95-97 Đồng Khởi Quận 1, Thành phố Hồ Chí Minh 700000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với một đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Món ăn ngon - phục vụ tốt là phương châm tại nhà hàng Vietnam House, ở",
+                "spans": [
+                    {
+                        "start_index": 54,
+                        "end_index": 61
+                    }
+                ],
+                "review_id": "655716115"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "3484417",
+                "name": "Comme au Vietnam",
+                "latitude": "48.829697",
+                "longitude": "2.357407",
+                "num_reviews": "791",
+                "timezone": "Europe/Paris",
+                "location_string": "Paris, Ile-de-France",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/07/17/ce/ca/comme-au-vietnam.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/07/17/ce/ca/comme-au-vietnam.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/07/17/ce/ca/comme-au-vietnam.jpg",
+                            "height": "986"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/07/17/ce/ca/comme-au-vietnam.jpg",
+                            "height": "504"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/07/17/ce/ca/comme-au-vietnam.jpg",
+                            "height": "271"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2014-12-23T04:01:57-0500",
+                    "caption": "couverture",
+                    "id": "119000778",
+                    "helpful_votes": "1",
+                    "published_date": "2014-12-23T04:01:57-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Paris",
+                        "abbrv": null,
+                        "location_id": "187147"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Ile-de-France",
+                        "abbrv": null,
+                        "location_id": "187144"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Pháp",
+                        "abbrv": null,
+                        "location_id": "187070"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "195 avenue de Choisy",
+                    "street2": "Place Italie, Paris 13",
+                    "city": "Paris",
+                    "state": null,
+                    "country": "Pháp",
+                    "postalcode": "75013"
+                },
+                "address": "195 avenue de Choisy Place Italie, Paris 13, 75013 Paris Pháp",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10679",
+                        "name": "Tốt cho sức khỏe"
+                    },
+                    {
+                        "key": "10648",
+                        "name": "Quốc tế"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "4586861",
+                "name": "Vietnam Restaurante",
+                "latitude": "40.414066",
+                "longitude": "-3.701142",
+                "num_reviews": "708",
+                "timezone": "Europe/Madrid",
+                "location_string": "Madrid",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/10/cb/69/51/curry-de-corvina.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/10/cb/69/51/curry-de-corvina.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/10/cb/69/51/curry-de-corvina.jpg",
+                            "height": "1333"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/10/cb/69/51/curry-de-corvina.jpg",
+                            "height": "682"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/10/cb/69/51/curry-de-corvina.jpg",
+                            "height": "367"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2017-09-27T08:35:43-0400",
+                    "caption": "Curry de corvina",
+                    "id": "281766225",
+                    "helpful_votes": "4",
+                    "published_date": "2017-09-27T08:35:43-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "open_now_text": "Mở cửa sau 26 phút nữa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Madrid",
+                        "abbrv": null,
+                        "location_id": "187514"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Cộng đồng Madrid",
+                        "abbrv": null,
+                        "location_id": "562642"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Tây Ban Nha",
+                        "abbrv": null,
+                        "location_id": "187427"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Calle Huertas 4",
+                    "street2": "",
+                    "city": "Madrid",
+                    "state": null,
+                    "country": "Tây Ban Nha",
+                    "postalcode": "28012"
+                },
+                "address": "Calle Huertas 4, 28012 Madrid Tây Ban Nha",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10679",
+                        "name": "Tốt cho sức khỏe"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với một đánh giá"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "lodging",
+            "result_object": {
+                "location_id": "3504912",
+                "name": "Angsana Lang Co Vietnam",
+                "latitude": "16.334562",
+                "longitude": "107.95617",
+                "num_reviews": "1681",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Phú Lộc, Phu Loc District, Tỉnh Thừa Thiên - Huế",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/1d/67/92/ce/exterior-view.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/1d/67/92/ce/exterior-view.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/1d/67/92/ce/exterior-view.jpg",
+                            "height": "768"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/1d/67/92/ce/exterior-view.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/1d/67/92/ce/exterior-view.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2021-07-21T10:36:41-0400",
+                    "caption": "Exterior view",
+                    "id": "493327054",
+                    "helpful_votes": "0",
+                    "published_date": "2021-07-21T10:36:41-0400",
+                    "user": null
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "is_long_closed": false,
+                "special_offers": {
+                    "desktop": [],
+                    "mobile": []
+                },
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Phú Lộc",
+                        "abbrv": null,
+                        "location_id": "2549590"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "district",
+                                "name": "Quận"
+                            }
+                        ],
+                        "name": "Phu Loc District",
+                        "abbrv": null,
+                        "location_id": "11923493"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Thừa Thiên - Huế",
+                        "abbrv": null,
+                        "location_id": "2146376"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "hotel",
+                    "name": "Khách sạn"
+                },
+                "subcategory": [
+                    {
+                        "key": "hotel",
+                        "name": "Khách sạn"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Cư Du Village",
+                    "street2": "",
+                    "city": "Phú Lộc",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "530000"
+                },
+                "address": "Cư Du Village, Phú Lộc 530000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "amenities": []
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "8564194",
+                "name": "Ga Hà Nội",
+                "latitude": "21.024836",
+                "longitude": "105.840935",
+                "num_reviews": "605",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Nội",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/08/e0/e0/70/vietnam-railways.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/08/e0/e0/70/vietnam-railways.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "640",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/08/e0/e0/70/vietnam-railways.jpg",
+                            "height": "480"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/08/e0/e0/70/vietnam-railways.jpg",
+                            "height": "412"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/08/e0/e0/70/vietnam-railways.jpg",
+                            "height": "187"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2015-09-09T04:22:51-0400",
+                    "caption": "Station Da Nang",
+                    "id": "148955248",
+                    "helpful_votes": "25",
+                    "published_date": "2015-09-09T04:22:51-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "none",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "3.0",
+                "is_closed": false,
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Hà Nội",
+                        "abbrv": null,
+                        "location_id": "293924"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "59",
+                        "name": "Phương tiện giao thông"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "120 Le Duan Street, Cua Nam Ward, Hoan Kiem District",
+                    "street2": "",
+                    "city": "Hà Nội",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "10000"
+                },
+                "address": "120 Le Duan Street, Cua Nam Ward, Hoan Kiem District, Hà Nội 10000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với một đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "You shouldn&#x27;t choose train for your transportation in Vietnam!",
+                "spans": [
+                    {
+                        "start_index": 59,
+                        "end_index": 66
+                    }
+                ],
+                "review_id": "451177444"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "airlines",
+            "result_object": {
+                "location_id": "8728907",
+                "name": "Jetstar Pacific Airlines - Việt Nam",
+                "num_reviews": "1119",
+                "location_string": "Thế giới",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0a/7b/4f/21/jetstar-pacific-airlines.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0a/7b/4f/21/jetstar-pacific-airlines.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2020",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0a/7b/4f/21/jetstar-pacific-airlines.jpg",
+                            "height": "680"
+                        },
+                        "large": {
+                            "width": "2020",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0a/7b/4f/21/jetstar-pacific-airlines.jpg",
+                            "height": "680"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0a/7b/4f/21/jetstar-pacific-airlines.jpg",
+                            "height": "185"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2016-03-02T15:58:50-0500",
+                    "caption": "Jetstar Pacific Airlines - Vietnam",
+                    "id": "175853345",
+                    "helpful_votes": "2",
+                    "published_date": "2016-03-02T15:58:50-0500",
+                    "user": null
+                },
+                "awards": [],
+                "doubleclick_zone": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "2.5",
+                "is_closed": false,
+                "is_long_closed": false,
+                "brand_icon_url": "https://static.tacdn.com/img2/flights/airlines/logos/100x100/Jetstar.png",
+                "hero_image_url": "https://static.tacdn.com/img2/flights/airlines/hero_images/_GenericHero_1168x606.jpg",
+                "display_phone_number": "011 84 1900 1550",
+                "description": "",
+                "web_url": "",
+                "ancestors": [],
+                "category": {
+                    "key": "airline",
+                    "name": "Hãng hàng không"
+                },
+                "subcategory": [],
+                "guide_count": "0",
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "112 Hong Ha Street",
+                    "street2": "Ward 2, Tan Binh",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "postalcode": null
+                },
+                "address": "112 Hong Ha Street Ward 2, Tan Binh",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 4 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "Mình đi của Vietnamairlines mà gặp phải chuyến liên doanh Vietnam Airlines-Pacific",
+                "spans": [
+                    {
+                        "start_index": 58,
+                        "end_index": 65
+                    }
+                ],
+                "review_id": "779227866"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "lodging",
+            "result_object": {
+                "location_id": "3706257",
+                "name": "Haven Vietnam",
+                "latitude": "13.685783",
+                "longitude": "109.23134",
+                "num_reviews": "211",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Quy Nhơn, Tỉnh Bình Định",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/16/13/f3/f1/room-4-with-balcony-and.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/16/13/f3/f1/room-4-with-balcony-and.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/16/13/f3/f1/room-4-with-balcony-and.jpg",
+                            "height": "1280"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/16/13/f3/f1/room-4-with-balcony-and.jpg",
+                            "height": "352"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/16/13/f3/f1/room-4-with-balcony-and.jpg",
+                            "height": "160"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2019-01-13T06:27:57-0500",
+                    "caption": "Room 4 with balcony and sea view",
+                    "id": "370406385",
+                    "helpful_votes": "1",
+                    "published_date": "2019-01-13T06:27:57-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "is_long_closed": false,
+                "special_offers": {
+                    "desktop": [],
+                    "mobile": []
+                },
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Quy Nhơn",
+                        "abbrv": null,
+                        "location_id": "608528"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Bình Định",
+                        "abbrv": null,
+                        "location_id": "2145138"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "hotel",
+                    "name": "Khách sạn"
+                },
+                "subcategory": [
+                    {
+                        "key": "bb",
+                        "name": "B&B"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Tổ 1, Khu vực 1, Bãi Xếp",
+                    "street2": "Phường Ghềnh Ráng, Thành phố",
+                    "city": "Quy Nhơn",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "590000"
+                },
+                "address": "Tổ 1, Khu vực 1, Bãi Xếp Phường Ghềnh Ráng, Thành phố, Quy Nhơn 590000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "amenities": []
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "14796307",
+                "name": "Taste Vietnam",
+                "latitude": "52.40836",
+                "longitude": "-1.515722",
+                "num_reviews": "558",
+                "timezone": "Europe/London",
+                "location_string": "Coventry, West Midlands, England",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/14/18/cc/91/fresh-summer-rolls.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/14/18/cc/91/fresh-summer-rolls.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/14/18/cc/91/fresh-summer-rolls.jpg",
+                            "height": "960"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/14/18/cc/91/fresh-summer-rolls.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/14/18/cc/91/fresh-summer-rolls.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2018-08-11T19:51:07-0400",
+                    "caption": "fresh summer rolls",
+                    "id": "337169553",
+                    "helpful_votes": "2",
+                    "published_date": "2018-08-11T19:51:07-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Mở cửa sau 26 phút nữa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Coventry",
+                        "abbrv": null,
+                        "location_id": "186403"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "county",
+                                "name": "Hạt"
+                            }
+                        ],
+                        "name": "West Midlands",
+                        "abbrv": null,
+                        "location_id": "186401"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "nation",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "England",
+                        "abbrv": null,
+                        "location_id": "186217"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Vương quốc Anh",
+                        "abbrv": "UK",
+                        "location_id": "186216"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "188 Spon Street",
+                    "street2": "",
+                    "city": "Coventry",
+                    "state": null,
+                    "country": "Vương quốc Anh",
+                    "postalcode": "CV1 3BB"
+                },
+                "address": "188 Spon Street, Coventry CV1 3BB England",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10646",
+                        "name": "Đồ ăn nhanh"
+                    },
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10679",
+                        "name": "Tốt cho sức khỏe"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    },
+                    {
+                        "key": "16556",
+                        "name": "Đồ ăn nhanh"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "6949407",
+                "name": "Le Vietnam",
+                "latitude": "-31.95421",
+                "longitude": "115.860504",
+                "num_reviews": "302",
+                "timezone": "Australia/Perth",
+                "location_string": "Perth, Greater Perth, Tây Úc",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0d/47/6e/c4/photo0jpg.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0d/47/6e/c4/photo0jpg.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2048",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0d/47/6e/c4/photo0jpg.jpg",
+                            "height": "1360"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/0d/47/6e/c4/photo0jpg.jpg",
+                            "height": "680"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0d/47/6e/c4/photo0jpg.jpg",
+                            "height": "365"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2016-10-12T20:02:40-0400",
+                    "caption": "",
+                    "id": "222785220",
+                    "helpful_votes": "5",
+                    "published_date": "2016-10-12T20:02:40-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Đóng cửa hôm nay",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Perth",
+                        "abbrv": null,
+                        "location_id": "255103"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "department",
+                                "name": "Phòng ban"
+                            }
+                        ],
+                        "name": "Greater Perth",
+                        "abbrv": null,
+                        "location_id": "2650698"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "state",
+                                "name": "Tiểu bang"
+                            }
+                        ],
+                        "name": "Tây Úc",
+                        "abbrv": null,
+                        "location_id": "255101"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Úc",
+                        "abbrv": null,
+                        "location_id": "255055"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "cafe",
+                        "name": "Quán cafe"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Bon Marche Arcade 80 Barrack St",
+                    "street2": "Bon Marche Arcade Shop 1 L 1",
+                    "city": "Perth",
+                    "state": "Tây Úc",
+                    "country": "Úc",
+                    "postalcode": "6000"
+                },
+                "address": "Bon Marche Arcade 80 Barrack St Bon Marche Arcade Shop 1 L 1, Perth, Tây Úc 6000 Úc",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10642",
+                        "name": "Cà phê"
+                    },
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10679",
+                        "name": "Tốt cho sức khỏe"
+                    },
+                    {
+                        "key": "10686",
+                        "name": "Thức ăn đường phố"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "16556",
+                        "name": "Đồ ăn nhanh"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "13957334",
+                "name": "Vietnam Silver House",
+                "latitude": "10.752985",
+                "longitude": "106.67535",
+                "num_reviews": "50",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/12/d5/12/6b/workshop-room.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/12/d5/12/6b/workshop-room.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2000",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/12/d5/12/6b/workshop-room.jpg",
+                            "height": "1333"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/12/d5/12/6b/workshop-room.jpg",
+                            "height": "682"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/12/d5/12/6b/workshop-room.jpg",
+                            "height": "367"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2018-05-02T22:44:15-0400",
+                    "caption": "Workshop room",
+                    "id": "315953771",
+                    "helpful_votes": "1",
+                    "published_date": "2018-05-02T22:44:15-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "none",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "open_now_text": "Đang đóng cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Thành phố Hồ Chí Minh",
+                        "abbrv": null,
+                        "location_id": "293925"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "26",
+                        "name": "Nơi mua sắm"
+                    },
+                    {
+                        "key": "49",
+                        "name": "Bảo tàng"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "68 Nghĩa Thục",
+                    "street2": "Phố Vàng Bạc Quận 5",
+                    "city": "Thành phố Hồ Chí Minh",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "700000"
+                },
+                "address": "68 Nghĩa Thục Phố Vàng Bạc Quận 5, Thành phố Hồ Chí Minh 700000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 3 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "quà ý nghĩa và giá trị dành cho người thân và bạn bè, sao lại không đến Vietnam",
+                "spans": [
+                    {
+                        "start_index": 72,
+                        "end_index": 79
+                    }
+                ],
+                "review_id": "722951659"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "455005",
+                "name": "Vietnam Military History Museum",
+                "latitude": "21.032806",
+                "longitude": "105.84004",
+                "num_reviews": "1683",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hà Nội",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/09/b5/e8/de/caption.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/09/b5/e8/de/caption.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1600",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/09/b5/e8/de/caption.jpg",
+                            "height": "1200"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/09/b5/e8/de/caption.jpg",
+                            "height": "412"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/09/b5/e8/de/caption.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": false,
+                    "uploaded_date": "2015-12-09T09:01:34-0500",
+                    "caption": "展示",
+                    "id": "162916574",
+                    "helpful_votes": "1",
+                    "published_date": "2015-12-09T09:01:34-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "none",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "open_now_text": "Đang đóng cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Hà Nội",
+                        "abbrv": null,
+                        "location_id": "293924"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "49",
+                        "name": "Bảo tàng"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "28A Điện Biên Phủ",
+                    "street2": "",
+                    "city": "Hà Nội",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "10000"
+                },
+                "address": "28A Điện Biên Phủ, Hà Nội 10000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "fee": "YES"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "14133353",
+                "name": "Comme O VietNam",
+                "latitude": "48.887012",
+                "longitude": "2.172326",
+                "num_reviews": "90",
+                "timezone": "Europe/Paris",
+                "location_string": "Rueil-Malmaison, Hauts-de-Seine, Ile-de-France",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/13/2e/7a/b5/vu-exterieur2.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/13/2e/7a/b5/vu-exterieur2.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/13/2e/7a/b5/vu-exterieur2.jpg",
+                            "height": "960"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/13/2e/7a/b5/vu-exterieur2.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/13/2e/7a/b5/vu-exterieur2.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2018-06-05T09:32:16-0400",
+                    "caption": "Vu exterieur2",
+                    "id": "321813173",
+                    "helpful_votes": "4",
+                    "published_date": "2018-06-05T09:32:16-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "open_now_text": "Đóng cửa hôm nay",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Rueil-Malmaison",
+                        "abbrv": null,
+                        "location_id": "226861"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "department",
+                                "name": "Phòng ban"
+                            }
+                        ],
+                        "name": "Hauts-de-Seine",
+                        "abbrv": null,
+                        "location_id": "2624155"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Ile-de-France",
+                        "abbrv": null,
+                        "location_id": "187144"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Pháp",
+                        "abbrv": null,
+                        "location_id": "187070"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "11 allee de Belgique",
+                    "street2": "",
+                    "city": "Rueil-Malmaison",
+                    "state": null,
+                    "country": "Pháp",
+                    "postalcode": "92500"
+                },
+                "address": "11 allee de Belgique, 92500 Rueil-Malmaison Pháp",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "1752833",
+                "name": "Bun Bo Vietnam",
+                "latitude": "41.38502",
+                "longitude": "2.175022",
+                "num_reviews": "1590",
+                "timezone": "Europe/Madrid",
+                "location_string": "Barcelona, Catalonia",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0f/1c/1e/9d/fried-banana-ice-cream.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0f/1c/1e/9d/fried-banana-ice-cream.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1125",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0f/1c/1e/9d/fried-banana-ice-cream.jpg",
+                            "height": "1500"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-p/0f/1c/1e/9d/fried-banana-ice-cream.jpg",
+                            "height": "733"
+                        },
+                        "medium": {
+                            "width": "338",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0f/1c/1e/9d/fried-banana-ice-cream.jpg",
+                            "height": "450"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2017-04-27T23:11:58-0400",
+                    "caption": "fried banana ice cream",
+                    "id": "253501085",
+                    "helpful_votes": "0",
+                    "published_date": "2017-04-27T23:11:58-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Barcelona",
+                        "abbrv": null,
+                        "location_id": "187497"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Barcelona",
+                        "abbrv": null,
+                        "location_id": "1969684"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Catalonia",
+                        "abbrv": null,
+                        "location_id": "187496"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Tây Ban Nha",
+                        "abbrv": null,
+                        "location_id": "187427"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "Calle Sagristans, 3",
+                    "street2": "",
+                    "city": "Barcelona",
+                    "state": null,
+                    "country": "Tây Ban Nha",
+                    "postalcode": "08002"
+                },
+                "address": "Calle Sagristans, 3, 08002 Barcelona Tây Ban Nha",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    },
+                    {
+                        "key": "10679",
+                        "name": "Tốt cho sức khỏe"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "906982",
+                "name": "Bonjour vietnam",
+                "latitude": "48.845097",
+                "longitude": "2.349539",
+                "num_reviews": "387",
+                "timezone": "Europe/Paris",
+                "location_string": "Paris, Ile-de-France",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/10/e8/1b/b0/photo1jpg.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/10/e8/1b/b0/photo1jpg.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "2048",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/10/e8/1b/b0/photo1jpg.jpg",
+                            "height": "1536"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/10/e8/1b/b0/photo1jpg.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/10/e8/1b/b0/photo1jpg.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2017-10-08T09:18:34-0400",
+                    "caption": "",
+                    "id": "283646896",
+                    "helpful_votes": "0",
+                    "published_date": "2017-10-08T09:18:34-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.0",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Paris",
+                        "abbrv": null,
+                        "location_id": "187147"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "region",
+                                "name": "Vùng"
+                            }
+                        ],
+                        "name": "Ile-de-France",
+                        "abbrv": null,
+                        "location_id": "187144"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Pháp",
+                        "abbrv": null,
+                        "location_id": "187070"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "6 rue Thouin",
+                    "street2": "49, Rue Descartes",
+                    "city": "Paris",
+                    "state": null,
+                    "country": "Pháp",
+                    "postalcode": "75005"
+                },
+                "address": "6 rue Thouin 49, Rue Descartes, 75005 Paris Pháp",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "10659",
+                        "name": "Kiểu Á"
+                    },
+                    {
+                        "key": "10675",
+                        "name": "Kiểu Việt"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "15528737",
+                "name": "Hana Tourist Vietnam",
+                "latitude": "10.7666",
+                "longitude": "106.69211",
+                "num_reviews": "1387",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Thành phố Hồ Chí Minh",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/16/0c/a4/fe/caption.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/16/0c/a4/fe/caption.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/16/0c/a4/fe/caption.jpg",
+                            "height": "1366"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-p/16/0c/a4/fe/caption.jpg",
+                            "height": "733"
+                        },
+                        "medium": {
+                            "width": "337",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/16/0c/a4/fe/caption.jpg",
+                            "height": "450"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2019-01-10T22:37:23-0500",
+                    "caption": "",
+                    "id": "369927422",
+                    "helpful_votes": "0",
+                    "published_date": "2019-01-10T22:37:23-0500",
+                    "user": null
+                },
+                "awards": [],
+                "location_subtype": "tour_operator",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Thành phố Hồ Chí Minh",
+                        "abbrv": null,
+                        "location_id": "293925"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "20",
+                        "name": "Giải trí về đêm"
+                    },
+                    {
+                        "key": "36",
+                        "name": "Đồ ăn & Đồ uống"
+                    },
+                    {
+                        "key": "42",
+                        "name": "Chuyến tham quan"
+                    },
+                    {
+                        "key": "51",
+                        "name": "Khác"
+                    },
+                    {
+                        "key": "55",
+                        "name": "Chuyến tham quan bằng thuyền & thể thao dưới nước"
+                    },
+                    {
+                        "key": "59",
+                        "name": "Phương tiện giao thông"
+                    },
+                    {
+                        "key": "61",
+                        "name": "Hoạt động ngoài trời"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "172 Bùi Viện",
+                    "street2": "Quận 1",
+                    "city": "Thành phố Hồ Chí Minh",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "700000"
+                },
+                "address": "172 Bùi Viện Quận 1, Thành phố Hồ Chí Minh 700000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "restaurants",
+            "result_object": {
+                "location_id": "1121823",
+                "name": "Good Morning Vietnam",
+                "latitude": "15.878861",
+                "longitude": "108.3287",
+                "num_reviews": "1892",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hội An, Tỉnh Quảng Nam",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/04/a0/f3/fb/bruschettas.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/04/a0/f3/fb/bruschettas.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "5184",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/04/a0/f3/fb/bruschettas.jpg",
+                            "height": "3456"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/04/a0/f3/fb/bruschettas.jpg",
+                            "height": "682"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/04/a0/f3/fb/bruschettas.jpg",
+                            "height": "366"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2013-10-04T12:17:14-0400",
+                    "caption": "Bruschettas",
+                    "id": "77657083",
+                    "helpful_votes": "2",
+                    "published_date": "2013-10-04T12:17:14-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "open_now_text": "Đang mở cửa",
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Hội An",
+                        "abbrv": null,
+                        "location_id": "298082"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Quảng Nam",
+                        "abbrv": null,
+                        "location_id": "2146272"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "restaurant",
+                    "name": "Nhà hàng"
+                },
+                "subcategory": [
+                    {
+                        "key": "sit_down",
+                        "name": "Ngồi xuống"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "11 Lê Lợi",
+                    "street2": "Minh An",
+                    "city": "Hội An",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "560000"
+                },
+                "address": "11 Lê Lợi Minh An, Hội An 560000 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false,
+                "cuisine": [
+                    {
+                        "key": "4617",
+                        "name": "Kiểu Ý"
+                    },
+                    {
+                        "key": "20062",
+                        "name": "Naples"
+                    },
+                    {
+                        "key": "20064",
+                        "name": "Campania"
+                    },
+                    {
+                        "key": "20067",
+                        "name": "Rome"
+                    },
+                    {
+                        "key": "20068",
+                        "name": "Lazio"
+                    },
+                    {
+                        "key": "20069",
+                        "name": "Sicily"
+                    },
+                    {
+                        "key": "20075",
+                        "name": "Miền Trung nước Ý"
+                    },
+                    {
+                        "key": "20076",
+                        "name": "Miền Nam nước Ý"
+                    }
+                ],
+                "establishment_types": [
+                    {
+                        "key": "10591",
+                        "name": "Nhà hàng"
+                    }
+                ]
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với một đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "yên tĩnh và đẹp, tôi được bạn bè giới thiệu đến nhà hàng Good Morning Vietnam",
+                "spans": [
+                    {
+                        "start_index": 70,
+                        "end_index": 77
+                    }
+                ],
+                "review_id": "399824574"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "things_to_do",
+            "result_object": {
+                "location_id": "12378727",
+                "name": "Vietnam Balloons",
+                "latitude": "10.776256",
+                "longitude": "106.70529",
+                "num_reviews": "140",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Mũi Né, Phan Thiết, Tỉnh Bình Thuận",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/0f/19/fc/49/getlstd-property-photo.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/0f/19/fc/49/getlstd-property-photo.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/0f/19/fc/49/getlstd-property-photo.jpg",
+                            "height": "960"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/0f/19/fc/49/getlstd-property-photo.jpg",
+                            "height": "413"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/0f/19/fc/49/getlstd-property-photo.jpg",
+                            "height": "188"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2017-04-27T03:25:53-0400",
+                    "caption": "getlstd_property_photo",
+                    "id": "253361225",
+                    "helpful_votes": "3",
+                    "published_date": "2017-04-27T03:25:53-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "location_subtype": "tour_operator",
+                "preferred_map_engine": "default",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "5.0",
+                "is_closed": false,
+                "is_long_closed": false,
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "city",
+                                "name": "Thành phố"
+                            }
+                        ],
+                        "name": "Mũi Né",
+                        "abbrv": null,
+                        "location_id": "1009804"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Đô thị"
+                            }
+                        ],
+                        "name": "Phan Thiết",
+                        "abbrv": null,
+                        "location_id": "298086"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Bình Thuận",
+                        "abbrv": null,
+                        "location_id": "2145211"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "attraction",
+                    "name": "Điểm du lịch"
+                },
+                "subcategory": [
+                    {
+                        "key": "42",
+                        "name": "Chuyến tham quan"
+                    },
+                    {
+                        "key": "61",
+                        "name": "Hoạt động ngoài trời"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "address_obj": {
+                    "street1": "125A Nguyen Dinh Chieu, Ham Tien, Phan Thiet, Binh Thuan",
+                    "street2": "",
+                    "city": "Mũi Né",
+                    "state": null,
+                    "country": "Việt Nam",
+                    "postalcode": "801097"
+                },
+                "address": "125A Nguyen Dinh Chieu, Ham Tien, Phan Thiet, Binh Thuan, Mũi Né, Phan Thiết 801097 Việt Nam",
+                "is_candidate_for_contact_info_suppression": false
+            },
+            "search_explanations": {
+                "mentioned_by_travelers": "khớp với 2 đánh giá"
+            },
+            "review_snippet": {
+                "snippet": "khí cầu ngắm bình minh trong lành vào buổi sáng sớm 💖🎊🌞  Cảm ơn Vietnam",
+                "spans": [
+                    {
+                        "start_index": 67,
+                        "end_index": 74
+                    }
+                ],
+                "review_id": "517326569"
+            },
+            "scope": "local"
+        },
+        {
+            "result_type": "geos",
+            "result_object": {
+                "location_id": "311304",
+                "name": "Sapa",
+                "latitude": "22.341185",
+                "longitude": "103.84032",
+                "num_reviews": "71057",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Sapa, Tỉnh Lào Cai",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/01/e8/00/d0/sapa-vietnam.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/01/e8/00/d0/sapa-vietnam.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "3648",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-o/01/e8/00/d0/sapa-vietnam.jpg",
+                            "height": "2736"
+                        },
+                        "large": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/01/e8/00/d0/sapa-vietnam.jpg",
+                            "height": "412"
+                        },
+                        "medium": {
+                            "width": "250",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-f/01/e8/00/d0/sapa-vietnam.jpg",
+                            "height": "187"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2011-06-16T23:59:44-0400",
+                    "caption": "Sapa, Vietnam",
+                    "id": "31981776",
+                    "helpful_votes": "435",
+                    "published_date": "2011-06-29T17:43:53-0400",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [],
+                "doubleclick_zone": "as.vietnam.sapa",
+                "preferred_map_engine": "default",
+                "geo_type": "narrow",
+                "category_counts": {
+                    "attractions": {
+                        "activities": "198",
+                        "attractions": "43",
+                        "nightlife": "10",
+                        "shopping": "14",
+                        "total": "265"
+                    },
+                    "restaurants": {
+                        "total": "212"
+                    },
+                    "accommodations": {
+                        "hotels": "181",
+                        "bbs_inns": "229",
+                        "others": "294",
+                        "total": "704"
+                    },
+                    "neighborhoods": "0",
+                    "airports": "0"
+                },
+                "nearby_attractions": [],
+                "description": "",
+                "web_url": "",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "province",
+                                "name": "Tỉnh"
+                            }
+                        ],
+                        "name": "Tỉnh Lào Cai",
+                        "abbrv": null,
+                        "location_id": "2146220"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Quốc gia"
+                            }
+                        ],
+                        "name": "Việt Nam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "geographic",
+                    "name": "Địa lý"
+                },
+                "subcategory": [
+                    {
+                        "key": "city",
+                        "name": "Thành phố"
+                    }
+                ],
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "geo_description": "Nằm ở vùng núi phía Tây Bắc của Việt Nam, thị trấn chợ Sapa rực rỡ sắc màu và rất duyên dáng, mang đến cho du khách một ốc đảo hoàn hảo giữa chuyến du lịch quốc bộ nhọc nhằn ở vùng núi hoặc tham quan các thửa ruộng. Nhà thờ đá Gô-tich ở trung tâm thị trấn là điểm nổi bật trong trung tâm mua sắm gồm nhiều cửa hàng và quầy hàng, gợi nhớ về sự ảnh hưởng của việc truyền giáo của người Pháp đối với thị trấn. Ăn món ăn Việt Nam hoặc món Âu ở khu trung tâm của thị trấn, và đừng bỏ lỡ phiên \"chợ tình\" vào tối Thứ Bảy, một trong những buổi tối hẹn hò gặp gỡ thú vị nhất của các nam thanh nữ tú dân tộc.",
+                "has_restaurant_coverpage": false,
+                "has_attraction_coverpage": false,
+                "has_curated_shopping_list": false
+            },
+            "scope": "local"
+        }
+    ],
+    "metadata": {
+        "scope": "local"
+    },
+    "sort": [
+        {
+            "filter_key": "relevance",
+            "label": "Mức độ liên quan",
+            "locale_independent_label": "relevance",
+            "selected": true
+        },
+        {
+            "filter_key": "distance",
+            "label": "Khoảng cách",
+            "locale_independent_label": "distance",
+            "selected": false
+        }
+    ],
+    "partial_content": false,
+    "tracking": {
+        "search_id": "E08DFC5BC3E04C48A56F04C835FC10DC1651401286458"
+    },
+    "paging": {
+        "results": "30",
+        "total_results": "68435"
+    }
+}

@@ -69,6 +69,9 @@ const HotelSuggestion = (props: any) => {
   const [currentPosition, setCurrentPosition] = useState<any>(null)
   const [hotelStar, setHotelStar] = useState<any>(null)
 
+  const [amenities2, setAmenities2] = useState<any>(null)
+  const [zff2, setZff2] = useState<any>(null)
+
   const currentPos: any = useSelector((state: RootState) => state.wallet.currentPosition);
 
   useEffect(() => {
@@ -154,9 +157,9 @@ const HotelSuggestion = (props: any) => {
     const hotelStars = [
       { label: '1 star', value: '1' },
       { label: '2 stars', value: '2' },
-        { label: '3 stars', value: '3' },
+      { label: '3 stars', value: '3' },
       { label: '4 stars', value: '4' },
-        { label: '5 stars', value: '5' },
+      { label: '5 stars', value: '5' },
     ];
 
   
@@ -262,46 +265,72 @@ const HotelSuggestion = (props: any) => {
 
 
   const [hotelForm, setHotelForm] = useState<any>({
-    destinationId: destinationId,
-    pageNumber: '1',
-    pageSize: '30',
     checkIn: null,
     checkOut: null,
     priceMin: null,
     priceMax: null,
-    sortOrder:'PRICE',
     locale: 'vi_VN',
-    currency: 'VND'
-    // number_of_passengers: '2'
+    latitude: null, 
+    longitude: null
   })
+
+  useEffect(() => {
+    if(props?.destinationInfo) {
+      setHotelForm({...hotelForm, latitude: props?.destinationInfo?.lat, longitude: props?.destinationInfo?.lon})
+    }
+  }, [props?.destinationInfo])
+
+
+  useEffect(() => {
+    if(props?.startDate) {
+      setHotelForm({...hotelForm, checkIn: props?.startDate})
+      form.setFieldsValue({startDate: props?.startDate})
+    }
+  }, [props?.startDate])
+
+   useEffect(() => {
+    if(props?.endDate) {
+      setHotelForm({...hotelForm, checkOut: props?.endDate})
+      form.setFieldsValue({endDate: props?.endDate})
+
+    }
+  }, [props?.endDate])
 
  
   function disabledDate(current) {
     return current && current < moment().endOf('day');
   }
 
-  useEffect(() => {
-    setData(dataHotel2)
-  }, [])
 
   const getListsHotels = async (payload) => {
-    // if(payload?.checkIn && payload?.checkOut && payload?.destinationId) {
-    //    const suggest = await getSuggestionHotels({latitude: '21.032188', longitude: '105.81282', limit: '30', distance: '100'})
-      // console.log(suggest)
-      // const rs = _.get(suggest, 'data.data', null);
-      // console.log(rs)
-      // setData(rs)
-      setData(dataHotel2)
-    // }
-   
+    console.log('payloadddddddddddddd', payload)
+    setHotelForm({...hotelForm, 
+      latitude: payload?.latitude, 
+      longitude: payload?.longitude,
+      checkIn: payload?.checkIn,
+      checkOut: payload?.checkOut
+    })
 
-    
+    if(payload?.latitude && payload?.longitude ) {
+       const suggest = await getSuggestionHotels(payload)
+      console.log(suggest)
+      const rs = _.get(suggest, 'data', null);
+      console.log(rs)
+      setData(rs)
+      // setData(dataHotel2)
+    }
   }
 
   
   useEffect(() => {
-
-  }, [])
+    console.log(hotelForm,'==========', props)
+    if(props?.endDate && props?.endDate && props?.destinationInfo) getListsHotels({
+      latitude: props?.destinationInfo?.lat, 
+      longitude: props?.destinationInfo?.lon,
+      checkIn: props?.startDate,
+      checkOut: props?.endDate
+    })
+  }, [props?.destinationInfo, props?.startDate,props?.endDate])
 
   
   const handleFinish = async (values) => {
@@ -312,7 +341,9 @@ const HotelSuggestion = (props: any) => {
     }
     // console.log(payload)
     // return;
-    if(hotelStar) payload["starRatings"] = hotelStar
+    if(hotelStar) payload["hotel_rating"] = hotelStar
+    if(amenities2) payload["amenities"] = amenities2
+    if(zff2) payload["zff"] = zff2
     await getListsHotels(payload)
   console.log(payload)    
   }
@@ -356,23 +387,35 @@ const HotelSuggestion = (props: any) => {
 
           <div className={cx('class')}>Thời gian nhận phòng</div>
 
-          <DatePicker onChange={(e: any) => {
-            if(e) {
-              setHotelForm({...hotelForm, checkIn: moment(e).format('YYYY-MM-DD')})
-            }
-          }} 
-          style={{ width: '100%' }}
-          />
+            <Form.Item 
+              name="startDate"
+              style={{ width: '100%' }}
+              > 
+              <DatePicker onChange={(e: any) => {
+                  if(e) {
+                    setHotelForm({...hotelForm, checkIn: moment(e).format('YYYY-MM-DD')})
+                  }
+                }} 
+              style={{ width: '100%' }}
+              />
+            </Form.Item>
+         
 
            <div className={cx('class')}>Thời gian trả phòng</div>
 
-          <DatePicker onChange={(e: any) => {
-            if(e) {
-             setHotelForm({...hotelForm, checkOut: moment(e).format('YYYY-MM-DD')})
-            }
-          }} 
-           style={{ width: '100%' }}
-          />
+          <Form.Item 
+            name="endDate"
+            style={{ width: '100%' }}
+          > 
+            <DatePicker onChange={(e: any) => {
+              if(e) {
+              setHotelForm({...hotelForm, checkOut: moment(e).format('YYYY-MM-DD')})
+              }
+            }} 
+            style={{ width: '100%' }}
+            />
+          </Form.Item>
+
 
           <div className={cx('class')}>Loại khách sạn</div>
           <div style={{ width: '100%' , display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
@@ -382,11 +425,11 @@ const HotelSuggestion = (props: any) => {
           {
             data ?  (
               <>
-                <div className={cx('class')}>Gía mỗi đêm (VNĐ)</div>
-                <Slider range defaultValue={[data?.filters?.price?.range?.min?.defaultValue,data?.filters?.price?.range?.max?.defaultValue]}  
+                <div className={cx('class')}>Gía mỗi đêm ($)</div>
+                <Slider range defaultValue={[0, 10000000]}  
                 style={{width: '100%'}}
-                min={data?.filters?.price?.range?.min?.defaultValue}
-                max={data?.filters?.price?.range?.max?.defaultValue}
+                min={0}
+                max={10000000}
                 onAfterChange={(e) => {
                   console.log(e)
                   setHotelForm({...hotelForm, priceMin: e[0], priceMax: e[1]})
@@ -403,7 +446,7 @@ const HotelSuggestion = (props: any) => {
               style={{ width: '100%' }}
               placeholder="Please select"
               defaultValue={[]}
-              onChange={(e) => {console.log(e)}}
+              onChange={(e) => {setAmenities2(e.toString())}}
             >
               {amenities}
             </Select>
@@ -419,7 +462,7 @@ const HotelSuggestion = (props: any) => {
               style={{ width: '100%' }}
               placeholder="Please select"
               defaultValue={[]}
-              onChange={(e) => {console.log(e)}}
+              onChange={(e) => {setZff2(e.toString())}}
             >
               {hotelStyles}
             </Select>

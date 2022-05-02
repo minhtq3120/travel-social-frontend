@@ -80,8 +80,6 @@ const FlightSelect = (props: any) => {
   const [airportFrom, setAirportFrom] = useState<any>(null)
   const [airportTo, setAirportTo] = useState<any>(null)
 
-  // const search = useLocation().search;
-  // const name=new URLSearchParams(search).get("name");
 
   const [flightForm, setFlightForm] = useState<any>({
     date_departure: null,
@@ -91,43 +89,20 @@ const FlightSelect = (props: any) => {
     location_departure: null,
     sort_order: 'PRICE',
     date_departure_return: null,
-    // number_of_passengers: '2'
   })
+
+  const [date_departure, setDate_departure] = useState(null)
+  const [date_departure_return, setDate_departure_return] = useState(null)
+  const [location_arrival, setLocation_arrival] = useState(null)
+  const [location_departure, setLocation_departure] = useState(null)
   
   
+
 
  
   function disabledDate(current) {
     return current && current < moment().endOf('day');
   }
-
-  const getFLightEJ = async () => {
-    // const suggest = await getFlight({
-    //   date_departure: '2022-04-30',
-    //   class_type: 'ECO',
-    //   itinerary_type: 'ONE_WAY',
-    //   location_arrival: 'SGN',
-    //   location_departure: 'DAD',
-    //   sort_order: 'PRICE',
-    //   date_departure_return: '2022-05-01',
-    //   number_of_passengers: '2'
-    // });
-    console.log(flightForm)
-    // if(flightForm?.date_departure && flightForm?.date_departure_return && flightForm?.location_arrival &&  flightForm?.location_departure) {
-    //   const suggest = await getFlight(flightForm)
-    //   console.log(suggest)
-    //   const rs = _.get(suggest, 'data', null);
-    //   console.log(rs)
-    //   setAirline(rs?.airline)
-    //   setData(rs)
-    // }
-     setData(dataRoundTrop)
-    setAirline(dataRoundTrop.airline)
-  }
-
-  useEffect(() => {
-    if(props?.destinationInfo && props?.startInfo && props?.startDate && props?.endDate) getFLightEJ()
-  }, [props?.destinationInfo, props?.startInfo, props?.startDate , props?.endDate ])
 
   useEffect(() => {
     if(props?.destinationInfo) {
@@ -142,38 +117,78 @@ const FlightSelect = (props: any) => {
   }, [props?.startInfo])
 
   useEffect(() => {
-    if(props?.startDate) {
+    if(props?.startDate?.length>0) {
       setFlightForm({...flightForm, date_departure: props?.startDate})
     }
-  }, [props?.startDate])
+  }, [props?.startDate?.length>0])
 
   useEffect(() => {
+    console.log('start------------', props?.startDate , props?.endDate)
     if(props?.endDate) {
       setFlightForm({...flightForm,  date_departure_return: props?.endDate})
     }
   }, [props?.endDate])
 
-  const getAirportSelect = async (lat: number, lon:number, type: string) => {
-    // const suggest = await getAirport(lat, lon, {});
-    // const rs = _.get(suggest, 'data', null);
-    // if(type==='from') {
-    //   setFlightForm({...flightForm, location_departure: rs?.items[0]?.iata})
-    //   setAirportFrom(rs)
-    // }
-    // if(type==='to') {
-    //   setFlightForm({...flightForm, location_arrival: rs?.items[0]?.iata})
-    //   setAirportTo(rs)
-    // }
-    // console.log("++++++++++++++++++++++++++",rs)
+  useEffect(() => {
+    console.log('get flight comer here', flightForm)
+    if(airportFrom&& airportTo&& props?.startDate && props?.endDate  ) getFLightEJ(airportFrom, airportTo, props?.startDate ,props?.endDate )
+  }, [airportFrom, airportTo , flightForm?.startDate , flightForm?.endDate  ])
 
-    if(type==='from') setAirportFrom(flightFrom)
-    if(type==='to') setAirportTo(flightTo)
+  const getAirportSelect = async (lat: number, lon:number, type: string) => {
+    const suggest = await getAirport(lat, lon, {});
+    const rs = _.get(suggest, 'data', null);
+    if(type==='from') {
+      setFlightForm({...flightForm, location_departure: rs?.items[0]?.iata})
+      setAirportFrom(rs)
+    }
+    if(type==='to') {
+      setFlightForm({...flightForm, location_arrival: rs?.items[0]?.iata})
+      setAirportTo(rs)
+    }
+    console.log("++++++++++++++++++++++++++",rs)
+
+
+    // if(type==='from') setAirportFrom(flightFrom)
+    // if(type==='to') setAirportTo(flightTo)
   }
 
-  console.log("FROM", airportFrom, "To", airportTo)
-  useEffect(() => {
+  console.log(flightForm)
 
-  }, [])
+  const getFLightEJ = async (airportFrom, airportTo ,startDate, endDate ) => {
+    console.log("why-------=======",airportFrom, airportTo ,startDate, endDate )
+    setFlightForm({
+      ...flightForm,
+      date_departure: startDate, 
+      date_departure_return: endDate,
+       location_arrival: airportTo,
+       location_departure: airportFrom
+    })
+
+    let payload = {
+      class_type: flightForm.class_type,
+      itinerary_type: flightForm.itinerary_type,
+      sort_order: 'PRICE',
+      date_departure: startDate, 
+      date_departure_return: endDate,
+       location_arrival: airportTo?.items[0]?.iata,
+       location_departure: airportFrom?.items[0]?.iata
+    }
+    console.log("why-------======",flightForm)
+
+    console.log('CLGT', payload)
+    if(payload) {
+      console.log('comer here')
+      const suggest = await getFlight(payload)
+      console.log(suggest)
+      const rs = _.get(suggest, 'data', null);
+      console.log(rs)
+      setAirline(rs?.airline)
+      setData(rs)
+    }
+    //  setData(dataRoundTrop)
+    // setAirline(dataRoundTrop.airline)
+  }
+
 
   const ListFlight = () => {
     return (
@@ -281,7 +296,9 @@ const FlightSelect = (props: any) => {
           })
         }
       </div>
-      ) : null
+      ) : <div className={cx('flight-container')}>
+        No data
+      </div>
       
     )
   }
@@ -354,7 +371,14 @@ const FlightSelect = (props: any) => {
                   </Radio.Group>
                 </div>
 
-                <div className={cx('button-search')} onClick={getFLightEJ}>
+                <div className={cx('button-search')} 
+                onClick={() => getFLightEJ(
+                  flightForm?.location_departure, 
+                  flightForm?.location_arrival,
+                  flightForm?.date_departure,
+                  flightForm?.date_departure_return
+                )}
+                >
                   SEARCH
                 </div>
               </>

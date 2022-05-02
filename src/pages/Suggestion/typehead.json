@@ -1,0 +1,62 @@
+{
+    "11292": {
+        "count": "30",
+        "label": "Miễn phí vào cửa",
+        "locale_independent_label": "Free",
+        "selected": false
+    },
+    "11295": {
+        "count": "72",
+        "label": "Phù hợp với ngày mưa",
+        "locale_independent_label": "Rainy Day",
+        "selected": false
+    },
+    "11306": {
+        "count": "46",
+        "label": "Phù hợp với trẻ em",
+        "locale_independent_label": "Family (young children)",
+        "selected": false
+    },
+    "11309": {
+        "count": "95",
+        "label": "Hợp túi tiền",
+        "locale_independent_label": "Thrifty Traveler",
+        "selected": false
+    },
+    "11312": {
+        "count": "47",
+        "label": "Phù hợp với người thích cảm giác mạnh",
+        "locale_independent_label": "Thrill-Seeker",
+        "selected": false
+    },
+    "12156": {
+        "count": "12",
+        "label": "Viên ngọc ẩn",
+        "locale_independent_label": "Hidden gem - a",
+        "selected": false
+    },
+    "12159": {
+        "count": "33",
+        "label": "Địa điểm cho dịp trăng mật",
+        "locale_independent_label": "Honeymoon spot",
+        "selected": false
+    },
+    "12163": {
+        "count": "31",
+        "label": "Mạo hiểm",
+        "locale_independent_label": "Adventurous",
+        "selected": false
+    },
+    "12169": {
+        "count": "90",
+        "label": "Phù hợp với cặp đôi",
+        "locale_independent_label": "Good for couples",
+        "selected": false
+    },
+    "12170": {
+        "count": "71",
+        "label": "Phù hợp với nhóm lớn",
+        "locale_independent_label": "Good for big groups",
+        "selected": false
+    }
+}

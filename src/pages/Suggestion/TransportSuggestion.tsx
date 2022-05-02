@@ -66,16 +66,16 @@ const TransportSuggestion = (props: any) => {
 
 
   const getAirportSelect = async (lat: number, lon:number, type: string) => {
-    // const suggest = await getAirport(lat, lon, {});
-    // const rs = _.get(suggest, 'data', null);
-    // if(type==='from') setAirportFrom(rs)
+    const suggest = await getAirport(lat, lon, {});
+    const rs = _.get(suggest, 'data', null);
+    if(type==='from') setAirportFrom(rs)
     
-    // if(type==='to') setAirportTo(rs)
+    if(type==='to') setAirportTo(rs)
     
-    // console.log("++++++++++++++++++++++++++",rs)
+    console.log("++++++++++++++++++++++++++",rs)
 
-    if(type==='from') setAirportFrom(flightFrom)
-    if(type==='to') setAirportTo(flightTo)
+    // if(type==='from') setAirportFrom(flightFrom)
+    // if(type==='to') setAirportTo(flightTo)
 
   }
 

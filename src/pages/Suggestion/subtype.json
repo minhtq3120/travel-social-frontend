@@ -1,0 +1,673 @@
+{
+    "0": {
+        "count": "535",
+        "label": "Tất cả",
+        "selected": true
+    },
+    "1": {
+        "count": "6",
+        "label": "Phòng trưng bày nghệ thuật",
+        "parent_id": "49",
+        "selected": false
+    },
+    "5": {
+        "count": "2",
+        "label": "Cầu",
+        "parent_id": "47",
+        "selected": false
+    },
+    "10": {
+        "count": "12",
+        "label": "Địa điểm linh thiêng & tôn giáo",
+        "parent_id": "47",
+        "selected": false
+    },
+    "12": {
+        "count": "1",
+        "label": "Địa điểm giáo dục",
+        "parent_id": "47",
+        "selected": false
+    },
+    "17": {
+        "count": "1",
+        "label": "Địa điểm lịch sử",
+        "parent_id": "47",
+        "selected": false
+    },
+    "20": {
+        "count": "9",
+        "label": "Quần đảo",
+        "parent_id": "57",
+        "selected": false
+    },
+    "24": {
+        "count": "1",
+        "label": "Địa điểm kỳ bí",
+        "parent_id": "47",
+        "selected": false
+    },
+    "30": {
+        "count": "1",
+        "label": "Viện bảo tàng lịch sử",
+        "parent_id": "49",
+        "selected": false
+    },
+    "39": {
+        "count": "1",
+        "label": "Đài & tháp quan sát",
+        "parent_id": "47",
+        "selected": false
+    },
+    "47": {
+        "count": "5",
+        "label": "Bãi biển & câu lạc bộ bể bơi",
+        "parent_id": "61",
+        "selected": false
+    },
+    "48": {
+        "count": "2",
+        "label": "Trung tâm du lịch",
+        "parent_id": "60",
+        "selected": false
+    },
+    "52": {
+        "count": "5",
+        "label": "Bãi biển",
+        "parent_id": "61",
+        "selected": false
+    },
+    "60": {
+        "count": "5",
+        "label": "Sân gôn",
+        "parent_id": "61",
+        "selected": false
+    },
+    "61": {
+        "count": "1",
+        "label": "Suối nước nóng & mạch nước phun",
+        "parent_id": "57",
+        "selected": false
+    },
+    "64": {
+        "count": "1",
+        "label": "Bến du thuyền",
+        "parent_id": "57",
+        "selected": false
+    },
+    "66": {
+        "count": "2",
+        "label": "Núi",
+        "parent_id": "57",
+        "selected": false
+    },
+    "68": {
+        "count": "1",
+        "label": "Khu vực tự nhiên & động vật hoang dã",
+        "parent_id": "57",
+        "selected": false
+    },
+    "70": {
+        "count": "1",
+        "label": "Công viên",
+        "parent_id": "57",
+        "selected": false
+    },
+    "75": {
+        "count": "1",
+        "label": "Đi tàu hỏa ngắm cảnh",
+        "parent_id": "42",
+        "selected": false
+    },
+    "95": {
+        "count": "2",
+        "label": "Thác nước",
+        "parent_id": "57",
+        "selected": false
+    },
+    "98": {
+        "count": "5",
+        "label": "Công viên giải trí",
+        "parent_id": "52",
+        "selected": false
+    },
+    "99": {
+        "count": "25",
+        "label": "Quán bar & câu lạc bộ",
+        "parent_id": "20",
+        "selected": false
+    },
+    "104": {
+        "count": "1",
+        "label": "Câu lạc bộ & quán bar nhạc jazz",
+        "parent_id": "20",
+        "selected": false
+    },
+    "105": {
+        "count": "1",
+        "label": "Quầy bar karaoke",
+        "parent_id": "20",
+        "selected": false
+    },
+    "107": {
+        "count": "3",
+        "label": "Sòng bạc",
+        "parent_id": "53",
+        "selected": false
+    },
+    "109": {
+        "count": "3",
+        "label": "Câu lạc bộ khiêu vũ & vũ trường",
+        "parent_id": "20",
+        "selected": false
+    },
+    "110": {
+        "count": "7",
+        "label": "Trung tâm trò chơi & giải trí",
+        "parent_id": "56",
+        "selected": false
+    },
+    "111": {
+        "count": "5",
+        "label": "Biểu diễn",
+        "parent_id": "58",
+        "selected": false
+    },
+    "118": {
+        "count": "1",
+        "label": "Công viên nước",
+        "parent_id": "52",
+        "selected": false
+    },
+    "119": {
+        "count": "2",
+        "label": "Viện hải dương học",
+        "parent_id": "57",
+        "selected": false
+    },
+    "120": {
+        "count": "1",
+        "label": "Đấu trường & sân vận động",
+        "parent_id": "47",
+        "selected": false
+    },
+    "127": {
+        "count": "90",
+        "label": "Spa",
+        "parent_id": "40",
+        "selected": false
+    },
+    "129": {
+        "count": "9",
+        "label": "Câu lạc bộ thể dục/sức khỏe & phòng tập thể dục",
+        "parent_id": "40",
+        "selected": false
+    },
+    "130": {
+        "count": "3",
+        "label": "Trung tâm & trại thể thao",
+        "parent_id": "61",
+        "selected": false
+    },
+    "131": {
+        "count": "1",
+        "label": "Khu liên hợp thể thao",
+        "parent_id": "56",
+        "selected": false
+    },
+    "134": {
+        "count": "1",
+        "label": "Sở thú",
+        "parent_id": "61",
+        "selected": false
+    },
+    "139": {
+        "count": "43",
+        "label": "Chuyến tham quan ngắm cảnh",
+        "parent_id": "42",
+        "selected": false
+    },
+    "141": {
+        "count": "3",
+        "label": "Chuyến tham quan nhà máy",
+        "parent_id": "42",
+        "selected": false
+    },
+    "142": {
+        "count": "3",
+        "label": "Chợ trời & chợ đường phố",
+        "parent_id": "26",
+        "selected": false
+    },
+    "143": {
+        "count": "8",
+        "label": "Trung tâm mua sắm",
+        "parent_id": "26",
+        "selected": false
+    },
+    "144": {
+        "count": "34",
+        "label": "Cửa hàng quà tặng & đặc sản",
+        "parent_id": "26",
+        "selected": false
+    },
+    "161": {
+        "count": "2",
+        "label": "Viện bảo tàng chuyên ngành",
+        "parent_id": "49",
+        "selected": false
+    },
+    "162": {
+        "count": "2",
+        "label": "Vùng nước",
+        "parent_id": "57",
+        "selected": false
+    },
+    "163": {
+        "count": "6",
+        "label": "Điểm thu hút khách tham quan & thắng cảnh",
+        "parent_id": "47",
+        "selected": false
+    },
+    "167": {
+        "count": "67",
+        "label": "Chuyến tham quan bằng thuyền",
+        "parent_id": "61",
+        "selected": false
+    },
+    "168": {
+        "count": "2",
+        "label": "Hệ thống giao thông công cộng",
+        "parent_id": "59",
+        "selected": false
+    },
+    "170": {
+        "count": "2",
+        "label": "Quán cà phê",
+        "parent_id": "20",
+        "selected": false
+    },
+    "174": {
+        "count": "4",
+        "label": "Chuyến tham quan bằng xe buýt",
+        "parent_id": "42",
+        "selected": false
+    },
+    "175": {
+        "count": "3",
+        "label": "Nhà thờ & nhà thờ lớn",
+        "parent_id": "47",
+        "selected": false
+    },
+    "176": {
+        "count": "1",
+        "label": "Nhà máy rượu",
+        "parent_id": "36",
+        "selected": false
+    },
+    "182": {
+        "count": "39",
+        "label": "Taxi & xe đưa đón",
+        "parent_id": "59",
+        "selected": false
+    },
+    "183": {
+        "count": "4",
+        "label": "Chuyến tham quan đi dạo",
+        "parent_id": "42",
+        "selected": false
+    },
+    "184": {
+        "count": "13",
+        "label": "Thể thao dưới nước",
+        "parent_id": "61",
+        "selected": false
+    },
+    "186": {
+        "count": "15",
+        "label": "Cho thuê tiện ích",
+        "parent_id": "61",
+        "selected": false
+    },
+    "187": {
+        "count": "19",
+        "label": "Thuyền cho thuê",
+        "parent_id": "61",
+        "selected": false
+    },
+    "189": {
+        "count": "6",
+        "label": "Chuyến du ngoạn bằng thuyền đáy bằng",
+        "parent_id": "61",
+        "selected": false
+    },
+    "190": {
+        "count": "19",
+        "label": "Chuyến tham quan bằng tàu cao tốc",
+        "parent_id": "61",
+        "selected": false
+    },
+    "191": {
+        "count": "10",
+        "label": "Chèo thuyền kayak & chèo xuồng",
+        "parent_id": "61",
+        "selected": false
+    },
+    "192": {
+        "count": "9",
+        "label": "Dù kéo & dù lượn",
+        "parent_id": "61",
+        "selected": false
+    },
+    "193": {
+        "count": "5",
+        "label": "Chèo xuồng & ngồi phao trên sông",
+        "parent_id": "61",
+        "selected": false
+    },
+    "194": {
+        "count": "76",
+        "label": "Lặn bằng bình khí & lặn bằng ống thở",
+        "parent_id": "61",
+        "selected": false
+    },
+    "196": {
+        "count": "3",
+        "label": "Chuyến tham quan bằng tàu ngầm",
+        "parent_id": "61",
+        "selected": false
+    },
+    "197": {
+        "count": "13",
+        "label": "Lướt sóng, lướt ván buồm & lướt ván diều",
+        "parent_id": "61",
+        "selected": false
+    },
+    "198": {
+        "count": "2",
+        "label": "Bơi cùng cá heo",
+        "parent_id": "61",
+        "selected": false
+    },
+    "199": {
+        "count": "7",
+        "label": "Lướt ván & lái mô tô nước",
+        "parent_id": "61",
+        "selected": false
+    },
+    "200": {
+        "count": "1",
+        "label": "Chuyến tham quan ngắm vịt",
+        "parent_id": "61",
+        "selected": false
+    },
+    "201": {
+        "count": "3",
+        "label": "Nếm bia & Tham quan",
+        "parent_id": "42",
+        "selected": false
+    },
+    "202": {
+        "count": "4",
+        "label": "Chuyến tham quan cà phê & trà",
+        "parent_id": "42",
+        "selected": false
+    },
+    "203": {
+        "count": "7",
+        "label": "Lớp nấu ăn",
+        "parent_id": "36",
+        "selected": false
+    },
+    "204": {
+        "count": "17",
+        "label": "Chuyến tham quan ẩm thực",
+        "parent_id": "42",
+        "selected": false
+    },
+    "205": {
+        "count": "2",
+        "label": "Chuyến tham quan & nếm rượu vang ",
+        "parent_id": "42",
+        "selected": false
+    },
+    "208": {
+        "count": "3",
+        "label": "Trò chơi giải thoát khỏi phòng",
+        "parent_id": "56",
+        "selected": false
+    },
+    "209": {
+        "count": "1",
+        "label": "Săn tìm đồ vật",
+        "parent_id": "56",
+        "selected": false
+    },
+    "211": {
+        "count": "12",
+        "label": "Chuyến tham quan bằng xe 4WD, ATV & xe địa hình",
+        "parent_id": "61",
+        "selected": false
+    },
+    "212": {
+        "count": "15",
+        "label": "Chuyến tham quan cảm giác mạnh & mạo hiểm",
+        "parent_id": "61",
+        "selected": false
+    },
+    "214": {
+        "count": "22",
+        "label": "Chuyến tham quan bằng xe đạp",
+        "parent_id": "61",
+        "selected": false
+    },
+    "215": {
+        "count": "4",
+        "label": "Chuyến tham quan leo núi",
+        "parent_id": "61",
+        "selected": false
+    },
+    "216": {
+        "count": "15",
+        "label": "Chuyến tham quan sinh thái",
+        "parent_id": "61",
+        "selected": false
+    },
+    "217": {
+        "count": "18",
+        "label": "Thuê thuyền câu cá & tham quan",
+        "parent_id": "61",
+        "selected": false
+    },
+    "219": {
+        "count": "9",
+        "label": "Chuyến tham quan đi bộ & cắm trại",
+        "parent_id": "61",
+        "selected": false
+    },
+    "220": {
+        "count": "27",
+        "label": "Chuyến tham quan tự nhiên & động vật hoang dã",
+        "parent_id": "61",
+        "selected": false
+    },
+    "221": {
+        "count": "2",
+        "label": "Chuyến tham quan chạy bộ",
+        "parent_id": "61",
+        "selected": false
+    },
+    "222": {
+        "count": "1",
+        "label": "Chuyến tham quan trên không",
+        "parent_id": "61",
+        "selected": false
+    },
+    "223": {
+        "count": "1",
+        "label": "Chuyến tham quan khảo cổ học",
+        "parent_id": "42",
+        "selected": false
+    },
+    "224": {
+        "count": "41",
+        "label": "Tour thăm quan thành phố",
+        "parent_id": "42",
+        "selected": false
+    },
+    "225": {
+        "count": "20",
+        "label": "Chuyến tham quan văn hóa",
+        "parent_id": "42",
+        "selected": false
+    },
+    "228": {
+        "count": "16",
+        "label": "Chuyến tham quan lịch sử & di sản",
+        "parent_id": "42",
+        "selected": false
+    },
+    "229": {
+        "count": "2",
+        "label": "Chuyến tham quan bằng xe buýt du lịch",
+        "parent_id": "42",
+        "selected": false
+    },
+    "231": {
+        "count": "31",
+        "label": "Chuyến tham quan bằng mô tô",
+        "parent_id": "42",
+        "selected": false
+    },
+    "233": {
+        "count": "2",
+        "label": "Chuyến tham quan ban đêm",
+        "parent_id": "42",
+        "selected": false
+    },
+    "235": {
+        "count": "58",
+        "label": "Chuyến tham quan tư nhân",
+        "parent_id": "42",
+        "selected": false
+    },
+    "237": {
+        "count": "22",
+        "label": "Chuyến tham quan tự hướng dẫn & cho thuê",
+        "parent_id": "42",
+        "selected": false
+    },
+    "239": {
+        "count": "12",
+        "label": "Chuyến tham quan bằng Vespa, xe tay ga & xe máy",
+        "parent_id": "42",
+        "selected": false
+    },
+    "240": {
+        "count": "4",
+        "label": "Chuyến tham quan quán bar, câu lạc bộ & quán rượu",
+        "parent_id": "20",
+        "selected": false
+    },
+    "241": {
+        "count": "1",
+        "label": "Buổi trình diễn & chuyến tham quan thời trang",
+        "parent_id": "42",
+        "selected": false
+    },
+    "242": {
+        "count": "4",
+        "label": "Chuyến tham quan mua sắm",
+        "parent_id": "42",
+        "selected": false
+    },
+    "243": {
+        "count": "4",
+        "label": "Vườn thú Safari",
+        "parent_id": "61",
+        "selected": false
+    },
+    "245": {
+        "count": "1",
+        "label": "Công viên phiêu lưu đu dây & công viên phiêu lưu trên không",
+        "parent_id": "61",
+        "selected": false
+    },
+    "255": {
+        "count": "5",
+        "label": "Spa nước nóng",
+        "parent_id": "40",
+        "selected": false
+    },
+    "258": {
+        "count": "1",
+        "label": "Vận tải bằng xe buýt",
+        "parent_id": "59",
+        "selected": false
+    },
+    "259": {
+        "count": "1",
+        "label": "Đường sắt",
+        "parent_id": "59",
+        "selected": false
+    },
+    "260": {
+        "count": "11",
+        "label": "Yoga & pilate",
+        "parent_id": "40",
+        "selected": false
+    },
+    "263": {
+        "count": "2",
+        "label": "Các hoạt động ngoài trời khác",
+        "parent_id": "61",
+        "selected": false
+    },
+    "269": {
+        "count": "4",
+        "label": "Chuyến tham quan chụp ảnh",
+        "parent_id": "42",
+        "selected": false
+    },
+    "270": {
+        "count": "6",
+        "label": "Chèo ván đứng",
+        "parent_id": "61",
+        "selected": false
+    },
+    "271": {
+        "count": "1",
+        "label": "Sân golf mini",
+        "parent_id": "56",
+        "selected": false
+    },
+    "272": {
+        "count": "2",
+        "label": "Xưởng vẽ & làm đồ gốm",
+        "parent_id": "56",
+        "selected": false
+    },
+    "273": {
+        "count": "4",
+        "label": "Tour vượt hẻm núi & tuột núi",
+        "parent_id": "61",
+        "selected": false
+    },
+    "274": {
+        "count": "1",
+        "label": "Chuyến tham quan nhà máy rượu",
+        "parent_id": "42",
+        "selected": false
+    },
+    "287": {
+        "count": "80",
+        "label": "Chuyến đi trong ngày",
+        "parent_id": "42",
+        "selected": false
+    },
+    "288": {
+        "count": "42",
+        "label": "Chuyến tham quan nhiều ngày",
+        "parent_id": "42",
+        "selected": false
+    }
+}

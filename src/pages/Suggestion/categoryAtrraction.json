@@ -1,0 +1,116 @@
+{
+    "0": {
+        "count": "535",
+        "label": "Tất cả",
+        "locale_independent_label": "All",
+        "selected": true
+    },
+    "20": {
+        "count": "30",
+        "label": "Giải trí về đêm",
+        "locale_independent_label": "Nightlife",
+        "selected": false
+    },
+    "26": {
+        "count": "55",
+        "label": "Nơi mua sắm",
+        "locale_independent_label": "Shopping",
+        "selected": false
+    },
+    "36": {
+        "count": "26",
+        "label": "Đồ ăn & Đồ uống",
+        "locale_independent_label": "Food & Drink",
+        "selected": false
+    },
+    "40": {
+        "count": "104",
+        "label": "Spa & Sức khỏe",
+        "locale_independent_label": "Spas & Wellness",
+        "selected": false
+    },
+    "41": {
+        "count": "12",
+        "label": "Lớp học & hội thảo",
+        "locale_independent_label": "Classes & Workshops",
+        "selected": false
+    },
+    "42": {
+        "count": "256",
+        "label": "Chuyến tham quan",
+        "locale_independent_label": "Tours",
+        "selected": false
+    },
+    "47": {
+        "count": "23",
+        "label": "Danh lam & Thắng cảnh",
+        "locale_independent_label": "Sights & Landmarks",
+        "selected": false
+    },
+    "48": {
+        "count": "3",
+        "label": "Sở thú & Thủy cung",
+        "locale_independent_label": "Zoos & Aquariums",
+        "selected": false
+    },
+    "49": {
+        "count": "9",
+        "label": "Bảo tàng",
+        "locale_independent_label": "Museums",
+        "selected": false
+    },
+    "52": {
+        "count": "5",
+        "label": "Công viên nước & giải trí",
+        "locale_independent_label": "Water & Amusement Parks",
+        "selected": false
+    },
+    "53": {
+        "count": "3",
+        "label": "Sòng bạc & Đánh bạc",
+        "locale_independent_label": "Casinos & Gambling",
+        "selected": false
+    },
+    "55": {
+        "count": "148",
+        "label": "Chuyến tham quan bằng thuyền & thể thao dưới nước",
+        "locale_independent_label": "Boat Tours & Water Sports",
+        "selected": false
+    },
+    "56": {
+        "count": "18",
+        "label": "Vui chơi & Giải trí",
+        "locale_independent_label": "Fun & Games",
+        "selected": false
+    },
+    "57": {
+        "count": "26",
+        "label": "Thiên nhiên & Công viên",
+        "locale_independent_label": "Nature & Parks",
+        "selected": false
+    },
+    "58": {
+        "count": "6",
+        "label": "Hòa nhạc & chương trình biểu diễn",
+        "locale_independent_label": "Concerts & Shows",
+        "selected": false
+    },
+    "59": {
+        "count": "42",
+        "label": "Phương tiện giao thông",
+        "locale_independent_label": "Transportation",
+        "selected": false
+    },
+    "60": {
+        "count": "2",
+        "label": "Thông tin cho khách du lịch",
+        "locale_independent_label": "Traveler Resources",
+        "selected": false
+    },
+    "61": {
+        "count": "207",
+        "label": "Hoạt động ngoài trời",
+        "locale_independent_label": "Outdoor Activities",
+        "selected": false
+    }
+}

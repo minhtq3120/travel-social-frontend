@@ -27,7 +27,7 @@ import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
-import { getSuggestion, getSuggestionThingToDo } from 'src/services/suggestion-service';
+import { getSuggestion, getSuggestionActivities, getSuggestionThingToDo } from 'src/services/suggestion-service';
 import { useHistory } from 'react-router-dom';
 
 import { Steps } from 'antd';
@@ -54,6 +54,12 @@ const { RangePicker } = DatePicker;
 import { Calendar } from 'react-date-range';
 import ddddd from './test2.json'
 import fffff from './test.json'
+
+import test1 from './filter.json'
+import test2 from './filter2.json'
+import test3 from './filter3.json'
+import test4 from './filter4vietnam.json'
+
 import { getPlaces, getPlacesDetail } from 'src/services/place-service';
 import TransportSuggestion from './TransportSuggestion';
 
@@ -92,18 +98,7 @@ const Suggestion = (props: any) => {
     setCurrentStep(current)
   };
 
-  useEffect(() => {
-    let x: any = []
-    ddddd.data.map((item) => {
-      x.push({
-        category: item?.category || null,
-        subCategory: item?.subcategory || null,
-        subtype: item?.subtype || null
-      })
-    })
-    console.log(x)
-    console.log(fffff)
-  }, [])
+
   const history = useHistory()
 
   const [data, setData] = useState<any>(city)
@@ -112,8 +107,14 @@ const Suggestion = (props: any) => {
 
   const [startInfo, setStartInfo] = useState<any>(null)
 
-  const [thingsToDo, setThingsTodo] = useState<any>(fffff)
+  const [thingsToDo, setThingsTodo] = useState<any>(test4)
 
+  const [selectedTypeTravel, setSelectedTypeTravel] = useState<any>('')
+  const [selectedTravelWith, setSelectedTravelWith] = useState<any>('')
+
+  const [dataSuggest, setDataSuggest] = useState<any>(null)
+
+  const [locationId, setLocationId] = useState<any>(null) 
   const setStartPosFromPlaceId = async (placeId: string) => {
     const placeDetail = await getPlacesDetail(placeId)
     const rs = _.get(placeDetail, 'data', null);
@@ -125,26 +126,63 @@ const Suggestion = (props: any) => {
     setCurrentStep(currentStep + 1)
   }
 
+  const getSugeestionThingsToDo = async () => {
+    const suggest = await getSuggestionThingToDo({
+      query: 'HUẾ',
+      limit: '1000',
+      offset: '3',
+      units: 'km',
+      sort: 'relevance',
+      lang: 'vi_VN'
+    });
+    const rs = _.get(suggest, 'data', null);
+    console.log(rs)
+  }
+
+  const getPlacesSuggest = async (locationId: string, subcategory: string ) => {
+    let params = {
+      location_id: locationId,
+      lang: 'vi_VN',
+      lunit: 'km',
+      sort: 'recommended',
+      // typeadhead_tag: 12169,
+      subcategory: subcategory,
+      // subtype:263,
+    }
+    const suggest = await getSuggestionActivities(params);
+    const rs = _.get(suggest, 'data', null);
+    if(rs) setDataSuggest(rs)
+  }
+
+  useEffect(() => {
+    if(locationId && selectedTypeTravel?.length>0) getPlacesSuggest(locationId, selectedTypeTravel)
+  }, [locationId])
+  
   const TravelType = [
     {
-      id:1,
-      title: "Du lịch nghỉ dưỡng",
+      id: '42',
+      title: "Chuyến tham quan",
       img: 'https://baodautu.vn/Images/chicong/2019/02/06/sep-savills-cbre-bat-dong-san-nghi-duong-viet-nam-co-nhieu-du-dia-phat-trien1549427175.jpg'
     },
      {
-      id:2,
-      title: "Tham quan thiên nhiên",
+      id: '57',
+      title: "Chiêm ngưỡng thiên nhiên",
       img: "https://otohanquoc.vn/tai-nguyen-du-lich-tu-nhien-la-gi/imager_2240.jpg"
     },
      {
-      id:3,
-      title: "Vi vu thành phố",
+      id: '47',
+      title: "Danh lam thắng cảnh",
       img: "https://cdnimg.vietnamplus.vn/t1200/Uploaded/ngtmbh/2021_10_24/ttxvn_du_lich_tphcm.jpg"
     },
      {
-      id:4,
-      title: "Du lịch thể thao",
+      id: '61',
+      title: "Hoạt động ngoài trời",
       img: "https://baokhanhhoa.vn/dataimages/201910/original/images5380577_c1.jpg"
+    },
+    {
+      id: '56',
+      title: "Vui chơi và giải trí",
+      img: 'https://www.chudu24.com/wp-content/uploads/2018/07/1-12.png',
     },
   ]
 
@@ -174,9 +212,7 @@ const Suggestion = (props: any) => {
 
   
   
-  const [selectedTypeTravel, setSelectedTypeTravel] = useState<any>([])
-  const [selectedTravelWith, setSelectedTravelWith] = useState<any>([])
-
+  
 
   // const getSugeestionCity = async () => {
   //   const suggest = await getSuggestion({
@@ -204,7 +240,8 @@ const Suggestion = (props: any) => {
   // useEffect(() => {
   //   set
   // },[selectionRange])
-  console.log(selectionRange,"=======" ,moment(selectionRange[0].startDate).format('YYYY-MM-DD'))
+
+  console.log(selectionRange)
 
   
 
@@ -218,17 +255,16 @@ const Suggestion = (props: any) => {
           size='small'
            type="navigation"
         >
-          <Step  title="Step 1"  />
-          <Step  title="Step 2" />
-          <Step  title="Step 3"  /> 
-          <Step  title="Step 4"   />
-          <Step  title="Step 5"  />
-          <Step  title="Step 6"  />
-          <Step  title="Step 7"   />
-          <Step  title="Step 8"  />
-          <Step  title="Step 9"   />
-          <Step  title="Step 10"  />
-          <Step  title="Step 11"  />
+          <Step  title="Step 1"  disabled={true} />
+          <Step  title="Step 2" disabled={true}/>
+          <Step  title="Step 3"  disabled={true}/> 
+          <Step  title="Step 4"   disabled={true}/>
+          <Step  title="Step 5"  disabled={true}/>
+          <Step  title="Step 6"  disabled={true}/>
+          <Step  title="Step 7"   disabled={true}/>
+          <Step  title="Step 8"  disabled={true}/>
+          <Step  title="Step 9"   disabled={true}/>
+          <Step  title="Step 10"  disabled={true}/>
           
         </Steps>
 
@@ -245,17 +281,15 @@ const Suggestion = (props: any) => {
                     {
                       TravelType.map((item) => {
                         return (
-                            selectedTypeTravel.findIndex((se) => se === item.id) === -1 ? (
-                                <div key={item?.id} className={cx('type-container')} onClick={() => {setSelectedTypeTravel([...selectedTypeTravel, item.id])}}>
+                            selectedTypeTravel !== item.id ? (
+                                <div key={item?.id} className={cx('type-container')} onClick={() => {setSelectedTypeTravel(item.id)}}>
                                   <img src={item.img} className={cx('type-img')}/>
                                   <div className={cx('type-text')}>
                                       {item?.title}
                                   </div>
                                 </div>
                             ) : (
-                              <div key={item?.id} className={cx('type-container-selected')} onClick={() => {setSelectedTypeTravel(selectedTypeTravel.filter((se) => {
-                                return se !== item.id
-                                }))}}>
+                              <div key={item?.id} className={cx('type-container-selected')} onClick={() => {setSelectedTypeTravel('')}}>
                                 <img src={item.img} className={cx('type-img')}/>
                                 <div className={cx('type-text')}>
                                     {item?.title}
@@ -289,17 +323,15 @@ const Suggestion = (props: any) => {
                     {
                       TravelWith.map((item) => {
                         return (
-                            selectedTravelWith.findIndex((se) => se === item.id) === -1 ? (
-                                <div key={item?.id} className={cx('type-container')} onClick={() => {setSelectedTravelWith([...selectedTravelWith, item.id])}}>
+                            selectedTravelWith !== item.id ? (
+                                <div key={item?.id} className={cx('type-container')} onClick={() => {setSelectedTravelWith( item.id)}}>
                                   <img src={item.img} className={cx('type-img')}/>
                                   <div className={cx('type-text')}>
                                       {item?.title}
                                   </div>
                                 </div>
                             ) : (
-                              <div key={item?.id} className={cx('type-container-selected')} onClick={() => {setSelectedTravelWith(selectedTravelWith.filter((se) => {
-                                return se !== item.id
-                                }))}}>
+                              <div key={item?.id} className={cx('type-container-selected')} onClick={() => {setSelectedTravelWith('')}}>
                                 <img src={item.img} className={cx('type-img')}/>
                                 <div className={cx('type-text')}>
                                     {item?.title}
@@ -370,19 +402,15 @@ const Suggestion = (props: any) => {
               <div className={cx(`setup-tour`)}>
                 <div className={cx('choose-travel-type')}>
                   <div className={cx(`text`)}>
-                    Đề xuất chuyến đi dành cho bạn
+                    Đề xuất các thành phố du lịch nổi bật
                   </div>
                   <div className={cx(`travel-type`)} >
                       {
-                        thingsToDo?.data?.map((item: any, index: any) => {
+                        thingsToDo?.data?.filter((it) => it.result_type ==='geos')?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
                             console.log(item)
-                            setDestinationInfo({
-                              // destinationId: item?.destinationId,
-                              lat: item?.result_object?.latitude,
-                              lon: item?.result_object?.longitude
-                            })
+                            setLocationId(item?.result_object?.location_id)
                             setCurrentStep(currentStep + 1)
                             }}>
                                    <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
@@ -426,22 +454,65 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              {/* <div className={cx('btn-next-container')} >
-                <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
-                setCurrentStep(currentStep - 1)
-              }}>
-                  Quay lại
-                </Button>
-                <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
-                setCurrentStep(currentStep + 1)
-              }}>
-                  Tiếp theo
-                </Button>
-              </div> */}
             </div>
             ): currentStep === 4 ? (
+            <div className={cx('suggestion-step4')}>
+              <div className={cx(`setup-tour`)}>
+                <div className={cx('choose-travel-type')}>
+                  <div className={cx(`text`)}>
+                    Đề xuất các hoạt động dựa theo lựa chọn của bạn
+                  </div>
+                  <div className={cx(`travel-type`)} >
+                      {
+                        dataSuggest?.data?.map((item: any, index: any) => {
+                        return (
+                           <div className={cx('recent-container')} key={index} onClick={() => {
+                            console.log(item)
+                            setDestinationInfo({
+                              lat: item?.latitude,
+                              lon: item?.longitude,
+                            })
+                            setCurrentStep(currentStep + 1)
+                            }}>
+                                   <img src={item?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
+                                {/* <div className={cx('location-pos')}>
+                                    <MdLocationOn size={30} className={cx(`location-icon`)}/>
+                                </div> */}
+                                <div className={cx('location-name')}>
+                                    {item?.name}
+                                </div>
+                                <div className={cx('reviews')}>
+                                   <div className={cx('visited')}>
+                                      <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
+                                      <div className={cx('count')}>
+                                        {item?.rating || '0'} / {'5'} 
+                                      </div>
+                                  </div>
+                                  <div className={cx('total')}>
+                                      {item?.num_reviews || '0'} Reviews
+                                  </div>
+                                </div>
+
+                                 <div className={cx('reviews')}>
+                                  <div className={cx('total')}>
+                                      {item?.address}
+                                  </div>
+                                </div>
+                                 <div className={cx('reviews')}>
+                                  <div className={cx('total')}>
+                                      {item?.open_now_text}
+                                  </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                      }
+                  </div>
+                </div>
+              </div>
+            </div>
+            )
+            : currentStep === 5 ? (
             <div className={cx('suggestion-step5')}>
               <div className={cx(`setup-tour`)}>
                 <div className={cx('choose-travel-type')}>
@@ -506,7 +577,7 @@ const Suggestion = (props: any) => {
                 </Button>
               </div> */}
             </div>
-            ): currentStep === 5 ? (
+            ): currentStep === 6 ? (
             <div className={cx('suggestion-step5')}>
               <div className={cx(`setup-tour`)}>
                 <div className={cx('choose-travel-type')}>
@@ -522,7 +593,7 @@ const Suggestion = (props: any) => {
              
             </div>
             ) :
-           currentStep === 6 ? (
+           currentStep === 7 ? (
             <>
               <div className={cx(`suggestion-text`)}>
                 Các chuyến bay tới địa điểm của bạn
@@ -530,7 +601,7 @@ const Suggestion = (props: any) => {
                 <div className={cx(`suggestion-body2`)}>
                   <FlightSelect destinationInfo={destinationInfo} startInfo={startInfo}
                    startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
-                  endDate={moment(selectionRange[1]?.startDate).format('YYYY-MM-DD')}
+                  endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
                    />
                   <div className={cx('btn-next-container')} style={{margin: '10px 0'}}>
                     {/* <Button className={cx('btn-next')} onClick={() => {
@@ -548,13 +619,16 @@ const Suggestion = (props: any) => {
                   </div>
               </div>
             </>
-          ) :currentStep === 7 ? (
+          ) :currentStep === 8 ? (
             <>
               <div className={cx(`suggestion-text`)}>
                 Khách sạn gần điểm đến của bạn
               </div>
                 <div className={cx(`suggestion-body2`)}>
-                  <HotelSuggestion/>
+                  <HotelSuggestion destinationInfo={destinationInfo}
+                  startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
+                  endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
+                  />
                    <div className={cx('btn-next-container')} >
                     <Button className={cx('btn-next')} onClick={() => {
                     console.log(selectedTypeTravel)
@@ -565,43 +639,7 @@ const Suggestion = (props: any) => {
                   </div>
               </div>
             </>
-            // ) : currentStep === 6 ? (
-            // <>
-            //   <div className={cx(`suggestion-text`)}>
-            //     Bạn muốn đi du lịch ở đâu?
-            //   </div>
-            //   <div className={cx(`suggestion-text2`)}>
-            //     Lựa chọn thành phố  bạn muốn đến.
-            //   </div>
-            //     <div className={cx(`suggestion-body`)}>
-            //       {data  ? data?.suggestions[0]?.entities.map((item, index) => {
-            //         return (
-            //           <div className={cx(`image-container`)} key={index} onClick={
-            //             () => {
-            //               setDestinationInfo({
-            //                 destinationId: item?.destinationId,
-            //                 lat: item?.latitude,
-            //                 lon: item?.longitude
-            //               })
-            //               setCurrentStep(currentStep+1)
-                          
-            //               history.push(`/suggestionDetail?destinationId=${item.destinationId}&name=${item.name}&lat=${item.latitude}&lon=${item.longitude}`)
-            //             }
-            //           }>
-            //               <img src={item?.img}
-            //                 className={cx(`image`)}
-            //               />
-            //               <div className={cx(`text`)} style={{color: 'white'}}>
-            //                 {item?.name}
-            //               </div>
-            //           </div>
-            //         )
-            //       }) : 
-            //       <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}><Spin size='large'/>
-            //         </div>
-            //       }
-            //   </div>
-            // </>
+
           
           )  : 
           <div>hahaha</div>
