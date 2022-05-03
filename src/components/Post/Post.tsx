@@ -55,6 +55,8 @@ const Post = (props: any) => {
     const socket: any = useSelector((state: RootState) => state.wallet.socket);
     const [latLng, setLatLng] = useState<any>(null)
 
+    const [mapType, setMapType] = useState<any>('')
+
     const dispatch = useDispatch()
 
 
@@ -162,6 +164,8 @@ const Post = (props: any) => {
         setIsModalVisibleDetail(false)
         setIsModalVisibleMap(false)
         setIsModalVisibleMapDirection(false)
+        setLatLng(null);
+        setMapType('')
     };
 
   return (
@@ -391,7 +395,7 @@ const Post = (props: any) => {
       </Modal>
 
       <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
-        {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} /> : <Spin size='large'/> }
+        {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} mapType={mapType} setMapType={setMapType}/> : <Spin size='large'/> }
       </Modal>
 
       <Modal visible={isModalVisibleMapDirection} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>

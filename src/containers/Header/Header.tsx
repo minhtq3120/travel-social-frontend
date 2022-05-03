@@ -248,12 +248,12 @@ const HeaderContainer = (props: any) => {
       <Menu.Item
         key="1"
         icon={
-          <AiOutlineUser style={{ fontSize: '20px', marginRight: '10px', cursor: 'pointer' }} />
+          <AiOutlineUser style={{ fontSize: '20px', marginRight: '12px', cursor: 'pointer' }} />
         }
         style={{ padding: '10px 10px' }}>
-        Profile
+       <div style={{width: '100px', fontSize: '17px'}}>Profile</div> 
       </Menu.Item>
-      <Menu.Item
+      {/* <Menu.Item
         key="2"
         icon={
           <AiOutlineSetting style={{ fontSize: '20px', marginRight: '10px', cursor: 'pointer' }} />
@@ -270,14 +270,14 @@ const HeaderContainer = (props: any) => {
         }
         style={{ padding: '10px 10px' }}>
         Change Accounts
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item
         key="4"
         icon={
-          <AiOutlineLogout style={{ fontSize: '20px', marginRight: '10px', cursor: 'pointer' }} />
+          <AiOutlineLogout style={{ fontSize: '20px', marginRight: '12px', cursor: 'pointer' }} />
         }
-        style={{ padding: '10px 10px' }}>
-        Log Out
+        style={{ padding: '10px 10px'}}>
+               <div style={{width: '100px', fontSize: '17px'}}>Log out</div> 
       </Menu.Item>
     </Menu>
   );

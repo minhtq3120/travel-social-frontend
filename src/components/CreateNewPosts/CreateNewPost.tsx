@@ -286,7 +286,7 @@ const CreateNewPost = memo(
                   }>
                    <BsFiles size={30} />
                 </Popover>
-                 {
+                 {/* {
                   fileList?.length > 0 ? (
               <div className={cx('icon-edit')}>
                 <Popover
@@ -348,7 +348,7 @@ const CreateNewPost = memo(
                
               </div>
                   ) :null
-                }
+                } */}
             </div>
 
 

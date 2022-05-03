@@ -112,20 +112,25 @@ const StakingPage = (props: any) => {
     }
 
     useEffect(() => {
-       if(walletAccount) checkAllowance(walletAccount)
+       if(walletAccount) {
+           checkAllowance(walletAccount)        
+            getStakingData()
+        }
     }, [walletAccount])
      useEffect(() => {
         if(allowance?.length > 0 && stakedValue?.length > 0){
             let compare = new BigNumber(String(allowance)).minus(web3.utils.toWei(String(stakedValue), 'ether'));
             setCheckAllowMSN(compare.s === -1 || allowance === '0');
+            console.log('>>>', compare)
         }
        
     }, [allowance, stakedValue]);
 
+    console.log(checkAllowMSN)
+
     useEffect(() => {
         if(form.getFieldValue('amount')) setStakedValue(form.getFieldValue('amount'))
     }, [form.getFieldValue('amount')])
-    console.log(form.getFieldValue('amount'))
 
     const getSignatureFromBE = async() => {
         try {
@@ -164,11 +169,12 @@ const StakingPage = (props: any) => {
         }
     }
     
-
+    console.log(yourStakeData)
 
     const handleStake = async (poolId: number, maxAmount: string, amount: string, signature: number) => {
         try {
         const contract = await staking();
+        console.log(maxAmount, "====== amo:", amount)
         const stake = await contract
             .deposit(poolId, maxAmount, amount, signature)
             .then(async (res: any) => {
@@ -233,7 +239,7 @@ const StakingPage = (props: any) => {
             }
         }
     };
-
+    console.log(stakedValue)
     const StakeForm = () => {
         return (
             <div className={cx('stakeinfo-container')}>
@@ -243,7 +249,7 @@ const StakingPage = (props: any) => {
                 </div>
                 <div className={cx('staked')}>
                     <div className={cx('staked-title')}>Your total stake: </div>
-                    <div className={cx('staked-value')}>1000 MSN</div>
+                    <div className={cx('staked-value')}>{yourStakeData ? parseFloat(yourStakeData?.yourStaked).toFixed(2): null} MSN</div>
                 </div>
 
                 <div className={cx('staked')}>
@@ -254,17 +260,17 @@ const StakingPage = (props: any) => {
                         </Tooltip>
                     </div>
                     
-                    <div className={cx('staked-value')}>1000 MSN</div>
+                    <div className={cx('staked-value')}>{yourStakeData ? parseFloat(yourStakeData?.minInvestment).toFixed(2) : null} MSN</div>
                 </div>
 
-                {/* <div className={cx('staked')}>
+                <div className={cx('staked')}>
                     <div className={cx('staked-title')}>First stake date: </div>
-                    <div className={cx('staked-value')}>{moment(1651344186).format('YYYY-MM-DD HH:mm')}</div>
+                    <div className={cx('staked-value')}>{moment.unix(Number(yourStakeData?.joinTime)).format('YYYY-MM-DD HH:mm')}</div>
                 </div>
                 <div className={cx('staked')}>
                    <div className={cx('staked-title')}>Last stake date: </div>
-                    <div className={cx('staked-value')}>{moment(1651344186).format('YYYY-MM-DD HH:mm')}</div>
-                </div> */}
+                    <div className={cx('staked-value')}>{moment.unix(Number(yourStakeData?.updatedTime)).format('YYYY-MM-DD HH:mm')}</div>
+                </div>
 
             </div>    
 
@@ -389,8 +395,6 @@ const StakingPage = (props: any) => {
 
         )
     }
-
-
     return (
         <>
         {
@@ -399,7 +403,7 @@ const StakingPage = (props: any) => {
                     <div className={cx('pool-container')}>
                         <div className={cx('totalstaked')}>
                             <div className={cx('name')}>
-                                Total Staked
+                                Tổng lượng stake
                             </div>
                             <div className={cx('value')}>
                                 <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/18619.png" 
@@ -410,7 +414,7 @@ const StakingPage = (props: any) => {
                         </div>
                         <div className={cx('pool-lockduration')}>
                             <div className={cx('name')}>
-                                Lock duration
+                                Thời gian khóa
                             </div>
                             <div className={cx('value')}>
                                 {hhmmss(pool?.lockDuration)}
@@ -422,6 +426,22 @@ const StakingPage = (props: any) => {
                             </div>
                             <div className={cx('value')}>
                             {pool?.apr}%
+                            </div>
+                        </div>
+                        <div className={cx('pool-apr')}>
+                            <div className={cx('name')}>
+                                Điểm / Lượng stake của bạn
+                            </div>
+                            <div className={cx('value')}>
+                            {parseFloat(pool?.totalStaked).toFixed(0)} điểm
+                            </div>
+                        </div>
+                        <div className={cx('pool-apr')}>
+                            <div className={cx('name')}>
+                                Thời gian đã stake
+                            </div>
+                            <div className={cx('value')}>
+                            {moment.duration(moment().startOf('day').diff(moment.unix(Number(yourStakeData?.joinTime)))).days()} Ngày
                             </div>
                         </div>
                         {
@@ -442,6 +462,77 @@ const StakingPage = (props: any) => {
                             )
                         }
                     </div>
+
+                    <div className={cx('voucher-container')}>
+                        <div className={cx('left')}>
+
+                         </div>   
+
+                        <div className={cx('right')}>
+                        <div className={cx('voucher-detail-container')}>
+                            <div className={cx('voucher-img')}>     
+                                <img src={`https://vinhhaitravel.vn/Media/Sliders/1.jpg`} className={cx('img')}/>
+                            </div>
+
+                            <div className={cx('voucher-info')}>
+                                <div className={cx('point')}>
+                                    3000 điểm
+                                </div>
+
+                                <div className={cx('time')}>
+                                    250 ngày
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('voucher-detail-container')}>
+                            <div className={cx('voucher-img')}>     
+                                <img src={`http://dulichdaiduong.vn/upload/voucher-du-lich-he-sieu-tiet-kiem-vi-vu-bon-phuong-troi-cung-du-lich-dai-duong.jpg`} className={cx('img')}/>
+                            </div>
+
+                            <div className={cx('voucher-info')}>
+                                <div className={cx('point')}>
+                                    2000 điểm
+                                </div>
+
+                                <div className={cx('time')}>
+                                    150 ngày 
+                                </div>
+                            </div>
+                        </div>
+                        <div className={cx('voucher-detail-container')}>
+                            <div className={cx('voucher-img')}>     
+                                <img src={`https://cattour.vn/images/upload/images/voucher/voucher-1.png`} className={cx('img')}/>
+                            </div>
+
+                            <div className={cx('voucher-info')}>
+                                <div className={cx('point')}>
+                                    500 điểm
+                                </div>
+
+                                <div className={cx('time')}>
+                                    60 ngày
+                                </div>
+                            </div>
+                        </div>
+                         <div className={cx('voucher-detail-container')}>
+                            <div className={cx('voucher-img')}>     
+                                <img src={`https://www.tugo.com.vn/wp-content/uploads/Voucher-815x459.jpg`} className={cx('img')}/>
+                            </div>
+
+                            <div className={cx('voucher-info')}>
+                                <div className={cx('point')}>
+                                    200 điểm
+                                </div>
+
+                                <div className={cx('time')}>
+                                    30 ngày
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                        </div>
+                        
                 </div>
         }
 

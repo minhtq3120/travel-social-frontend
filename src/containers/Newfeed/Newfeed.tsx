@@ -50,7 +50,7 @@ const NewFeed = (props: any) => {
       console.log('GET INTO HERE')
       const params = {
         page: page?.toString(),
-        postLimit: 'newsfeed',
+        postLimit: 'following',
       }
       const result = await getNewFeedPost(
         params

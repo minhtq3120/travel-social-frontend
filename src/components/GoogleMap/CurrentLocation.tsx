@@ -155,9 +155,9 @@ const Maps = (props: any) => {
 
   return null;
 }
-  console.log(props?.mapWidth)
+  console.log(props?.mapType)
   return (
-    <div style={{width: props?.mapWidth ? props.mapWidth : '1200px', height: props?.mapHeight ? props.mapHeight : '700px'}}>
+    <div style={{width: props?.mapWidth ? props.mapWidth : '1200px', height: props?.mapHeight ? props.mapHeight : '700px', position: 'relative'}}>
       {
         currentPosition && position ? (
           <MapContainer
@@ -199,6 +199,29 @@ const Maps = (props: any) => {
           </MapContainer>
          ) : <Spin size='large'/>
     }
+     <Button className={cx('btn-next')} 
+      style={{
+          position: "absolute",
+          bottom: "20px",
+          right: "10px",
+          cursor: "pointer",
+          padding: "10px 35px",
+          borderRadius: "30px",
+          height: "auto",
+          margin: "10px 30px",
+          backgroundColor: "#68d1c8",
+          color: "white",
+          borderColor: "#68d1c8",
+          fontSize: "16px",
+          fontWeight: 'bold',
+          zIndex: '9999'
+        }}
+     
+     onClick={() => {
+        props.setMapType('direction')
+      }}>
+        Xem đường đi
+        </Button>
     </div>
       
   )

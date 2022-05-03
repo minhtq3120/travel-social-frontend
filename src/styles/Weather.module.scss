@@ -169,3 +169,19 @@
     }
   }
 }
+
+.btn-next {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  cursor: pointer;
+  padding: 10px 35px;
+  border-radius: 30px;
+  height: auto;
+  margin: 10px 30px;
+  background-color: #68d1c8;
+  color: white;
+  border-color: #68d1c8;
+  font-size: 16px;
+  font-weight: bold;
+}

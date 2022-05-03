@@ -194,3 +194,23 @@ input:-webkit-autofill:active {
   color: white !important;
   /* padding: 5px !important; */
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #68d1c8 I !important;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #68d1c8;
+  /* background-color: #68d1c8 I !important */
+}
+
+.ant-spin {
+  color: #68d1c8 !important;
+}
