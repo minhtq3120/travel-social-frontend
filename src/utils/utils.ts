@@ -60,3 +60,9 @@ export const getCurrentUser = () => {
   };
   return userInfo
 };
+
+export const emailreg =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+export const PASSWORD_REGEX =
+  /^(?=.*[0-9])(?=.*[._!@#$%^&*])(?=.*[a-zA-Z])[a-zA-Z0-9._!@#$%^&*]{6,20}$/;

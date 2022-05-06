@@ -2,13 +2,14 @@ import axiosInstance from 'src/config/config';
 import { ActivateParams, LoginParams, LoginParamsWalletAddress, RegisterParams, RegisterParamsWalletAddress, ResetPassword } from "./params-type";
 
 export const login = async (payload: LoginParams) => {
-  return await axiosInstance
-    .post('/user/auth/login', payload)
-    .catch(function (error) {
-      if (error.response) {
-        return error.response.status;
-      }
-    });
+  try {
+    return await axiosInstance
+      .post('/user/auth/login', payload)
+  }
+
+  catch (error) {
+    return error
+  }
 };
 
 export const register = async (payload: RegisterParams) => {
@@ -20,7 +21,8 @@ export const register = async (payload: RegisterParams) => {
       displayName,
     });
   } catch (error) {
-    throw error;
+    console.log(error)
+    return error;
   }
 };
 
@@ -39,7 +41,7 @@ export const registerWalletAddress = async (payload: RegisterParamsWalletAddress
   try {
     return await axiosInstance.post(`/user/auth/registerWalletAddress`, payload);
   } catch (error) {
-    throw error;
+    return error;
   }
 };
 
@@ -51,7 +53,7 @@ export const activate = async (payload: ActivateParams) => {
       activationCode
     });
   } catch (error) {
-    throw error;
+    return error;
   }
 };
 
@@ -61,7 +63,7 @@ export const sendActivate = async (email: string) => {
       email,
     });
   } catch (error) {
-    throw error;
+    return error;
   }
 };
 
@@ -71,10 +73,7 @@ export const resetLink = async (email: string) => {
       email: email,
     })
     .catch((error) => {
-      if (error.response) {
-        console.error(error.response.message);
-        return error.response.status;
-      }
+      return error
     });
 };
 
@@ -87,10 +86,7 @@ export const setNewPassword = async (payload: ResetPassword) => {
       token,
     })
     .catch((error) => {
-      if (error.response) {
-        console.error(error.response.message);
-        return error.response.status;
-      }
+      return error
     });
 };
 

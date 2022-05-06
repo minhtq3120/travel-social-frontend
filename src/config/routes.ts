@@ -3,6 +3,8 @@ import ActiveAccount from 'src/pages/ActiveAccount/ActiveAccount';
 import LayoutComponent from 'src/pages/Layout/layout';
 import Login from 'src/pages/Login/Login';
 import Profile from 'src/pages/Profile/Profile';
+import ResetPassword from 'src/pages/ResetPassword/Reset';
+import ResetPasswordPage from 'src/pages/ResetPasswordPage/ResetPasswordPage';
 import Signup from 'src/pages/Signup/Signup';
 
 export const routes = [
@@ -29,6 +31,14 @@ export const routes = [
   {
     path: "/activeAccount/:code",
     component: ActiveAccount
+  },
+  {
+    path: "/resetpassword",
+    component: ResetPassword
+  },
+  {
+    path: "/reset",
+    component: ResetPasswordPage
   },
   {
     path: "/watchs",

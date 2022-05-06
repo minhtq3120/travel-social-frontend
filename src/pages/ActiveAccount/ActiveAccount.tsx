@@ -17,6 +17,8 @@ import styles from 'src/styles/Login.module.scss';
 import { useParams } from "react-router-dom";
 import queryString from 'query-string';
 import { ActivateParams } from 'src/services/params-type';
+import { notificationError, notificationSuccess } from '../Login/Login';
+import { emailreg } from 'src/utils/utils';
 const cx = classNames.bind(styles);
 
 const ActiveAccount = (props: any) => {
@@ -37,10 +39,21 @@ const ActiveAccount = (props: any) => {
         email: values.email,
         activationCode: values.activationCode
       }
-      console.log(payload)
+      console.log('????/')
 
       // const result = await register(payload)
-      const sendActiveCode = await activate(payload)
+      const sendActiveCode:any = await activate(payload)
+      console.log(sendActiveCode)
+      if(sendActiveCode?.status === 400){
+        notificationError(sendActiveCode?.message)
+      setLoadingSignIn(false)
+        return
+      }
+
+      notificationSuccess('kích hoạt tài khoản thành công')
+      
+      setLoadingSignIn(false)
+          
       history.push('/login')      
       return;
     } 
@@ -81,6 +94,16 @@ const ActiveAccount = (props: any) => {
                     rules={[
                       ({ getFieldValue }) => ({
                         validator(_, value: string) {
+                          if (!value) {
+                            return Promise.reject(
+                              new Error('email là bắt buộc')
+                            );
+                          }
+                          if(!value.match(emailreg)){
+                            return Promise.reject(
+                              new Error('email không đúng định dạng')
+                            );
+                          }
                           return Promise.resolve()
                         }
                         })
@@ -111,6 +134,7 @@ const ActiveAccount = (props: any) => {
                     type='text'
                     className={cx('email-input')}
                     onChange={(e) => setFormInput({...formInput, code: e.target.value})}
+                    readOnly
                   />
                 </Form.Item>
               </FloatLabel>

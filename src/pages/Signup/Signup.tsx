@@ -14,6 +14,8 @@ import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
 import {  activate, login, register, sendActivate } from 'src/services/auth-service';
 import styles from 'src/styles/Login.module.scss';
+import { emailreg, PASSWORD_REGEX } from 'src/utils/utils';
+import { notificationError, notificationSuccess } from '../Login/Login';
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +35,14 @@ const Signup = (props: any) => {
         displayName: values.username,
       }
 
-      const result = await register(payload)
+      const result: any = await register(payload)
+      console.log('register', result)
+      if(result?.status === 409) {
+        notificationError(result?.message)
+        setLoadingSignIn(false)
+        return
+      }
+        notificationSuccess('đăng ký thành công, vui lòng kích hoạt tài khoản trong mail.')
       const sendActiveCode = await sendActivate(payload.email)
       setLoadingSignIn(false)
       
@@ -68,6 +77,16 @@ const Signup = (props: any) => {
                     rules={[
                       ({ getFieldValue }) => ({
                         validator(_, value: string) {
+                          if (!value) {
+                            return Promise.reject(
+                              new Error('email là bắt buộc')
+                            );
+                          }
+                          if(!value.match(emailreg)){
+                            return Promise.reject(
+                              new Error('email không đúng định dạng')
+                            );
+                          }
                           return Promise.resolve()
                         }
                         })
@@ -90,6 +109,16 @@ const Signup = (props: any) => {
                   rules={[
                     ({ getFieldValue }) => ({
                       validator(_, value: string) {
+                        if (!value) {
+                            return Promise.reject(
+                              new Error('mật khẩu là bắt buộc')
+                            );
+                          }
+                          if (!value.match(PASSWORD_REGEX)) {
+                            return Promise.reject(
+                               new Error('mật khẩu tối thiểu 8 kí tự, gồm chữ viết hoa, số  và kí tự đặc biệt')
+                            );
+                          }
                         return Promise.resolve()
                       }
                       })
@@ -109,6 +138,11 @@ const Signup = (props: any) => {
                   rules={[
                     ({ getFieldValue }) => ({
                       validator(_, value: string) {
+                        if (!value) {
+                            return Promise.reject(
+                              new Error('tên người dùng là bắt buộc')
+                            );
+                          }
                         return Promise.resolve()
                       }
                       })

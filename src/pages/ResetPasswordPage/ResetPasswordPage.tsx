@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import _ from 'lodash';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import closeImg from 'src/assets/icon/close-icon.svg';
 import Logo from 'src/assets/MadLogo.png';
 import BaseButton from 'src/components/Button';
@@ -12,94 +12,60 @@ import FloatLabel from 'src/components/FloatingLabel/FloatingLabel';
 import { OPP_NO_ADMIN, OPP_SOMETHING_WRONG, WRONG_EMAIL_OR_PASSWORD } from 'src/constant/message';
 import { RootState } from 'src/redux/store';
 import { setAccountAddress, setConnected, setLoginResult } from 'src/redux/WalletReducer';
-import {  login } from 'src/services/auth-service';
+import {  activate, login, register, sendActivate, setNewPassword } from 'src/services/auth-service';
 import styles from 'src/styles/Login.module.scss';
-import './Login.scss';
-import {AiFillCloseCircle} from 'react-icons/ai'
+import { useParams } from "react-router-dom";
+import queryString from 'query-string';
+import { ActivateParams } from 'src/services/params-type';
+import { notificationError, notificationSuccess } from '../Login/Login';
 import { emailreg, PASSWORD_REGEX } from 'src/utils/utils';
-
 const cx = classNames.bind(styles);
 
-export const notificationError = (message: string) => {
-  return notification.error({
-          message: message && message?.length > 0 ? message : 'Tài khoản hoặc mật khẩu không chính xác.',
-          style: {width: 'auto' ,borderRadius: '40px', backgroundColor: 'white', border: '1px solid red'},
-          duration: 7,
-          className: 'toast__message toast__message__error',
-          // closeIcon: <AiFillCloseCircle color='red' size={25}/>
-        });
-}
-
-export const notificationSuccess = (message) => {
-  return notification.success({
-          message: message && message?.length > 0 ? message :'đăng nhập thành công',
-          style: {width: 'auto' ,borderRadius: '40px',  backgroundColor: 'white', border: '1px solid #68d1c8'},
-          duration: 7,
-          className: 'toast__message toast__message__success',
-          // closeIcon: <AiFillCloseCircle color='#68d1c8'  size={25}/>
-      })
-         
-}
-
-const Login = (props: any) => {
-  const windowObj = window as any;
+const ResetPasswordPage = (props: any) => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const history = useHistory()
   const [form] = Form.useForm();
+  const params = useParams();
 
-;
+
+  const token = location.pathname.split("/")[2]
   const [loadingSignIn, setLoadingSignIn] = useState(false);
-  const [formInput, setFormInput] = useState({email: '', password: ''})
+  const [formInput, setFormInput] = useState({email: '', newPassword : '', token: ''})
 
   const handleFinish = async (values: any) => {
     try {
-      (values)
-      setLoadingSignIn(true);
       const payload = {
         email: values.email,
-        password: values.password
+        newPassword: values.newPassword,
+        token: values.token
       }
-      const result: any = await login(payload)
-      console.log(result)
-       if (result?.statusCode === 401) {
-        notificationError('Tài khoản hoặc mật khẩu không chính xác.')
-        setLoadingSignIn(false);
+
+      const sendActiveCode = await setNewPassword(payload)
+      if(sendActiveCode.status === 400){
+        notificationError(sendActiveCode?.message)
         return
       }
-       
 
-      const userInfo = {
-        accessToken: _.get(result, 'data.accessToken', ''),
-        sex: _.get(result, 'data.sex', ''),
-        name: _.get(result, 'data.displayName', ''),
-        avatar: _.get(result, 'data.avatar', '')
-      };
-
-      const {accessToken, sex, name, avatar} = userInfo
-
-      if (accessToken) {
-        notificationSuccess('đăng nhập thành công')
-        await dispatch(
-          setLoginResult({
-            accessToken,
-            sex,
-            name,
-            avatar,
-            email: values.email
-          })
-        );
-        history.push('/home');
-        
-      } else {
-        setLoadingSignIn(false);
-      }
-      setLoadingSignIn(false)
+        notificationSuccess('Mật khẩu thay đổi thành công')
+        history.push('/login') 
+          
+      return;
     } 
     catch (err) {
-      setLoadingSignIn(false)
+    setLoadingSignIn(false)
      console.log(err)
     }
   };
+
+  useEffect(() => {
+    if(token) {
+      
+      form.setFieldsValue({
+        token
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -109,7 +75,7 @@ const Login = (props: any) => {
         <div className={cx('main__left')}>
           <div className={cx('left-child')}>
 
-          <img src={Logo} alt="logo" className={cx('logo')}/>
+          <img src={Logo} alt="logo" />
           <div className={cx('title')}></div>
           <Form
             form={form}
@@ -139,6 +105,7 @@ const Login = (props: any) => {
                         })
                     ]}
                     >
+
                     <Input
                       type='text'
                       className={cx('email-input')}
@@ -146,34 +113,56 @@ const Login = (props: any) => {
                     />
 
                   </Form.Item>
+
                 </FloatLabel>
 
-
-              <FloatLabel label="Password"  value={formInput.password}>
-                <Form.Item 
-                  name="password"
-                  rules={[
-                    ({ getFieldValue }) => ({
-                      validator(_, value: string) {
-                        if (!value) {
+                 <FloatLabel label="new password"  value={formInput.email}>
+                  <Form.Item 
+                    name="newPassword"
+                    rules={[
+                      ({ getFieldValue }) => ({
+                        validator(_, value: string) {
+                           if (!value) {
                             return Promise.reject(
                               new Error('mật khẩu là bắt buộc')
                             );
                           }
-                          //  if (!value.match(PASSWORD_REGEX)) {
-                          //   return Promise.reject(
-                          //     new Error('mật khẩu tối thiểu 8 kí tự, gồm chữ viết hoa, số  và kí tự đặc biệt')
-                          //   );
-                          // }
+                          if (!value.match(PASSWORD_REGEX)) {
+                            return Promise.reject(
+                               new Error('mật khẩu tối thiểu 8 kí tự, gồm chữ viết hoa, số  và kí tự đặc biệt')
+                            );
+                          }
+                          return Promise.resolve()
+                        }
+                        })
+                    ]}
+                    >
+
+                    <Input
+                      type='password'
+                      className={cx('email-input')}
+                      onChange={(e) => setFormInput({...formInput, newPassword: e.target.value})}
+                    />
+
+                  </Form.Item>
+                </FloatLabel>
+
+              <FloatLabel label="Token"  value={formInput.token}>
+                <Form.Item 
+                  name="token"
+                  rules={[
+                    ({ getFieldValue }) => ({
+                      validator(_, value: string) {
                         return Promise.resolve()
                       }
                       })
                   ]}
                   >
                   <Input
-                  type='password'
-                    className={cx('password-input')}
-                    onChange={(e) => setFormInput({...formInput, password: e.target.value})}
+                    type='text'
+                    className={cx('email-input')}
+                    onChange={(e) => setFormInput({...formInput, token: e.target.value})}
+                    readOnly
                   />
                 </Form.Item>
               </FloatLabel>
@@ -184,26 +173,23 @@ const Login = (props: any) => {
                 htmlType="submit"
                 loading={loadingSignIn}
               >
-                Log In
+                Active now
               </Button>
               </Form.Item>
 
               <div className={cx('middle')}>
                   <div className={cx('middle-line')}></div>
-                  <div className={cx('middle-text')}>OR</div>
-                  <div className={cx('middle-line')}></div>
+
               </div>
 
               <div className={cx('forget-password')}> 
-                <div className={cx('forget-text')} onClick={() =>{
-                  history.push('/resetpassword')
-                }}>Forgot password?</div>
+                <div className={cx('forget-text')}>By acctive Account, you agree to join out Network, have fun!</div>
               </div>
               
             </Form>
           </div>  
            <div className={cx('left-child2')}>
-             <div className={cx('signup-text')}>{`Don't have an account?`}</div>
+              <div className={cx('signup-text')}>{`Don't have an account?`}</div>
              <Link to='/signup' className={cx('signup-link')}>Sign up now</Link>
            </div>
         </div>
@@ -212,4 +198,4 @@ const Login = (props: any) => {
   );
 };
 
-export default Login;
+export default ResetPasswordPage;

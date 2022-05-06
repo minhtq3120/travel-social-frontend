@@ -44,6 +44,7 @@ axiosInstance.interceptors.response.use(
       // logout();
       // window.location.replace('/login');
     }
+    return Promise.reject(error.response.data);
   }
 );
 export default axiosInstance;
