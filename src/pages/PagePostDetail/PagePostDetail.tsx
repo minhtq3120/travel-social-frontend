@@ -24,7 +24,7 @@ import Reply from './PostReply';
 import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import { BottomScrollListener } from 'react-bottom-scroll-listener';
-import { getPostDetail } from 'src/services/post-service';
+import { addInterest, getPostDetail } from 'src/services/post-service';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
@@ -329,7 +329,9 @@ const PagePostDetail = (props: any) => {
                 comment: values.comment
             }
             console.log(replyCommentId)
-
+            addInterest({
+                postId: postId
+            })
             if(replyCommentId) {
                 await replyToComment(addReplyComment)
             }
@@ -374,6 +376,9 @@ const PagePostDetail = (props: any) => {
                                 <>
                                     <FaRegHeart style={{ fontSize: '30px', margin: '0 20px',marginRight: '10px', cursor: 'pointer'}} onClick={() => {
                                         handleLike(postDetailInfo.postId, postDetailInfo.userId)
+                                        addInterest({
+                                            postId: postDetailInfo.postId
+                                        })
                                         }}
                                     /> 
                                         <div style={{cursor: 'pointer',fontSize: '16px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{liked ? `Liked by you and ${numLikes-1} peoples` : `Liked by ${numLikes} peoples`}</div>

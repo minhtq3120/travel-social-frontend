@@ -20,16 +20,15 @@
         margin-top: 100px;
         box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
             rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-        border-radius: 25px;
+        border-radius: 10px;
         background-color: white;
         padding: 20px 10px;
 
         .totalstaked {
             .name {
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: bold;
                 padding: 10px 20px;
-                opacity: 0.7;
             }
 
             .value {
@@ -40,10 +39,9 @@
 
         .pool-lockduration {
             .name {
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: bold;
                 padding: 10px 20px;
-                opacity: 0.7;
             }
 
             .value {
@@ -54,10 +52,9 @@
 
         .pool-minStake {
             .name {
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: bold;
                 padding: 10px 20px;
-                opacity: 0.7;
             }
 
             .value {
@@ -68,10 +65,9 @@
 
         .pool-apr {
             .name {
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: bold;
                 padding: 10px 20px;
-                opacity: 0.7;
             }
 
             .value {
@@ -101,6 +97,86 @@
         justify-content: flex-start;
         align-items: flex-start;
         margin-top: 25px;
+
+        .travel-type {
+            margin: 50px 0;
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto;
+            gap: 40px;
+
+
+            .type-container {
+                width: 100%;
+                max-width: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+                    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+                transition: 1s;
+                cursor: pointer;
+                border-radius: 5px;
+
+                .type-img {
+                    width: 100%;
+                    height: 190px;
+                    object-fit: contain;
+                }
+
+                .type-text {
+                    width: 100%;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 17px;
+                    opacity: 0.9;
+                    padding: 10px 5px;
+                }
+            }
+
+            .type-container-selected {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+                    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+                transition: 1s;
+                border: 2px solid #68d1c8;
+
+                .type-img {
+                    width: 250px;
+                    height: 250px;
+                    object-fit: cover;
+                }
+
+                .type-text {
+                    width: 100%;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 17px;
+                    opacity: 0.9;
+                    padding: 10px 5px;
+                    background-color: #68d1c8;
+                    color: white;
+                }
+
+            }
+
+            .type-container:hover {
+                transform: scale(1.1);
+            }
+
+            .type-container-selected:hover {
+                transform: scale(1.1);
+            }
+        }
 
         .right {
             width: 100%;
@@ -214,7 +290,7 @@
                 font-size: 15px;
                 opacity: 0.9;
                 padding: 5px 20px;
-                min-width: 150px;
+                min-width: 230px;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
@@ -267,7 +343,7 @@
             }
 
             .btn-stake {
-                padding: 10px 35px;
+                padding: 10px 40px;
                 border-radius: 30px;
                 height: auto;
                 margin: 10px 0px;

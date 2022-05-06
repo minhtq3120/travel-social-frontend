@@ -27,7 +27,11 @@ import Weather from '../GoogleMap/Weather';
 import Maps from '../GoogleMap/CurrentLocation';
 import { setHashtagSearch, setWeatherPosition } from 'src/redux/WalletReducer';
 import { useHistory } from 'react-router-dom';
+import { addInterest } from 'src/services/post-service';
 const cx = classNames.bind(styles);
+
+import ShowMoreText from "react-show-more-text";
+
 
 const positions = [{
   lat:10.835605681883571, lng:106.65673978501039, label: "position 1"
@@ -68,7 +72,9 @@ const Post = (props: any) => {
                 postId: props?.item?.postId,
                 comment: values.comment
             }
-            
+            addInterest({
+                postId: props?.item?.postId
+            })
             socket.emit(SEND_NOTIFICATION, {
                 receiver: props.item.userId,
                 action: NotificationAction.Comment
@@ -298,7 +304,10 @@ const Post = (props: any) => {
                                 <>
                                     <FaRegHeart style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
                                         handleLike(props?.item?.postId, props?.item?.userId)
-                                        }}
+                                        addInterest({
+                                            postId: props?.item?.postId
+                                        })
+                                    }}
                                     /> 
                                      <div style={{cursor: 'pointer',fontSize: '17px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{numLikes}</div>
                                 </>
@@ -326,7 +335,19 @@ const Post = (props: any) => {
                         {props?.item?.userDisplayName || 'user-name'}:
                     </div>
                     <div className={cx(`descrip`)}>
-                        {
+                         <ShowMoreText
+                /* Default options */
+                lines={3}
+                more="Hiển thị thêm "
+                less="Hiển thị bớt"
+                className="content-css"
+                anchorClass="my-anchor-css-class"
+                onClick={() => {console.log('hehe')}}
+                expanded={false}
+                width={280}
+                truncatedEndingComponent={"... "}
+            >   
+            {
                             props?.item?.description ? 
                             <ReactHashtag
                                 renderHashtag={(hashtagValue) => (
@@ -341,10 +362,18 @@ const Post = (props: any) => {
                             </ReactHashtag> : null
                         }
                     
+                
+            </ShowMoreText>
+                        
                     </div>
                     
                 </div>
-                <div className={cx(`view-comment`)} onClick={() => {setIsModalVisibleDetail(true)}}>
+                <div className={cx(`view-comment`)} onClick={() => {
+                    setIsModalVisibleDetail(true)
+                    addInterest({
+                        postId: props?.item?.postId
+                        })
+                    }}>
                     {`View all ${numComments} comments`}
                 </div>
             </div>

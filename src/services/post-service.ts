@@ -76,6 +76,21 @@ export const createPost = async (
     });
 };
 
+export const addInterest = async (
+  payload
+) => {
+  console.log(payload)
+  return axiosInstance
+    .post(`/interests/add`, payload)
+    .catch((error) => {
+      console.log(error)
+      if (error.response) {
+        console.error(error.response.message);
+        return error.response.status;
+      }
+    });
+};
+
 
 export const getPostDetail = async (
   postId

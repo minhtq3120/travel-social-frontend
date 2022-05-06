@@ -34,6 +34,11 @@ import { getListPool, getSignature, getStakingDataByAddress } from 'src/services
 import { injectedConnector, msnToken, staking, STAKING_ADDRESS } from 'src/constant/contract-service';
 import Web3 from 'web3';
 import { AiOutlineArrowDown, AiOutlineClockCircle, AiFillQuestionCircle} from 'react-icons/ai';
+import { ReactComponent as Coin } from 'src/assets/coin.svg';
+
+import "react-step-progress-bar/styles.css";
+import { ProgressBar, Step } from "react-step-progress-bar";
+ 
 
 import BigNumber from 'bignumber.js';
 const web3 = new Web3;
@@ -43,16 +48,18 @@ const ContainerHeight = 850;
 
 const MAX_INT = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
 
-const pad = (num) => {
-    return ("0"+num).slice(-2);
-}
-const hhmmss = (secs) => {
-  let minutes = Math.floor(secs / 60);
-  secs = secs%60;
-  let hours = Math.floor(minutes/60)
-  minutes = minutes%60;
-  return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`;
-  // return pad(hours)+":"+pad(minutes)+":"+pad(secs); for old browsers
+function secondsToDhms(seconds) {
+seconds = Number(seconds);
+let d = Math.floor(seconds / (3600*24));
+let h = Math.floor(seconds % (3600*24) / 3600);
+let m = Math.floor(seconds % 3600 / 60);
+let s = Math.floor(seconds % 60);
+
+let dDisplay = d > 0 ? d + (d == 1 ? " ngày " : " ngày ") : "";
+let hDisplay = h > 0 ? h + (h == 1 ? " giờ " : " giờ ") : "";
+let mDisplay = m > 0 ? m + (m == 1 ? " phút " : " phút ") : "";
+let sDisplay = s > 0 ? s + (s == 1 ? " giây" : " giây") : "";
+return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
 const StakingPage = (props: any) => {
@@ -82,6 +89,8 @@ const StakingPage = (props: any) => {
     }
     
   };
+
+  console.log(walletAccount)
   
   useEffect(() => {
     getListPoolActive()
@@ -171,6 +180,34 @@ const StakingPage = (props: any) => {
     
     console.log(yourStakeData)
 
+    const Voucher = [
+    {
+      id:1,
+      title: "1000 điểm",
+      days: '50 ngày',
+      img: "https://vinhhaitravel.vn/Media/Sliders/1.jpg"
+    },
+     {
+      id:2,
+      title: "3000 điểm",
+      days: '100 ngày',
+      img: "http://dulichdaiduong.vn/upload/voucher-du-lich-he-sieu-tiet-kiem-vi-vu-bon-phuong-troi-cung-du-lich-dai-duong.jpg"
+    },
+     {
+      id:3,
+      title: "7000 điểm",
+      days: '200 ngày',
+      
+      img: "https://cattour.vn/images/upload/images/voucher/voucher-1.png"
+    },
+     {
+      id:4,
+      title: "10000 điểm",
+      days: '365 ngày',
+      img: "https://www.tugo.com.vn/wp-content/uploads/Voucher-815x459.jpg"
+    },
+  ]
+
     const handleStake = async (poolId: number, maxAmount: string, amount: string, signature: number) => {
         try {
         const contract = await staking();
@@ -245,30 +282,42 @@ const StakingPage = (props: any) => {
             <div className={cx('stakeinfo-container')}>
             <div className={cx('stakeData-container')}>
                 <div className={cx('title')}>
-                    Your staked data
+                    Thông tin stake của bạn
                 </div>
                 <div className={cx('staked')}>
-                    <div className={cx('staked-title')}>Your total stake: </div>
-                    <div className={cx('staked-value')}>{yourStakeData ? parseFloat(yourStakeData?.yourStaked).toFixed(2): null} MSN</div>
+                    <div className={cx('staked-title')}>Tổng lượng stake: </div>
+                    <div className={cx('staked-value')}>{yourStakeData ? (
+                        <div className={cx('value')} style={{display: 'flex', flex: 'row', justifyContent:'center', alignItems: 'center'}}>
+                                <Coin
+                                style={{height: '30px', width: '30px', borderRadius: '50%', marginRight: '5px'}}
+                                />{parseFloat(yourStakeData?.yourStaked).toFixed(2)} MSN
+                            </div>
+                    ): null}</div>
                 </div>
 
                 <div className={cx('staked')}>
                     <div className={cx('staked-title')}>
-                        <div>min stake</div>
-                        <Tooltip placement="topLeft" title={"base on your last staked"}>
+                        <div>lượng stake tổi thiểu</div>
+                        <Tooltip placement="topLeft" title={"dựa vào lần stake cuối cùng của bạn"}>
                           <AiFillQuestionCircle color='#68d1c8' size={20} style={{margin: '0 5px'}}/>
                         </Tooltip>
                     </div>
                     
-                    <div className={cx('staked-value')}>{yourStakeData ? parseFloat(yourStakeData?.minInvestment).toFixed(2) : null} MSN</div>
+                    <div className={cx('staked-value')}>{yourStakeData ? (
+                        <div className={cx('value')} style={{display: 'flex', flex: 'row', justifyContent:'center', alignItems: 'center'}}>
+                                <Coin
+                                style={{height: '30px', width: '30px', borderRadius: '50%', marginRight: '5px'}}
+                                />{parseFloat(yourStakeData?.minInvestment).toFixed(2)} MSN
+                            </div>
+                    ) : null}</div>
                 </div>
 
                 <div className={cx('staked')}>
-                    <div className={cx('staked-title')}>First stake date: </div>
+                    <div className={cx('staked-title')}>Lần đầu stake: </div>
                     <div className={cx('staked-value')}>{moment.unix(Number(yourStakeData?.joinTime)).format('YYYY-MM-DD HH:mm')}</div>
                 </div>
                 <div className={cx('staked')}>
-                   <div className={cx('staked-title')}>Last stake date: </div>
+                   <div className={cx('staked-title')}>Lần gần nhất stake: </div>
                     <div className={cx('staked-value')}>{moment.unix(Number(yourStakeData?.updatedTime)).format('YYYY-MM-DD HH:mm')}</div>
                 </div>
 
@@ -284,8 +333,34 @@ const StakingPage = (props: any) => {
                      style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start' , justifyContent: 'flex-start'}}
 
                 >
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-start'}}>
+                        <div style={{fontWeight: 'bold', padding: '10px'}}>Lượng stake tối đa</div><div style={{color: 'red'}}>(*)</div>
+                    </div>
+                    <Form.Item 
+                        name="maxStake"
+                        rules={[
+                            ({ getFieldValue }) => ({
+                            validator(_, value: string) {
+                                return Promise.resolve()
+                            }
+                            })
+                        ]}
+                        initialValue={200000}
+                        >
+                        <Input
+                            type='number'
+                            className={cx('seach-input')}
+                            style={{borderRadius: '20px', padding: '10px', paddingLeft: '20px', width: '400px'}}
+                            onChange={(e) => {
+                            }}
+                            disabled={true}
+                            
+                        />
+                        </Form.Item>
+
+
                      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-start'}}>
-                        <div style={{fontWeight: 'bold', padding: '10px'}}>Stake amount </div><div style={{color: 'red'}}>(*)</div>
+                        <div style={{fontWeight: 'bold', padding: '10px'}}>Lượng stake </div><div style={{color: 'red'}}>(*)</div>
                     </div>
                 <Form.Item 
                     name="amount"
@@ -317,7 +392,7 @@ const StakingPage = (props: any) => {
                         >
                         Check allowance
                         </Button>
-                        <Button className={cx('btn-stake')} onClick={() => {
+                        {/* <Button className={cx('btn-stake')} onClick={() => {
                                if(walletAccount) handleApproveMSN(walletAccount)
                             }}
 
@@ -326,37 +401,14 @@ const StakingPage = (props: any) => {
                             >
                             
                             Approve now
-                        </Button>
+                        </Button> */}
                     
                     </div>
                     
-                    <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-start'}}>
-                        <div style={{fontWeight: 'bold', padding: '10px'}}>max stake</div><div style={{color: 'red'}}>(*)</div>
-                    </div>
-                    <Form.Item 
-                        name="maxStake"
-                        rules={[
-                            ({ getFieldValue }) => ({
-                            validator(_, value: string) {
-                                return Promise.resolve()
-                            }
-                            })
-                        ]}
-                        initialValue={200000}
-                        >
-                        <Input
-                            type='number'
-                            className={cx('seach-input')}
-                            style={{borderRadius: '20px', padding: '10px', paddingLeft: '20px', width: '400px'}}
-                            onChange={(e) => {
-                            }}
-                            disabled={true}
-                            
-                        />
-                        </Form.Item>
+                    
 
                         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'flex-start'}}>
-                            <div style={{fontWeight: 'bold', padding: '10px'}}>Signature</div><div style={{color: 'red'}}>(*)</div>
+                            <div style={{fontWeight: 'bold', padding: '10px'}}>Chữ ký</div><div style={{color: 'red'}}>(*)</div>
                         </div>
                         <Form.Item 
                             name="signature"
@@ -381,10 +433,24 @@ const StakingPage = (props: any) => {
                             </Form.Item>
                         
                         <Form.Item>
+                     <div style={{width: '400px' ,display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'space-between'}}>
+                            <Button className={cx('btn-stake')} onClick={() => {
+                                if(walletAccount) handleApproveMSN(walletAccount)
+                                }}
+
+                                disabled={(!stakedValue || stakedValue?.length <= 0) || !checkAllowMSN  ? true : false}
+                                style={{backgroundColor: !stakedValue || stakedValue?.length <= 0 || !checkAllowMSN ? 'grey' : '#68d1c8', borderColor: !stakedValue || stakedValue?.length  <= 0 || !checkAllowMSN ? 'grey' : '#68d1c8'}}
+                                >
+                                
+                                Approve now
+                            </Button>
                             <Button className={cx('btn-stake')} htmlType="submit" disabled={(!stakedValue || stakedValue?.length <= 0) || checkAllowMSN  ? true : false}
-                             style={{backgroundColor: !stakedValue || stakedValue?.length <= 0 || checkAllowMSN ? 'grey' : '#68d1c8', borderColor: !stakedValue || stakedValue?.length <= 0 || checkAllowMSN ? 'grey' : '#68d1c8'}}>
-                            Stake now
-                        </Button>
+                                style={{backgroundColor: !stakedValue || stakedValue?.length <= 0 || checkAllowMSN ? 'grey' : '#68d1c8', borderColor: !stakedValue || stakedValue?.length <= 0 || checkAllowMSN ? 'grey' : '#68d1c8'}}>
+                                Stake now
+                            </Button>
+                        </div>
+
+                            
                         </Form.Item>
 
                 </Form>
@@ -405,8 +471,8 @@ const StakingPage = (props: any) => {
                             <div className={cx('name')}>
                                 Tổng lượng stake
                             </div>
-                            <div className={cx('value')}>
-                                <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/18619.png" 
+                            <div className={cx('value')} style={{display: 'flex', flex: 'row', justifyContent:'center', alignItems: 'center'}}>
+                                <Coin
                                 style={{height: '30px', width: '30px', borderRadius: '50%', marginRight: '5px'}}
                                 />{parseFloat(pool?.totalStaked).toFixed(2)} MSN
                             </div>
@@ -417,7 +483,7 @@ const StakingPage = (props: any) => {
                                 Thời gian khóa
                             </div>
                             <div className={cx('value')}>
-                                {hhmmss(pool?.lockDuration)}
+                                {secondsToDhms(pool?.lockDuration)}
                             </div>
                         </div>
                         <div className={cx('pool-apr')}>
@@ -463,8 +529,35 @@ const StakingPage = (props: any) => {
                         }
                     </div>
 
+                    
+
                     <div className={cx('voucher-container')}>
-                        <div className={cx('left')}>
+                        
+                        <div className={cx(`travel-type`)} >
+                            {
+                            Voucher.map((item) => {
+                                return (
+                                    // selectedTravelWith !== item.id ? (
+                                        <div key={item?.id} className={cx('type-container')} onClick={() => {}}>
+                                        <img src={item.img} className={cx('type-img')}/>
+                                        <div className={cx('type-text')}>
+                                            {item?.title}
+                                        </div>
+                                        </div>
+                                    // ) : (
+                                    // <div key={item?.id} className={cx('type-container-selected')} onClick={() => {setSelectedTravelWith('')}}>
+                                    //     <img src={item.img} className={cx('type-img')}/>
+                                    //     <div className={cx('type-text')}>
+                                    //         {item?.title}
+                                    //     </div>
+                                    // </div>
+                                    // )
+                                
+                                )
+                            })
+                            }
+                        </div>
+                        {/* <div className={cx('left')}>
 
                          </div>   
 
@@ -530,8 +623,8 @@ const StakingPage = (props: any) => {
                             </div>
                         </div>
                         
-                    </div>
-                        </div>
+                    </div>*/}
+                        </div> 
                         
                 </div>
         }

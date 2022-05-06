@@ -30,6 +30,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import { SEND_NOTIFICATION } from '../Notification/Notification';
 import { NotificationAction } from 'src/pages/Layout/layout';
+import { addInterest } from 'src/services/post-service';
 
 const cx = classNames.bind(styles);
 const ContainerHeight = 850;
@@ -230,7 +231,9 @@ const PostDetail = (props: any) => {
                 comment: values.comment
             }
             console.log(replyCommentId)
-
+            addInterest({
+                postId: props?.postId
+            })
             if(replyCommentId) {
                 await replyToComment(addReplyComment)
             }
@@ -272,6 +275,9 @@ const PostDetail = (props: any) => {
                                 <>
                                     <FaRegHeart style={{ fontSize: '30px', margin: '0 20px',marginRight: '10px', cursor: 'pointer'}} onClick={() => {
                                         handleLike(props?.info?.postId, props?.info?.userId)
+                                        addInterest({
+                                            postId: props?.info?.postId
+                                        })
                                         }}
                                     /> 
                                         <div style={{cursor: 'pointer',fontSize: '16px'}} onClick={() => {setIsModalVisibleLikes(true)}}>{liked ? `Liked by you and ${numLikes-1} peoples` : `Liked by ${numLikes} peoples`}</div>
