@@ -214,3 +214,13 @@ input:-webkit-autofill:active {
 .ant-spin {
   color: #68d1c8 !important;
 }
+
+.ant-modal-content {
+  /* overflow: auto; */
+  border-radius: 20px !important;
+  /* background: red; */
+}
+
+.ant-modal-header {
+  border-radius: 20px !important;
+}

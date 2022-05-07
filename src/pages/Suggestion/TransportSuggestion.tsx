@@ -46,6 +46,7 @@ import { MdOutlineRecommend} from 'react-icons/md'
 import {AiFillCar} from 'react-icons/ai'
 import {RiMotorbikeFill} from 'react-icons/ri'
 const { Option } = Select;
+import recommendVehicle from './recommentVehicle.json'
 
 const { RangePicker } = DatePicker;
 
@@ -55,7 +56,7 @@ const TransportSuggestion = (props: any) => {
  const [airportFrom, setAirportFrom] = useState<any>(null)
   const [airportTo, setAirportTo] = useState<any>(null)
 
-  const [recommentVehicle, setRecommentVehicle] = useState(null)
+  const [recommentVehicle, setRecommentVehicle] = useState<any>(null)
     const [isModalVisibleMapDirection, setIsModalVisibleMapDirection] = useState(false);
 
 
@@ -86,6 +87,7 @@ const TransportSuggestion = (props: any) => {
 
   }
 
+  console.log(recommentVehicle)
   useEffect(() => {
     if(props?.destinationInfo && props?.startInfo && airportFrom && airportTo){
       let airportFromFormat: any = []
@@ -114,8 +116,8 @@ const TransportSuggestion = (props: any) => {
       })
 
       suggestVehicle({
-        destinationLat: props?.destinationInfo?.lat, 
-        destinationLng: props?.destinationInfo?.lon,
+        destinationLat: Number(props?.destinationInfo?.lat), 
+        destinationLng: Number(props?.destinationInfo?.lon),
         depatureLat: Number(props?.startInfo?.lat), 
         depatureLng: Number(props?.startInfo?.lon),
         nearDepartureAirports: airportFromFormat,
@@ -126,30 +128,6 @@ const TransportSuggestion = (props: any) => {
 
   const suggestVehicle = async (payload) => {
     console.log(payload)
-    // return
-    // let x = {
-    //   "depatureLat": 21.035911,
-    //   "depatureLng": 105.839431,
-    //   "destinationLat": 10.776308,
-    //   "destinationLng": 106.702867,
-    //   "nearDepartureAirports": [
-    //         {
-    //             "address": "HAN",
-    //             "name": "Hanoi, Noi Bai",
-    //             "lat": 21.2212,
-    //             "lng": 105.807
-    //         }
-    //     ],
-    //   "nearDestinationAirports": [
-    //         {
-    //             "address": "DLI",
-    //             "name": "Dalat, Lien Khuong",
-    //             "lat": 11.75,
-    //             "lng": 108.367
-
-    //         }
-    //     ]
-    // }
     const vehicle = await getSuggestionVehicle(payload)
     const rs =  _.get(vehicle, 'data', null);
     console.log(rs)
@@ -168,31 +146,47 @@ const TransportSuggestion = (props: any) => {
     >
 
       <div className={cx('vehile-suggestion')}>
-        <div className={cx('transport-info')}>
-            <div className={cx('name')}>
-              Máy bay
-            </div>
-            <img src="https://img.freepik.com/free-photo/white-plane-flying-low-airport-road_512343-675.jpg"
-                className={cx('img')}
-              />
-          </div>
-          <div className={cx('transport-info-recommend')}>
-            <div className={cx('name')}>
-              Ô tô
-            </div>
-            <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2016/09/countries-drive-from-india-cover2.jpg"
-                className={cx('img')}
-              />
-              <MdOutlineRecommend  color='white' className={cx('icon-recommend')} size={40} />
-          </div>
-          <div className={cx('transport-info')}>
-            <div className={cx('name')}>
-              Xe máy
-            </div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L1KtUKQb3RrXjFzOvPa5CFbWFDjqIBIcyQ&usqp=CAU"
-                className={cx('img')}
-              />
-          </div>
+        {
+          !recommentVehicle ? <Spin size='large'/> :
+(            <>
+              <div className={cx(`${recommentVehicle.filter((rv) => rv?.name === 'plane')[0]?.recomment === true ? 'transport-info-recommend' : 'transport-info' }`)}>
+                  <div className={cx('name')}>
+                    Máy bay
+                  </div>
+                  <img src="https://img.freepik.com/free-photo/white-plane-flying-low-airport-road_512343-675.jpg"
+                      className={cx('img')}
+                    />
+                    {
+                      recommentVehicle.filter((rv) => rv?.name === 'plane')[0]?.recomment === true ? 
+                      <MdOutlineRecommend  color='white' className={cx('icon-recommend')} size={40} />: null 
+                      }
+                </div>
+                <div className={cx(`${recommentVehicle.filter((rv) => rv?.name === 'car')[0]?.recomment === true ? 'transport-info-recommend' : 'transport-info' }`)}>
+                  <div className={cx('name')}>
+                    Ô tô
+                  </div>
+                  <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2016/09/countries-drive-from-india-cover2.jpg"
+                      className={cx('img')}
+                    />
+                    {
+                      recommentVehicle.filter((rv) => rv?.name === 'car')[0]?.recomment === true ? 
+                      <MdOutlineRecommend  color='white' className={cx('icon-recommend')} size={40} />: null 
+                      }
+                </div>
+                <div className={cx(`${recommentVehicle.filter((rv) => rv?.name === 'bike')[0]?.recomment === true ? 'transport-info-recommend': 'transport-info'  }`)}>
+                  <div className={cx('name')}>
+                    Xe máy
+                  </div>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L1KtUKQb3RrXjFzOvPa5CFbWFDjqIBIcyQ&usqp=CAU"
+                      className={cx('img')}
+                    />
+                     {
+                      recommentVehicle.filter((rv) => rv?.name === 'bike')[0]?.recomment === true ? 
+                      <MdOutlineRecommend  color='white' className={cx('icon-recommend')} size={40} />: null 
+                      }
+                </div>
+              </>)
+        }
           
       </div>
       
@@ -243,6 +237,7 @@ const TransportSuggestion = (props: any) => {
               >
                 <Button className={cx('btn-next')} onClick={() =>{
                     props?.setCurrentStep(props?.currentStep + 1)
+                    props?.setVehicleChoose('plane')
                   }}>
                   Tham khảo các chuyến bay
                 </Button>
@@ -260,8 +255,11 @@ const TransportSuggestion = (props: any) => {
           </div>
           
           <div className={cx('ground-street')}>
-            <div className={cx('text1-container')}>
-                <div className={cx('text-name')}>
+            <div className={cx('text1-container')} onClick={() => {
+              props?.setVehicleChoose('car')
+              props?.setCurrentStep(props?.currentStep + 2)
+            }}>
+                <div className={cx('text-name')} >
                   <div className={cx('name')}>Ô tô </div><AiFillCar size={35}/>
                 </div>
                 <div className={cx('text1')}>
@@ -271,7 +269,10 @@ const TransportSuggestion = (props: any) => {
                   Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
                 </div>
             </div>
-            <div className={cx('text1-container')}>
+            <div className={cx('text1-container')} onClick={() => {
+              props?.setVehicleChoose('bike')
+              props?.setCurrentStep(props?.currentStep + 2)
+            }}>
                <div className={cx('text-name')}>
                   <div className={cx('name')}>Xe máy</div><RiMotorbikeFill size={35}/>
                 </div>
@@ -292,11 +293,11 @@ const TransportSuggestion = (props: any) => {
                   }}>
                   xem đường đi
                 </Button>
-                <Button className={cx('btn-next')} onClick={() =>{
+                {/* <Button className={cx('btn-next')} onClick={() =>{
                     props?.setCurrentStep(props?.currentStep + 2)
                   }}>
                   Tiếp theo
-                </Button>
+                </Button> */}
                </div> 
 
           {/* <div className={cx('from-to-location-container')}> */}

@@ -1,0 +1,50 @@
+[
+    {
+        "recomment": false,
+        "name": "car",
+        "distance": 1699.82,
+        "duration": 101951
+    },
+    {
+        "recomment": false,
+        "name": "bike",
+        "distance": 1621.829,
+        "duration": 299121
+    },
+    {
+        "recomment": true,
+        "name": "plane",
+        "distance": 1186.5973702666677,
+        "duration": 14128.848189942863,
+        "nearestDepartureAirport": {
+            "distance": {
+                "text": "33.67 km",
+                "value": 33671
+            },
+            "duration": {
+                "text": "1 giờ 30 phút",
+                "value": 5398
+            },
+            "status": "OK",
+            "address": "HAN",
+            "name": "Hanoi, Noi Bai",
+            "lat": 21.2212,
+            "lng": 105.807
+        },
+        "nearestDestinationAirport": {
+            "distance": {
+                "text": "13.32 km",
+                "value": 13317
+            },
+            "duration": {
+                "text": "48 phút",
+                "value": 2870
+            },
+            "status": "OK",
+            "address": "VTG",
+            "name": "Vũng Tàu, Vung Tau",
+            "lat": 10.3725,
+            "lng": 107.095
+        }
+    }
+]

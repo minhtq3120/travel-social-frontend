@@ -500,6 +500,7 @@ const HotelSuggestion = (props: any) => {
               <div className={cx('btn-next-container')} >
                 <Button className={cx('btn-next')} onClick={() => {
                   props?.setCurrentStep(props?.currentStep + 1)
+                  props?.setHotelSelect(hotel)
                 }}>
                     lựa chọn khách sạn này
                 </Button>

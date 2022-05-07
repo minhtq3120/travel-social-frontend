@@ -197,7 +197,12 @@ const FlightSelect = (props: any) => {
         {
           data?.segment?.map((item, index) => {
             return (
-              <div className={cx('flight-detail-cotainer')} key={index}>
+              <div className={cx('flight-detail-cotainer')} key={index} 
+                onClick={() => {
+                  props?.setCurrentStep(props?.currentStep + 1)
+                  props?.setFlightDetail(item)
+                }}
+              >
                 <div className={cx('flight-info')}>
                   <div className={cx('airline-info')}>
                     <>
@@ -248,7 +253,12 @@ const FlightSelect = (props: any) => {
         {
           data?.segment?.map((item, index) => {
             return (
-              <div className={cx('flight-detail-cotainer')} key={index}>
+              <div className={cx('flight-detail-cotainer')} key={index}
+               onClick={() => {
+                  props?.setCurrentStep(props?.currentStep + 1)
+                  props?.setFlightDetail(item)
+                }}
+              >
                 <div className={cx('flight-info')}>
                   <div className={cx('airline-info')}>
                     <>

@@ -62,6 +62,7 @@ import test4 from './filter4vietnam.json'
 
 import { getPlaces, getPlacesDetail } from 'src/services/place-service';
 import TransportSuggestion from './TransportSuggestion';
+import ConsumseTrip from './ConsumseTrip';
 
 const cx = classNames.bind(styles);
 const {Option} = Select
@@ -111,6 +112,11 @@ const Suggestion = (props: any) => {
 
   const [selectedTypeTravel, setSelectedTypeTravel] = useState<any>('')
   const [selectedTravelWith, setSelectedTravelWith] = useState<any>('')
+  const [travelCity, setTravelCity] = useState<any>(null) 
+  const [travelPlace, setTravelPlace] = useState<any>(null)
+  const [vehicleChoose,setVehicleChoose] = useState<any>(null)
+  const [flightDetail, setFlightDetail] = useState<any>(null)
+  const [hotelSelect, setHotelSelect] = useState<any>(null)
 
   const [dataSuggest, setDataSuggest] = useState<any>(null)
 
@@ -243,7 +249,7 @@ const Suggestion = (props: any) => {
 
   console.log(selectionRange)
 
-  
+
 
   return (
     <div className={cx(`suggestion-container`)}>
@@ -264,7 +270,7 @@ const Suggestion = (props: any) => {
           <Step  title="Step 7"  disabled={true} />
           <Step  title="Step 8"  disabled={true}/>
           <Step  title="Step 9"   disabled={true}/>
-          <Step  title="Step 10"  disabled={true}/>
+          <Step  title="Step 10"  />
           
         </Steps>
 
@@ -411,6 +417,7 @@ const Suggestion = (props: any) => {
                            <div className={cx('recent-container')} key={index} onClick={() => {
                             console.log(item)
                             setLocationId(item?.result_object?.location_id)
+                            setTravelCity(item)
                             setCurrentStep(currentStep + 1)
                             }}>
                                    <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
@@ -469,6 +476,7 @@ const Suggestion = (props: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
                             console.log(item)
+                            setTravelPlace(item)
                             setDestinationInfo({
                               lat: item?.latitude,
                               lon: item?.longitude,
@@ -563,20 +571,6 @@ const Suggestion = (props: any) => {
                   </div>
                 </div>
               </div>
-              {/* <div className={cx('btn-next-container')} >
-                <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
-                setCurrentStep(currentStep - 1)
-              }}>
-                  Quay lại
-                </Button>
-                <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
-                setCurrentStep(currentStep + 1)
-              }}>
-                  Tiếp theo
-                </Button>
-              </div> */}
             </div>
             ): currentStep === 6 ? (
             <div className={cx('suggestion-step5')}>
@@ -586,7 +580,10 @@ const Suggestion = (props: any) => {
                     Đề xuất phương tiện đi lại cho bạn.
                   </div>
                   <div className={cx(`travel-type`)} >
-                    <TransportSuggestion destinationInfo={destinationInfo} startInfo={startInfo} setCurrentStep={setCurrentStep} currentStep={currentStep}/>
+                    <TransportSuggestion destinationInfo={destinationInfo} startInfo={startInfo}
+                     setCurrentStep={setCurrentStep} currentStep={currentStep}
+                     setVehicleChoose={setVehicleChoose}
+                     />
                     
                   </div>
                 </div>
@@ -603,21 +600,11 @@ const Suggestion = (props: any) => {
                   <FlightSelect destinationInfo={destinationInfo} startInfo={startInfo}
                    startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
                   endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
+                  setCurrentStep={setCurrentStep}
+                  currentStep={currentStep}
+                  setFlightDetail={setFlightDetail}
                    />
-                  <div className={cx('btn-next-container')} style={{margin: '10px 0'}}>
-                    {/* <Button className={cx('btn-next')} onClick={() => {
-                    console.log(selectedTypeTravel)
-                    setCurrentStep(currentStep - 1)
-                  }}>
-                      Quay lại
-                    </Button> */}
-                    <Button className={cx('btn-next')} onClick={() => {
-                    console.log(selectedTypeTravel)
-                    setCurrentStep(currentStep + 1)
-                  }}>
-                      Tiếp theo
-                    </Button>
-                  </div>
+
               </div>
             </>
           ) :currentStep === 8 ? (
@@ -631,21 +618,30 @@ const Suggestion = (props: any) => {
                   endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
                   setCurrentStep={setCurrentStep}
                   currentStep={currentStep}
+                  setHotelSelect={setHotelSelect}
                   />
-                   {/* <div className={cx('btn-next-container')} >
-                    <Button className={cx('btn-next')} onClick={() => {
-                    console.log(selectedTypeTravel)
-                    setCurrentStep(currentStep + 1)
-                  }}>
-                      Tiếp theo
-                    </Button>
-                  </div> */}
               </div>
             </>
 
           
-          )  : 
-          <div>hahaha</div>
+          ) : currentStep === 9 ? (
+            <>
+                <div className={cx(`suggestion-body2`)}>
+                  <ConsumseTrip 
+                    destinationInfo={destinationInfo}
+                    startInfo={startInfo}
+                    startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
+                    endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
+                    selectedTravelType={TravelType.filter((item) => item?.id === selectedTypeTravel)[0]}
+                    selectedTravelWith={TravelWith.filter((item) => item?.id === selectedTravelWith)[0] }
+                    travelCity={travelCity}
+                    travelPlace={travelPlace}
+                    vehicleChoose={vehicleChoose}
+                    flightDetail={flightDetail}
+                    hotelSelect={hotelSelect}
+                  />
+              </div>
+            </>  ):  null
           
         }
 

@@ -73,7 +73,7 @@ const Slideshow2 = ({fileList, imageBase64Arr}: any) => {
                                   //     // controls={true}
                                   //     className={cx('img')}
                                   // />
-                                  <video width="700px" height="620px" controls>
+                                  <video width="650px" height="620px" controls>
                                       <source src={URL.createObjectURL(item.originFileObj)}/>
                                   </video>
                                    : 
