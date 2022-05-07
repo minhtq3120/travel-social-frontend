@@ -195,8 +195,7 @@ const FlightSelect = (props: any) => {
       data?.itineraryType === ITINERARY_TYPE.ONE_WAY ?
       <div className={cx('flight-container')}>
         {
-          data?.segment?.filter((it) => it?.origAirport === data?.totalTripSummary?.airport[0]?.origin
-           && it?.destAirport === data?.totalTripSummary?.airport[0]?.destination)?.map((item, index) => {
+          data?.segment?.map((item, index) => {
             return (
               <div className={cx('flight-detail-cotainer')} key={index}>
                 <div className={cx('flight-info')}>

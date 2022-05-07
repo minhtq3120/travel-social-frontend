@@ -41,7 +41,10 @@ import flightFrom from './flightFrom.json'
 import flightTo from './flightTo.json'
 import dataRoundTrop from './dataRoundtrip.json'
 import Maps from 'src/components/GoogleMap/CurrentLocation';
-
+import { getSuggestionVehicle } from 'src/services/place-service';
+import { MdOutlineRecommend} from 'react-icons/md'
+import {AiFillCar} from 'react-icons/ai'
+import {RiMotorbikeFill} from 'react-icons/ri'
 const { Option } = Select;
 
 const { RangePicker } = DatePicker;
@@ -51,6 +54,10 @@ const TransportSuggestion = (props: any) => {
  
  const [airportFrom, setAirportFrom] = useState<any>(null)
   const [airportTo, setAirportTo] = useState<any>(null)
+
+  const [recommentVehicle, setRecommentVehicle] = useState(null)
+    const [isModalVisibleMapDirection, setIsModalVisibleMapDirection] = useState(false);
+
 
   useEffect(() => {
     if(props?.destinationInfo) {
@@ -79,31 +86,141 @@ const TransportSuggestion = (props: any) => {
 
   }
 
+  useEffect(() => {
+    if(props?.destinationInfo && props?.startInfo && airportFrom && airportTo){
+      let airportFromFormat: any = []
+      console.log("from",airportFrom)
+      if(airportFrom) airportFrom?.items?.map((from) => {
+          return airportFromFormat.push(
+              {
+                address: from?.iata,
+                name: from?.name,
+                lat: from?.location?.lat,
+                lng: from?.location?.lon
+            }
+        )
+      })
+
+      let airportToFormat: any = []
+     if(airportTo) airportTo?.items?.map((to) => {
+          return airportToFormat.push(
+              {
+                address: to?.iata,
+                name: to?.name,
+                lat: to?.location?.lat,
+                lng: to?.location?.lon
+            }
+        )
+      })
+
+      suggestVehicle({
+        destinationLat: props?.destinationInfo?.lat, 
+        destinationLng: props?.destinationInfo?.lon,
+        depatureLat: Number(props?.startInfo?.lat), 
+        depatureLng: Number(props?.startInfo?.lon),
+        nearDepartureAirports: airportFromFormat,
+        nearDestinationAirports: airportToFormat
+      })
+    } 
+  }, [props?.destinationInfo, props?.startInfo, airportFrom, airportTo])
+
+  const suggestVehicle = async (payload) => {
+    console.log(payload)
+    // return
+    // let x = {
+    //   "depatureLat": 21.035911,
+    //   "depatureLng": 105.839431,
+    //   "destinationLat": 10.776308,
+    //   "destinationLng": 106.702867,
+    //   "nearDepartureAirports": [
+    //         {
+    //             "address": "HAN",
+    //             "name": "Hanoi, Noi Bai",
+    //             "lat": 21.2212,
+    //             "lng": 105.807
+    //         }
+    //     ],
+    //   "nearDestinationAirports": [
+    //         {
+    //             "address": "DLI",
+    //             "name": "Dalat, Lien Khuong",
+    //             "lat": 11.75,
+    //             "lng": 108.367
+
+    //         }
+    //     ]
+    // }
+    const vehicle = await getSuggestionVehicle(payload)
+    const rs =  _.get(vehicle, 'data', null);
+    console.log(rs)
+    setRecommentVehicle(rs)
+  }
+
+
+    const handleCancel = () => {
+        setIsModalVisibleMapDirection(false)
+    };
+
   console.log(props?.destinationInfo)
   return (
     <div className={cx('transport-suggestion-detail-container')}
       
     >
-      
-        <div className={cx('left')} onClick={() =>{
-        props?.setCurrentStep(props?.currentStep + 1)
-      }}>
-          <div className={cx('transport-info')}>
+
+      <div className={cx('vehile-suggestion')}>
+        <div className={cx('transport-info')}>
             <div className={cx('name')}>
               Máy bay
             </div>
-            <img src="https://statics.vinpearl.com/kinh-nghiem-dat-ve-may-bay-2_1630647705.jpg"
+            <img src="https://img.freepik.com/free-photo/white-plane-flying-low-airport-road_512343-675.jpg"
+                className={cx('img')}
+              />
+          </div>
+          <div className={cx('transport-info-recommend')}>
+            <div className={cx('name')}>
+              Ô tô
+            </div>
+            <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2016/09/countries-drive-from-india-cover2.jpg"
+                className={cx('img')}
+              />
+              <MdOutlineRecommend  color='white' className={cx('icon-recommend')} size={40} />
+          </div>
+          <div className={cx('transport-info')}>
+            <div className={cx('name')}>
+              Xe máy
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L1KtUKQb3RrXjFzOvPa5CFbWFDjqIBIcyQ&usqp=CAU"
                 className={cx('img')}
               />
           </div>
           
-          <div className={cx('text1')}>
-            Khoảng cách từ điểm xuất phát tới điểm du lịch là<b style={{fontSize: '25px', margin: '0 10px'}}>30km</b> 
+      </div>
+      
+      <div className={cx('vehicle-detail-info')}>
+        <div className={cx('left')} >
+          <div className={cx('transport-info')}>
+            <div className={cx('name')}>
+              Đường hàng không
+            </div>
+            {/* <img src="https://statics.vinpearl.com/kinh-nghiem-dat-ve-may-bay-2_1630647705.jpg"
+                className={cx('img')}
+              /> */}
+
+              <div className={cx('text1-container')}>
+                <div className={cx('text1')}>
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                </div>
+                <div className={cx('text1')}>
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                </div>
+              </div>
           </div>
+          
+          
 
           <div className={cx('text')}>
             Chúng tôi đề xuất các sân bay gần nhât so với địa điểm bạn chọn <br />
-            * Bạn có thể thay đổi ở bước gợi ý vé máy bay
+           
           </div>
 
             <div className={cx('from-to-location-container')}>
@@ -121,10 +238,18 @@ const TransportSuggestion = (props: any) => {
                       <div className={cx('iata')}>{airportTo?.items[0]?.iata}</div>
                   </div>
                 </div>
+
+              <div className={cx('btn-next-container')}
+              >
+                <Button className={cx('btn-next')} onClick={() =>{
+                    props?.setCurrentStep(props?.currentStep + 1)
+                  }}>
+                  Tham khảo các chuyến bay
+                </Button>
+               </div> 
+            
         </div>
-         <div className={cx('right')} onClick={() =>{
-        props?.setCurrentStep(props?.currentStep + 2)
-      }}>
+         <div className={cx('right')} >
           <div className={cx('transport-info')}>
             <div className={cx('name')}>
               đường bộ
@@ -134,19 +259,59 @@ const TransportSuggestion = (props: any) => {
               />
           </div>
           
-          <div className={cx('text1')}>
-            Khoảng cách từ điểm xuất phát tới điểm du lịch là<b style={{fontSize: '25px', margin: '0 10px'}}>30km</b> 
+          <div className={cx('ground-street')}>
+            <div className={cx('text1-container')}>
+                <div className={cx('text-name')}>
+                  <div className={cx('name')}>Ô tô </div><AiFillCar size={35}/>
+                </div>
+                <div className={cx('text1')}>
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                </div>
+                <div className={cx('text1')}>
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                </div>
+            </div>
+            <div className={cx('text1-container')}>
+               <div className={cx('text-name')}>
+                  <div className={cx('name')}>Xe máy</div><RiMotorbikeFill size={35}/>
+                </div>
+                <div className={cx('text1')}>
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                </div>
+                <div className={cx('text1')}>
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                </div>
+            </div>
           </div>
+           
+
+          <div className={cx('btn-next-container')}
+              >
+                <Button className={cx('btn-next')} onClick={() =>{
+                    setIsModalVisibleMapDirection(true)
+                  }}>
+                  xem đường đi
+                </Button>
+                <Button className={cx('btn-next')} onClick={() =>{
+                    props?.setCurrentStep(props?.currentStep + 2)
+                  }}>
+                  Tiếp theo
+                </Button>
+               </div> 
 
           {/* <div className={cx('from-to-location-container')}> */}
-            {props?.destinationInfo?.lat && props?.destinationInfo?.lon? <Maps lat={Number(props?.destinationInfo?.lat)} long={Number(props?.destinationInfo?.lon)} mapWidth={`100%`} mapHeight={'300px'} mapType="direction"/> : <Spin size='large'/>}
+
+          <Modal visible={isModalVisibleMapDirection} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+            {  props?.destinationInfo?.lat && props?.destinationInfo?.lon? <Maps lat={Number(props?.destinationInfo?.lat)} long={Number(props?.destinationInfo?.lon)} mapType="direction" suggestVehicle={true}/> : null }
+          </Modal>
+            {/* {props?.destinationInfo?.lat && props?.destinationInfo?.lon? <Maps lat={Number(props?.destinationInfo?.lat)} long={Number(props?.destinationInfo?.lon)} mapWidth={`100%`} mapHeight={'300px'} mapType="direction"/> : null} */}
           {/* </div> */}
         </div>
 
         {/* <div className={cx('right')}>
 
         </div> */}
-        
+        </div>
         
     </div>
 

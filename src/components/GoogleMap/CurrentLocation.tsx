@@ -28,15 +28,50 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap,LayersCont
 import "leaflet/dist/leaflet.css";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import L from 'leaflet';
+import L, {} from 'leaflet';
 import RoutingMachine from './RoutineMachine';
 import { MdLocationOn} from 'react-icons/md';
 import moment from 'moment';
 const cx = classNames.bind(styles);
 
+
+// const myCustomColour = '#68d1c8';
+
+// const markerHtmlStyles = `
+//   background-color: ${myCustomColour};
+//   width: 2.5rem;
+//   height: 2.5rem;
+//   display: block;
+//   left: -1.5rem;
+//   top: -1.5rem;
+//   position: relative;
+//   border-radius: 3rem 3rem 0;
+//   transform: rotate(45deg);
+//   border: 1px solid #FFFFFF`
+
+// const iconc = L.divIcon({
+//   className: "my-custom-pin",
+//   iconSize: [25, 41],
+//   iconAnchor: [0, 24],
+//   // labelAnchor: [-6, 0],
+//   popupAnchor: [0, -36],
+//   html: `<span style="${markerHtmlStyles}" />`
+// })
+
+// const greenIcon = new L.Icon({
+//   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+//   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41],
+//   popupAnchor: [1, -34],
+//   shadowSize: [41, 41]
+// });
+
+// L.marker([51.5, -0.09], {icon: greenIcon}).addTo(map);
+
 let DefaultIcon = L.icon({
     iconUrl: icon,
-    shadowUrl: iconShadow
+    shadowUrl: iconShadow,
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -199,29 +234,34 @@ const Maps = (props: any) => {
           </MapContainer>
          ) : <Spin size='large'/>
     }
-     <Button className={cx('btn-next')} 
-      style={{
-          position: "absolute",
-          bottom: "20px",
-          right: "10px",
-          cursor: "pointer",
-          padding: "10px 35px",
-          borderRadius: "30px",
-          height: "auto",
-          margin: "10px 30px",
-          backgroundColor: "#68d1c8",
-          color: "white",
-          borderColor: "#68d1c8",
-          fontSize: "16px",
-          fontWeight: 'bold',
-          zIndex: '9999'
-        }}
-     
-     onClick={() => {
-        props.setMapType('direction')
-      }}>
-        Xem đường đi
+    {
+       props.locationVisited || props?.suggestVehicle ?  null  : (
+      <Button className={cx('btn-next')} 
+            style={{
+                position: "absolute",
+                bottom: "20px",
+                right: "10px",
+                cursor: "pointer",
+                padding: "10px 35px",
+                borderRadius: "30px",
+                height: "auto",
+                margin: "10px 30px",
+                backgroundColor: "#68d1c8",
+                color: "white",
+                borderColor: "#68d1c8",
+                fontSize: "16px",
+                fontWeight: 'bold',
+                zIndex: '9999'
+              }}
+          
+          onClick={() => {
+              props.setMapType('direction')
+            }}>
+              Xem đường đi
         </Button>
+      )
+    } 
+     
     </div>
       
   )

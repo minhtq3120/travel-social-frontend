@@ -21,6 +21,7 @@ import {AiOutlinePlus} from 'react-icons/ai'
 import { getPlaces } from 'src/services/place-service';
 import { Slide, Fade } from 'react-slideshow-image';
 import _ from 'lodash';
+import { notificationError, notificationSuccess } from 'src/pages/Login/Login';
 const { Option } = Select;
 
 const cx = classNames.bind(styles);
@@ -57,8 +58,8 @@ const Slideshow2 = ({fileList, imageBase64Arr}: any) => {
             >
                     {
                     fileList?.map((item: any, index: any) => {
-                      console.log('fileList', fileList) 
-                      console.log('imageBase64', imageBase64Arr )
+                      // console.log('fileList', fileList) 
+                      // console.log('imageBase64', imageBase64Arr )
                         return (
                            <div className={cx('recent-container')} key={index}>
                                 {FILE_TYPE_VIDEO.includes(item.type) ? 
@@ -151,6 +152,8 @@ const CreateNewPost = memo(
     const [sizeImage3, setSizeImage3] = useState(false);
     const [sizeImage4, setSizeImage4] = useState(false);
 
+    const [createPostLoading, setCreatePostLoading] = useState(false)
+
     const [seachPlace, setSearchPlace] = useState<any>(null)
     const [dataPlaces, setDataPlaces] = useState<any>([])
 
@@ -211,6 +214,7 @@ const CreateNewPost = memo(
 
     const handleFinish = async (values) => {
       try {
+        setCreatePostLoading(true)
         let mediaFiles: any = [];
         fileList.map((item: any) => {
           return mediaFiles.push(item.originFileObj);
@@ -221,8 +225,17 @@ const CreateNewPost = memo(
         formData.append('placeId', placeId)
         const create = await createPost(formData);
         console.log(create);
+        if(create?.status === 201) {
+          notificationSuccess('bài viết đã được tạo thành công')
+          props.setOpenCreatePost(false)
+          setCreatePostLoading(false)
+          return
+        }
+        notificationError('đã xảy ra lỗi khi tạo bài viết.')
+        setCreatePostLoading(false)
         return;
       } catch (err) {
+        setCreatePostLoading(false)
         return err;
       }
     };
@@ -449,7 +462,7 @@ const CreateNewPost = memo(
           </Form.Item>
           <Form.Item >
             {/* <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100px'}}> */}
-              <Button className={cx('button')} htmlType="submit">
+              <Button className={cx('button')} htmlType="submit" loading={createPostLoading}>
               Post now
               {/* <FaLocationArrow style={{ color: '#68d1c8'}} /> */}
             </Button>

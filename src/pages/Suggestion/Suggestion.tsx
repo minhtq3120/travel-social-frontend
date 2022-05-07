@@ -261,7 +261,7 @@ const Suggestion = (props: any) => {
           <Step  title="Step 4"   disabled={true}/>
           <Step  title="Step 5"  disabled={true}/>
           <Step  title="Step 6"  disabled={true}/>
-          <Step  title="Step 7"   disabled={true}/>
+          <Step  title="Step 7"  disabled={true} />
           <Step  title="Step 8"  disabled={true}/>
           <Step  title="Step 9"   disabled={true}/>
           <Step  title="Step 10"  disabled={true}/>
@@ -464,6 +464,7 @@ const Suggestion = (props: any) => {
                   </div>
                   <div className={cx(`travel-type`)} >
                       {
+                        dataSuggest !== null ?
                         dataSuggest?.data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
@@ -505,7 +506,7 @@ const Suggestion = (props: any) => {
                                 </div>
                             </div>
                         )
-                    })
+                    }) : <Spin size='large'/>
                       }
                   </div>
                 </div>
@@ -628,15 +629,17 @@ const Suggestion = (props: any) => {
                   <HotelSuggestion destinationInfo={destinationInfo}
                   startDate={moment(selectionRange[0]?.startDate).format('YYYY-MM-DD')}
                   endDate={moment(selectionRange[0]?.endDate).format('YYYY-MM-DD')}
+                  setCurrentStep={setCurrentStep}
+                  currentStep={currentStep}
                   />
-                   <div className={cx('btn-next-container')} >
+                   {/* <div className={cx('btn-next-container')} >
                     <Button className={cx('btn-next')} onClick={() => {
                     console.log(selectedTypeTravel)
                     setCurrentStep(currentStep + 1)
                   }}>
                       Tiếp theo
                     </Button>
-                  </div>
+                  </div> */}
               </div>
             </>
 

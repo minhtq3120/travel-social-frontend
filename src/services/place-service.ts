@@ -92,3 +92,14 @@ export const getPlaces = async (params) => {
             }
         });
 };
+
+export const getSuggestionVehicle = async (payload) => {
+    let queryString = `places/suggest/vehicle`;
+
+    console.log(queryString)
+    return await axiosInstance
+        .post(queryString, payload)
+        .catch(function (error) {
+            return error
+        });
+}

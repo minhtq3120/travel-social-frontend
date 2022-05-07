@@ -48,7 +48,7 @@ const ContainerHeight = 850;
 
 const MAX_INT = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
 
-function secondsToDhms(seconds) {
+export const secondsToDhms = (seconds) => {
 seconds = Number(seconds);
 let d = Math.floor(seconds / (3600*24));
 let h = Math.floor(seconds % (3600*24) / 3600);

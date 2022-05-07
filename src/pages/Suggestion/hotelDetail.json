@@ -1,0 +1,641 @@
+{
+    "data": {
+        "data": [
+            {
+                "location_id": "1463048",
+                "name": "Hanoi Graceful Hotel",
+                "latitude": "21.034311",
+                "longitude": "105.84756",
+                "num_reviews": "743",
+                "timezone": "Asia/Ho_Chi_Minh",
+                "location_string": "Hanoi",
+                "photo": {
+                    "images": {
+                        "small": {
+                            "width": "150",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-l/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                            "height": "150"
+                        },
+                        "thumbnail": {
+                            "width": "50",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-t/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                            "height": "50"
+                        },
+                        "original": {
+                            "width": "1280",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                            "height": "905"
+                        },
+                        "large": {
+                            "width": "1024",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-w/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                            "height": "724"
+                        },
+                        "medium": {
+                            "width": "550",
+                            "url": "https://media-cdn.tripadvisor.com/media/photo-s/15/89/8d/bf/hanoi-graceful-hotel.jpg",
+                            "height": "389"
+                        }
+                    },
+                    "is_blessed": true,
+                    "uploaded_date": "2018-11-28T02:45:30-0500",
+                    "caption": "Suite honeymoon city view",
+                    "id": "361336255",
+                    "helpful_votes": "0",
+                    "published_date": "2018-11-28T02:45:30-0500",
+                    "user": {
+                        "user_id": null,
+                        "member_id": "0",
+                        "type": "user"
+                    }
+                },
+                "awards": [
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2020",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2020"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2019",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2019"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2018",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2018"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2017",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2017"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2016",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2016_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2016"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2015",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2015_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2015"
+                    },
+                    {
+                        "award_type": "CERTIFICATE_OF_EXCELLENCE",
+                        "year": "2014",
+                        "images": {
+                            "small": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                            "large": "https://www.tripadvisor.com/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2014_en_US_large-0-5.jpg"
+                        },
+                        "categories": [],
+                        "display_name": "Certificate of Excellence 2014"
+                    }
+                ],
+                "preferred_map_engine": "default",
+                "raw_ranking": "4.468497276306152",
+                "ranking_geo": "Hanoi",
+                "ranking_geo_id": "293924",
+                "ranking_position": "136",
+                "ranking_denominator": "1293",
+                "ranking_category": "hotel",
+                "ranking": "#136 of 1,293 hotels in Hanoi",
+                "subcategory_type": "hotel",
+                "subcategory_type_label": "Hotel",
+                "distance": null,
+                "distance_string": null,
+                "bearing": null,
+                "rating": "4.5",
+                "is_closed": false,
+                "is_long_closed": false,
+                "price_level": "$",
+                "price": "$15 - $64",
+                "hotel_class": "3.0",
+                "hotel_class_attribution": "This property is classified according to Giata.",
+                "business_listings": {
+                    "desktop_contacts": [],
+                    "mobile_contacts": []
+                },
+                "special_offers": {
+                    "desktop": [],
+                    "mobile": []
+                },
+                "listing_key": "8576ceba-6f98-4394-94db-ebb7c71fbab1",
+                "description": "If you’re looking for a family-friendly hotel in Hanoi, look no further than Hanoi Graceful Hotel.\nFor those interested in checking out popular landmarks while visiting Hanoi, Hanoi Amazing Hotel Hotel is located a short distance from St. Joseph's Cathedral (0.4 mi) and Imperial Citadel of Thang Long (0.5 mi).\nYou’ll enjoy relaxing rooms that offer a flat screen TV, air conditioning, and a minibar, and you can stay connected during your stay as Hanoi Amazing Hotel Hotel offers guests free wifi.\nThe hotel features a 24 hour front desk, a concierge, and 24 hour check-in. Plus, Hanoi Graceful Hotel offers free breakfast, providing a pleasant respite from your busy day. For guests with a vehicle, parking is available.\nDuring your visit, be sure to check out one of Hanoi's popular shrimp restaurants such as Quan An Ngon, Madame Hien Restaurant, and Cau Go Vietnamese Cuisine Restaurant, all a short distance from Hanoi Amazing Hotel Hotel.\nLooking to explore? Then look no further than Ho Chi Minh Mausoleum (0.8 mi), Old Quarter (0.4 mi), and Hoa Lo Prison (0.6 mi), which are some popular Hanoi attractions – all conveniently located within walking distance of the hotel.\nThe staff at Hanoi Graceful Hotel looks forward to serving you during your upcoming visit.\n",
+                "web_url": "https://www.tripadvisor.com/Hotel_Review-g293924-d1463048-Reviews-Hanoi_Graceful_Hotel-Hanoi.html",
+                "write_review": "https://www.tripadvisor.com/UserReview-g293924-d1463048-Hanoi_Graceful_Hotel-Hanoi.html",
+                "ancestors": [
+                    {
+                        "subcategory": [
+                            {
+                                "key": "municipality",
+                                "name": "Municipality"
+                            }
+                        ],
+                        "name": "Hanoi",
+                        "abbrv": null,
+                        "location_id": "293924"
+                    },
+                    {
+                        "subcategory": [
+                            {
+                                "key": "country",
+                                "name": "Country"
+                            }
+                        ],
+                        "name": "Vietnam",
+                        "abbrv": null,
+                        "location_id": "293921"
+                    }
+                ],
+                "category": {
+                    "key": "hotel",
+                    "name": "Hotel"
+                },
+                "subcategory": [
+                    {
+                        "key": "hotel",
+                        "name": "Hotel"
+                    }
+                ],
+                "parent_display_name": "Hanoi",
+                "guide_count": "0",
+                "is_jfy_enabled": false,
+                "nearest_metro_station": [],
+                "phone": "+84 4 3923 3397",
+                "email": "sales@hanoigracefulhotel.com",
+                "address_obj": {
+                    "street1": "21 Hang Phen Street, Hang Bo Ward, Hoan Kiem District",
+                    "street2": null,
+                    "city": "Hanoi",
+                    "state": null,
+                    "country": "Vietnam",
+                    "postalcode": "1000"
+                },
+                "address": "21 Hang Phen Street, Hang Bo Ward, Hoan Kiem District, Hanoi 1000 Vietnam",
+                "local_name": "Khách sạn Hanoi Graceful",
+                "local_address": "21 Hàng Phèn, P. Hàng Bồ, Q. Hoàn Kiếm, 1000",
+                "local_lang_code": "vi",
+                "is_candidate_for_contact_info_suppression": false,
+                "amenities": [
+                    {
+                        "key": "high_speed_internet_in_room",
+                        "name": "Internet"
+                    },
+                    {
+                        "key": "Free Internet",
+                        "name": "Free Internet"
+                    },
+                    {
+                        "key": "Wifi",
+                        "name": "Wifi"
+                    },
+                    {
+                        "key": "free_wireless_internet_in_room",
+                        "name": "Free Wifi"
+                    },
+                    {
+                        "key": "room_service",
+                        "name": "Room service"
+                    },
+                    {
+                        "key": "wheelchair_access",
+                        "name": "Wheelchair access"
+                    },
+                    {
+                        "key": "suites",
+                        "name": "Suites"
+                    },
+                    {
+                        "key": "airport_transportation",
+                        "name": "Airport transportation"
+                    },
+                    {
+                        "key": "free_breakfast",
+                        "name": "Breakfast included"
+                    },
+                    {
+                        "key": "Dry Cleaning",
+                        "name": "Dry Cleaning"
+                    },
+                    {
+                        "key": "Non-Smoking Rooms",
+                        "name": "Non-smoking rooms"
+                    },
+                    {
+                        "key": "Laundry Service",
+                        "name": "Laundry Service"
+                    },
+                    {
+                        "key": "concierge_desk",
+                        "name": "Concierge"
+                    },
+                    {
+                        "key": "air_conditioning",
+                        "name": "Air conditioning"
+                    },
+                    {
+                        "key": "Multilingual Staff",
+                        "name": "Multilingual Staff"
+                    },
+                    {
+                        "key": "Refrigerator",
+                        "name": "Refrigerator in room"
+                    },
+                    {
+                        "key": "Minibar",
+                        "name": "Minibar"
+                    },
+                    {
+                        "key": "non_smoking_hotel",
+                        "name": "Non-smoking hotel"
+                    },
+                    {
+                        "key": "Flatscreen TV",
+                        "name": "Flatscreen TV"
+                    },
+                    {
+                        "key": "Breakfast Buffet",
+                        "name": "Breakfast Buffet"
+                    },
+                    {
+                        "key": "Private Balcony",
+                        "name": "Private Balcony"
+                    },
+                    {
+                        "key": "Breakfast Available",
+                        "name": "Breakfast Available"
+                    },
+                    {
+                        "key": "Housekeeping",
+                        "name": "Housekeeping"
+                    },
+                    {
+                        "key": "Baggage Storage",
+                        "name": "Baggage Storage"
+                    },
+                    {
+                        "key": "Bath / Shower",
+                        "name": "Bath / Shower"
+                    },
+                    {
+                        "key": "Bottled Water",
+                        "name": "Bottled Water"
+                    },
+                    {
+                        "key": "Car Hire",
+                        "name": "Car Hire"
+                    },
+                    {
+                        "key": "24-Hour Check-in",
+                        "name": "24-Hour Check-in"
+                    },
+                    {
+                        "key": "Safe",
+                        "name": "Safe"
+                    },
+                    {
+                        "key": "Express Check-in / Check-out",
+                        "name": "Express Check-in / Check-out"
+                    },
+                    {
+                        "key": "Coffee / Tea Maker",
+                        "name": "Coffee / Tea Maker"
+                    },
+                    {
+                        "key": "Complimentary Tea",
+                        "name": "Complimentary Tea"
+                    },
+                    {
+                        "key": "Currency Exchange",
+                        "name": "Currency Exchange"
+                    },
+                    {
+                        "key": "Desk",
+                        "name": "Desk"
+                    },
+                    {
+                        "key": "Doorperson",
+                        "name": "Doorperson"
+                    },
+                    {
+                        "key": "English - Amenities",
+                        "name": "English"
+                    },
+                    {
+                        "key": "Complimentary Instant Cofffee",
+                        "name": "Complimentary Instant Cofffee"
+                    },
+                    {
+                        "key": "French - Amenities",
+                        "name": "French"
+                    },
+                    {
+                        "key": "24-Hour Front Desk",
+                        "name": "24-Hour Front Desk"
+                    },
+                    {
+                        "key": "Hair Dryer",
+                        "name": "Hair Dryer"
+                    },
+                    {
+                        "key": "Massage",
+                        "name": "Massage"
+                    },
+                    {
+                        "key": "Salon",
+                        "name": "Salon"
+                    },
+                    {
+                        "key": "24-Hour Security",
+                        "name": "24-Hour Security"
+                    },
+                    {
+                        "key": "Shared Kitchen",
+                        "name": "Shared Kitchen"
+                    },
+                    {
+                        "key": "Taxi Service",
+                        "name": "Taxi Service"
+                    },
+                    {
+                        "key": "Telephone",
+                        "name": "Telephone"
+                    },
+                    {
+                        "key": "Valet Parking - Amenities",
+                        "name": "Valet Parking"
+                    },
+                    {
+                        "key": "Vietnamese - Amenities",
+                        "name": "Vietnamese"
+                    }
+                ],
+                "photo_count": "386",
+                "has_review_draft": false,
+                "has_panoramic_photos": false,
+                "rating_histogram": {
+                    "count_1": "17",
+                    "count_2": "16",
+                    "count_3": "41",
+                    "count_4": "162",
+                    "count_5": "507"
+                },
+                "room_tips": [
+                    {
+                        "user": {
+                            "user_id": "C84646698E232CC8B8F725D8C424B573",
+                            "type": "user",
+                            "first_name": null,
+                            "last_initial": null,
+                            "name": null,
+                            "member_id": "0",
+                            "username": "antipodeanduo",
+                            "user_location": {
+                                "name": "Belair, Australia",
+                                "id": "3205295"
+                            },
+                            "avatar": {
+                                "small": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/05/07/13/38/debra-s.jpg"
+                                },
+                                "large": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-f/05/07/13/38/debra-s.jpg"
+                                }
+                            },
+                            "link": "https://www.tripadvisor.com/MemberProfile-a_uid.C84646698E232CC8B8F725D8C424B573",
+                            "points": "0",
+                            "created_time": "2013-05-08T07:50:28-0400",
+                            "locale": "en_AU"
+                        },
+                        "type": "room_tip",
+                        "text": "Choose the most expensive as the lower price rooms are very small and don't have windows.",
+                        "rating": "3",
+                        "review_id": "728962325",
+                        "id": "728962325",
+                        "created_time": "2019-11-25T21:45:16-05:00"
+                    },
+                    {
+                        "user": {
+                            "user_id": "F36AA5239A1AF6699A860A3FD5468DBE",
+                            "type": "user",
+                            "first_name": null,
+                            "last_initial": null,
+                            "name": null,
+                            "member_id": "0",
+                            "username": "Expedition614487",
+                            "user_location": {
+                                "name": null,
+                                "id": null
+                            },
+                            "avatar": {
+                                "small": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/1a/f6/e8/ea/default-avatar-2020-63.jpg"
+                                },
+                                "large": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/e8/ea/default-avatar-2020-63.jpg"
+                                }
+                            },
+                            "link": "https://www.tripadvisor.com/MemberProfile-a_uid.F36AA5239A1AF6699A860A3FD5468DBE",
+                            "points": "0",
+                            "created_time": "2015-12-17T10:53:36-0500",
+                            "locale": "en_US"
+                        },
+                        "type": "room_tip",
+                        "text": "Suite honey moon room",
+                        "rating": "5",
+                        "review_id": "687652096",
+                        "id": "687652096",
+                        "created_time": "2019-07-07T20:26:47-04:00"
+                    },
+                    {
+                        "user": {
+                            "user_id": "1390B46B845059EA134697010484C28C",
+                            "type": "user",
+                            "first_name": null,
+                            "last_initial": null,
+                            "name": null,
+                            "member_id": "0",
+                            "username": "tkytrvlr",
+                            "user_location": {
+                                "name": null,
+                                "id": null
+                            },
+                            "avatar": {
+                                "small": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/12/80/be/caption.jpg"
+                                },
+                                "large": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/12/80/be/caption.jpg"
+                                }
+                            },
+                            "link": "https://www.tripadvisor.com/MemberProfile-a_uid.1390B46B845059EA134697010484C28C",
+                            "points": "0",
+                            "created_time": "2019-04-06T22:31:09-0400",
+                            "locale": "en_US"
+                        },
+                        "type": "room_tip",
+                        "text": "Suite was in better condition than regular rooms",
+                        "rating": "5",
+                        "review_id": "664345034",
+                        "id": "664345034",
+                        "created_time": "2019-04-06T18:59:03-04:00"
+                    },
+                    {
+                        "user": {
+                            "user_id": "4B0B656397F47407124EF5070E0BC616",
+                            "type": "user",
+                            "first_name": "Raj",
+                            "last_initial": "P",
+                            "name": "Raj P",
+                            "member_id": "0",
+                            "username": "Raj P",
+                            "user_location": {
+                                "name": null,
+                                "id": null
+                            },
+                            "avatar": {
+                                "small": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/1a/f6/ef/73/default-avatar-2020-13.jpg"
+                                },
+                                "large": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/ef/73/default-avatar-2020-13.jpg"
+                                }
+                            },
+                            "link": "https://www.tripadvisor.com/MemberProfile-a_uid.4B0B656397F47407124EF5070E0BC616",
+                            "points": "0",
+                            "created_time": "2019-03-21T09:09:36-0400",
+                            "locale": "en_UK"
+                        },
+                        "type": "room_tip",
+                        "text": "Lift very small",
+                        "rating": "3",
+                        "review_id": "660115400",
+                        "id": "660115400",
+                        "created_time": "2019-03-21T05:10:09-04:00"
+                    },
+                    {
+                        "user": {
+                            "user_id": "295D889263161CE622E515059CA5C0C7",
+                            "type": "user",
+                            "first_name": "Peter",
+                            "last_initial": "B",
+                            "name": "Peter B",
+                            "member_id": "0",
+                            "username": "Peter B",
+                            "user_location": {
+                                "name": "Sydney, Australia",
+                                "id": "255060"
+                            },
+                            "avatar": {
+                                "small": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/17/b3/10/08/peter-b.jpg"
+                                },
+                                "large": {
+                                    "url": "https://media-cdn.tripadvisor.com/media/photo-f/17/b3/10/08/peter-b.jpg"
+                                }
+                            },
+                            "link": "https://www.tripadvisor.com/MemberProfile-a_uid.295D889263161CE622E515059CA5C0C7",
+                            "points": "0",
+                            "created_time": "2015-01-25T21:18:47-0500",
+                            "locale": "en_CA"
+                        },
+                        "type": "room_tip",
+                        "text": "Ask for the renovated rooms with street aspect",
+                        "rating": "4",
+                        "review_id": "656717171",
+                        "id": "656717171",
+                        "created_time": "2019-03-06T01:00:55-05:00"
+                    }
+                ]
+            }
+        ],
+        "status": {
+            "unfiltered_total_size": "1",
+            "commerce_country_iso_code": "US",
+            "autobroadened": false,
+            "progress": "100",
+            "auction_key": "f03bfcf4df684b4aa187c5d9b200bbe3",
+            "pricing": "base"
+        }
+    },
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-headers": "ver",
+        "access-control-allow-methods": "GET, POST",
+        "access-control-allow-origin": "*",
+        "connection": "keep-alive",
+        "content-type": "application/json",
+        "date": "Sat, 07 May 2022 05:28:42 GMT",
+        "server": "RapidAPI-1.2.8",
+        "transfer-encoding": "chunked",
+        "x-rapidapi-region": "AWS - ap-southeast-1",
+        "x-rapidapi-version": "1.2.8",
+        "x-ratelimit-requests-limit": "500",
+        "x-ratelimit-requests-remaining": "183",
+        "x-ratelimit-requests-reset": "871424"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": null,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Access-Control-Allow-Origin": "*",
+            "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+            "X-RapidAPI-Key": "288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea"
+        },
+        "baseURL": "http://localhost:8080/",
+        "responseType": "json",
+        "params": {
+            "location_id": "1463048"
+        },
+        "method": "get",
+        "url": "https://travel-advisor.p.rapidapi.com/hotels/get-details"
+    },
+    "request": {}
+}

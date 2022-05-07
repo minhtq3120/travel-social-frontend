@@ -68,11 +68,7 @@ export const createPost = async (
   return axiosInstance
     .post(`/post/new-post`, payload)
     .catch((error) => {
-      console.log(error)
-      if (error.response) {
-        console.error(error.response.message);
-        return error.response.status;
-      }
+      return error
     });
 };
 

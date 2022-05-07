@@ -27,7 +27,7 @@ import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
-import { getAirport, getFlight, getSuggestion, getSuggestionAttraction, getSuggestionDetail, getSuggestionHotels, getSuggestionThingToDo } from 'src/services/suggestion-service';
+import { getAirport, getFlight, getHotelDetailTravid, getSuggestion, getSuggestionAttraction, getSuggestionDetail, getSuggestionHotels, getSuggestionThingToDo } from 'src/services/suggestion-service';
 import { Slide, Fade } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css";
 import { AiOutlineArrowDown, AiOutlineClockCircle, AiFillStar} from 'react-icons/ai';
@@ -39,8 +39,11 @@ import { Select, Checkbox } from 'antd';
 import dataHotel from './hotel.json'
 import dataHotel2 from './TravidHotel.json'
 import { Slider, Switch } from 'antd';
+import {FaRegMoneyBillAlt} from 'react-icons/fa'
+import ShowMoreText from "react-show-more-text";
 
-
+import "react-slideshow-image/dist/styles.css";
+import hotelDetail from './hotelDetail.json'
 const { Option } = Select;
 
 import dataRoundTrop from './dataRoundtrip.json'
@@ -72,14 +75,16 @@ const HotelSuggestion = (props: any) => {
   const [amenities2, setAmenities2] = useState<any>(null)
   const [zff2, setZff2] = useState<any>(null)
 
+  const [locationId, setLocationId] = useState<any>(null)
+  const [visibleModalHotelDetail, setVisibleModalHotelDetail] = useState(false)
+  const [hotel, setHotel] = useState<any>(null)
+
   const currentPos: any = useSelector((state: RootState) => state.wallet.currentPosition);
 
   useEffect(() => {
     setCurrentPosition(currentPos)
   }, [currentPos])
 
-
-  console.log(data)
 
   const search = useLocation().search;
   const name=new URLSearchParams(search).get("name");
@@ -99,10 +104,38 @@ const HotelSuggestion = (props: any) => {
         slidesToScroll: 1,
     };
 
+    const SlideshowReward = (props) => {
+        return (
+         <div className={`slide-container ${cx('slider-container3')}`} >
+          <Slide
+              {...properties}
+          >
+                  {
+                  props?.data?.map((item: any, index: any) => {
+                      return (
+                          <div className={cx('recent-container')} key={index} style={{
+                            display: 'flex',
+                            flexDirection:'row',
+                            justifyContent: 'flex-start',
+                            alignItems: 'denter'
+                          }} >
+                              
+                             <img src={`${item?.images?.small}`} alt="img" style={{width: '50px', height: '50px'}}/> 
+                             <div>{item?.display_name}</div>
+                          </div>
+                      )
+                  })
+             }
+            </Slide>
+      </div>
+      )
+  }
+
+  
 
   const Slideshow = () => {
         return (
-         <div className={`slide-container ${cx('slider-container2')}`} >
+         <div className={`${cx('slider-container2')}`} >
             {/* <Slide
                 {...properties}
             > */}
@@ -111,7 +144,9 @@ const HotelSuggestion = (props: any) => {
                       data?.data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
-
+                             console.log(item?.location_id)
+                              setVisibleModalHotelDetail(true)
+                              setLocationId(item?.location_id)
                             }}>
                                    <img src={item?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
                                 {/* <div className={cx('location-pos')}>
@@ -131,6 +166,9 @@ const HotelSuggestion = (props: any) => {
                                       {item?.num_reviews || '0'} Reviews
                                   </div>
                                 </div>
+                              
+                                
+                                
 
                                 <div className={cx('reviews')}>
                                   <div className={cx('total')}>
@@ -142,9 +180,7 @@ const HotelSuggestion = (props: any) => {
                                       {item?.address?.streetAddress}
                                   </div>
                                 </div>
-
-                               
-                                
+ 
                             </div>
                         )
                     })
@@ -304,26 +340,55 @@ const HotelSuggestion = (props: any) => {
 
   const getListsHotels = async (payload) => {
     console.log('payloadddddddddddddd', payload)
-    setHotelForm({...hotelForm, 
-      latitude: payload?.latitude, 
-      longitude: payload?.longitude,
-      checkIn: payload?.checkIn,
-      checkOut: payload?.checkOut
-    })
-
+    //     setHotelForm({...hotelForm, 
+    //       latitude: payload?.latitude, 
+    //       longitude: payload?.longitude,
+    //       checkIn: payload?.checkIn,
+    //       checkOut: payload?.checkOut
+    //     })
+    // setData(dataHotel2)
+    //return
     if(payload?.latitude && payload?.longitude ) {
        const suggest = await getSuggestionHotels(payload)
       console.log(suggest)
       const rs = _.get(suggest, 'data', null);
       console.log(rs)
       setData(rs)
-      // setData(dataHotel2)
+      // 
     }
   }
+
+  const getHotelDetail = async (location_id: string) => {
+    if(locationId) {
+       const suggest = await getHotelDetailTravid({location_id})
+      // const suggest = hotelDetail
+      console.log(suggest)
+      const rs = _.get(suggest, 'data', null);
+      console.log(rs)
+      setHotel(rs?.data[0])
+      // 
+    }
+  }
+
+  useEffect(() => {
+    if(locationId)  getHotelDetail(locationId)
+  }, [locationId])
+
+  const handleCancel = () => {
+        setVisibleModalHotelDetail(false)
+        setLocationId(null)
+        setHotel(null)
+    };
 
   
   useEffect(() => {
     console.log(hotelForm,'==========', props)
+    getListsHotels({
+       latitude: props?.destinationInfo?.lat, 
+      longitude: props?.destinationInfo?.lon,
+      checkIn: props?.startDate,
+      checkOut: props?.endDate
+    })
     if(props?.endDate && props?.endDate && props?.destinationInfo) getListsHotels({
       latitude: props?.destinationInfo?.lat, 
       longitude: props?.destinationInfo?.lon,
@@ -348,7 +413,109 @@ const HotelSuggestion = (props: any) => {
   console.log(payload)    
   }
 
+  const ModalHotelDetail = () => {
+    return (
+        hotel ? 
+      
+      <div className={cx('hotel-detail-container')}>
+        <div className={cx('hotel-info')}>
+
+          <img src={hotel?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
+
+          <div className={cx('info-detail')}>
+            <div className={cx('location-name')}>
+                  {hotel?.name}
+              </div>
+              <div className={cx('reviews')}>
+                  <div className={cx('visited')}>
+                    <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {hotel?.rating} 
+                    </div>
+                </div>
+                
+                <div className={cx('total')}>
+                    {hotel?.num_reviews || '0'} Reviews
+                </div>
+              </div>
+
+              <div className={cx('price')}>
+                  <div className={cx('visited')}>
+                    <FaRegMoneyBillAlt size={30} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {hotel?.price} 
+                    </div>
+                </div>
+              </div>
+
+              <div className={cx('recent-body')}>
+                {
+                  hotel?.awards ? (
+                    <SlideshowReward data={hotel?.awards}/>
+                  ) : null
+                }
+                </div>
+
+              <div className={cx('ranking')}>
+                <div className={cx('total')}>
+                    {hotel?.ranking}
+                </div>
+              </div>
+              <div className={cx('address')}>
+                <div className={cx('total')}>
+                   
+                    {hotel?.address}
+                </div>
+              </div>
+
+              <div className={cx('address')}>
+                <div className={cx('total')}>
+                   <ShowMoreText
+                /* Default options */
+                lines={3}
+                more="Hiển thị thêm "
+                less="Hiển thị bớt"
+                className="content-css"
+                anchorClass="my-anchor-css-class"
+                onClick={() => {console.log('hehe')}}
+                expanded={false}
+                width={600}
+                truncatedEndingComponent={"... "}
+            >   
+                    {hotel?.description}
+                  </ShowMoreText>
+                </div>
+              </div>
+
+               <div className={cx('address')}>
+                <div className={cx('total')}
+                style={{cursor: 'pointer', color: '#68d1c8'}}
+                onClick={() => {
+                  window.open(`${hotel?.web_url}`)
+                  }}>
+                  xem chi tiết tại đây
+                </div>
+              </div>
+
+              <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                  props?.setCurrentStep(props?.currentStep + 1)
+                }}>
+                    lựa chọn khách sạn này
+                </Button>
+              </div>
+              
+          </div>
+            
+        </div>
+          
+      </div> : null
+    )
+  }
+
   return (
+    <>
+    
     <div className={cx('flight-suggestion-detail-container')}>
       
         <div className={cx('left')}>
@@ -482,6 +649,10 @@ const HotelSuggestion = (props: any) => {
         
         
     </div>
+      <Modal visible={visibleModalHotelDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+        {  locationId ? <ModalHotelDetail/> : null }
+      </Modal>
+    </>
 
  
   )
