@@ -26,6 +26,7 @@ const initialState = {
   triggerSearch: false,
   chatNotSeen: null,
   notiNotSeen: null,
+  triggerGetWeatherPosition: false
 };
 export const walletSlice = createSlice({
   name: 'wallet',
@@ -151,11 +152,18 @@ export const walletSlice = createSlice({
         notiNotSeen: action.payload
       };
     },
+    setTriggerGetWeatherPosition: (state, action) => {
+      localStorage.setItem('notiNotSeen', action.payload);
+      return {
+        ...state,
+        triggerGetWeatherPosition: !state.triggerGetWeatherPosition
+      };
+    },
   }
 });
 export const { setAccountAddress, setConnected, setLoginResult, setSocket,
   setNotifications, setWeatherData, setCurrentPosition, setWeatherPosition,
   setOtherNotifi, setMessageNotifi, setOldChat, setTriggerSearch,
-  setHashtagSearch, setSearchValue, setSearchFilter, setChatNotSeen, setNotiNotSeen } = walletSlice.actions;
+  setHashtagSearch, setSearchValue, setSearchFilter, setChatNotSeen, setNotiNotSeen, setTriggerGetWeatherPosition } = walletSlice.actions;
 const { reducer: walletReducer } = walletSlice;
 export default walletReducer;

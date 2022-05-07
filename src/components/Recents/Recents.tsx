@@ -49,6 +49,10 @@ const Recents = (props: any) => {
     const [textSearch, setTextSearch] = useState('');
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [currentPage, setCurentPage] = useState(0);
+    const [latLng, setLatLng] = useState<any>(null)
+
+    const [mapType, setMapType] = useState<any>('')
+    const [isModalVisibleMapSingle, setIsModalVisibleMapSingle] = useState(false)
    
     const [loading,setLoading] = useState(false)
     
@@ -106,6 +110,9 @@ const Recents = (props: any) => {
 
     const handleCancel = () => {
         setIsModalVisibleMap(false)
+        setIsModalVisibleMapSingle(false)
+        setLatLng(null);
+        setMapType('')
     };
 
 
@@ -133,59 +140,74 @@ const Recents = (props: any) => {
 
     const Slideshow = () => {
         return (
+            
          <div className={`slide-container ${cx('slider-container2')}`} >
+             { data?.length === 0 ? (<>
+                    <div className={cx('recent-container')} style={{height: '150px'}}>
+                        Bạn chưa đi địa điểm nào
+                    </div>
+                    </>) : 
             <Slide
                 {...properties}
             >
                     {
-                    data?.map((item: any, index: any) => {
+                   data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index}>
                                 <img src={`${item?.lastestPost?.mediaFiles[0]?.url || 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/02/Italy-Cinque-Terra-coast-houses-Intrepid-Travel.jpg'}`}
                                 alt="img" className={cx('img')}/> 
-                                {/* <div className={cx('info')}>
-                                    <Avatar src={''} className={cx(`avatar`)}/>
-                                    <div className={cx('detail')}>
-                                        <div className={cx('name')}>{`Tran Quang Minh`}</div>
-                                        <div className={cx('time')}>{`2h ago`}</div>
-                                    </div>
-                                </div> */}
                                 <div className={cx('location-name')}>
                                     {item?.place?.name}
                                 </div>
-                                {/* <div className={cx('location-pos')}>
-                                    <MdLocationOn size={45} className={cx(`localtion-icon`)}/>
-                                </div> */}
+                                <div className={cx('location-info')} 
+                                    onClick={() => {
+                                    setIsModalVisibleMapSingle(true)
+                                    setLatLng({
+                                        lat: item.place?.coordinate?.latitude,
+                                        lng: item.place?.coordinate?.longitude,
+                                    })
+                                }}
+                                >
+                                    {/* <div className={cx('locate')}>Location</div> */}
+                                    <MdLocationOn size={30} className={cx(`locate`)}/>
+                                    <div className={cx('city')}>{item?.place?.name}</div>
+                                </div>
                             </div>
                         )
                     })
                 }
-             </Slide>
+             </Slide>}
         </div>
         )
     }
 
   
-
+    console.log(dataVisited)
     return (
         <React.Fragment>
         <div className={cx(`recents-container`)}>
             <div className={cx(`recents-header`)}>
                 <div className={cx(`left`)}>Recents visited
                 </div>
-                <div className={cx(`right`)} onClick={() => {setIsModalVisibleMap(true)}}>View all
-                </div>
+                {
+                    dataVisited?.length > 0 ? <div className={cx(`right`)} onClick={() => {setIsModalVisibleMap(true)}}>View all
+                </div> : null
+                }
+                
             </div>
             <div className={cx(`recent-body`)}>
-                 {!loading && dataVisited && centerVisited ? <Slideshow /> : <Spin size='large'/> }
+                 {!loading && dataVisited && centerVisited ? <Slideshow /> : <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}><Spin size='large' style={{height: '100px'}}/></div> }
             </div>
         </div>
 
         <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
             { !loading && dataVisited && centerVisited ? <Maps lat={centerVisited[0]} lng={centerVisited[1]}  locationVisited={dataVisited }/> : <Spin size='large'/> }
         </Modal>
+         <Modal visible={isModalVisibleMapSingle} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+            {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} mapType={mapType} setMapType={setMapType}/> : <Spin size='large'/> }
+        </Modal>
         </React.Fragment>
-    );
+    ); 
 };
 
 export default Recents;

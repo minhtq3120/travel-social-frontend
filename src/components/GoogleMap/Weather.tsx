@@ -21,15 +21,15 @@ import { sleep } from 'src/containers/Newfeed/Newfeed';
 import { ChatEngine } from 'react-chat-engine'
 import styles from 'src/styles/Weather.module.scss';
 import { Map, GoogleApiWrapper , InfoWindow } from 'google-maps-react';
-
+import {AiOutlineReload} from 'react-icons/ai'
 import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { Card } from 'semantic-ui-react'
 import moment from 'moment';
 import ReactWeather, { useOpenWeather } from 'react-open-weather';
-
+import {MdLocationOff} from 'react-icons/md'
 import Maps from './CurrentLocation';
-import { setWeatherData } from 'src/redux/WalletReducer';
+import { setWeatherData, setTriggerGetWeatherPosition, setWeatherPosition } from 'src/redux/WalletReducer';
 import Recents from '../Recents/Recents';
 
 const customStyles = {
@@ -125,26 +125,59 @@ const Weather = (props: any) => {
   const dispatch = useDispatch()
   const weatherData: any = useSelector((state: RootState) => state.wallet.weatherData);
   const weatherPosition: any = useSelector((state: RootState) => state.wallet.weatherPosition);
+  console.log(weatherData)
+  console.log(weatherPosition)
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchWeather = async () => {
-      setLoading(true)
       await sleep();
+      if(!weatherPosition) {
+        console.log('com hjererh')
+        setLoading(false)
+        return
+      }
       await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${weatherPosition[0]}&lon=${weatherPosition[1]}&lang=vi&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         dispatch(setWeatherData(result))
         setLoading(false)
 
+      })
+      .catch((err) => {
+        setLoading(false)
       });
     }
 
-    if(weatherPosition) fetchWeather()
-    }, [weatherPosition]);
+     fetchWeather()
+     console.log('asddfldsfakfasdlkdfas')
+    }, [weatherPosition, loading]);
 
+    const fetchWeather = async () => {
+      navigator.geolocation.getCurrentPosition(function(position: any) {
+        dispatch(setWeatherPosition([position.coords.latitude, position.coords.longitude]))
+      });
+    }
+
+
+    console.log('weatherPosition', weatherPosition)
     return (
     <>
-      {weatherData && weatherData?.cod !=='404' && weatherPosition && !loading? (
+      {!weatherPosition && !loading ? (
+        <div className={cx(`weather-info-container`)} style={{minHeight: '500px', width: '400px', 
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center', backgroundColor: "#68d1c8", color: 'white'}}>
+          <div  style={{  fontWeight: 'bold',
+            fontSize: '17px', color: 'white', margin:'10px 0'}}>
+            Vui lòng mở vị trí hiện tại <br /> hoặc chọn bài viết để xem thời tiết
+            </div>
+            <MdLocationOff  size={50} color='white'/>
+            <AiOutlineReload size={40} color='white' style={{position: 'absolute', bottom: '10px', right: '10px', cursor: 'pointer'}} 
+            onClick={() => {
+              setLoading(true)
+              fetchWeather()
+            }}/>
+        </div>
+      ) : weatherData && weatherData?.cod !=='404' && !loading? (
         <WeatherInfoDetail data={weatherData}/>
       ): (
         <div className={cx(`weather-info-container`)} style={{minHeight: '500px', }}>

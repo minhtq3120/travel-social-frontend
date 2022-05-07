@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'src/redux/store';
 import Weather from '../GoogleMap/Weather';
 import Maps from '../GoogleMap/CurrentLocation';
-import { setHashtagSearch, setWeatherPosition } from 'src/redux/WalletReducer';
+import { setHashtagSearch, setWeatherData, setWeatherPosition } from 'src/redux/WalletReducer';
 import { useHistory } from 'react-router-dom';
 import { addInterest } from 'src/services/post-service';
 const cx = classNames.bind(styles);
@@ -254,10 +254,11 @@ const Post = (props: any) => {
                             onClick={() => {
                                 if(props?.item?.place) {
                                     console.log("???", props?.item?.place)
-
+                                    dispatch(setWeatherData(null))
                                     dispatch(setWeatherPosition([props.item.place?.coordinate?.latitude,props.item.place?.coordinate?.longitude]))
                                 }
                                 else {
+                                    dispatch(setWeatherData(null))
                                     dispatch(setWeatherPosition([positions[0].lat,positions[0].lng]))
                                 }
                             }}
