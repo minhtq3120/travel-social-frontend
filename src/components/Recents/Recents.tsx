@@ -180,9 +180,7 @@ const Recents = (props: any) => {
         </div>
         )
     }
-
   
-    console.log(dataVisited)
     return (
         <React.Fragment>
         <div className={cx(`recents-container`)}>

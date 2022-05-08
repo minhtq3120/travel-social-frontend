@@ -47,7 +47,7 @@ const NewFeed = (props: any) => {
     setCurentPage(currentPage + 1)
   }
 
-
+  console.log("DATASCRRRRRRRRRRRRRRRRRRRRRRR", dataSrc, '==========',currentPage)
   const getNewfeed = async ( filterValue: string,page?: number,) => {
     try {
       setLoadingNewfeed(true)
@@ -85,6 +85,10 @@ const NewFeed = (props: any) => {
     if(filterValue) getNewfeed(filterValue,currentPage);
   }, [currentPage, filterValue]);
 
+  // useEffect(() => {
+  //   if(filterValue) getNewfeed(filterValue,0);
+  // }, [filterValue]);
+
   const key ='AIzaSyDyLJbSf7aGSocPkzyqU7jmjVZb-Og9Ym8'
   // const key = 'AIzaSyDWTx7bREpM5B6JKdbzOvMW-RRlhkukmVE'
   return (
@@ -96,7 +100,7 @@ const NewFeed = (props: any) => {
         <div className={cx(`newFeed-middle`)}>
             <Discovery />
             {
-              loadingNewfeed ? <Spin size="large" style={{marginTop: '20px'}}/> : !loadingNewfeed && dataSrc?.length === 0 && filterValue ==='following' ? (
+              loadingNewfeed && dataSrc?.length === 0 ? <Spin size="large" style={{marginTop: '20px'}}/> : !loadingNewfeed && dataSrc?.length === 0 && filterValue ==='following' ? (
                 <div className={cx('text-container')}>
                   <div className={cx('text')}>Bạn chưa theo dõi ai cả <br/> Theo dõi mọi người để xem bài viết của họ</div>
                   <img src="https://cdn.dribbble.com/users/88213/screenshots/8560585/media/7263b7aaa8077a322b0f12a7cd7c7404.png?compress=1&resize=400x300"
@@ -111,7 +115,7 @@ const NewFeed = (props: any) => {
                   />
                 </div>
               ) :
-               dataSrc?.length> 0 ?dataSrc?.map((item: any, index: any) => {
+               dataSrc?.map((item: any, index: any) => {
                 return (
                   <>
                     <div key={index}>
@@ -120,7 +124,7 @@ const NewFeed = (props: any) => {
                   </>
                   
                 )
-              }) :null
+              })
             }
             {
             totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : (

@@ -125,8 +125,7 @@ const Weather = (props: any) => {
   const dispatch = useDispatch()
   const weatherData: any = useSelector((state: RootState) => state.wallet.weatherData);
   const weatherPosition: any = useSelector((state: RootState) => state.wallet.weatherPosition);
-  console.log(weatherData)
-  console.log(weatherPosition)
+
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchWeather = async () => {
