@@ -1,0 +1,165 @@
+{
+    "location_id": "8290115",
+    "name": "Phố đi bộ Nguyễn Huệ",
+    "latitude": "10.773846",
+    "longitude": "106.70364",
+    "num_reviews": "1576",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "location_string": "Thành phố Hồ Chí Minh",
+    "photo": {
+        "images": {
+            "small": {
+                "width": "250",
+                "url": "https://media-cdn.tripadvisor.com/media/photo-f/09/44/fd/f6/nguyen-hue-street.jpg",
+                "height": "141"
+            },
+            "thumbnail": {
+                "width": "50",
+                "url": "https://media-cdn.tripadvisor.com/media/photo-t/09/44/fd/f6/nguyen-hue-street.jpg",
+                "height": "50"
+            },
+            "original": {
+                "width": "1632",
+                "url": "https://media-cdn.tripadvisor.com/media/photo-o/09/44/fd/f6/nguyen-hue-street.jpg",
+                "height": "918"
+            },
+            "large": {
+                "width": "1024",
+                "url": "https://media-cdn.tripadvisor.com/media/photo-w/09/44/fd/f6/nguyen-hue-street.jpg",
+                "height": "576"
+            },
+            "medium": {
+                "width": "550",
+                "url": "https://media-cdn.tripadvisor.com/media/photo-s/09/44/fd/f6/nguyen-hue-street.jpg",
+                "height": "309"
+            }
+        },
+        "is_blessed": false,
+        "uploaded_date": "2015-10-20T06:57:57-0400",
+        "caption": "Nguyen Hue Street",
+        "id": "155516406",
+        "helpful_votes": "7",
+        "published_date": "2015-10-20T06:57:57-0400",
+        "user": {
+            "user_id": null,
+            "member_id": "0",
+            "type": "user"
+        }
+    },
+    "awards": [
+        {
+            "award_type": "CERTIFICATE_OF_EXCELLENCE",
+            "year": "2020",
+            "images": {
+                "small": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                "large": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2020_vi_large-0-5.jpg"
+            },
+            "categories": [],
+            "display_name": "Chứng chỉ dịch vụ xuất sắc 2020"
+        },
+        {
+            "award_type": "CERTIFICATE_OF_EXCELLENCE",
+            "year": "2019",
+            "images": {
+                "small": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                "large": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2019_vi_large-0-5.jpg"
+            },
+            "categories": [],
+            "display_name": "Chứng chỉ dịch vụ xuất sắc 2019"
+        },
+        {
+            "award_type": "CERTIFICATE_OF_EXCELLENCE",
+            "year": "2018",
+            "images": {
+                "small": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                "large": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2018_vi_large-0-5.jpg"
+            },
+            "categories": [],
+            "display_name": "Chứng chỉ dịch vụ xuất sắc 2018"
+        },
+        {
+            "award_type": "CERTIFICATE_OF_EXCELLENCE",
+            "year": "2017",
+            "images": {
+                "small": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_small-0-5.jpg",
+                "large": "https://www.tripadvisor.com.vn/img/cdsi/img2/awards/CERTIFICATE_OF_EXCELLENCE_2017_vi_large-0-5.jpg"
+            },
+            "categories": [],
+            "display_name": "Chứng chỉ dịch vụ xuất sắc 2017"
+        }
+    ],
+    "location_subtype": "none",
+    "doubleclick_zone": "as.vietnam.ho_chi_minh_city",
+    "preferred_map_engine": "default",
+    "raw_ranking": "3.7241179943084717",
+    "ranking_geo": "Thành phố Hồ Chí Minh",
+    "ranking_geo_id": "293925",
+    "ranking_position": "9",
+    "ranking_denominator": "85",
+    "ranking_category": "attraction",
+    "ranking_subcategory": "Số 9 trên 85 Danh lam & Thắng cảnh ở Thành phố Hồ Chí Minh",
+    "subcategory_ranking": "Số 9 trên 85 Danh lam & Thắng cảnh ở Thành phố Hồ Chí Minh",
+    "ranking": "Số 9 trên 85 Danh lam & Thắng cảnh ở Thành phố Hồ Chí Minh",
+    "distance": null,
+    "distance_string": null,
+    "bearing": null,
+    "rating": "4.0",
+    "is_closed": false,
+    "is_long_closed": false,
+    "description": "",
+    "web_url": "https://www.tripadvisor.com.vn/Attraction_Review-g293925-d8290115-Reviews-Nguyen_Hue_Street-Ho_Chi_Minh_City.html",
+    "write_review": "https://www.tripadvisor.com.vn/UserReview-g293925-d8290115-Nguyen_Hue_Street-Ho_Chi_Minh_City.html",
+    "ancestors": [
+        {
+            "subcategory": [
+                {
+                    "key": "city",
+                    "name": "Thành phố"
+                }
+            ],
+            "name": "Thành phố Hồ Chí Minh",
+            "abbrv": null,
+            "location_id": "293925"
+        },
+        {
+            "subcategory": [
+                {
+                    "key": "country",
+                    "name": "Quốc gia"
+                }
+            ],
+            "name": "Việt Nam",
+            "abbrv": null,
+            "location_id": "293921"
+        }
+    ],
+    "category": {
+        "key": "attraction",
+        "name": "Điểm du lịch"
+    },
+    "subcategory": [
+        {
+            "key": "47",
+            "name": "Danh lam & Thắng cảnh"
+        }
+    ],
+    "parent_display_name": "Thành phố Hồ Chí Minh",
+    "is_jfy_enabled": false,
+    "nearest_metro_station": [],
+    "address_obj": {
+        "street1": "Đường Nguyễn Huệ",
+        "street2": "",
+        "city": "Thành phố Hồ Chí Minh",
+        "state": null,
+        "country": "Việt Nam",
+        "postalcode": "70000"
+    },
+    "address": "Đường Nguyễn Huệ, Thành phố Hồ Chí Minh 70000 Việt Nam",
+    "is_candidate_for_contact_info_suppression": false,
+    "subtype": [
+        {
+            "key": "163",
+            "name": "Điểm thu hút khách tham quan & thắng cảnh"
+        }
+    ]
+}

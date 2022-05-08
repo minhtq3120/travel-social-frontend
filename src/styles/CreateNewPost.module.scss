@@ -31,6 +31,7 @@
         border-bottom-left-radius: 16px;
         display: flex;
         flex-direction: row;
+        padding: 10px 5px;
         position: relative;
         z-index: 1;
 
@@ -55,10 +56,10 @@
               align-items: center;
               align-content: center;
               border-radius: 10px;
-              width: 650px;
+              width: 700px;
               border-radius: 10px !important;
               // padding: 0 10px;
-              height: 650px;
+              height: 670px;
               object-fit: cover;
             }
 

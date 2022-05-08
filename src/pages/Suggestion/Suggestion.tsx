@@ -41,6 +41,9 @@ import {BiCurrentLocation} from 'react-icons/bi'
 
 const { Step } = Steps;
 
+import { Slide, Fade } from 'react-slideshow-image';
+import "react-slideshow-image/dist/styles.css";
+
 const JOIN_ROOM ='joinRoom';
 const JOIN_ROOM_SUCCESS ='joinRoomSuccess'
 export const SEND_MESSAGE = 'sendMessage';
@@ -48,6 +51,8 @@ export const RECEIVE_MESSAGE = 'receiveMessage'
 import city from './city.json'
 import { DatePicker, Space } from 'antd';
 import { DateRangePicker } from 'react-date-range';
+
+import ShowMoreText from "react-show-more-text";
 
 const { RangePicker } = DatePicker;
 
@@ -119,6 +124,10 @@ const Suggestion = (props: any) => {
   const [hotelSelect, setHotelSelect] = useState<any>(null)
 
   const [dataSuggest, setDataSuggest] = useState<any>(null)
+
+  const [visibleModalCityDetail, setVisibleModalCityDetail] = useState(false)
+  const [visibleModalPlaceDetail, setVisibleModalPlaceDetail] = useState(false)
+
 
   const [locationId, setLocationId] = useState<any>(null) 
   const setStartPosFromPlaceId = async (placeId: string) => {
@@ -249,9 +258,265 @@ const Suggestion = (props: any) => {
 
   console.log(selectionRange)
 
+  const handleCancel = () => {
+      setVisibleModalCityDetail(false)
+      setTravelCity(null)
+      setLocationId(null)
+      
+  };
+
+  const handleCancel2 = () =>{
+    setVisibleModalPlaceDetail(false)
+    setTravelPlace(null)
+    setDestinationInfo(null)
+  }
+
+  const properties = {
+        duration: 5000,
+        autoplay: false,
+        transitionDuration: 500,
+        arrows: true,
+        infinite: true,
+        easing: "ease",
+        indicators: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    };
+
+  const SlideshowReward = (props) => {
+    console.log(props?.data)
+        return (
+         <div className={`slide-container ${cx('slider-container3')}`} >
+          {/* <Slide
+              {...properties}
+          > */}
+                  {
+                  props?.data?.map((item: any, index: any) => {
+                      return (
+                          <div className={cx('recent-container')} key={index} style={{
+                            display: 'flex',
+                            flexDirection:'row',
+                            justifyContent: 'flex-start',
+                            alignItems: 'denter'
+                          }} >
+                             <img src={`${item?.images?.small}`} alt="img" style={{width: '80px', height: '80px'}}/> 
+                             <div style={{marginLeft: '10px'}}>
+                               <div style={{fontSize: '17px'}}>{item?.display_name}</div>
+                              <div style={{fontSize: '17px'}}>{item?.categories?.toString()}</div>
+                              </div>
+                             
+                          </div>
+                      )
+                  })
+             }
+            {/* </Slide> */}
+      </div>
+      )
+  }
+
+
+
+  const ModalCityDetail = () => {
+    return (
+        travelCity ? 
+      
+      <div className={cx('hotel-detail-container')}>
+        <div className={cx('hotel-info')}>
+
+          <img src={travelCity?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
+
+          <div className={cx('info-detail')}>
+            <div className={cx('location-name')}>
+                  {travelCity?.result_object?.name}
+              </div>
+              <div className={cx('reviews')}>
+                  <div className={cx('visited')}>
+                    <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {travelCity?.result_object?.num_reviews || '0'} Reviews
+                    </div>
+                </div>
+                
+                {/* <div className={cx('total')}>
+                    {travelCity?.result_object?.num_reviews || '0'} Reviews
+                </div> */}
+              </div>
+
+              {/* <div className={cx('price')}>
+                  <div className={cx('visited')}>
+                    <FaRegMoneyBillAlt size={30} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {travelCity?.result_object?.price} 
+                    </div>
+                </div>
+              </div> */}
+
+              <div className={cx('recent-body')}>
+                {
+                  travelCity?.result_object?.awards ? (
+                    <SlideshowReward data={travelCity?.result_object?.awards}/>
+                  ) : null
+                }
+                </div>
+
+              <div className={cx('ranking')}>
+                <div className={cx('total')}>
+                    {travelCity?.result_object?.photo?.helpful_votes || '0'} Votes
+                </div>
+              </div>
+              <div className={cx('address')}>
+                <div className={cx('total')} style={{fontSize: '19px'}}>
+                    {travelCity?.result_object?.location_string}
+                </div>
+              </div>
+
+              <div className={cx('address')}>
+                <div className={cx('total')}>
+                   <ShowMoreText
+                /* Default options */
+                lines={3}
+                more="Hiển thị thêm "
+                less="Hiển thị bớt"
+                className="content-css"
+                anchorClass="my-anchor-css-class"
+                onClick={() => {console.log('hehe')}}
+                expanded={false}
+                // width={'auto'}
+                truncatedEndingComponent={"... "}
+            >   
+                    {travelCity?.result_object?.geo_description}
+                  </ShowMoreText>
+                </div>
+              </div>
+
+
+              <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                  setVisibleModalCityDetail(false)
+                  setCurrentStep(currentStep + 1)
+
+                }}>
+                    lựa chọn thành phố này
+                </Button>
+              </div>
+              
+          </div>
+            
+        </div>
+          
+      </div> : null
+    )
+  }
+
+  const ModalPlaceTravelDetail = () => {
+    return (
+        travelPlace ? 
+      
+      <div className={cx('hotel-detail-container')}>
+        <div className={cx('hotel-info')}>
+
+          <img src={travelPlace?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
+
+          <div className={cx('info-detail')}>
+            <div className={cx('location-name')}>
+                  {travelPlace?.name}
+              </div>
+
+      
+              <div className={cx('reviews')}>
+                  <div className={cx('visited')}>
+                    <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {travelPlace?.rating} 
+                    </div>
+                </div>
+                
+                <div className={cx('total')}>
+                    {travelPlace?.num_reviews || '0'} Reviews
+                </div>
+              </div>
+
+              {/* <div className={cx('price')}>
+                  <div className={cx('visited')}>
+                    <FaRegMoneyBillAlt size={30} color={'white'} style={{margin: '0 5px'}}/>
+                    <div className={cx('count')}>
+                      {travelCity?.result_object?.price} 
+                    </div>
+                </div>
+              </div> */}
+
+              <div className={cx('recent-body')}>
+                {
+                  travelPlace?.awards ? (
+                    <SlideshowReward data={travelCity?.result_object?.awards}/>
+                  ) : null
+                }
+                </div>
+
+              <div className={cx('ranking')}>
+                <div className={cx('total')}>
+                    {travelPlace?.ranking}
+                </div>
+              </div>
+              {/* <div className={cx('address')}>
+                <div className={cx('total')} style={{fontSize: '19px'}}>
+                    {travelPlace?.location_string}
+                </div>
+              </div> */}
+
+              <div className={cx('address')}>
+                <div className={cx('total')}>
+                   <ShowMoreText
+                /* Default options */
+                lines={3}
+                more="Hiển thị thêm "
+                less="Hiển thị bớt"
+                className="content-css"
+                anchorClass="my-anchor-css-class"
+                onClick={() => {console.log('hehe')}}
+                expanded={false}
+                width={600}
+                truncatedEndingComponent={"... "}
+            >   
+                    {travelPlace?.description}
+                  </ShowMoreText>
+                </div>
+              </div>
+
+              <div className={cx('address')}>
+                <div className={cx('total')}
+                style={{cursor: 'pointer', color: '#68d1c8'}}
+                onClick={() => {
+                  window.open(`${travelPlace?.web_url}`)
+                  }}>
+                  xem chi tiết tại đây
+                </div>
+              </div>
+
+
+              <div className={cx('btn-next-container')} >
+                <Button className={cx('btn-next')} onClick={() => {
+                  setVisibleModalPlaceDetail(false)
+                  setCurrentStep(currentStep + 1)
+
+                }}>
+                    lựa chọn địa điểm này
+                </Button>
+              </div>
+              
+          </div>
+            
+        </div>
+          
+      </div> : null
+    )
+  }
+
 
 
   return (
+    <>
+
     <div className={cx(`suggestion-container`)}>
       <div className={cx('suggestion-city')}>
         
@@ -263,7 +528,7 @@ const Suggestion = (props: any) => {
         >
           <Step  title="Step 1"  disabled={true} />
           <Step  title="Step 2" disabled={true}/>
-          <Step  title="Step 3"  disabled={true}/> 
+          <Step  title="Step 3" disabled={true} /> 
           <Step  title="Step 4"   disabled={true}/>
           <Step  title="Step 5"  disabled={true}/>
           <Step  title="Step 6"  disabled={true}/>
@@ -418,7 +683,7 @@ const Suggestion = (props: any) => {
                             console.log(item)
                             setLocationId(item?.result_object?.location_id)
                             setTravelCity(item)
-                            setCurrentStep(currentStep + 1)
+                            setVisibleModalCityDetail(true)
                             }}>
                                    <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
                                 {/* <div className={cx('location-pos')}>
@@ -431,11 +696,12 @@ const Suggestion = (props: any) => {
                                    <div className={cx('visited')}>
                                       <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
                                       <div className={cx('count')}>
-                                        {item?.result_object?.rating || '0'} / {'5'} 
+                                        {/* {item?.result_object?.rating || '0'} / {'5'}  */}
+                                        {item?.result_object?.num_reviews || '0'} Reviews
                                       </div>
                                   </div>
                                   <div className={cx('total')}>
-                                      {item?.result_object?.num_reviews || '0'} Reviews
+                                      {item?.result_object?.photo?.helpful_votes || '0'} Votes
                                   </div>
                                 </div>
 
@@ -481,7 +747,7 @@ const Suggestion = (props: any) => {
                               lat: item?.latitude,
                               lon: item?.longitude,
                             })
-                            setCurrentStep(currentStep + 1)
+                            setVisibleModalPlaceDetail(true)
                             }}>
                                    <img src={item?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
                                 {/* <div className={cx('location-pos')}>
@@ -650,6 +916,13 @@ const Suggestion = (props: any) => {
 
        
     </div>
+    <Modal visible={visibleModalCityDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+        {  travelCity ? <ModalCityDetail/> : null }
+      </Modal>
+      <Modal visible={visibleModalPlaceDetail} footer={null} onCancel={handleCancel2} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+        {  travelPlace? <ModalPlaceTravelDetail/> : null }
+      </Modal>
+    </>
   )
 
 };

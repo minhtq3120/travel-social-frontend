@@ -43,6 +43,7 @@ import { injectedConnector, signWallet } from 'src/constant/contract-service';
 import { useWeb3React } from '@web3-react/core';
 import { loginWalletAddress, registerWalletAddress } from 'src/services/auth-service';
 import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
+import {MdOutlineTravelExplore} from 'react-icons/md'
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -397,6 +398,13 @@ const HeaderContainer = (props: any) => {
                 <AiOutlineWallet size={20}/>
                   <div style={{margin: '0 5px'}}>{walletAccount && walletAccount?.length > 0 ?  `${walletAccount?.slice(0, 6) + '...' + walletAccount?.slice(-4)}` : `Connect wallet` }</div>
                 </Button>
+              <MdOutlineTravelExplore 
+              style={account === '5' ? iconClicked : iconNotClick}
+              onClick={() => {
+                history.push('/suggestion');
+                dispatch(setIconTabKey('5'));
+              }}
+            />
             <AiOutlineHome
               style={account === '1' ? iconClicked : iconNotClick}
               onClick={() => {

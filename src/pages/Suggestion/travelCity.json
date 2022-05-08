@@ -1,0 +1,105 @@
+{
+    "result_type": "geos",
+    "result_object": {
+        "location_id": "293925",
+        "name": "Thành phố Hồ Chí Minh",
+        "latitude": "10.82293",
+        "longitude": "106.62975",
+        "num_reviews": "796599",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "location_string": "Thành phố Hồ Chí Minh",
+        "photo": {
+            "images": {
+                "small": {
+                    "width": "150",
+                    "url": "https://media-cdn.tripadvisor.com/media/photo-l/1b/33/f1/0b/caption.jpg",
+                    "height": "150"
+                },
+                "thumbnail": {
+                    "width": "50",
+                    "url": "https://media-cdn.tripadvisor.com/media/photo-t/1b/33/f1/0b/caption.jpg",
+                    "height": "50"
+                },
+                "original": {
+                    "width": "5760",
+                    "url": "https://media-cdn.tripadvisor.com/media/photo-o/1b/33/f1/0b/caption.jpg",
+                    "height": "3277"
+                },
+                "large": {
+                    "width": "550",
+                    "url": "https://media-cdn.tripadvisor.com/media/photo-s/1b/33/f1/0b/caption.jpg",
+                    "height": "313"
+                },
+                "medium": {
+                    "width": "250",
+                    "url": "https://media-cdn.tripadvisor.com/media/photo-f/1b/33/f1/0b/caption.jpg",
+                    "height": "142"
+                }
+            },
+            "is_blessed": false,
+            "uploaded_date": "2020-03-24T15:27:48-0400",
+            "caption": "",
+            "id": "456388875",
+            "helpful_votes": "5",
+            "published_date": "2020-03-24T15:27:48-0400",
+            "user": null
+        },
+        "awards": [],
+        "doubleclick_zone": "as.vietnam.ho_chi_minh_city",
+        "preferred_map_engine": "default",
+        "geo_type": "narrow",
+        "category_counts": {
+            "attractions": {
+                "activities": "1434",
+                "attractions": "212",
+                "nightlife": "238",
+                "shopping": "465",
+                "total": "2349"
+            },
+            "restaurants": {
+                "total": "5464"
+            },
+            "accommodations": {
+                "hotels": "1553",
+                "bbs_inns": "1547",
+                "others": "1891",
+                "total": "4991"
+            },
+            "neighborhoods": "0",
+            "airports": "0"
+        },
+        "nearby_attractions": [],
+        "description": "",
+        "web_url": "",
+        "ancestors": [
+            {
+                "subcategory": [
+                    {
+                        "key": "country",
+                        "name": "Quốc gia"
+                    }
+                ],
+                "name": "Việt Nam",
+                "abbrv": null,
+                "location_id": "293921"
+            }
+        ],
+        "category": {
+            "key": "geographic",
+            "name": "Địa lý"
+        },
+        "subcategory": [
+            {
+                "key": "city",
+                "name": "Thành phố"
+            }
+        ],
+        "is_jfy_enabled": false,
+        "nearest_metro_station": [],
+        "geo_description": "Thành phố náo nhiệt lớn nhất Việt Nam luôn dẫn đầu xu hướng về cả văn hóa và kinh tế trong nước. Sài Gòn xưa tự hào bởi nét duyên dáng của kiến trúc thuộc địa Pháp và những đại lộ thênh thang từng một thời đông đúc đến tắc nghẽn. Taxi là phương tiện được nhiều người lựa chọn để thăm thú thành phố rộng lớn này. Bảo tàng chứng tích chiến tranh khắc họa Chiến tranh Việt Nam dưới chính con mắt của người dân đất Việt. Đừng bỏ lỡ Chùa Ngọc Hoàng đầy ấn tượng, và nhớ ghé Chợ Bến Thành muôn phần náo nhiệt, nơi bày bán đồ ăn, hoa hay những chú ếch. Du khách cũng có thể ngao du qua những đồng lúa và nhà thuyền rải rác khắp Đồng bằng Sông Cửu Long.",
+        "has_restaurant_coverpage": false,
+        "has_attraction_coverpage": false,
+        "has_curated_shopping_list": false
+    },
+    "scope": "local"
+}

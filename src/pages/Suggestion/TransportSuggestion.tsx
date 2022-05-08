@@ -45,6 +45,7 @@ import { getSuggestionVehicle } from 'src/services/place-service';
 import { MdOutlineRecommend} from 'react-icons/md'
 import {AiFillCar} from 'react-icons/ai'
 import {RiMotorbikeFill} from 'react-icons/ri'
+import {CgUnavailable} from 'react-icons/cg'
 const { Option } = Select;
 import recommendVehicle from './recommentVehicle.json'
 
@@ -192,7 +193,19 @@ const TransportSuggestion = (props: any) => {
       
       <div className={cx('vehicle-detail-info')}>
         <div className={cx('left')} >
-          <div className={cx('transport-info')}>
+          {
+            recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? (
+              <div style={{position: 'absolute',width: '300px', height: 'auto', top: '50px', right: '25%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                <CgUnavailable size={100} color={`red`}/>
+                <div style={{textAlign: 'center', margin: '10px 0', fontSize: '20px', fontWeight: 'bold', color: 'red'}}>Phương tiện không khả dụng <br/> Khoảng cách quá gần</div>
+              </div>
+            ) : null
+          }
+          
+
+          <div className={cx('transport-info')}
+          style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {opacity: '0.4'} : {}}
+          >
             <div className={cx('name')}>
               Đường hàng không
             </div>
@@ -202,22 +215,28 @@ const TransportSuggestion = (props: any) => {
 
               <div className={cx('text1-container')}>
                 <div className={cx('text1')}>
-                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                     {parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'plane')[0]?.distance).toFixed(2)}km</b> 
                 </div>
                 <div className={cx('text1')}>
-                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>
+                    {moment.utc(parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'plane')[0]?.duration)).format('HH:mm:ss')}</b> 
                 </div>
               </div>
           </div>
           
           
 
-          <div className={cx('text')}>
+          <div className={cx('text')}
+           style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {opacity: '0.4'} : {}}
+          >
             Chúng tôi đề xuất các sân bay gần nhât so với địa điểm bạn chọn <br />
            
           </div>
 
-            <div className={cx('from-to-location-container')}>
+            <div className={cx('from-to-location-container')}
+             style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {opacity: '0.4'} : {}}
+            >
                   <div className={cx('from')}>
                       <div className={cx('top')}>Từ 
                       </div>
@@ -234,11 +253,15 @@ const TransportSuggestion = (props: any) => {
                 </div>
 
               <div className={cx('btn-next-container')}
+               style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {opacity: '0.4'} : {}}
               >
                 <Button className={cx('btn-next')} onClick={() =>{
                     props?.setCurrentStep(props?.currentStep + 1)
                     props?.setVehicleChoose('plane')
-                  }}>
+                  }}
+                  style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {backgroundColor: 'grey'} : {}}
+                  disabled={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? true : false}
+                  >
                   Tham khảo các chuyến bay
                 </Button>
                </div> 
@@ -263,10 +286,11 @@ const TransportSuggestion = (props: any) => {
                   <div className={cx('name')}>Ô tô </div><AiFillCar size={35}/>
                 </div>
                 <div className={cx('text1')}>
-                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                    {parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'car')[0]?.distance).toFixed(2)}km</b> 
                 </div>
                 <div className={cx('text1')}>
-                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'car')[0]?.duration)).format('HH:mm:ss')}</b> 
                 </div>
             </div>
             <div className={cx('text1-container')} onClick={() => {
@@ -277,10 +301,11 @@ const TransportSuggestion = (props: any) => {
                   <div className={cx('name')}>Xe máy</div><RiMotorbikeFill size={35}/>
                 </div>
                 <div className={cx('text1')}>
-                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>30km</b> 
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                     {parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'bike')[0]?.distance).toFixed(2)}km</b> 
                 </div>
                 <div className={cx('text1')}>
-                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(5893718.319301199*1000).format('HH:mm:ss')}</b> 
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(parseFloat(recommentVehicle?.filter((rv) => rv?.name === 'bike')[0]?.duration)).format('HH:mm:ss')}</b> 
                 </div>
             </div>
           </div>
