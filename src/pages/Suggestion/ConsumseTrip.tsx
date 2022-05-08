@@ -52,11 +52,16 @@ import {FaRegMoneyBillAlt} from 'react-icons/fa'
 import dataRoundTrop from './dataRoundtrip.json'
 const { RangePicker } = DatePicker;
 import { DateRangePicker } from 'react-date-range';
-import { AiOutlineArrowDown, AiOutlineClockCircle, AiFillStar} from 'react-icons/ai';
+import { AiOutlineArrowDown, AiOutlineArrowRight, AiFillStar} from 'react-icons/ai';
 import tc from'./travelCity.json'
 import tp from './travelPlace.json'
 import hs from './hotelSelect.json'
 import {MdOutlineLocationOn} from 'react-icons/md'
+import {IoMdArrowRoundForward} from 'react-icons/io';
+import {GiAirplaneDeparture, GiAirplaneArrival } from 'react-icons/gi';
+import {FaArrowRight} from 'react-icons/fa'
+import Maps from 'src/components/GoogleMap/CurrentLocation';
+
 
 const ConsumseTrip = (props: any) => {
 //  const { destinationInfo,
@@ -105,6 +110,7 @@ const ConsumseTrip = (props: any) => {
   const [isVisibleModalShow3, setIsVisibleModalShow3] = useState(false)
   const [isVisibleModalShow4, setIsVisibleModalShow4] = useState(false)
   const [isVisibleModalShow5, setIsVisibleModalShow5] = useState(false)
+  const [isVisibleModalShow6, setIsVisibleModalShow6] = useState(false)
 
 
   const handleCancle = () => {
@@ -113,6 +119,7 @@ const ConsumseTrip = (props: any) => {
     setIsVisibleModalShow3(false)
     setIsVisibleModalShow4(false)
     setIsVisibleModalShow5(false)
+    setIsVisibleModalShow6(false)
   }
   const properties = {
         duration: 5000,
@@ -387,6 +394,50 @@ const ConsumseTrip = (props: any) => {
     )
   }
 
+  const ModalVehicleCar = () => {
+    const recommentVehicle = {
+    distance: "1200.23",
+    duration: "1234152"
+  }
+  const destinationInfo = {
+  lat: 10.776308,
+  lon: 106.702867
+}
+    return (
+      <>
+      <div className={cx('right')} >
+          <div className={cx('transport-info')}>
+             <div className={cx('ground-street')}>
+            <div className={cx('text1-container')} onClick={() => {
+              props?.setVehicleChoose('car')
+              props?.setCurrentStep(props?.currentStep + 2)
+            }}>
+                <div className={cx('text-name')} >
+                  <div className={cx('name')}>Ô tô </div><AiFillCar size={35}/>
+                </div>
+                <div className={cx('text1')}>
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                    {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                </div>
+                <div className={cx('text1')}>
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                </div>
+            </div>
+          </div>
+            <img src="https://mof.gov.vn/webcenter/cs/groups/cqlg_all_content/documents/tinbai/dwnt/mtk4/~edisp/~export/MOFUCM198757~1/5258.jpg"
+                className={cx('img')}
+              />
+          </div>
+          
+         
+
+            { destinationInfo?.lat && destinationInfo?.lon? <Maps lat={Number(destinationInfo?.lat)} long={Number(destinationInfo?.lon)} mapWidth={'700px'} mapHeight={'400px'} mapType="direction" suggestVehicle={true}/> : null }
+            <div style={{padding: '10px 0'}}></div>
+        </div>
+      </>
+    )
+  }
+
   const ModalTravelType = () => {
     return (
       <div className={cx('type-container-all')}>
@@ -403,6 +454,62 @@ const ConsumseTrip = (props: any) => {
             </div>
           </div>
       </div>
+    )
+  }
+
+  const recommentVehicle = {
+    distance: "1200.23",
+    duration: "1234152"
+  }
+
+  const airportFrom = {
+    iata: 'HAN',
+    name: 'Ha noi'
+  }
+
+   const airportTo = {
+    iata: 'SGN',
+    name: 'Sai gon'
+  }
+
+  const ModalVehicleFlight = () => {
+    return (
+      <>
+      <div className={cx('left')} >
+          <div className={cx('transport-info')}
+          >
+            <div className={cx('name')}>
+              Đường hàng không
+            </div>
+              <div className={cx('text1-container')}>
+                <div className={cx('text1')}>
+                  Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                     {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                </div>
+                <div className={cx('text1')}>
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>
+                    {moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                </div>
+              </div>
+          </div>
+
+            <div className={cx('from-to-location-container')}            >
+                  <div className={cx('from')}>
+                      <div className={cx('top')}>Từ 
+                      </div>
+                      <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{airportFrom?.name}</div>
+                      <div className={cx('iata')}>{airportFrom?.iata}</div>
+                  </div>
+                  <FaArrowRight size={50} color='#68d1c8' className={cx('icon-arrow')}/>
+                  <div className={cx('from')}>
+                    <div className={cx('top')}>đến
+                      </div>
+                      <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{airportTo?.name}</div>
+                      <div className={cx('iata')}>{airportTo?.iata}</div>
+                  </div>
+                </div>
+        </div>
+      </>
     )
   }
 
@@ -557,7 +664,11 @@ const ConsumseTrip = (props: any) => {
                   </div>
                 </div>
 
-                <div className={cx('containter-father')}>
+                <div className={cx('containter-father')}
+                onClick={() => {
+                  setIsVisibleModalShow6(true)
+                }}
+                >
                   <div className={cx('container')}>
                     <MdOutlineFlight size={40} className={cx('icon')}/>
                     
@@ -589,17 +700,25 @@ const ConsumseTrip = (props: any) => {
               </div>   
               <div className={cx('from-to-container')}>
                 <div className={cx('from-to')}>
-                  <div className={cx('title')}>Điểm đi</div>
-                  <div className={cx('info-detail')}>
+                  <div className={cx('title')}><div className={cx('text')}>Điểm đi</div></div>
+                  <div className={cx('info-detail2')}>
                       <MdOutlineLocationOn color={`#68d1c8`} size={80}/>
+                      <div className={cx('name')}>
+                        <div className={cx('inforeal')}>
+                          <div className={cx('name')}>
+                               Vị trí của bạn
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div> 
+                <IoMdArrowRoundForward size={80} color={`#68d1c8`}/>
                 <div className={cx('from-to')}>
-                  <div className={cx('title')}>Điểm đến</div>
+                  <div className={cx('title')}><div className={cx('text')}>Điểm đến</div></div>
                   <div className={cx('info-detail')}>
                       <img src={travelPlace?.photo?.images?.original?.url } alt="img" className={cx('img')}/> 
                       <div className={cx('inforeal')}>
-                      <div className={cx('name')}>
+                        <div className={cx('name')}>
                               {travelPlace?.name}
                         </div>
                         <div className={cx('reviews')}>
@@ -664,6 +783,13 @@ const ConsumseTrip = (props: any) => {
         {  hotelDetail ? (
           <>
             <ModalHotelDetail/>
+          </>
+        ) : null }
+      </Modal>
+      <Modal visible={isVisibleModalShow6} footer={null} onCancel={handleCancle} style={{padding: '0px !important'}} width={750} closable={false} bodyStyle={{padding: '0'}}>
+        {  hotelDetail ? (
+          <>
+            <ModalVehicleCar/>
           </>
         ) : null }
       </Modal>
