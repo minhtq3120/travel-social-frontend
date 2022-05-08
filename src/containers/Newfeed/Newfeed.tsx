@@ -18,6 +18,7 @@ import Weather from "src/components/GoogleMap/Weather";
 import Maps from "src/components/GoogleMap/CurrentLocation";
 import Discovery from "src/components/Discovery/Discovery";
 import {BsPeople, BsStar} from 'react-icons/bs'
+import Recents from "src/components/Recents/Recents";
 
 const cx = classNames.bind(styles);
 
@@ -44,10 +45,10 @@ const NewFeed = (props: any) => {
   const handleFetchMore = async () => {
     //await sleep();
     setViewMoreLoading(true);
-    setCurentPage(currentPage + 1)
+    totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : setCurentPage(currentPage + 1)
   }
 
-  console.log("DATASCRRRRRRRRRRRRRRRRRRRRRRR", dataSrc, '==========',currentPage)
+  // console.log("DATASCRRRRRRRRRRRRRRRRRRRRRRR", dataSrc, '==========',currentPage)
   const getNewfeed = async ( filterValue: string,page?: number,) => {
     try {
       setLoadingNewfeed(true)
@@ -82,11 +83,12 @@ const NewFeed = (props: any) => {
   }
 
   useEffect(() => {
-    if(filterValue) getNewfeed(filterValue,currentPage);
+     getNewfeed(filterValue,currentPage);
   }, [currentPage, filterValue]);
 
   // useEffect(() => {
-  //   if(filterValue) getNewfeed(filterValue,0);
+  //   // setDataSrc([])
+  //    if(currentPage === 0)getNewfeed(filterValue,0);
   // }, [filterValue]);
 
   const key ='AIzaSyDyLJbSf7aGSocPkzyqU7jmjVZb-Og9Ym8'
@@ -135,9 +137,11 @@ const NewFeed = (props: any) => {
           <div className={cx('filter-newfeed')}>
               <div className={cx(`${filterValue === 'following' ? 'filter-value-selected' : 'filter-value'}`)} 
                 onClick={() => {
-                  setDataSrc([])
-                  setCurentPage(0)
                   setFilterValue('following')
+                  setDataSrc([])
+                  
+                  setCurentPage(0)
+                 
                 }}
               >
                 <BsPeople size={30} className={cx('icon')}/>
@@ -145,9 +149,10 @@ const NewFeed = (props: any) => {
               </div>
               <div className={cx(`${filterValue === 'interest' ? 'filter-value-selected' : 'filter-value'}`)}
                 onClick={() => {
+                  setFilterValue('interest')
                   setDataSrc([])
                   setCurentPage(0)
-                  setFilterValue('interest')
+                  
                 }}
               >
                 <BsStar size={30} className={cx('icon')}/>
@@ -155,6 +160,8 @@ const NewFeed = (props: any) => {
               </div>
           </div>
           <Weather />
+        <Recents />
+
            {/* <GoogleMapCom
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ height: `500px`, width: '400px' }} />}

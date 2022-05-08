@@ -34,14 +34,7 @@ const cx = classNames.bind(styles);
 
 
 const Recents = (props: any) => {
-    const handleFetchMore = async () => {
-    //await sleep();
-        setCurentPage(currentPage + 1)
-    }
-    const scrollRef: any = useBottomScrollListener(() => {
-        // console.log("REACH BOTTOM")
-        totalPage - 1 === currentPage || data?.length === 0 ? null : handleFetchMore()
-    });
+
 
     const [data, setData] = useState<any>([]);
     const [totalItem, setTotalItem] = useState(0);
@@ -86,6 +79,7 @@ const Recents = (props: any) => {
     }
     
     useEffect(() => {
+        console.log('WTFFFFFFFFFFFFF', currentPage)
         fetchRecents(currentPage)
     }, [currentPage])
 

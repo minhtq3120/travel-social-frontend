@@ -186,7 +186,6 @@ const Weather = (props: any) => {
             <Maps lat={lat} long={long} />
         ) :null
       } */}
-        <Recents />
     </>
       
   )
