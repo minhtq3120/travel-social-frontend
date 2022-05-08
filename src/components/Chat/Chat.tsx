@@ -47,7 +47,7 @@ const cx = classNames.bind(styles);
 const Chat = (props: any) => {
   const [form] = Form.useForm();
   const handleFetchMore = async () => {
-    await sleep();
+    // await sleep();
     setCurentPage(currentPage + 1)
   }
   const scrollRef: any = useBottomScrollListener(() => {
@@ -57,8 +57,7 @@ const Chat = (props: any) => {
 
 
   const handleFetchMore2 = async () => {
-    await sleep();
-    console.log("DIT CON ME MAY")
+    // await sleep();
     setCurentPage2(currentPage2 + 1)
   }
   const scrollRef2: any = useBottomScrollListener(() => {
@@ -317,7 +316,7 @@ const Chat = (props: any) => {
       console.log('======', scrollTop, '========', scrollHeight, "========", clientHeight)
       if ((-(clientHeight - scrollHeight) + scrollTop < 10) && !( totalPage2 - 1 === currentPage2 || messages?.length === 0  || (totalPage2 === 0 && currentPage2 === 0))) {
         // TO SOMETHING HERE
-        await sleep()
+        //await sleep()
         setCurentPage2(currentPage2 + 1)
       }
     }

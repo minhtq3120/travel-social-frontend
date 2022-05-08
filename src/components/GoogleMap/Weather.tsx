@@ -130,7 +130,7 @@ const Weather = (props: any) => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchWeather = async () => {
-      await sleep();
+      //await sleep();
       if(!weatherPosition) {
         console.log('com hjererh')
         setLoading(false)
@@ -149,7 +149,6 @@ const Weather = (props: any) => {
     }
 
      fetchWeather()
-     console.log('asddfldsfakfasdlkdfas')
     }, [weatherPosition, loading]);
 
     const fetchWeather = async () => {
@@ -158,8 +157,6 @@ const Weather = (props: any) => {
       });
     }
 
-
-    console.log('weatherPosition', weatherPosition)
     return (
     <>
       {!weatherPosition && !loading ? (
@@ -171,7 +168,7 @@ const Weather = (props: any) => {
             Vui lòng mở vị trí hiện tại <br /> hoặc chọn bài viết để xem thời tiết
             </div>
             <MdLocationOff  size={50} color='white'/>
-            <AiOutlineReload size={40} color='white' style={{position: 'absolute', bottom: '10px', right: '10px', cursor: 'pointer'}} 
+            <AiOutlineReload size={40} color='white' style={{position: 'absolute', bottom: '29%', right: '015px', cursor: 'pointer'}} 
             onClick={() => {
               setLoading(true)
               fetchWeather()

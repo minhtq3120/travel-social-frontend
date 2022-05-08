@@ -51,7 +51,7 @@ const  shuffleArray = (array) => {
 
 const Discovery = (props: any) => {
     const handleFetchMore = async () => {
-    await sleep();
+    //await sleep();
         setCurentPage(currentPage + 1)
     }
     const scrollRef: any = useBottomScrollListener(() => {

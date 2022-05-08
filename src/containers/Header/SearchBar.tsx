@@ -36,7 +36,7 @@ const cx = classNames.bind(styles);
 const SearchBar = (props: any) => {
   const [form] = Form.useForm();
   const handleFetchMore = async () => {
-    await sleep();
+    //await sleep();
     setCurentPage(currentPage + 1)
   }
   const scrollRef: any = useBottomScrollListener(() => {

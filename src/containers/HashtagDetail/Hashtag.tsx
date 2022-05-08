@@ -50,7 +50,7 @@ const history = useHistory()
   });
 
   const handleFetchMore = async () => {
-    await sleep();
+    //await sleep();
     setViewMoreLoading(true);
     setCurentPage(currentPage + 1)
   }

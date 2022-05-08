@@ -22,7 +22,7 @@ import { BottomScrollListener } from 'react-bottom-scroll-listener';
 
 const NotificationList = (props: any) => {
   const handleFetchMore = async () => {
-    await sleep();
+    //await sleep();
       setCurentPage(currentPage + 1)
   }
   const scrollRef: any = useBottomScrollListener(() => {

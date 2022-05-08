@@ -106,7 +106,7 @@ const history = useHistory()
   const triggerSearch: any = useSelector((state: RootState) => state.wallet.triggerSearch);
 
   const handleFetchMore = async () => {
-    await sleep();
+    //await sleep();
     setViewMoreLoading(true);
     setCurentPage(currentPage + 1)
   }
@@ -125,7 +125,7 @@ const history = useHistory()
   const getNewfeed = async (page?: number) => {
     try {
       setLoadingSearch(true)
-      await sleep()
+      //await sleep()
       const params = {
         page: page?.toString(),
         filter: searchFilter,
