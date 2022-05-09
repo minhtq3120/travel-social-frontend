@@ -257,7 +257,7 @@ const TransportSuggestion = (props: any) => {
               >
                 <Button className={cx('btn-next')} onClick={() =>{
                     props?.setCurrentStep(props?.currentStep + 1)
-                    props?.setVehicleChoose('plane')
+                    props?.setVehicleChoose(recommentVehicle?.filter((rv) => rv?.name === 'plane')[0])
                   }}
                   style={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? {backgroundColor: 'grey'} : {}}
                   disabled={recommentVehicle?.filter((rv) => rv?.name === 'plane')[0] === undefined ? true : false}
@@ -279,7 +279,7 @@ const TransportSuggestion = (props: any) => {
           
           <div className={cx('ground-street')}>
             <div className={cx('text1-container')} onClick={() => {
-              props?.setVehicleChoose('car')
+              props?.setVehicleChoose(recommentVehicle?.filter((rv) => rv?.name === 'car')[0])
               props?.setCurrentStep(props?.currentStep + 2)
             }}>
                 <div className={cx('text-name')} >
@@ -294,7 +294,7 @@ const TransportSuggestion = (props: any) => {
                 </div>
             </div>
             <div className={cx('text1-container')} onClick={() => {
-              props?.setVehicleChoose('bike')
+              props?.setVehicleChoose(recommentVehicle?.filter((rv) => rv?.name === 'bike')[0])
               props?.setCurrentStep(props?.currentStep + 2)
             }}>
                <div className={cx('text-name')}>

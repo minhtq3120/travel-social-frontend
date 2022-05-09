@@ -64,8 +64,7 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 
 const StakingPage = (props: any) => {
 
-  const walletAccount = useSelector((state: RootState) => state.wallet.account) || localStorage.getItem('account');
-    console.log(walletAccount)
+    const walletAccount = useSelector((state: RootState) => state.wallet.account) || localStorage.getItem('account');
     const [signature, setSignature] = useState('')
 
     const [isModalVisibleStake, setisModalVisibleStake] = useState(false)
@@ -90,8 +89,6 @@ const StakingPage = (props: any) => {
     
   };
 
-  console.log(walletAccount)
-  
   useEffect(() => {
     getListPoolActive()
   }, []);
@@ -113,14 +110,17 @@ const StakingPage = (props: any) => {
     }, [signature])
 
     const checkAllowance = async (walletAddress: string) => {
+        console.log('whattt', walletAddress, STAKING_ADDRESS)
         const contract = await msnToken();
-        const allowance = await contract.allowance(walletAccount, STAKING_ADDRESS)
+        const allowance = await contract.allowance(walletAddress, STAKING_ADDRESS)
+        console.log("ALLLLLLLLLLLOWC", allowance)
         const number = await Web3.utils.hexToNumberString(allowance._hex);
 
         setAllowance(number)
     }
 
     useEffect(() => {
+        console.log("-------------------------------------")
        if(walletAccount) {
            checkAllowance(walletAccount)        
             getStakingData()
@@ -130,12 +130,10 @@ const StakingPage = (props: any) => {
         if(allowance?.length > 0 && stakedValue?.length > 0){
             let compare = new BigNumber(String(allowance)).minus(web3.utils.toWei(String(stakedValue), 'ether'));
             setCheckAllowMSN(compare.s === -1 || allowance === '0');
-            console.log('>>>', compare)
         }
        
     }, [allowance, stakedValue]);
 
-    console.log(checkAllowMSN)
 
     useEffect(() => {
         if(form.getFieldValue('amount')) setStakedValue(form.getFieldValue('amount'))
@@ -178,8 +176,6 @@ const StakingPage = (props: any) => {
         }
     }
     
-    console.log(yourStakeData)
-
     const Voucher = [
     {
       id:1,
@@ -276,7 +272,6 @@ const StakingPage = (props: any) => {
             }
         }
     };
-    console.log(stakedValue)
     const StakeForm = () => {
         return (
             <div className={cx('stakeinfo-container')}>
@@ -384,6 +379,7 @@ const StakingPage = (props: any) => {
                     </Form.Item>
                     <div style={{width: '400px' ,display: 'flex', flexDirection: 'row', alignItems: 'center' , justifyContent: 'space-between'}}>
                         <Button className={cx('btn-stake')} onClick={() => {
+                            if(walletAccount && walletAccount?.length >0)checkAllowance(walletAccount)
                             if(form.getFieldValue('amount')?.length > 0)setStakedValue(form.getFieldValue('amount'))
                             else setStakedValue('')
                         }}

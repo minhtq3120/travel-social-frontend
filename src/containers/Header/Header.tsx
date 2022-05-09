@@ -76,7 +76,6 @@ const HeaderContainer = (props: any) => {
   const [keyword, setKeyword] = useState<string>('')
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
   const userInfo: any = useSelector((state: RootState) => state.wallet.userInfo);
-  console.log(walletAccount,'=======================')
 
   const [popupConnectMetamask, setPopupConnectMetamask] = useState(false)
 
@@ -242,10 +241,8 @@ const HeaderContainer = (props: any) => {
       await activate(injectedConnector, undefined, true);
     }
   };
-  console.log("ACCCCCCCCCCCCCCCCOUNT",ac)
 
   useEffect(() => {
-  console.log("++++",ac, "===========,", walletAccount, '=============', metaType)
 
     const email = localStorage.getItem('email')
     if(ac && email && ac !== walletAccount && metaType === 'login') {

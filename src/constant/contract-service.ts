@@ -36,7 +36,7 @@ export const createInstanceContract = async (address: string, abi: string) => {
   return new ethers.Contract(address, abi, signer);
 };
 
-export const injectedConnector = new InjectedConnector({ supportedChainIds: [1, 4, 3, 5, 42, 56, 97] })
+export const injectedConnector = new InjectedConnector({ supportedChainIds: [4] })
 
 export const signMessage = async (msg: any, library: any, walletAdddress: string) => {
   if (!library || !msg) throw new Error('invalid params');

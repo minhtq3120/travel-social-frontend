@@ -53,6 +53,7 @@ const SuggestionDetail = (props: any) => {
   const [textSearch, setTextSearch] = useState('');
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurentPage] = useState(0);
+  const [loading, setLoading] = useState(false)
 
   const [trip, setTrip] = useState<any>(null)
 
@@ -61,6 +62,9 @@ const SuggestionDetail = (props: any) => {
   const history = useHistory()
   
   const getSugeestionLists = async (page: number) => {
+    try {
+
+    setLoading(true)
     const params ={
       userId: '',
       page: 0
@@ -78,7 +82,11 @@ const SuggestionDetail = (props: any) => {
     setTotalPage(parseInt(totalPages));
     setItemsPerPage(parseInt(itemsPerPage));
     setCurentPage(parseInt(currentPage));
-
+    setLoading(false)
+    }
+    catch(err) {
+      setLoading(false)
+    }
   }
 
 
@@ -86,22 +94,6 @@ const SuggestionDetail = (props: any) => {
   lat: 10.776308,
   lon: 106.702867
 }
-
-const recommentVehicle = {
-    distance: "1200.23",
-    duration: "1234152",
-    name : 'plane'
-  }
-
-  const airportFrom = {
-    iata: 'HAN',
-    name: 'Ha noi'
-  }
-
-   const airportTo = {
-    iata: 'SGN',
-    name: 'Sai gon'
-  }
 
   useEffect(() => {
     getSugeestionLists(currentPage)
@@ -130,7 +122,20 @@ const recommentVehicle = {
 
           {/* <div className={cx('left')}> */}
             {
-              data?.map((item, index) => {
+              loading && data?.length === 0 ? (
+                <div className={cx('text-container')}>
+                  <Spin size="large" style={{marginTop: '20px'}}/>
+                </div>
+              ) : !loading && data?.length===0 ? (
+                <>
+                <div className={cx('text-container')}>
+                  <img src="https://cdn.dribbble.com/users/88213/screenshots/8560585/media/7263b7aaa8077a322b0f12a7cd7c7404.png?compress=1&resize=400x300"
+                    width={400}
+                  />
+                  <div className={cx('text')}> Bạn chưa tạo đề xuất nào</div>
+                </div>
+                </>
+              ) : data?.map((item, index) => {
                 return (
                   <div className={cx('rightright')} key={index}>
                     <div className={cx('left')}>
@@ -161,7 +166,22 @@ const recommentVehicle = {
                       <div className={cx('transport-container')}>
                         <div className={(cx('title-container'))}>
                           <div className={cx('text')}>Phương tiện:</div>
-                          <div className={cx('name')}>{recommentVehicle?.name === 'plane' ? 'máy bay' :recommentVehicle?.name === 'car' ? "ô tô" : "xe máy" }</div>
+                          <div className={cx('name')}>{item?.vehicleChoose?.name === 'plane' ? 'máy bay' :item?.vehicleChoose?.name === 'car' ? "ô tô" : "xe máy" }</div>
+                        </div>
+                        <div className={(cx('title-container'))}>
+                          <div className={cx('text')}> Khoảng cách ước tính: </div>
+                          <div className={cx('name')}> {parseFloat(item?.vehicleChoose?.distance).toFixed(2)}km</div>
+                        </div>
+                        <div className={(cx('title-container'))}>
+                          <div className={cx('text')}>Thời gian dự kiến</div>
+                          <div className={cx('name')}>{moment.utc(parseFloat(item?.vehicleChoose?.duration)).format('HH:mm:ss')}</div>
+                        </div>
+                      </div>
+
+                      <div className={cx('transport-container')}>
+                        <div className={(cx('title-container2'))}>
+                          <div className={cx('text')}>Thời gian:</div>
+                          <div className={cx('name')}>{`${item?.startDate} - ${item?.endDate}`}</div>
                         </div>
                       </div>
                     </div>
@@ -178,7 +198,7 @@ const recommentVehicle = {
           </div>
       {/* </div> */}
     </div>
-    <Modal visible={isModalVisibleTripDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+    <Modal visible={isModalVisibleTripDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1300} closable={false} bodyStyle={{padding: '0'}}>
          {trip ? <ConsumseTrip destinationInfo={destinationInfo}
                     startInfo={{}}
                     startDate={trip?.startDate}

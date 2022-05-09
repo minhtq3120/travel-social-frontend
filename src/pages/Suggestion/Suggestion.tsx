@@ -859,7 +859,7 @@ const Suggestion = (props: any) => {
             ) :
            currentStep === 7 ? (
             <>
-              <div className={cx(`suggestion-text`)}>
+              <div className={cx(`suggestion-text`)} style={{color: 'black', fontSize: '25px'}}>
                 Các chuyến bay tới địa điểm của bạn
               </div>
                 <div className={cx(`suggestion-body2`)}>
@@ -875,7 +875,7 @@ const Suggestion = (props: any) => {
             </>
           ) :currentStep === 8 ? (
             <>
-              <div className={cx(`suggestion-text`)}>
+              <div className={cx(`suggestion-text`)} style={{color: 'black', fontSize: '25px'}}>
                 Khách sạn gần điểm đến của bạn
               </div>
                 <div className={cx(`suggestion-body2`)}>

@@ -89,8 +89,8 @@ const ConsumseTrip = (props: any) => {
         selectedTravelWith,
         travelCity,
         travelPlace,
-        vehicleChoose: {},
-        flightDetail,
+        vehicleChoose,
+        flightDetail: flightDetail? flightDetail : {},
         hotelSelect
      })
      console.log(save)
@@ -410,14 +410,11 @@ const ConsumseTrip = (props: any) => {
   }
 
   const ModalVehicleCar = () => {
-    const recommentVehicle = {
-    distance: "1200.23",
-    duration: "1234152"
-  }
+   
   const destinationInfo = {
-  lat: 10.776308,
-  lon: 106.702867
-}
+    lat: 10.776308,
+    lon: 106.702867
+  }
     return (
       <>
       <div className={cx('right')} >
@@ -432,10 +429,10 @@ const ConsumseTrip = (props: any) => {
                 </div>
                 <div className={cx('text1')}>
                   Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
-                    {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                    {parseFloat(vehicleChoose?.distance).toFixed(2)}km</b> 
                 </div>
                 <div className={cx('text1')}>
-                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                  Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>{moment.utc(parseFloat(vehicleChoose?.duration)).format('HH:mm:ss')}</b> 
                 </div>
             </div>
           </div>
@@ -446,7 +443,7 @@ const ConsumseTrip = (props: any) => {
           
          
 
-            { destinationInfo?.lat && destinationInfo?.lon? <Maps lat={Number(destinationInfo?.lat)} long={Number(destinationInfo?.lon)} mapWidth={'700px'} mapHeight={'400px'} mapType="direction" suggestVehicle={true}/> : null }
+            { travelPlace?.latitude && travelPlace?.longitude? <Maps lat={Number(travelPlace?.latitude)} long={Number(travelPlace?.longitude)} mapWidth={'700px'} mapHeight={'400px'} mapType="direction" suggestVehicle={true}/> : null }
             <div style={{padding: '10px 0'}}></div>
         </div>
       </>
@@ -472,22 +469,6 @@ const ConsumseTrip = (props: any) => {
     )
   }
 
-  const recommentVehicle = {
-    distance: "1200.23",
-    duration: "1234152",
-    name : 'plane'
-  }
-
-  const airportFrom = {
-    iata: 'HAN',
-    name: 'Ha noi'
-  }
-
-   const airportTo = {
-    iata: 'SGN',
-    name: 'Sai gon'
-  }
-
   const ModalVehicleFlight = () => {
     return (
       <>
@@ -500,11 +481,11 @@ const ConsumseTrip = (props: any) => {
               <div className={cx('text1-container')}>
                 <div className={cx('text1')}>
                   Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
-                     {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                     {parseFloat(vehicleChoose?.distance).toFixed(2)}km</b> 
                 </div>
                 <div className={cx('text1')}>
                   Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>
-                    {moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                    {moment.utc(parseFloat(vehicleChoose?.duration)).format('HH:mm:ss')}</b> 
                 </div>
               </div>
           </div>
@@ -513,15 +494,15 @@ const ConsumseTrip = (props: any) => {
                   <div className={cx('from')}>
                       <div className={cx('top')}>Từ 
                       </div>
-                      <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{airportFrom?.name}</div>
-                      <div className={cx('iata')}>{airportFrom?.iata}</div>
+                      <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{vehicleChoose?.nearestDepartureAirport?.name}</div>
+                      <div className={cx('iata')}>{vehicleChoose?.nearestDepartureAirport?.address}</div>
                   </div>
                   <FaArrowRight size={50} color='#68d1c8' className={cx('icon-arrow')}/>
                   <div className={cx('from')}>
                     <div className={cx('top')}>đến
                       </div>
-                      <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{airportTo?.name}</div>
-                      <div className={cx('iata')}>{airportTo?.iata}</div>
+                      <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{vehicleChoose?.nearestDestinationAirport?.name}</div>
+                      <div className={cx('iata')}>{vehicleChoose?.nearestDestinationAirport?.address}</div>
                   </div>
                 </div>
         </div>
@@ -686,12 +667,19 @@ const ConsumseTrip = (props: any) => {
                 }}
                 >
                   <div className={cx('container')}>
-                    <MdOutlineFlight size={40} className={cx('icon')}/>
+                    {vehicleChoose?.name === 'plane' ? (
+                      <MdOutlineFlight size={40} className={cx('icon')}/>
+                    ): vehicleChoose?.name === 'car'  ? (
+                      <AiFillCar size={40} className={cx('icon')}/>
+                    ) : (
+                      <RiMotorbikeFill size={40} className={cx('icon')}/>
+                    )}
+                    
                     
                   </div>
                   <div className={cx('content')}>
                     <div className={cx('text')}>Phương tiện di chuyển</div>
-                    <div className={cx('detail')}>{vehicleChoose === 'plane' ? 'máy bay' : vehicleChoose === 'car' ? 'ô tô' : 'xe máy'}</div>
+                    <div className={cx('detail')}>{vehicleChoose?.name === 'plane' ? 'máy bay' : vehicleChoose?.name === 'car' ? 'ô tô' : 'xe máy'}</div>
                   </div>
                 </div>
 
@@ -756,34 +744,46 @@ const ConsumseTrip = (props: any) => {
 
               <div className={cx('transport-container')}>
                 <div className={(cx('title-container'))}>
+                  <div className={cx('text')}>Thời gian:</div>
+                  <div className={cx('name')}>{`${startDate} - ${endDate}`}</div>
+                </div>
+              </div>
+
+              <div className={cx('transport-container')}>
+                <div className={(cx('title-container'))}>
                   <div className={cx('text')}>Phương tiện:</div>
-                  <div className={cx('name')}>{recommentVehicle?.name === 'plane' ? 'máy bay' :recommentVehicle?.name === 'car' ? "ô tô" : "xe máy" }</div>
+                  <div className={cx('name')}>{vehicleChoose?.name === 'plane' ? 'máy bay' :vehicleChoose?.name === 'car' ? "ô tô" : "xe máy" }</div>
                 </div>
 
                 <div className={cx('detail-vehicle-time')}>
-                  <div className={cx('from-to-location-container')}            >
-                    <div className={cx('from')}>
-                        <div className={cx('top')}>Từ 
+                  {
+                    vehicleChoose?.name === 'plane' ? (
+                      <div className={cx('from-to-location-container')}            >
+                          <div className={cx('from')}>
+                              <div className={cx('top')}>Từ 
+                              </div>
+                              <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{vehicleChoose?.nearestDepartureAirport?.name}</div>
+                              <div className={cx('iata')}>{vehicleChoose?.nearestDepartureAirport?.address}</div>
+                          </div>
+                          <FaArrowRight size={50} color='#68d1c8' className={cx('icon-arrow')}/>
+                          <div className={cx('from')}>
+                            <div className={cx('top')}>đến
+                              </div>
+                              <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{vehicleChoose?.nearestDestinationAirport?.name}</div>
+                              <div className={cx('iata')}>{vehicleChoose?.nearestDestinationAirport?.address}</div>
+                          </div>
                         </div>
-                        <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{airportFrom?.name}</div>
-                        <div className={cx('iata')}>{airportFrom?.iata}</div>
-                    </div>
-                    <FaArrowRight size={50} color='#68d1c8' className={cx('icon-arrow')}/>
-                    <div className={cx('from')}>
-                      <div className={cx('top')}>đến
-                        </div>
-                        <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{airportTo?.name}</div>
-                        <div className={cx('iata')}>{airportTo?.iata}</div>
-                    </div>
-                  </div>
+                    ) : null
+                  }
+                 
                   <div className={cx('text1-container')}>
                     <div className={cx('text1')}>
                       Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
-                        {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                        {parseFloat(vehicleChoose?.distance).toFixed(2)}km</b> 
                     </div>
                     <div className={cx('text1')}>
                       Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>
-                        {moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                        {moment.utc(parseFloat(vehicleChoose?.duration)).format('HH:mm:ss')}</b> 
                     </div>
                   </div>
                 </div>
@@ -849,7 +849,7 @@ const ConsumseTrip = (props: any) => {
           </>
         ) : null }
       </Modal>
-      <Modal visible={isVisibleModalShow2} footer={null} onCancel={handleCancle} style={{padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+      <Modal visible={isVisibleModalShow2} footer={null} onCancel={handleCancle} style={{padding: '0px !important'}} width={550} closable={false} bodyStyle={{padding: '0'}}>
         {  selectedTravelType && selectedTravelWith ? (
           <>
            <ModalTravelType />
@@ -880,7 +880,9 @@ const ConsumseTrip = (props: any) => {
       <Modal visible={isVisibleModalShow6} footer={null} onCancel={handleCancle} style={{padding: '0px !important'}} width={750} closable={false} bodyStyle={{padding: '0'}}>
         {  hotelDetail ? (
           <>
-            <ModalVehicleFlight/>
+            {
+              vehicleChoose?.name === 'plane' ? <ModalVehicleFlight/> : <ModalVehicleCar />
+            } 
           </>
         ) : null }
       </Modal>
