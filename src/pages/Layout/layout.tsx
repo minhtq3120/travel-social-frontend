@@ -76,7 +76,6 @@ const LayoutComponent = (props: any) => {
   useEffect(() => {
     const fetchWeather = async () => {
       navigator.geolocation.getCurrentPosition(function(position: any) {
-        console.log("========", position)
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
         dispatch(setCurrentPosition([position.coords.latitude, position.coords.longitude]))
@@ -84,7 +83,6 @@ const LayoutComponent = (props: any) => {
       });
     }
 
-    console.log('latal', lat, '=====', long)
     fetchWeather()
     }, [lat, long, triggerGetWeatherPosition]);
   
@@ -101,7 +99,8 @@ const LayoutComponent = (props: any) => {
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignContent: 'center', alignItems: 'center'}}>
                 <Avatar src={data?.sender?.avatar} />
                 <div style={{fontWeight: 'bold', margin: '0 10px'}}>{data?.sender?.displayName}</div>
-                <div>{` ${data?.action} ${data?.action === 'follow' ? 'starting follow you' : 'your Post'}`}</div>
+                <div>{data?.action === 'follow' ? 'bắt đầu theo dõi bạn' : data?.action === 'like' ? `thích bài viết của bạn`
+                  : data?.action === 'comment' ? `bình luận bài viết của bạn` :  data?.action === 'replyComment' ? `trả lời bình luận của bạn` : null}</div>
           </div>,  
       placement,
       style: {width: '500px'},

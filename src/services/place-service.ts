@@ -21,12 +21,15 @@ export const getDiscovery = async (params) => {
 
 export const getDiscoveryDetail = async (params) => {
     let queryString = `/places/discovery-detail`;
+    console.log('=============', params)
     if (params?.placeId) {
         const queryPage = `/${params.placeId}`;
         queryString = queryString.concat(queryPage);
     }
-    if (params?.page) {
-        const queryPage = `?page=${params.page}`;
+    const queryPage = `?page=${params.page}`;
+    queryString = queryString.concat(queryPage);
+    if (params?.perPage) {
+        const queryPage = `&perPage=${params?.perPage}`;
         queryString = queryString.concat(queryPage);
     }
     console.log(queryString)

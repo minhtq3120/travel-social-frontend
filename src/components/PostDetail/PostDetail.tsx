@@ -221,7 +221,7 @@ const PostDetail = (props: any) => {
     const handleFinish = async (values) => {
         try {
             console.log(values)
-            props.setNumComments(props.numComments + 1)
+            if(props?.setNumberComment)props.setNumComments(props.numComments + 1)
             const addCommentToPost = {
                 postId: props.postId,
                 comment: values.comment
@@ -234,10 +234,21 @@ const PostDetail = (props: any) => {
             addInterest({
                 postId: props?.postId
             })
+            
             if(replyCommentId) {
                 await replyToComment(addReplyComment)
+                socket.emit(SEND_NOTIFICATION, {
+                receiver: props?.info?.userId,
+                action: NotificationAction.ReplyComment
+            })}
+            else {
+                socket.emit(SEND_NOTIFICATION, {
+                    receiver: props?.info?.userId,
+                    action: NotificationAction.Comment
+                })
+                await commentToPost(addCommentToPost)
+                
             }
-            else await commentToPost(addCommentToPost)
             form.resetFields()
         }
         catch (err) {

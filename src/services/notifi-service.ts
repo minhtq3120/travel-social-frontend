@@ -18,3 +18,15 @@ export const getNotifi = async (params) => {
             }
         });
 };
+
+export const getNotifiDetail = async (payload: any) => {
+    let queryString = `notifications/see/notification-detail`;
+
+    console.log(queryString)
+    return await axiosInstance
+        .post(queryString, payload)
+        .catch(function (error) {
+            return error
+        });
+};
+

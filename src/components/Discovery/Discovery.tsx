@@ -108,7 +108,8 @@ const Discovery = (props: any) => {
     const fetchDiscoveryDetail  = async (page?: number) => {
         let params = {
             placeId,
-            page: page
+            page: page,
+            perPage: 20,
         }
         const result = await getDiscoveryDetail(params)
 
@@ -268,10 +269,19 @@ const Discovery = (props: any) => {
             >
                 <Gallery
                     images={images}
-                    enableImageSelection={false}
+                    enableImageSelection={true}
                     rowHeight={300}
                     margin={10}
-                    onClickThumbnail={(e) => {console.log('asdfjkladsfkl', e)}}
+                    // onClickThumbnail={(e) => {
+                    //     console.log('asdfjkladsfkl', e?.postId)
+                    // }}
+                    // onClickImage={(e) => {
+                    //     console.log('asdfjkladsfkl', e)
+                        
+                    // }}
+                    onSelectImage={(e) => {
+                        console.log(e)
+                    }}
                     // tileViewportStyle={myTileViewportStyleFn}
                 />
                 {
@@ -303,11 +313,13 @@ const Discovery = (props: any) => {
         <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
             {  images?.length >0 ? (
                 <GridDiscovery />
-            ): <Spin size='large'/> }
+            ): <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                  <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+              </div>   }
         </Modal>
 
         <Modal visible={isModalVisibleMap2} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
-            {  latLng?.lat && latLng?.lng ? <Maps lat={latLng.lat} long={latLng.lng}  mapType={mapType} setMapType={setMapType}/> : <Spin size='large'/> }
+            {  latLng?.lat && latLng?.lng ? <Maps lat={latLng.lat} long={latLng.lng}  mapType={mapType} setMapType={setMapType}/> : <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}><Spin size='large'/></div> }
         </Modal>
         </React.Fragment>
     );

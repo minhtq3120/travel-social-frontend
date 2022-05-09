@@ -334,8 +334,18 @@ const PagePostDetail = (props: any) => {
             })
             if(replyCommentId) {
                 await replyToComment(addReplyComment)
+                socket.emit(SEND_NOTIFICATION, {
+                receiver: props?.info?.userId,
+                action: NotificationAction.ReplyComment
+            })}
+            else {
+                socket.emit(SEND_NOTIFICATION, {
+                    receiver: props?.info?.userId,
+                    action: NotificationAction.Comment
+                })
+                await commentToPost(addCommentToPost)
+                
             }
-            else await commentToPost(addCommentToPost)
             form.resetFields()
         }
         catch (err) {
