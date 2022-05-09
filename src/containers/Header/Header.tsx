@@ -401,7 +401,7 @@ const HeaderContainer = (props: any) => {
               <MdOutlineTravelExplore 
               style={account === '5' ? iconClicked : iconNotClick}
               onClick={() => {
-                history.push('/suggestion');
+                history.push('/suggestionDetail');
                 dispatch(setIconTabKey('5'));
               }}
             />

@@ -169,3 +169,30 @@ export const getFlight = async (payload?: any) => {
             }
         });
 };
+
+export const saveSuggestion = async (payload: any) => {
+    return axiosInstance
+        .post(`/add-new`, payload)
+        .catch((error) => {
+            return error
+        });
+}
+
+export const getSuggestList = async (params) => {
+    let queryString = `/suggestion/`;
+    if (params?.userId) {
+        const queryPage = `?${params.userId}`;
+        queryString = queryString.concat(queryPage);
+    }
+    if (params?.page) {
+        const queryPage = `&page=${params.page}`;
+        queryString = queryString.concat(queryPage);
+    }
+    return await axiosInstance
+        .get(queryString)
+        .catch(function (error) {
+            if (error.response) {
+                return error.response.status;
+            }
+        });
+};

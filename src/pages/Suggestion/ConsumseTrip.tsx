@@ -27,7 +27,7 @@ import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
-import { getAirport, getFlight, getHotelDetailTravid, getSuggestion, getSuggestionAttraction, getSuggestionDetail, getSuggestionHotels, getSuggestionThingToDo } from 'src/services/suggestion-service';
+import { getAirport, getFlight, getHotelDetailTravid, getSuggestion, getSuggestionAttraction, getSuggestionDetail, getSuggestionHotels, getSuggestionThingToDo, saveSuggestion } from 'src/services/suggestion-service';
 import { Slide, Fade } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css";
 import { ImCalendar} from 'react-icons/im';
@@ -61,21 +61,48 @@ import {IoMdArrowRoundForward} from 'react-icons/io';
 import {GiAirplaneDeparture, GiAirplaneArrival } from 'react-icons/gi';
 import {FaArrowRight} from 'react-icons/fa'
 import Maps from 'src/components/GoogleMap/CurrentLocation';
+import { notificationError, notificationSuccess } from '../Login/Login';
+import { useHistory } from 'react-router-dom';
 
 
 const ConsumseTrip = (props: any) => {
-//  const { destinationInfo,
-//             startInfo,
-//             startDate,
-//             endDate,
-//             selectedTravelType,
-//             selectedTravelWith,
-//             travelCity,
-//             travelPlace,
-//             vehicleChoose,
-//             flightDetail,
-//             hotelSelect
-//           } = props
+  const history = useHistory()
+ const { destinationInfo,
+            startInfo,
+            startDate,
+            endDate,
+            selectedTravelType,
+            selectedTravelWith,
+            travelCity,
+            travelPlace,
+            vehicleChoose,
+            flightDetail,
+            hotelSelect
+          } = props
+
+    const handleSaveSuggestion = async () => {
+     const save =  await saveSuggestion({
+        startInfo,
+        startDate,
+        endDate,
+        selectedTravelType,
+        selectedTravelWith,
+        travelCity,
+        travelPlace,
+        vehicleChoose: {},
+        flightDetail,
+        hotelSelect
+     })
+     console.log(save)
+
+     if(save?.status === 201) {
+          notificationSuccess('Lưu đề xuất thành công')
+          history.push('/suggestionDetail')
+          return
+        }
+      notificationError('đã xảy ra lỗi khi lưu đề xuất.')
+    }
+    console.log(vehicleChoose)
 // console.log( destinationInfo,
 //             startInfo,
 //             startDate,
@@ -88,22 +115,22 @@ const ConsumseTrip = (props: any) => {
 //             flightDetail,
 //             hotelSelect)
 
-  const startDate = "2022-04-20"
-  const endDate = "2022-07-05"
-  const selectedTravelType = {
-      id: "47",
-      title: "Danh lam thắng cảnh",
-      img: "https://cdnimg.vietnamplus.vn/t1200/Uploaded/ngtmbh/2021_10_24/ttxvn_du_lich_tphcm.jpg"
-  }
-  const selectedTravelWith = {
-      id: 3,
-      title: "Người yêu",
-      img: "https://sktravel.com.vn/wp-content/uploads/2021/05/di-du-lich-sapa-2-nguoi-tong-chi-phi-het-bao-nhieu-2.jpg"
-  }
-  const travelCity = tc
-  const travelPlace = tp
-  const hotelSelect = hs
-  const vehicleChoose = 'plane'
+  // const startDate = "2022-04-20"
+  // const endDate = "2022-07-05"
+  // const selectedTravelType = {
+  //     id: "47",
+  //     title: "Danh lam thắng cảnh",
+  //     img: "https://cdnimg.vietnamplus.vn/t1200/Uploaded/ngtmbh/2021_10_24/ttxvn_du_lich_tphcm.jpg"
+  // }
+  // const selectedTravelWith = {
+  //     id: 3,
+  //     title: "Người yêu",
+  //     img: "https://sktravel.com.vn/wp-content/uploads/2021/05/di-du-lich-sapa-2-nguoi-tong-chi-phi-het-bao-nhieu-2.jpg"
+  // }
+  // const travelCity = tc
+  // const travelPlace = tp
+  // const hotelSelect = hs
+  // const vehicleChoose = 'plane'
 
   const [isVisibleModalShow1, setIsVisibleModalShow1] = useState(false)
   const [isVisibleModalShow2, setIsVisibleModalShow2] = useState(false)
@@ -213,20 +240,8 @@ const ConsumseTrip = (props: any) => {
                       {travelCity?.result_object?.num_reviews || '0'} Reviews
                     </div>
                 </div>
-                
-                {/* <div className={cx('total')}>
-                    {travelCity?.result_object?.num_reviews || '0'} Reviews
-                </div> */}
-              </div>
 
-              {/* <div className={cx('price')}>
-                  <div className={cx('visited')}>
-                    <FaRegMoneyBillAlt size={30} color={'white'} style={{margin: '0 5px'}}/>
-                    <div className={cx('count')}>
-                      {travelCity?.result_object?.price} 
-                    </div>
-                </div>
-              </div> */}
+              </div>
 
               <div className={cx('recent-body')}>
                 {
@@ -459,7 +474,8 @@ const ConsumseTrip = (props: any) => {
 
   const recommentVehicle = {
     distance: "1200.23",
-    duration: "1234152"
+    duration: "1234152",
+    name : 'plane'
   }
 
   const airportFrom = {
@@ -479,7 +495,7 @@ const ConsumseTrip = (props: any) => {
           <div className={cx('transport-info')}
           >
             <div className={cx('name')}>
-              Đường hàng không
+              Máy bay
             </div>
               <div className={cx('text1-container')}>
                 <div className={cx('text1')}>
@@ -516,7 +532,7 @@ const ConsumseTrip = (props: any) => {
   const ModalHotelDetail = () => {
     return (
       <>
-                   <div className={cx('hotel-detail-container')}>
+          <div className={cx('hotel-detail-container')}>
               <div className={cx('hotel-info')}>
 
                 <img src={hotelSelect?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
@@ -609,7 +625,7 @@ const ConsumseTrip = (props: any) => {
           <div className={cx('title')}>
             Chuyến đi của bạn
           </div>
-          <div className={cx('body')}> 
+          <div className={cx('body')} style={props?.widthCustom ? props?.widthCustom : {}}> 
 
           <div className={cx('left')}>
 
@@ -738,15 +754,90 @@ const ConsumseTrip = (props: any) => {
                 </div> 
               </div>
 
-              <div>
-                <div>
-                  Phương tiện
+              <div className={cx('transport-container')}>
+                <div className={(cx('title-container'))}>
+                  <div className={cx('text')}>Phương tiện:</div>
+                  <div className={cx('name')}>{recommentVehicle?.name === 'plane' ? 'máy bay' :recommentVehicle?.name === 'car' ? "ô tô" : "xe máy" }</div>
                 </div>
+
+                <div className={cx('detail-vehicle-time')}>
+                  <div className={cx('from-to-location-container')}            >
+                    <div className={cx('from')}>
+                        <div className={cx('top')}>Từ 
+                        </div>
+                        <div className={cx('name')}><GiAirplaneDeparture size={20} style={{marginRight: '10px'}}/>{airportFrom?.name}</div>
+                        <div className={cx('iata')}>{airportFrom?.iata}</div>
+                    </div>
+                    <FaArrowRight size={50} color='#68d1c8' className={cx('icon-arrow')}/>
+                    <div className={cx('from')}>
+                      <div className={cx('top')}>đến
+                        </div>
+                        <div className={cx('name')}><GiAirplaneArrival size={20} style={{marginRight: '10px'}}/>{airportTo?.name}</div>
+                        <div className={cx('iata')}>{airportTo?.iata}</div>
+                    </div>
+                  </div>
+                  <div className={cx('text1-container')}>
+                    <div className={cx('text1')}>
+                      Khoảng cách ước tính<b style={{fontSize: '20px', margin: '0 10px'}}>
+                        {parseFloat(recommentVehicle?.distance).toFixed(2)}km</b> 
+                    </div>
+                    <div className={cx('text1')}>
+                      Thời gian dự kiến<b style={{fontSize: '20px', margin: '0 10px'}}>
+                        {moment.utc(parseFloat(recommentVehicle?.duration)).format('HH:mm:ss')}</b> 
+                    </div>
+                  </div>
+                </div>
+                
               </div>
 
-              <div>
-                Nơi nghỉ
+              <div className={cx('hotel-container')}>
+                <div className={(cx('title-container'))}>
+                  <div className={cx('text')}>khách sạn / nhà nghỉ: </div>
+                </div>
+                <div className={cx('hotel-detail-container')}>
+                  <div className={cx('hotel-info')}>
+                    <img src={hotelSelect?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
+
+                    <div className={cx('info-detail')}>
+                      <div className={cx('location-name')}>
+                            {hotelSelect?.name}
+                        </div>
+
+
+                        <div className={cx('price')}>
+                            <div className={cx('visited')}>
+                              <FaRegMoneyBillAlt size={30} color={'white'} style={{margin: '0 5px'}}/>
+                              <div className={cx('count')}>
+                                {hotelSelect?.price} 
+                              </div>
+                          </div>
+                        </div>
+                        <div className={cx('address')}>
+                          <div className={cx('total')}>
+                            
+                              {hotelSelect?.address}
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div> 
+
               </div>
+                {
+                  props?.hideBtn ? null :
+                  <div className={cx('btn-next-container')} >
+                    <Button className={cx('btn-next-cancle')} onClick={() => {
+                  }}>
+                      Hủy
+                    </Button>
+                    <Button className={cx('btn-next-save')} onClick={() => {
+                      handleSaveSuggestion()
+                  }}>
+                      Lưu
+                    </Button>
+                  </div>
+                }
+
             </div>
           </div>
       </div>
@@ -789,7 +880,7 @@ const ConsumseTrip = (props: any) => {
       <Modal visible={isVisibleModalShow6} footer={null} onCancel={handleCancle} style={{padding: '0px !important'}} width={750} closable={false} bodyStyle={{padding: '0'}}>
         {  hotelDetail ? (
           <>
-            <ModalVehicleCar/>
+            <ModalVehicleFlight/>
           </>
         ) : null }
       </Modal>

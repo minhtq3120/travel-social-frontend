@@ -535,7 +535,7 @@ const Suggestion = (props: any) => {
           <Step  title="Step 7"  disabled={true} />
           <Step  title="Step 8"  disabled={true}/>
           <Step  title="Step 9"   disabled={true}/>
-          <Step  title="Step 10"  />
+          <Step  title="Step 10" disabled={true} />
           
         </Steps>
 

@@ -27,364 +27,175 @@ import classNames from 'classnames/bind';
 import { FaLocationArrow } from 'react-icons/fa';
 import { createChatGroup, getChatDetailById, getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
-import { getSuggestion, getSuggestionAttraction, getSuggestionDetail, getSuggestionThingToDo } from 'src/services/suggestion-service';
+import {getSuggestList } from 'src/services/suggestion-service';
 import { Slide, Fade } from 'react-slideshow-image';
 import "react-slideshow-image/dist/styles.css";
 import { MdLocationOn} from 'react-icons/md';
 import {AiFillStar } from 'react-icons/ai';
-import { useLocation, useParams } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
+
+import {MdOutlineLocationOn} from 'react-icons/md'
+import {IoMdArrowRoundForward} from 'react-icons/io';
+import {GiAirplaneDeparture, GiAirplaneArrival } from 'react-icons/gi';
+import {FaArrowRight} from 'react-icons/fa'
+import Maps from 'src/components/GoogleMap/CurrentLocation';
+import { notificationError, notificationSuccess } from '../Login/Login';
+import {FaRegMoneyBillAlt} from 'react-icons/fa'
+import ConsumseTrip from './ConsumseTrip';
 const cx = classNames.bind(styles);
 
 
 const SuggestionDetail = (props: any) => {
-  const [btn, setBtn] = useState<boolean>(false)
-  const location = useLocation();
-  const params = useParams()
-  const [data, setData] = useState<any>(null)
-  const [thingsToDo, setThingsTodo] = useState<any>(null)
-  const [restaurants, setRestaurants] = useState<any>(null)
-  const [attractions, setAtrractions] = useState<any>(null)
-  const search = useLocation().search;
-  const name=new URLSearchParams(search).get("name");
-  const lat=new URLSearchParams(search).get("lat");
-  const lon=new URLSearchParams(search).get("lon");
-  const destinationId=new URLSearchParams(search).get("destinationId");
-  const [hotelForm, setFormHotel] = useState({
-    destinationId: destinationId,
-    // pageNumber: payload?.pageNumber || '1',
-    // pageSize: payload?.pageSize || '25',
-    // checkIn: payload?.checkIn || '2022-04-17',
-    // checkOut: payload?.checkOut || '2022-05-01',
-    // adults1: payload?.people || '4',
-    // sortOrder: payload?.sortOrder || 'PRICE',
-    locale: 'vi_VN',
-    currency: 'VND'
-})
 
+  const [data, setData] = useState<any>([]);
+  const [totalItem, setTotalItem] = useState(0);
+  const [totalPage, setTotalPage] = useState(0);
+  const [textSearch, setTextSearch] = useState('');
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [currentPage, setCurentPage] = useState(0);
 
-  const getSugeestionCityDetail = async () => {
-    if(destinationId) {
-      
-      const suggest = await getSuggestionDetail(destinationId);
-      console.log(suggest)
-      const rs = _.get(suggest, 'data', null);
-      console.log(rs)
-      setData(rs)
-    }
-    
-  }
+  const [trip, setTrip] = useState<any>(null)
 
-   const getSugeestionThingsToDo = async () => {
-    const suggest = await getSuggestionThingToDo({
-      query: name,
-      limit: '1000',
-      offset: '0',
-      units: 'km',
-      currency: 'VND',
-      sort: 'relevance',
-      lang: 'vi_VN'
-    });
-    const rs = _.get(suggest, 'data.data', null);
-   if(rs?.filter((it) => it?.result_type === "things_to_do")?.length  > 0)  setThingsTodo(rs.filter((it) => it?.result_type === 'things_to_do'))
-   if(rs?.filter((it) => it?.result_type === "restaurants")?.length  > 0) setRestaurants(rs.filter((it) => it?.result_type === "restaurants"))
-  }
+  const [isModalVisibleTripDetail, setIsModalVisibleTripDetail] = useState(false)
 
-
-  const getSugeestionAttraction = async () => {
-    const suggest = await getSuggestionAttraction({
-      longitude: lon,
-      latitude: lat,
-      lunit: 'km',
-      currency: 'VND',
-      lang: 'vi_VN'
-    });
-    const rs = _.get(suggest, 'data.data', null);
-    console.log(rs)
-    if(rs?.length  > 0) setAtrractions(rs)
-  }
-
+  const history = useHistory()
   
-console.log('TODO',data,thingsToDo,attractions, restaurants)
+  const getSugeestionLists = async (page: number) => {
+    const params ={
+      userId: '',
+      page: 0
+    }
+    const result = await getSuggestList(params);
+    const dataSource = _.get(result, 'data.items', []);
+    const totalItem = _.get(result, 'data.meta.totalItems', 0);
+    const totalPages = _.get(result, 'data.meta.totalPages', 0);
+    const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
+    const currentPage = _.get(result, 'data.meta.currentPage', 0);
+
+    console.log(dataSource)
+    setData(dataSource);
+    setTotalItem(parseInt(totalItem));
+    setTotalPage(parseInt(totalPages));
+    setItemsPerPage(parseInt(itemsPerPage));
+    setCurentPage(parseInt(currentPage));
+
+  }
+
+
+  const destinationInfo = {
+  lat: 10.776308,
+  lon: 106.702867
+}
+
+const recommentVehicle = {
+    distance: "1200.23",
+    duration: "1234152",
+    name : 'plane'
+  }
+
+  const airportFrom = {
+    iata: 'HAN',
+    name: 'Ha noi'
+  }
+
+   const airportTo = {
+    iata: 'SGN',
+    name: 'Sai gon'
+  }
 
   useEffect(() => {
-    getSugeestionCityDetail()
-    getSugeestionThingsToDo()
-    getSugeestionAttraction()
-  }, [destinationId])
+    getSugeestionLists(currentPage)
+  }, [currentPage])
 
-  const properties = {
-        duration: 5000,
-        autoplay: false,
-        transitionDuration: 500,
-        arrows: true,
-        infinite: true,
-        easing: "ease",
-        indicators: false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-    };
-
-
-  const Slideshow = () => {
-        return (
-         <div className={`slide-container ${cx('slider-container2')}`} >
-            <Slide
-                {...properties}
-            >
-                    {
-                    data?.data?.body?.searchResults?.results?.map((item: any, index: any) => {
-                        return (
-                           <div className={cx('recent-container')} key={index} onClick={() => {
-
-                            }}>
-                                   <img src={item?.optimizedThumbUrls?.srpDesktop || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt="img" className={cx('img')}/> 
-                                {/* <div className={cx('location-pos')}>
-                                    <MdLocationOn size={30} className={cx(`location-icon`)}/>
-                                </div> */}
-                                <div className={cx('location-name')}>
-                                    {item?.name}
-                                </div>
-                                <div className={cx('reviews')}>
-                                   <div className={cx('visited')}>
-                                      <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
-                                      <div className={cx('count')}>
-                                        {item?.guestReviews?.rating || '0'} / {item?.guestReviews?.scale || '10'} 
-                                      </div>
-                                  </div>
-                                  <div className={cx('total')}>
-                                      {item?.guestReviews?.total || '0'} Reviews
-                                  </div>
-                                </div>
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.address?.streetAddress}
-                                  </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        )
-                    })
-                }
-             </Slide>
-        </div>
-        )
-    }
-
-    const SlideshowThingsToDo = () => {
-        return (
-         <div className={`slide-container ${cx('slider-container2')}`} >
-            <Slide
-                {...properties}
-            >
-                    {
-                    thingsToDo?.map((item: any, index: any) => {
-                        return (
-                           <div className={cx('recent-container')} key={index} onClick={() => {
-
-                            }}>
-                                   <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
-                                {/* <div className={cx('location-pos')}>
-                                    <MdLocationOn size={30} className={cx(`location-icon`)}/>
-                                </div> */}
-                                <div className={cx('location-name')}>
-                                    {item?.result_object?.name}
-                                </div>
-                                <div className={cx('reviews')}>
-                                   <div className={cx('visited')}>
-                                      <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
-                                      <div className={cx('count')}>
-                                        {item?.result_object?.rating || '0'} / {'5'} 
-                                      </div>
-                                  </div>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.num_reviews || '0'} Reviews
-                                  </div>
-                                </div>
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.address}
-                                  </div>
-                                </div>
-
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.open_now_text}
-                                  </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        )
-                    })
-                }
-             </Slide>
-        </div>
-        )
-    }
-
-
-    const SlideshowRestaurants = () => {
-        return (
-         <div className={`slide-container ${cx('slider-container2')}`} >
-            <Slide
-                {...properties}
-            >
-                    {
-                    restaurants?.map((item: any, index: any) => {
-                        return (
-                           <div className={cx('recent-container')} key={index} onClick={() => {
-
-                            }}>
-                                   <img src={item?.result_object?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
-                                {/* <div className={cx('location-pos')}>
-                                    <MdLocationOn size={30} className={cx(`location-icon`)}/>
-                                </div> */}
-                                <div className={cx('location-name')}>
-                                    {item?.result_object?.name}
-                                </div>
-                                <div className={cx('reviews')}>
-                                   <div className={cx('visited')}>
-                                      <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
-                                      <div className={cx('count')}>
-                                        {item?.result_object?.rating || '0'} / {'5'} 
-                                      </div>
-                                  </div>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.num_reviews || '0'} Reviews
-                                  </div>
-                                </div>
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.address}
-                                  </div>
-                                </div>
-
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.result_object?.open_now_text}
-                                  </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        )
-                    })
-                }
-             </Slide>
-        </div>
-        )
-    }
-
-const SlildShowAttraction = () => {
-        return (
-         <div className={`slide-container ${cx('slider-container2')}`} >
-            <Slide
-                {...properties}
-            >
-                    {
-                    attractions?.map((item: any, index: any) => {
-                        return (
-                           <div className={cx('recent-container')} key={index} onClick={() => {
-
-                            }}>
-                                   <img src={item?.photo?.images?.original?.url || `https://media-cdn.tripadvisor.com/media/photo-s/1d/c3/ac/85/exterior-view.jpg`} alt={item?.photo?.caption || "img"} className={cx('img')}/> 
-                                {/* <div className={cx('location-pos')}>
-                                    <MdLocationOn size={30} className={cx(`location-icon`)}/>
-                                </div> */}
-                                <div className={cx('location-name')}>
-                                    {item?.name}
-                                </div>
-                                <div className={cx('reviews')}>
-                                   <div className={cx('visited')}>
-                                      <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
-                                      <div className={cx('count')}>
-                                        {item?.rating || '0'} / {'5'} 
-                                      </div>
-                                  </div>
-                                  <div className={cx('total')}>
-                                      {item?.num_reviews || '0'} Reviews
-                                  </div>
-                                </div>
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.address}
-                                  </div>
-                                </div>
-
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.open_now_text}
-                                  </div>
-                                </div>
-
-
-                                 <div className={cx('reviews')}>
-                                  <div className={cx('total')}>
-                                      {item?.ranking_position}
-                                  </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        )
-                    })
-                }
-             </Slide>
-        </div>
-        )
-    }
+  const handleCancel = () => {
+      setIsModalVisibleTripDetail(false)
+      setTrip(null)
+  };
 
   return (
+    <>
     <div className={cx('suggestion-detail-container')}>
       <div className={cx(`suggestion-container`)}>
-        <div className={cx(`recents-header`)}>
-            <div className={cx(`left`)}>{ data?.data?.body?.header}
+          
+          <div className={cx('right')} >
+            <div className={cx('text')}>
+              Các đề xuất của bạn
             </div>
-        </div>
-        <div className={cx('title')}>
-          <div className={cx(`text`)}>Những địa điểm nổi bật</div>
-        </div>
-         
-        <div className={cx(`recent-body`)}>
-            {thingsToDo ?  <SlideshowThingsToDo />  : <Spin size='large'/> }
-        </div>
+            <Button className={cx('btn-add')} onClick={() => {
+              history.push('/suggestion')
+                }}>
+              Tạo đề xuất mới
+            </Button>
+          </div>
 
-        <div className={cx('title')}>
-          <div className={cx(`text`)}>Những khách sạn nổi tiếng</div>
-        </div>
-         <div className={cx(`recent-body`)}>
-            {data ?  <Slideshow />  : <Spin size='large'/> }
-        </div>
-        <div className={cx('title')}>
-          <div className={cx(`text`)}>Những Tour Du Lịch, Địa Điểm Vui Chơi</div>
-        </div>
+          {/* <div className={cx('left')}> */}
+            {
+              data?.map((item, index) => {
+                return (
+                  <div className={cx('rightright')} key={index}>
+                    <div className={cx('left')}>
+                      <div className={cx('from-to')}>
+                          <div className={cx('info-detail')}>
+                              <img src={item?.travelPlace?.photo?.images?.original?.url } alt="img" className={cx('img')}/> 
+                              <div className={cx('inforeal')}>
+                                <div className={cx('name')}>
+                                      {item?.travelPlace?.name}
+                                </div>
+                                <div className={cx('reviews')}>
+                                  <div className={cx('visited')}>
+                                    <AiFillStar size={20} color={'white'} style={{margin: '0 5px'}}/>
+                                    <div className={cx('count')}>
+                                      {item?.hotelSelect?.rating} 
+                                    </div>
+                                </div>
+                                
+                                <div className={cx('total')}>
+                                    {item?.hotelSelect?.num_reviews || '0'} Reviews
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
 
-        <div className={cx(`recent-body`)}>
-            {attractions ?  <SlildShowAttraction />  : <Spin size='large'/> }
-        </div>
 
-      <div className={cx('title')}>
-          <div className={cx(`text`)}>Những nhà hàng phổ biến</div>
-        </div>
-
-         <div className={cx(`recent-body`)}>
-            {restaurants ?  <SlideshowRestaurants />  : <Spin size='large'/> }
-        </div>
-        
-      </div>
+                      <div className={cx('transport-container')}>
+                        <div className={(cx('title-container'))}>
+                          <div className={cx('text')}>Phương tiện:</div>
+                          <div className={cx('name')}>{recommentVehicle?.name === 'plane' ? 'máy bay' :recommentVehicle?.name === 'car' ? "ô tô" : "xe máy" }</div>
+                        </div>
+                      </div>
+                    </div>
+                      <Button className={cx('right')} onClick={() => {
+                            setTrip(item)
+                          setIsModalVisibleTripDetail(true)
+                            }}>
+                          Xem chi tiết
+                        </Button>
+                  </div>
+                )
+              })
+            }
+          </div>
+      {/* </div> */}
     </div>
+    <Modal visible={isModalVisibleTripDetail} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
+         {trip ? <ConsumseTrip destinationInfo={destinationInfo}
+                    startInfo={{}}
+                    startDate={trip?.startDate}
+                    endDate={trip?.endDate}
+                    selectedTravelType={trip?.selectedTravelType}
+                    selectedTravelWith={trip?.selectedTravelWith}
+                    travelCity={trip?.travelCity}
+                    travelPlace={trip?.travelPlace}
+                    vehicleChoose={trip?.vehicleChoose}
+                    flightDetail={trip?.flightDetail}
+                    hotelSelect={trip?.hotelSelect}
+                    widthCustom={{width: '100%'}}
+                    hideBtn={true}
+                    /> : null}  
+      </Modal>
+    </>
+
 
    
   )
