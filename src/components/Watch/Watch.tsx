@@ -20,6 +20,9 @@ import { getWatchs } from 'src/services/watchs-service';
 import ReactPlayer from 'react-player';
 import { BsThreeDots } from 'react-icons/bs';
 import moment from 'moment';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
+import { useHistory } from 'react-router-dom';
+import { sleep } from 'src/constant/contract-service';
 
 const Watch = (props: any) => {
   const [data, setData] = useState<any>([]);
@@ -28,13 +31,28 @@ const Watch = (props: any) => {
   const [textSearch, setTextSearch] = useState('');
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurentPage] = useState(0);
-  const [trigger, setTrigger] = useState(false)
+
+  const history = useHistory()
+
+  useBottomScrollListener(() => {
+    console.log('REACRT ENDNDNDN')
+    handleFetchMore()
+
+  })
+
+  const handleFetchMore = async () => {
+    await sleep();
+    console.log('===============what the fuck')
+    totalPage - 1 === currentPage || data?.length === 0 ? null : setCurentPage(currentPage + 1)
+  }
 
 
   const appendData =  async (page?: number) => {
     let params = {
-        page: page
+        page: page,
+        // perPage: 9
     }
+    console.log(params)
       const result = await getWatchs(params)
       if(result) {
         const dataSource = _.get(result, 'data.items', []);
@@ -57,15 +75,9 @@ const Watch = (props: any) => {
 
 
   useEffect(() => {
-    appendData(currentPage);
-  }, [currentPage, trigger]);
-
-  const onScroll = e => {
-    if(data.length === totalItem || currentPage === totalPage)return
-    if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight && currentPage < totalPage) {
-      // setCurentPage(currentPage+1)
-    }
-  };
+    console.log(currentPage)
+    appendData(Number(currentPage));
+  }, [currentPage]);
 
   return (
     <div className={cx('watchs-container')}>
@@ -76,31 +88,34 @@ const Watch = (props: any) => {
             <div key={index} className={cx('watch')}>
                  <div className={cx('info')}>
                     <div className={cx('left')}>
-                         <Avatar src={item?.avatar} />
+                      <div className={cx('avatar')} onClick={() => {history.push(`/profile?userId=${item?.userId}`)}}><Avatar src={item?.avatar} />
+                      </div>
+                         
                         <div className={cx('name-time-container')}>
-                          <div className={cx('name')}>{item?.displayName}</div>
+                          <div className={cx('name')}  onClick={() => {history.push(`/profile?userId=${item?.userId}`)}}>{item?.displayName}</div>
                           <div className={cx('time')}>{moment(item?.createdAt).format('YYYY-MM-DD HH-MM')}</div>
                         </div>
                     </div>
                     
-                    <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer', color: 'white'}} />
+                    <BsThreeDots style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} />
                 </div>
                 <ReactPlayer
                   url={item?.url}
                   playing={false}
                   loop={true}
                   controls={true}
-                  width="100%"
-                  height="600px"
+                  width="400px"
+                  height="280px"
                   />
             </div>
           )
         }) : <Spin size="large" style={{}}/>
       }
-
+      {
+      totalPage - 1 === currentPage || data?.length === 0 ? null : (
+        <Spin size="large" style={{margin: '15px 0'}}/>
+      )}
       </div>
-
-      
     </div>
 
   );

@@ -25,6 +25,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TextArea from 'antd/lib/input/TextArea';
 import UploadLogo from 'src/components/Upload';
+import { notificationError, notificationSuccess } from '../Login/Login';
 
 
 
@@ -35,13 +36,17 @@ const ChangeAvatarCover = (props: any) => {
     const history = useHistory();
     const [form] = Form.useForm();
 
-    const [loadingSignIn, setLoadingSignIn] = useState(false);
-    const [formInput, setFormInput] = useState({email: '', password: ''})
     const [file, setFile] = useState<any>(null);
     const [file2, setFile2] = useState<any>(null);
-    console.log(file, file2)
+      const [uploaded, setUploaded] = useState(false);
+      const [imageBase64Arr, setImageBase64Arr] = useState<any>(null);
+      const [imageBase64Arr2, setImageBase64Arr2] = useState<any>(null);
+      const [loading, setLoading] = useState(false)
+
+
     const handleFinish = async (values: any) => {
         try {
+            setLoading(true)
             const form = {
                 avatar: file,
                 coverPhoto: file2
@@ -52,6 +57,18 @@ const ChangeAvatarCover = (props: any) => {
             if(file)formData.append('avatar', file);
             if(file2) formData.append('coverPhoto', file2)
             const upload = await uploadProfileImage(formData)
+            console.log(upload)
+            if(upload?.status === 201) {
+                notificationSuccess("Thay đổi ảnh thành công")
+                setFile(null)
+                setFile2(null)
+                setLoading(false)
+                return
+            }
+            notificationError(upload?.message)
+            setFile(null)
+            setFile2(null)
+            setLoading(false)
             return
         } 
         catch (err) {
@@ -72,9 +89,10 @@ const ChangeAvatarCover = (props: any) => {
     //     labelCol={{ span: 8 }}
     //   wrapperCol={{ span: 16 }}
         >
+        <div className={cx('current-title')}>Thay đổi ảnh đại diện</div>
+
         <div className={cx('avatar-container')}>
             <div className={cx('current-avatar')}>
-                <div className={cx('current-title')}>Avatar</div>
                 {
                     props?.profile?.avatar ? (
                         <img 
@@ -86,9 +104,6 @@ const ChangeAvatarCover = (props: any) => {
                 }
             </div>
             
-            
-            <Form.Item name="avatar-upload" className={cx('form-item')}>
-                
                 <UploadLogo
                     className={cx('upload')}
                     name="avatar"
@@ -96,13 +111,31 @@ const ChangeAvatarCover = (props: any) => {
                     title="Change avatar"
                     setFile={setFile}
                     file={file}
+                    setUploaded={setUploaded}
+                    setImageBase64Arr={setImageBase64Arr}
+                    imageBase64Arr={imageBase64Arr}
+                    uploaded={uploaded}
                 />
-            </Form.Item>
+                 {/* {
+                    imageBase64Arr && imageBase64Arr[0]?.imageUrl ? (
+                        <img
+                            src={
+                            imageBase64Arr[0]?.imageUrl
+                            }
+                            alt="img"
+                            className={cx('img')}
+                            style={{width: '150px', height:'150px', borderRadius: '50%', padding: '5px'}}
+                        />
+                    ) : null
+                } */}
             
         </div>
+                <div className={cx('current-title')}>Thay đổi ảnh bìa</div>
+
         <div className={cx('cover-container')}>
+
             <div className={cx('current-avatar')}>
-                <div className={cx('current-title')}>Cover Photo</div>
+
                 {
                     props?.profile?.coverPhoto ? (
                         <img 
@@ -114,9 +147,9 @@ const ChangeAvatarCover = (props: any) => {
                 }
             </div>
             
-            
-            <Form.Item name="cover-upload" className={cx('form-item')}>
-                
+
+
+
                 <UploadLogo
                     className={cx('upload')}
                     name="cover"
@@ -124,15 +157,33 @@ const ChangeAvatarCover = (props: any) => {
                     setFile={setFile2}
                     maxCount={1}
                     file={file2}
+                    setUploaded={setUploaded}
+                    setImageBase64Arr={setImageBase64Arr2}
+                    imageBase64Arr={imageBase64Arr2}
+                    uploaded={uploaded}
+                    coverStyle={{width: '150px', height:'150px', borderRadius: '10px', padding: '5px'}}
                 />
-            </Form.Item>
+
+                {/* {
+                    imageBase64Arr2 && imageBase64Arr2[0]?.imageUrl ? (
+                        <img
+                            src={
+                            imageBase64Arr2[0]?.imageUrl
+                            }
+                            alt="img"
+                            className={cx('img')}
+                            style={{width: '150px', height:'150px', borderRadius: '50%', padding: '5px'}}
+                        />
+                    ) : null
+                } */}
+                
         </div>
 
         <Form.Item>
             <Button
             className={cx('button')}
             htmlType="submit"
-            loading={loadingSignIn}
+            loading={loading}
             >
                 Save 
             </Button>

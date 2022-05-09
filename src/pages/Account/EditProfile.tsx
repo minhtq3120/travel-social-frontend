@@ -25,6 +25,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TextArea from 'antd/lib/input/TextArea';
 import moment from 'moment';
+import { notificationError, notificationSuccess } from '../Login/Login';
 
 
 
@@ -50,14 +51,27 @@ const EditProfile = (props: any) => {
 
   const handleFinish = async (values: any) => {
     try {
-        const payload = {
+        let payload: any = {
             bio: values.bio,
-            displayName: values.displayName,
             sex: Number(values.sex),
             birthday:moment(values.birthday).format('YYYY-MM-DD')
         }
+        
+        if(values.displayName !== props?.profile?.displayName) {
+            payload = {
+                ...payload,
+                displayName: values.displayName,
+            }
+        }
         const update = await updateInfo(payload)
         console.log(update)
+        if(update?.status === 200) {
+            notificationSuccess("Thay đổi thông tin cá nhân thành công")
+            // form.resetFields()
+            return
+        }
+        notificationError(update?.message)
+        return
         return;
     } 
     catch (err) {
@@ -78,9 +92,10 @@ const EditProfile = (props: any) => {
         autoComplete="off"
         onFinish={handleFinish}
         >
-
+                    <p style={{ margin: '10px 0px' , fontWeight: 'bold', fontSize: '17px'}}>
+                        Tên người dùng 
+                    </p>
                 <Form.Item 
-                label="Your Username"
                 name="displayName"
                 rules={[
                     ({ getFieldValue }) => ({
@@ -97,8 +112,10 @@ const EditProfile = (props: any) => {
 
                 </Form.Item>
 
+                <p style={{ margin: '10px 0px' , fontWeight: 'bold', fontSize: '17px'}}>
+                    Giới thiệu bản thân
+                </p>
                 <Form.Item 
-                label='Bio'
                 name="bio"
                 rules={[
                     ({ getFieldValue }) => ({
@@ -108,17 +125,14 @@ const EditProfile = (props: any) => {
                     })
                 ]}
                 >
-                {/* <Input
-                    type='text'
-                    className={cx('email-input')}
-                    onChange={(e) => setFormInput({...formInput, email: e.target.value})}
-                /> */}
                 <TextArea rows={5} placeholder='write something about your self'/>
 
                 </Form.Item>
 
+                <p style={{ margin: '10px 0px' , fontWeight: 'bold', fontSize: '17px'}}>
+                    Giới tính
+                </p>
                 <Form.Item 
-                label='Gender'
                 name="sex"
                 rules={[
                     ({ getFieldValue }) => ({
@@ -129,15 +143,17 @@ const EditProfile = (props: any) => {
                 ]}
                 >
                     <Radio.Group onChange={onChangeRadio}>
-                        <Radio.Button value="0">Female <AiOutlineWoman/></Radio.Button>
-                        <Radio.Button value="1">Male <AiOutlineMan/></Radio.Button>
+                        <Radio.Button value="0">Nữ<AiOutlineWoman/></Radio.Button>
+                        <Radio.Button value="1">Nam <AiOutlineMan/></Radio.Button>
                         <Radio.Button value="2">Prefer not show</Radio.Button>
                     </Radio.Group>
 
                 </Form.Item>
 
+                <p style={{ margin: '10px 0px' , fontWeight: 'bold', fontSize: '17px'}}>
+                    Ngày sinh
+                </p>
                  <Form.Item 
-                label='Date of birth'
                 name="birthday"
                 rules={[
                     ({ getFieldValue }) => ({

@@ -1,76 +1,96 @@
 .watchs-container {
-    // margin: 20px 0;
-    // padding: 10px;
-    width: 100%;
+  // margin: 20px 0;
+  // padding: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  .watchs-child {
+    width: 90%;
     height: auto;
+    margin: 50px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
 
-    .watchs-child {
-      width: 900px;
-      height: auto;
-      margin: 30px 10px;
+  }
+
+  .watch {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    // min-height: 700px;
+    // border: 1px solid black;
+    // background-color: black;
+    margin-bottom: 50px;
+
+
+    .info {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
-      .watch {
-        border-radius: 10px;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0px 15px;
+
+      .left {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
         align-items: center;
-        align-content: center;
-        width: 100%;
-        height: auto;
-        min-height: 700px;
-        border: 1px solid black;
-        background-color: black;
-        margin-bottom: 50px;
+        justify-content: flex-start;
 
+        .avatar {
+          width: auto;
+          height: auto;
+          cursor: pointer;
+        }
 
-        .info {
-          width: 100%;
+        .avatar:hover {
+          opacity: 0.8;
+        }
+
+        .name-time-container {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          justify-content: center;
           align-items: flex-start;
-          justify-content: space-between;
-          padding: 15px 15px;
 
-          .left {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            
-            .name-time-container {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: flex-start;
+          .name {
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 17px;
+            cursor: pointer;
+            // color: white;
+          }
 
-              .name {
-                font-weight: bold;
-                margin:  0 10px;
-                font-size: 17px;
-                color: white;
-              }
+          .name:hover {
+            opacity: 0.8;
+          }
 
-              .time {
-                font-size: 14px;
-                color: white;
-                opacity: 0.7;
-                margin:  0 10px;
-              }
-            }
-            
+          .time {
+            font-size: 14px;
+            // color: white;
+            opacity: 0.7;
+            margin: 0 10px;
           }
         }
-      }
-}
 
+      }
+    }
+  }
+}

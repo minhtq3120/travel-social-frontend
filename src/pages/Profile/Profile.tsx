@@ -178,11 +178,11 @@ const Profile = (props: any) => {
          
             {   
               profile?.isCurrentUser ? (
-                 <Button className={cx('follow-btn')}>
-                    <div className={cx('text')}
-                      onClick={() => {
+                 <Button className={cx('follow-btn')} onClick={() => {
                         history.push('/account')
-                      }}
+                      }}>
+                    <div className={cx('text')}
+                      
                     >Edit profile</div>
                     <AiOutlineSetting style={{fontSize: '25px', marginLeft: '15px', cursor: 'pointer'}}/>
                  </Button>

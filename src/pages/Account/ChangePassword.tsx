@@ -20,10 +20,11 @@ import {  activate, login, register } from 'src/services/auth-service';
 import { getFollowers } from 'src/services/follow-service';
 import { changePassword, getCurrUserProfile } from 'src/services/user-service';
 import styles from 'src/styles/EditProfile.module.scss';
-import { getCurrentUser } from 'src/utils/utils';
+import { getCurrentUser, PASSWORD_REGEX } from 'src/utils/utils';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TextArea from 'antd/lib/input/TextArea';
+import { notificationError, notificationSuccess } from '../Login/Login';
 
 
 
@@ -46,6 +47,12 @@ const ChangePassword = (props: any) => {
         }
         const changePass = await changePassword(payload)
         console.log(changePass)
+        if(changePass?.status === 200) {
+            notificationSuccess("Thay đổi mật khẩu thành công")
+            form.resetFields()
+            return
+        }
+        notificationError(changePass?.message)
         return
     } 
     catch (err) {
@@ -74,17 +81,20 @@ const ChangePassword = (props: any) => {
                 name="currentPassword"
                 rules={[
                     ({ getFieldValue }) => ({
-                        validator(_, value: string) {
+                      validator(_, value: string) {
                         if (!value) {
-                            return Promise.reject(new Error('This field is required'));
-                        }
-                        return Promise.resolve();
-                        }
-                    })
+                            return Promise.reject(
+                              new Error('mật khẩu là bắt buộc')
+                            );
+                          }
+                          
+                        return Promise.resolve()
+                      }
+                      })
                     ]}
                 >
                 <Input
-                    type='text'
+                    type='password'
                     className={cx('email-input')}
                 />
 
@@ -96,18 +106,25 @@ const ChangePassword = (props: any) => {
             <Form.Item 
                 name="newPassword"
                 rules={[
-                    ({ getFieldValue }) => ({
-                        validator(_, value: string) {
+                   ({ getFieldValue }) => ({
+                      validator(_, value: string) {
                         if (!value) {
-                            return Promise.reject(new Error('This field is required'));
-                        }
-                        return Promise.resolve();
-                        }
-                    })
+                            return Promise.reject(
+                              new Error('mật khẩu là bắt buộc')
+                            );
+                          }
+                          if (!value.match(PASSWORD_REGEX)) {
+                            return Promise.reject(
+                               new Error('mật khẩu tối thiểu 8 kí tự, gồm chữ viết hoa, số  và kí tự đặc biệt')
+                            );
+                          }
+                        return Promise.resolve()
+                      }
+                      })
                     ]}
                 >
                 <Input
-                    type='text'
+                    type='password'
                     className={cx('email-input')}
                 />
 
@@ -120,17 +137,31 @@ const ChangePassword = (props: any) => {
                 name="confirmNewPassword"
                rules={[
                     ({ getFieldValue }) => ({
-                        validator(_, value: string) {
+                      validator(_, value: string) {
                         if (!value) {
-                            return Promise.reject(new Error('This field is required'));
-                        }
-                        return Promise.resolve();
-                        }
-                    })
+                            return Promise.reject(
+                              new Error('mật khẩu là bắt buộc')
+                            );
+                          }
+                          
+                          if (!value.match(PASSWORD_REGEX)) {
+                            return Promise.reject(
+                               new Error('mật khẩu tối thiểu 8 kí tự, gồm chữ viết hoa, số  và kí tự đặc biệt')
+                            );
+                          }
+                          if (value !== form.getFieldValue('newPassword')) {
+                            return Promise.reject(
+                               new Error('mật khẩu không trùng khớp!')
+                            );
+                          }
+                          
+                        return Promise.resolve()
+                      }
+                      })
                     ]}
                 >
                 <Input
-                    type='text'
+                    type='password'
                     className={cx('email-input')}
                 />
 

@@ -151,6 +151,15 @@ input:-webkit-autofill:active {
   background-color: #68d1c8 !important;
 }
 
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: white;
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  color: white !important;
+  border-color: white !important;
+}
+
 /* .ant-steps-item-process .ant-steps-item-icon {
   background: white !important;
 } */

@@ -32,10 +32,7 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
             newPassword,
         })
         .catch((error) => {
-            if (error.response) {
-                console.error(error.response.message);
-                return error.response.status;
-            }
+            return error
         });
 };
 
@@ -56,11 +53,7 @@ export const updateInfo = async (
             birthday
         })
         .catch((error) => {
-            console.log(error)
-            if (error.response) {
-                console.error(error.response.message);
-                return error.response.status;
-            }
+            return error
         });
 };
 
@@ -71,11 +64,7 @@ export const uploadProfileImage = async (
     return axiosInstance
         .post(`/user/upload/profile-image`, payload)
         .catch((error) => {
-            console.log(error)
-            if (error.response) {
-                console.error(error.response.message);
-                return error.response.status;
-            }
+            return error
         });
 };
 

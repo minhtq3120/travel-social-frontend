@@ -22,7 +22,7 @@ const cx = classNames.bind(styles);
 
 export const notificationError = (message: string) => {
   return notification.error({
-          message: message && message?.length > 0 ? message : 'Tài khoản hoặc mật khẩu không chính xác.',
+          message: message && message?.length > 0 ? message : '',
           style: {width: 'auto' ,borderRadius: '40px', backgroundColor: 'white', border: '1px solid red'},
           duration: 7,
           className: 'toast__message toast__message__error',
@@ -32,7 +32,7 @@ export const notificationError = (message: string) => {
 
 export const notificationSuccess = (message) => {
   return notification.success({
-          message: message && message?.length > 0 ? message :'đăng nhập thành công',
+          message: message && message?.length > 0 ? message :'Có lỗi xảy ra',
           style: {width: 'auto' ,borderRadius: '40px',  backgroundColor: 'white', border: '1px solid #68d1c8'},
           duration: 7,
           className: 'toast__message toast__message__success',

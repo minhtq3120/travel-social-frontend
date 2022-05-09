@@ -4,10 +4,10 @@ import _ from 'lodash';
 
 export const getWatchs = async (params) => {
     let queryString = `/media-files/videos/watch`;
-    if (params?.page) {
-        const queryPage = `?page=${params.page}`;
-        queryString = queryString.concat(queryPage);
-    }
+
+    const queryPage = `?page=${params.page}`;
+    queryString = queryString.concat(queryPage);
+
     if (params?.perPage) {
         const queryPage = `&perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);

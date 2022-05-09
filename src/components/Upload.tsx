@@ -7,7 +7,6 @@ const UploadLogo = memo(
   (props: any) => {
     const { className, setUploaded } = props;
     const [file, setFile] = useState<any>([]);
-    const [imageBase64, setImageBase64] = useState<any>(null);
     const [loading, setLoading] = useState(false);
 
     function getBase64(img: any, callback: any) {
@@ -16,32 +15,6 @@ const UploadLogo = memo(
       reader.readAsDataURL(img);
     }
 
-    //  useEffect(() => {
-    //   let temp: any = [];
-    //   props.fileList.map((item) => {
-    //     return getBase64(item.originFileObj, (imageUrl) => {
-    //         temp.push(imageUrl);
-    //     });
-    //   })
-    //   props.setImageBase64Arr(temp);
-    // }, [props.fileList])
-
-    const uploadButton = (
-      <div
-        style={{
-          // display: 'flex',
-          // alignContent: 'center',
-          // alignItems: 'center',
-          // justifyContent: 'center',
-          // flexDirection: 'column',
-          // boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-          // width: '200px',
-          // height: '200px',
-          // cursor: 'pointer'
-        }}>
-        {loading ? <LoadingOutlined /> : <BsUpload />} {props?.title}
-      </div>
-    );
 
     const handleCustomRequest = ({ onSuccess }: any) => {
       onSuccess('ok');
@@ -133,10 +106,17 @@ const UploadLogo = memo(
         // listType="picture-card"
         listType={props.listType}
         >
-        {props?.custom ? (
-          props.custom
+        {props?.imageBase64Arr ? (
+          <img
+              src={
+              props?.imageBase64Arr[0]?.imageUrl
+              }
+              alt="img"
+              style={props?.coverStyle ? props?.coverStyle : {width: '150px', height:'150px', borderRadius: '50%', padding: '5px'}}
+          />
         ) : (
-          <AiOutlinePlusCircle  size={40} style={{opacity: 0.6}}/>
+
+          <AiOutlinePlusCircle  size={100} style={{cursor: 'pointer'}}/>
         //   <div
         //     style={{
         //       // display: 'flex',

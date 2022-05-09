@@ -73,10 +73,10 @@ const LayoutComponent = (props: any) => {
   }
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
   const triggerGetWeatherPosition: any = useSelector((state: RootState) => state.wallet.socket);
-  console.log('triggerGetWeatherPosition',triggerGetWeatherPosition)
   useEffect(() => {
     const fetchWeather = async () => {
       navigator.geolocation.getCurrentPosition(function(position: any) {
+        console.log("========", position)
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
         dispatch(setCurrentPosition([position.coords.latitude, position.coords.longitude]))

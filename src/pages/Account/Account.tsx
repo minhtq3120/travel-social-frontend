@@ -77,18 +77,6 @@ const Account = (props: any) => {
               <div style={{fontWeight: 'bold', fontSize: '15px'}}>Change Password</div>
             </div>
           </Tab>
-          <Tab>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-              <GoLocation style={{fontSize: '20px', margin: '0 10px'}}/>
-              <div style={{fontWeight: 'bold', fontSize: '15px'}}>Checkin manager</div>
-            </div>
-          </Tab>
-          <Tab>
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-              <BsMoonStars style={{fontSize: '20px', margin: '0 10px'}}/>
-              <div style={{fontWeight: 'bold', fontSize: '15px'}}>Dark mode</div>
-            </div>
-          </Tab>
         </TabList>
 
         <TabPanel>
