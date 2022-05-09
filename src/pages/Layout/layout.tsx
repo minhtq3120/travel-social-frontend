@@ -116,29 +116,12 @@ const LayoutComponent = (props: any) => {
             token: localStorage.getItem('accessToken')
           }
       }
-
-      const socket = io("http://localhost:8080", socketOptions)
+      const socket = io(String(process.env.REACT_APP_BACKEND), socketOptions)
       dispatch(setSocket(socket))
     }
   }, [])
 
-  
 
-
-  //  useEffect(() => {
-  //    const fetchTravel = async () => {
-  //      let queryString ='https://hotels4.p.rapidapi.com/locations/v2/search';
-  //       const x =  await axiosInstance
-  //         .get(queryString)
-  //         .catch(function (error) {
-  //             if (error.response) {
-  //                 return error.response.status;
-  //             }
-  //         });
-  //         console.log(x)
-  //    }
-  //    fetchTravel()
-  // }, [])
   const notiNotSeen: any = useSelector((state: RootState) => state.wallet.notiNotSeen);
   socket?.on(RECEIVE_NOTIFICATION, (data) => {
     console.log('+++++++++++++++++++++++++++++=', data)
