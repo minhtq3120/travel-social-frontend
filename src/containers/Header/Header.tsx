@@ -88,6 +88,7 @@ const HeaderContainer = (props: any) => {
   };
 
   const onSearch = async (value: string) => {
+    // if(keyword?.length > 0) dispatch(setSearchValue(keyword))
     setKeyword(value)
   };
 
@@ -374,7 +375,7 @@ const HeaderContainer = (props: any) => {
         <div className={cx(`header-search`)}>
           <RenderSearch onChange={onSearch} placeholder={'Search..'} handlePressEnterSearch={
             () => {
-              console.log("???")
+              console.log("???", keyword)
               if(keyword?.length > 0) dispatch(setSearchValue(keyword))
               dispatch(setTriggerSearch(''))
               setKeyword('')
@@ -480,7 +481,7 @@ const HeaderContainer = (props: any) => {
               {props?.profile?.avatar?.length > 0 ? (
                 <img src={props?.profile?.avatar} alt="user-avatar" className={cx('user-avatar')} />
               ) : (
-                <BsPersonCircle style={{ fontSize: '30px', margin: '0 10px', cursor: 'pointer' }} />
+                <BsPersonCircle style={{ fontSize: '35px', margin: '0 10px', cursor: 'pointer' }} />
               )}
             </Dropdown>
           </div>

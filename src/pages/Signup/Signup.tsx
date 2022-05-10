@@ -62,7 +62,7 @@ const Signup = (props: any) => {
         <div className={cx('main__left')}>
           <div className={cx('left-child')}>
 
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" className={cx('logo')}/>
           <div className={cx('title')}></div>
           <Form
             form={form}

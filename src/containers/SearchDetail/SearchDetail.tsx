@@ -106,7 +106,7 @@ const history = useHistory()
   const triggerSearch: any = useSelector((state: RootState) => state.wallet.triggerSearch);
 
   const handleFetchMore = async () => {
-    //await sleep();
+    await sleep();
     setViewMoreLoading(true);
     setCurentPage(currentPage + 1)
   }
@@ -189,9 +189,13 @@ const history = useHistory()
        
         <div className={cx(`newFeed-middle`)}>
             {
-              dataSrc?.length <= 0 && loadingSearch? <Spin size="large" style={{margin: '200px 0'}}/> : dataSrc?.length <= 0 && !loadingSearch ? (
-                <div style={{width: '100%', display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}}>
-                  <div style={{fontWeight: 'bold', padding: '100px 30px', paddingBottom: '20px', fontSize: '40px'}}>
+              dataSrc?.length <= 0 && loadingSearch? (
+                 <div style={{width: '800px', display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}}>
+                  <Spin size="large" style={{margin: '15px 0'}}/>
+                  </div>
+              ): dataSrc?.length <= 0 && !loadingSearch ? (
+                <div style={{width: '800px', display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}}>
+                  <div style={{fontWeight: 'bold', padding: '100px 30px', paddingTop: '15px', paddingBottom: '20px', fontSize: '40px'}}>
                     {`No ${searchFilter}s result found for "${searchValue}"`}
                   </div>
                   
@@ -212,7 +216,7 @@ const history = useHistory()
                   
                 )
               }) : searchFilter === 'user' ? 
-              <div style={{marginTop: '70px', width: '100%'}}>
+              <div style={{ width: '800px'}}>
                 {dataSrc?.map((item: any, index: any) => {
                 return (
                     <div key={index} className={cx('user-list-container')}>
@@ -244,11 +248,12 @@ const history = useHistory()
               </div> : null
             }
             {
-            totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : (
+            totalPage - 1 === currentPage || dataSrc?.length == 0 ? null : (
               <Spin size="large" style={{margin: '15px 0'}}/>
             )}
           </div>
           <div className={cx(`newFeed-right`)}>
+             <div className={cx(`newFeed-right-child`)}>
               <div className={cx('filter-title')}>
                 Search Filter
               </div>
@@ -280,7 +285,7 @@ const history = useHistory()
                     })
                   }
                  </div>
-
+            </div>
               {/* </div> */}
           </div>
       </div>

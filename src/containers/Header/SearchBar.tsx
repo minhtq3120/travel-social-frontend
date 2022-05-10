@@ -29,7 +29,7 @@ import { getRecentsChat } from 'src/services/chat-service';
 import moment from 'moment';
 import { searchAllUser, searchEverything } from 'src/services/search-service';
 import { useHistory } from 'react-router-dom';
-import { setHashtagSearch } from 'src/redux/WalletReducer';
+import { setHashtagSearch, setSearchValue } from 'src/redux/WalletReducer';
 
 const cx = classNames.bind(styles);
 
@@ -65,7 +65,7 @@ const SearchBar = (props: any) => {
   const appendData =  async (keyword: string, page?: number) => {
     let params =  {
         keyword,
-        perPage: 1000
+        perPage: 20
     }
     const result = await searchEverything(params)
     if(result) {
@@ -117,7 +117,7 @@ const SearchBar = (props: any) => {
     };
     const ListSearchs = () => {
      return (
-        <div  ref={scrollRef } style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
+        <div  style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
            {
                props?.keyword.length > 0 && data.length === 0 && data2.length === 0? (
                    <div>
@@ -158,12 +158,12 @@ const SearchBar = (props: any) => {
                             </div>
                         ))
                         }
-                        {
+                        {/* {
                         totalPage - 1 === currentPage || data?.length === 0 ? null : (
                             <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
                                 <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
                             </div>  
-                        )}
+                        )} */}
                     </>
                )  : (
                    <>
@@ -172,7 +172,8 @@ const SearchBar = (props: any) => {
                             <div className={cx('search-user-container')} key={index} onClick={() => {
                                 console.log(item)
                                 dispatch(setHashtagSearch(item))
-                                 history.push(`/hashtagDetail`)
+                                if(props?.keyword?.length > 0) dispatch(setSearchValue(props?.keyword))
+                                 history.push(`/hashtagDetail?hashtag=%23${item?.hashtag?.slice(1, item?.hashtag?.length)}`)
                                 props.setKeyword('')
                             }}>
                                 <div className={cx('search-user-info')}>
@@ -189,12 +190,12 @@ const SearchBar = (props: any) => {
                             </div>
                         ))
                         }
-                        {
+                        {/* {
                         totalPage - 1 === currentPage || data?.length === 0 ? null : (
                             <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
                                 <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
-                            </div>  
-                        )}
+                            </div   >  
+                        )} */}
                     </>
                )
            }

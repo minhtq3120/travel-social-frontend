@@ -346,7 +346,7 @@ const Post = (props: any) => {
                 anchorClass="my-anchor-css-class"
                 onClick={() => {console.log('hehe')}}
                 expanded={false}
-                width={280}
+                width={750}
                 truncatedEndingComponent={"... "}
             >   
             {
@@ -356,7 +356,7 @@ const Post = (props: any) => {
                                     <span className={cx(`hashtag`)} onClick={()=> {
                                         console.log(hashtagValue)
                                         dispatch(setHashtagSearch({hashtag: hashtagValue}))
-                                         history.push(`/hashtagDetail`)
+                                         history.push(`/hashtagDetail?hashtag=%23${hashtagValue.slice(1, hashtagValue?.length)}`)
                                     }}><Tag color="#68d1c8">{hashtagValue}</Tag></span>
                                 )}
                             >

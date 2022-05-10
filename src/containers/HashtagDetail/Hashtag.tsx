@@ -39,7 +39,7 @@ const HashtagDetail = (props: any) => {
 
 const history = useHistory()
   const search = useLocation().search;
-  const hashtag=new URLSearchParams(search).get("hashtag");
+  const hashtagFromUrl=new URLSearchParams(search).get("hashtag");
 
   const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch);
   console.log(htag)
@@ -48,9 +48,9 @@ const history = useHistory()
     handleFetchMore()
 
   });
-
+  console.log(htag)
   const handleFetchMore = async () => {
-    //await sleep();
+    await sleep();
     setViewMoreLoading(true);
     setCurentPage(currentPage + 1)
   }
