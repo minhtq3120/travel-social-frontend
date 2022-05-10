@@ -43,6 +43,7 @@ const Recents = (props: any) => {
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [currentPage, setCurentPage] = useState(0);
     const [latLng, setLatLng] = useState<any>(null)
+    const [time, setTime] = useState('all')
 
     const [mapType, setMapType] = useState<any>('')
     const [isModalVisibleMapSingle, setIsModalVisibleMapSingle] = useState(false)
@@ -51,9 +52,11 @@ const Recents = (props: any) => {
     
     const [dataVisited, setDataVisited] = useState<any>([]);
 
-    const fetchRecents  = async (page?: number) => {
+    const fetchRecents  = async (page?: number, filter = 'all') => {
         let params = {
-            page: page
+            page: String(page),
+            time: filter,
+            perPage: 100
         }
         setLoading(true)
         const result = await getRecentsVisited(params)
@@ -71,17 +74,15 @@ const Recents = (props: any) => {
             setItemsPerPage(parseInt(itemsPerPage));
             setCurentPage(parseInt(currentPage));
 
-            let temp = data.concat(dataSource)
-            setData(temp)
             setLoading(false)
         }
         setLoading(false)
     }
     
     useEffect(() => {
-        fetchRecents(currentPage)
-    }, [currentPage])
-
+        fetchRecents(currentPage, time)
+    }, [currentPage, time])
+console.log('===========', data)
     useEffect(() => {
         let temp: any = []
         if(data?.length > 0 ) {
@@ -192,7 +193,13 @@ const Recents = (props: any) => {
         </div>
 
         <Modal visible={isModalVisibleMap} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
-            { !loading && dataVisited && centerVisited ? <Maps lat={centerVisited[0]} lng={centerVisited[1]}  locationVisited={dataVisited }/> : <Spin size='large'/> }
+            { !loading && dataVisited && centerVisited ? 
+            <Maps lat={centerVisited[0]} 
+            lng={centerVisited[1]}  
+            locationVisited={dataVisited }
+            time={time}
+            setTime={setTime}
+            /> : <Spin size='large'/> }
         </Modal>
          <Modal visible={isModalVisibleMapSingle} footer={null} onCancel={handleCancel} style={{borderRadius: '20px', padding: '0px !important'}} width={1200} closable={false} bodyStyle={{padding: '0'}}>
             {  latLng ? <Maps lat={latLng.lat} long={latLng.lng} mapType={mapType} setMapType={setMapType}/> : <Spin size='large'/> }

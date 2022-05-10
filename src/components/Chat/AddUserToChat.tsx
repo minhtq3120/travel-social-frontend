@@ -31,7 +31,7 @@ import { searchAllUser } from 'src/services/search-service';
 
 const cx = classNames.bind(styles);
 
-const Search = (props: any) => {
+const AddUserToChat = (props: any) => {
   const [form] = Form.useForm();
   const handleFetchMore = async () => {
     //await sleep();
@@ -156,8 +156,8 @@ const Search = (props: any) => {
         return (
             props?.userSelected?.length > 0 ?
         <div className={cx('send')}onClick={() => {
-            props.handleCreateChat(props.userSelected)
-            props.setIsModalVisiblNewChat(false)
+            props.setIsModalVisiblAddPeople(false)
+            props?.handleAddNewPeopleToChat(props?.userSelected)
             props.setUserSelected([])
             }} >
             <div className={cx('send-text')}>Next</div>
@@ -180,7 +180,7 @@ const Search = (props: any) => {
             >
             <Form.Item 
                 name="search"
-                label={`To: `}
+                label={`tìm kiếm người dùng: `}
                 className={cx(`input`)}
                 rules={[
                     ({ getFieldValue }) => ({
@@ -211,4 +211,4 @@ const Search = (props: any) => {
 
 };
 
-export default Search
+export default AddUserToChat

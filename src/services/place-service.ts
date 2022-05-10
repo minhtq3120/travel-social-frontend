@@ -64,9 +64,11 @@ export const getRecentsVisited = async (params) => {
         queryString = queryString.concat(queryPage);
     }
     if (params?.page) {
-        const time = _.get(params, 'time', null);
-        const condition = time ? '&' : '?'
-        const queryPage = `${condition}page=${params.page}`;
+        const queryPage = `&page=${params.page}`;
+        queryString = queryString.concat(queryPage);
+    }
+    if (params?.perPage) {
+        const queryPage = `&perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);
     }
 

@@ -35,12 +35,19 @@ import { getCurrUserProfile } from 'src/services/user-service';
 import { MessageList } from 'react-chat-elements'
 import ScrollToBottom,  { useScrollToBottom, useSticky , useAtTop} from 'react-scroll-to-bottom';
 import { css } from '@emotion/css';
-
+import {BsThreeDots,BsFillPersonPlusFill} from 'react-icons/bs'
+import {RiLogoutCircleRLine} from 'react-icons/ri'
+import { notificationError, notificationSuccess } from 'src/pages/Login/Login';
+import AddUserToChat from './AddUserToChat';
 
 const JOIN_ROOM ='joinRoom';
 const JOIN_ROOM_SUCCESS ='joinRoomSuccess'
 export const SEND_MESSAGE = 'sendMessage';
 export const RECEIVE_MESSAGE = 'receiveMessage'
+const LEAVE_CHAT_GROUP = 'leaveChatGroup';
+const LEAVE_CHAT_GROUP_SUCCESS = 'leaveChatGroupSuccess';
+const ADD_USERS_TO_CHAT_GROUP = 'addUsersToChatGroup';
+const ADD_USERS_TO_CHAT_GROUP_SUCCESS = 'addUsersToRoomSuccess';
 
 const cx = classNames.bind(styles);
 
@@ -76,6 +83,10 @@ const Chat = (props: any) => {
   const [isTyping, setIsTyping] = useState(false)
   const [isModalVisibleNewChat, setIsModalVisiblNewChat] = useState(false);
 
+  const [isModalVisibleAddPeople, setIsModalVisiblAddPeople] = useState(false);
+
+  const [isModalVisibleLeaveChat, setIsModalVisiblLeaveChat] = useState(false);
+
   const [userSelected, setUserSelected] = useState<any>([])
 
   const [chatDetail, setChatDetail] = useState<any>(null)
@@ -90,6 +101,7 @@ const Chat = (props: any) => {
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
   const chatNotSeen: any = useSelector((state: RootState) => state.wallet.chatNotSeen);
 
+  const [leaveChat, setLeaveChat] = useState<any>(null)
   const getCurrentUser = async() => {
     const user = await getCurrUserProfile()
   }
@@ -161,6 +173,8 @@ const Chat = (props: any) => {
 
   const handleCancel = () => {
         setIsModalVisiblNewChat(false)
+        setIsModalVisiblAddPeople(false)
+        setIsModalVisiblLeaveChat(false)
     };
 
     const handleFinish = async (values) => {
@@ -183,8 +197,39 @@ const Chat = (props: any) => {
     }
     const ListRecentsChat = () => {
      return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden', marginTop: '10px'}} >
+         {/* {
+           chatDetail && chatDetail?.createNew ? (
+             <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: chatDetail?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
+                  >
+                    <>
+                    <div className={cx('chat-info')} style={{display: 'flex',flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center'}}>
+                        {
+                          chatDetail?.avatar?.length === 1 ?  <div style={{width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Avatar style={{ border: '2px solid white'}} src={chatDetail?.avatar[0]} size={50} /></div> :
+                          chatDetail?.avatar?.length > 1 ? (
+                            <div style={{width: '70px',position: 'relative', height: '50px'}}>
+                               <Avatar src={chatDetail?.avatar[0]} size={50} style={{position: 'absolute', top: '0px', left: '-5px', border: '2px solid white'}}/>
+                              <Avatar src={chatDetail?.avatar[1]} size={50} style={{position: 'absolute', top: '-20px', right: '5px', border: '2px solid white'}}/>
+                              <Avatar src={chatDetail?.avatar[2]} size={50} style={{position: 'absolute', top: '15px', right: '0px', border: '2px solid white'}}/>
+                            </div>
+                          ): null
+                        }
+                        
+                       <div style={{height: '100%',display: 'flex',flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', alignContent: 'center'}}>
+                        <div className={cx('name')} style={{fontWeight: 'bold', fontSize: '16px', padding: '0px 10px', opacity: '0.8'}}>{chatDetail?.chatGroupName}</div>
+                        <div style={chatDetail?.seen ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
+                         {fontWeight: 'bold', color: '#68d1c8', fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis'}}>new chat</div>
+                        <div style={{ fontSize: '13px', padding: '0px 10px', opacity: '0.7'}}>{moment().format('YYYY-MM-DD HH-MM')}</div>
+                      </div>
+                    </div>
+                    </>
+                    {chatDetail?.seen ? null: <GoPrimitiveDot size={20} color='#68d1c8'style={{marginRight: '20px'}} />}
+                </div>
+           ) :null
+         } */}
+         
+
          {
-            data.map((item: any, index: any) => (
+            data?.map((item: any, index: any) => (
                  <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
                   onClick={() => {
@@ -249,7 +294,6 @@ const Chat = (props: any) => {
       const totalPages = _.get(result, 'data.meta.totalPages', 0);
       const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
       const currentPage = _.get(result, 'data.meta.currentPage', 0);
-
       setData(dataSource);
       setTotalItem(parseInt(totalItem));
       setTotalPage(parseInt(totalPages));
@@ -267,6 +311,20 @@ const Chat = (props: any) => {
 
 
   const handleCreateChat = async (payload) => {
+//     {
+//     "chatId": "627aa12839a0c0272895412a",
+//     "chatGroupId": "627aa12239a0c02728954117",
+//     "chatGroupName": "you and 4 more peoples",
+//     "image": [
+//         "http://loremflickr.com/640/480/people?12789",
+//         "http://loremflickr.com/640/480/people?37927",
+//         "http://loremflickr.com/640/480/people?62998"
+//     ],
+//     "isCurrentUserMessage": true,
+//     "message": "test",
+//     "createdAt": "2022-05-10T17:30:16.543Z",
+//     "seen": true
+// }
     try {
       let participants: string[] = []
       payload.map((user) => {
@@ -287,8 +345,21 @@ const Chat = (props: any) => {
       if(newChat) {
         setChatDetail({
           ...newChat,
-          avatar: newChat.image
+          avatar: newChat.image,
+          _id: newChat.chatGroupId,
+          chatGroupName: newChat.chatGroupName,
+          createNew: true
         })
+        setData([
+         {
+          ...newChat,
+          image: newChat.image,
+          _id: newChat.chatGroupId,
+          chatGroupName: newChat.chatGroupName,
+        },
+          ...data,
+      
+      ])
         setMessages([])
         socket.emit(JOIN_ROOM, {
           chatGroupId: newChat?.chatGroupId,
@@ -299,8 +370,44 @@ const Chat = (props: any) => {
       console.log(err)
     }
   }
+  const handleLeaveChat = async (chatGroupId: string) => {
+    try {
+      socket.emit(LEAVE_CHAT_GROUP, {
+        chatGroupId
+      })
+      setLeaveChat(chatGroupId)
+      setData(data?.filter((item) => item.chatGroupId !== chatGroupId))
+      setChatDetail(null)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
 
- 
+   const handleAddNewPeopleToChat = async (userId: string[]) => {
+    try {
+      let userIdArr: any = []
+      userId.forEach((item: any) => {
+        userIdArr.push(item?.userId)
+      })
+      if(chatDetail?.avatar?.length === 1) {
+        notificationError('Không thể thêm người vào nhóm chat cá nhân')
+        return
+      }
+      socket.emit(ADD_USERS_TO_CHAT_GROUP, {
+        chatGroupId: chatDetail?._id,
+        userIds: userIdArr
+      })
+      notificationSuccess('thành viên đã được thêm vào nhóm chat.')
+      // setLeaveChat(chatGroupId)
+      // setData(data?.filter((item) => item.chatGroupId !== chatGroupId))
+      // setChatDetail(null)
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
   const onScroll = async () => {
     if (scrollRef2.current) {
       const { scrollTop, scrollHeight, clientHeight } = scrollRef2.current;
@@ -381,13 +488,41 @@ const Chat = (props: any) => {
     width: '95%'
   });
 
+  const ConfirmLeaveChat = () => {
+    return (
+      <div style={{width: '100%', height: 'auto', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Button style={{
+             padding: '10px 35px',
+                    borderRadius: '30px',
+                    height: 'auto',
+                    margin: '10px 30px',
+                    backgroundColor: chatDetail?.avatar?.length === 1 ? 'grey' : '#68d1c8',
+                    color: 'white',
+                    borderColor: chatDetail?.avatar?.length === 1 ? 'grey' : '#68d1c8',
+                    fontSize: '16px',
+                    fontWeight: 'bold'
+          }}
+          disabled={chatDetail?.avatar?.length === 1}
+          onClick={() => {
+            handleLeaveChat(chatDetail?._id)
+            notificationSuccess('bạn đã rời khỏi nhóm chat.')
+            handleCancel()
+          }}
+          >
+            {chatDetail?.avatar?.length === 1 ? 'Không thể rời chat cá nhân' :'Rời khỏi nhóm chat'}
+          </Button>
+      </div>
+
+    )
+  }
 
 
   const ChatDetail = () => {
     return (
       chatDetail  ?
       <>
-      <div className={cx('chat-info')}>
+      <div className={cx('chat-info-container')}>
+        <div className={cx('chat-info')}>
               {
                 chatDetail?.avatar.length === 1 ?  <div style={{width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Avatar className={cx(`avatar`)} style={{ border: '2px solid white'}} src={chatDetail?.avatar[0]} size={50} /></div> :
                 chatDetail?.avatar.length > 1 ? (
@@ -401,6 +536,16 @@ const Chat = (props: any) => {
               {/* <Avatar src={chatDetail?.avatar[0]} className={cx(`avatar`)}/> */}
               <div className={cx('name')}>{chatDetail?.chatGroupName}</div>
           </div>
+          <div>
+            <BsFillPersonPlusFill style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
+               setIsModalVisiblAddPeople(true)
+            }} />
+            <RiLogoutCircleRLine style={{ fontSize: '25px', margin: '0 10px', marginRight: '25px', cursor: 'pointer'}} onClick={() => {
+              setIsModalVisiblLeaveChat(true)
+            }}/>
+          </div>
+      </div>
+
           <ChatInbox2 />
           <Form
               form={form}
@@ -468,8 +613,14 @@ const Chat = (props: any) => {
         </div>
       </div>
 
-      <Modal title={`New Message`} visible={isModalVisibleNewChat} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
+      <Modal title={`Tin nhắn mới`} visible={isModalVisibleNewChat} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
             <Search userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblNewChat={setIsModalVisiblNewChat} handleCreateChat={handleCreateChat}/>
+      </Modal>
+      <Modal title={`Thêm người vào nhóm chat`} visible={isModalVisibleAddPeople} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
+            <AddUserToChat userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblAddPeople={setIsModalVisiblAddPeople} handleAddNewPeopleToChat={handleAddNewPeopleToChat}/>
+      </Modal>
+      <Modal title={`Bạn có chắc muốn rời khỏi nhóm chat?`} visible={isModalVisibleLeaveChat} footer={null} onCancel={handleCancel} width={350} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
+            <ConfirmLeaveChat />
       </Modal>
     </div>
   )

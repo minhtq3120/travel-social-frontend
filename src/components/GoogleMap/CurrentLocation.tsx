@@ -76,6 +76,21 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
+let styleMarkerMap = {
+  position: "absolute",
+  cursor: "pointer",
+  padding: "10px 35px",
+  borderRadius: "30px",
+  height: "auto",
+  margin: "10px 30px",
+  backgroundColor: "#68d1c8",
+  color: "white",
+  borderColor: "#68d1c8",
+  fontSize: "16px",
+  fontWeight: 'bold',
+  zIndex: '9999'
+}
+
 const LocationPopup = (props: any) => {
     return (
         <div className={cx('recent-container')}>
@@ -228,7 +243,102 @@ const Maps = (props: any) => {
          ) : <Spin size='large'/>
     }
     {
-       props.locationVisited || props?.suggestVehicle ?  null  : (
+       props?.suggestVehicle ?  null  : props.locationVisited  ? (
+          <>
+          <Button className={cx('btn-next')} 
+            style={{
+                position: "absolute",
+                bottom: "300px",
+                right: "10px",
+                cursor: "pointer",
+                padding: "10px 35px",
+                borderRadius: "30px",
+                height: "auto",
+                margin: "10px 30px",
+                 backgroundColor: props?.time === 'all' ? "#68d1c8" : "white",
+                color: props?.time === 'all' ? "white" : "black",
+                borderColor: props?.time === 'all' ? "#68d1c8" : "white",
+                fontSize: "16px",
+                fontWeight: 'bold',
+                zIndex: '9999'
+              }}
+              onClick={() => {
+                props?.setTime('all')
+                }}>
+                  Tất cả
+            </Button>
+            <Button className={cx('btn-next')} 
+            style={{
+                position: "absolute",
+                bottom: "600px",
+                right: "10px",
+                cursor: "pointer",
+                padding: "10px 35px",
+                borderRadius: "30px",
+                height: "auto",
+                margin: "10px 30px",
+                backgroundColor: props?.time === 'week' ? "#68d1c8" : "white",
+                color: props?.time === 'week' ? "white" : "black",
+                borderColor: props?.time === 'week' ? "#68d1c8" : "white",
+                fontSize: "16px",
+                fontWeight: 'bold',
+                zIndex: '9999'
+              }}
+              onClick={() => {
+                    props?.setTime('week')
+
+                }}>
+                  Tuần 
+            </Button>
+            <Button className={cx('btn-next')} 
+            style={{
+                position: "absolute",
+                bottom: "500px",
+                right: "10px",
+                cursor: "pointer",
+                padding: "10px 35px",
+                borderRadius: "30px",
+                height: "auto",
+                margin: "10px 30px",
+                 backgroundColor: props?.time === 'month' ? "#68d1c8" : "white",
+                color: props?.time === 'month' ? "white" : "black",
+                borderColor: props?.time === 'month' ? "#68d1c8" : "white",
+                fontSize: "16px",
+                fontWeight: 'bold',
+                zIndex: '9999'
+              }}
+              onClick={() => {
+                props?.setTime('month')
+
+                }}>
+                  Tháng
+            </Button>
+            <Button className={cx('btn-next')} 
+            style={{
+                position: "absolute",
+                bottom: "400px",
+                right: "10px",
+                cursor: "pointer",
+                padding: "10px 35px",
+                borderRadius: "30px",
+                height: "auto",
+                margin: "10px 30px",
+                 backgroundColor: props?.time === 'year' ? "#68d1c8" : "white",
+                color: props?.time === 'year' ? "white" : "black",
+                borderColor: props?.time === 'year' ? "#68d1c8" : "white",
+                fontSize: "16px",
+                fontWeight: 'bold',
+                zIndex: '9999'
+              }}
+              onClick={() => {
+                props?.setTime('year')
+
+                }}>
+                  Năm
+            </Button>
+            
+          </>
+       )  : (
       <Button className={cx('btn-next')} 
             style={{
                 position: "absolute",
