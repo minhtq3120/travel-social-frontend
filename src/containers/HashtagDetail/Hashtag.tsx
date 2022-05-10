@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import classNames from 'classnames/bind';
 
 import styles from 'src/styles/Hashtag.module.scss';
@@ -36,27 +36,31 @@ const HashtagDetail = (props: any) => {
   const [trigger, setTrigger] = useState(false)
   const [viewMoreLoading, setViewMoreLoading] = useState(false);
   const [popular, setPopular] = useState<any>(null)
+  const [hashtagDetail, setHashtagDetail] = useState<any>(null)
+  const [loading, setLoading] = useState(false)
 
 const history = useHistory()
   const search = useLocation().search;
   const hashtagFromUrl=new URLSearchParams(search).get("hashtag");
 
-  const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch);
-  console.log(htag)
+  const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch)
+
+
   useBottomScrollListener(() => {
-    console.log('REACRT ENDNDNDN')
+    console.log('=======================================================REACRT ENDNDNDN')
     handleFetchMore()
 
   });
-  console.log(htag)
+
   const handleFetchMore = async () => {
     await sleep();
     setViewMoreLoading(true);
-    setCurentPage(currentPage + 1)
+   setCurentPage(currentPage + 1)
   }
 
-  const getNewfeed = async (hashtag: string, page?: number) => {
+  const getNewfeed = async (hashtag: string, page: number) => {
     try {
+      setLoading(true)
       const params = {
         page: page?.toString(),
         keyword: hashtag
@@ -70,30 +74,34 @@ const history = useHistory()
       const itemsPerPage = _.get(result, 'data.posts.meta.perPage', 0);
       const currentPage = _.get(result, 'data.posts.meta.currentPage', 0);
       const popular = _.get(result, 'data.popular', null);
+      const hsdt = _.get(result, 'data.hashtag' ,null)
       let temp = dataSrc.concat(dataSource)
-      setDataSrc(temp);
+       setDataSrc(temp);
       setTotalItem(parseInt(totalItem));
       setTotalPage(parseInt(totalPages));
       setItemsPerPage(parseInt(itemsPerPage));
       setCurentPage(parseInt(currentPage));
       setViewMoreLoading(false);
       setPopular(popular)
+      setHashtagDetail(hsdt)
+      setLoading(false)
     }
     catch (err) {
       setViewMoreLoading(false);
+      setLoading(false)
       return err
     }
   }
 
-  useEffect(() => {
+useEffect(() => {
     setDataSrc([])
     if(currentPage === 0) setTrigger(!trigger)
     else setCurentPage(0)
-  }, [htag]);
+  }, [hashtagFromUrl]);
 
 
   useEffect(() => {
-    if(htag) getNewfeed(htag?.hashtag,currentPage);
+    if(hashtagFromUrl) getNewfeed(hashtagFromUrl,currentPage);
   }, [currentPage, trigger]);
 
   return (
@@ -101,11 +109,16 @@ const history = useHistory()
       <div className={cx(`newFeed-container-child`)}>
        
         <div className={cx(`newFeed-middle`)}>
+          
           {
-            htag? (
+            loading && dataSrc?.length === 0 ? (
+              <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
+                <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
+              </div>  
+            ) : hashtagDetail && popular && !loading? (
               <div className={cx('hashtag-info')}>
                 <div className={cx('hashtag-name')}>
-                  {htag?.hashtag}
+                  {hashtagDetail}
                 </div>
                 {
                   popular ?  <div className={cx('hashtag-posts')}>

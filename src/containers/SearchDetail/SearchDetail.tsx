@@ -93,7 +93,7 @@ const history = useHistory()
   const search = useLocation().search;
 
 
-  const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch);
+  const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch) || localStorage.getItem('hashtagSearch');
   useBottomScrollListener(() => {
     console.log('REACRT ENDNDNDN')
     handleFetchMore()

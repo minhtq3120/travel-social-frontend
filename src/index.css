@@ -169,7 +169,7 @@ input:-webkit-autofill:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100% !important;
+  width: 100vw !important;
   /* border: 1px solid #68d1c8 !important; */
 }
 

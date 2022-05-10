@@ -113,6 +113,7 @@ export const walletSlice = createSlice({
       };
     },
     setHashtagSearch: (state, action) => {
+      localStorage.setItem('hashtagSearch', action.payload as string);
       return {
         ...state,
         hashtagSearch: action.payload

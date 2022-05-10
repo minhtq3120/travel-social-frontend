@@ -171,7 +171,7 @@ const SearchBar = (props: any) => {
                         data2.map((item: any, index: any) => (
                             <div className={cx('search-user-container')} key={index} onClick={() => {
                                 console.log(item)
-                                dispatch(setHashtagSearch(item))
+                                dispatch(setHashtagSearch(item?.hashtag))
                                 if(props?.keyword?.length > 0) dispatch(setSearchValue(props?.keyword))
                                  history.push(`/hashtagDetail?hashtag=%23${item?.hashtag?.slice(1, item?.hashtag?.length)}`)
                                 props.setKeyword('')
