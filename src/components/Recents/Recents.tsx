@@ -82,7 +82,6 @@ const Recents = (props: any) => {
     useEffect(() => {
         fetchRecents(currentPage, time)
     }, [currentPage, time])
-console.log('===========', data)
     useEffect(() => {
         let temp: any = []
         if(data?.length > 0 ) {

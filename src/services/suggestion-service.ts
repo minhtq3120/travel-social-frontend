@@ -1,5 +1,6 @@
 import axiosInstance from "src/config/config";
-
+const newKey = '17f51c9d15mshe836548037bc0dep1263ffjsn8554c6e30bf8'
+const oldKey = '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
 export const getSuggestion = async (payload?: any) => {
     let queryString = 'https://hotels4.p.rapidapi.com/locations/v2/search';
     // let queryString = 'https://travel-advisor.p.rapidapi.com/locations/search'
@@ -8,7 +9,7 @@ export const getSuggestion = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'hotels4.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -25,7 +26,7 @@ export const getSuggestionThingToDo = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -42,7 +43,7 @@ export const getSuggestionAttraction = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -59,7 +60,7 @@ export const getSuggestionActivities = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -78,7 +79,7 @@ export const getSuggestionHotels = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -95,7 +96,7 @@ export const getHotelDetailTravid = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -141,7 +142,7 @@ export const getAirport = async (lat: number, lon: number, payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {
@@ -159,7 +160,7 @@ export const getFlight = async (payload?: any) => {
             params: payload,
             headers: {
                 'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com',
-                'X-RapidAPI-Key': '288eff7fd2mshf08524ba81443cdp1e3fc7jsn22145c6bb9ea'
+                'X-RapidAPI-Key': newKey
             }
         })
         .catch(function (error) {

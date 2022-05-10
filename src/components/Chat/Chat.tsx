@@ -196,45 +196,21 @@ const Chat = (props: any) => {
         }
     }
     const ListRecentsChat = () => {
+      
      return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden', marginTop: '10px'}} >
-         {/* {
-           chatDetail && chatDetail?.createNew ? (
-             <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: chatDetail?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
-                  >
-                    <>
-                    <div className={cx('chat-info')} style={{display: 'flex',flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignContent: 'center'}}>
-                        {
-                          chatDetail?.avatar?.length === 1 ?  <div style={{width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}><Avatar style={{ border: '2px solid white'}} src={chatDetail?.avatar[0]} size={50} /></div> :
-                          chatDetail?.avatar?.length > 1 ? (
-                            <div style={{width: '70px',position: 'relative', height: '50px'}}>
-                               <Avatar src={chatDetail?.avatar[0]} size={50} style={{position: 'absolute', top: '0px', left: '-5px', border: '2px solid white'}}/>
-                              <Avatar src={chatDetail?.avatar[1]} size={50} style={{position: 'absolute', top: '-20px', right: '5px', border: '2px solid white'}}/>
-                              <Avatar src={chatDetail?.avatar[2]} size={50} style={{position: 'absolute', top: '15px', right: '0px', border: '2px solid white'}}/>
-                            </div>
-                          ): null
-                        }
-                        
-                       <div style={{height: '100%',display: 'flex',flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', alignContent: 'center'}}>
-                        <div className={cx('name')} style={{fontWeight: 'bold', fontSize: '16px', padding: '0px 10px', opacity: '0.8'}}>{chatDetail?.chatGroupName}</div>
-                        <div style={chatDetail?.seen ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
-                         {fontWeight: 'bold', color: '#68d1c8', fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis'}}>new chat</div>
-                        <div style={{ fontSize: '13px', padding: '0px 10px', opacity: '0.7'}}>{moment().format('YYYY-MM-DD HH-MM')}</div>
-                      </div>
-                    </div>
-                    </>
-                    {chatDetail?.seen ? null: <GoPrimitiveDot size={20} color='#68d1c8'style={{marginRight: '20px'}} />}
-                </div>
-           ) :null
-         } */}
-         
 
          {
-            data?.map((item: any, index: any) => (
-                 <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
+            data?.map((item: any, index: any) => {
+              const [seenFake, setSeenFake] = useState<any>(item?.seen)
+              console.log(index, '===',seenFake)
+              return (
+                 <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: seenFake ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
                   onClick={() => {
                     setMessages([])
                     setCurentPage2(0)
+                    setSeenFake(true)
+                    console.log('?come ere', seenFake)
                     setChatDetail({
                       avatar: item?.image,
                       _id: item.chatGroupId,
@@ -261,19 +237,20 @@ const Chat = (props: any) => {
                         
                        <div style={{height: '100%',display: 'flex',flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', alignContent: 'center'}}>
                         <div className={cx('name')} style={{fontWeight: 'bold', fontSize: '16px', padding: '0px 10px', opacity: '0.8'}}>{item?.chatGroupName}</div>
-                        <div style={item?.seen ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
+                        <div style={seenFake ? { fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis' } :
                          {fontWeight: 'bold', color: '#68d1c8', fontSize: '14px', padding: '0px 10px', opacity: '0.8', width:'200px', whiteSpace: 'nowrap',overflow: 'hidden', textOverflow: 'ellipsis'}}>{item?.message}</div>
                         <div style={{ fontSize: '13px', padding: '0px 10px', opacity: '0.7'}}>{moment(item?.createdAt).format('YYYY-MM-DD HH-MM')}</div>
                       </div>
                     </div>
-                    <div className={cx('chat')} style={item?.seen ? {} : {fontWeight: 'bold', color: '#68d1c8'}}>{item?.lastChat}</div>
+                    <div className={cx('chat')} style={seenFake ? {} : {fontWeight: 'bold', color: '#68d1c8'}}>{item?.lastChat}</div>
                     </>
-                    {item?.seen ? null: <GoPrimitiveDot size={20} color='#68d1c8'style={{marginRight: '20px'}} />}
+                    {seenFake ? null: <GoPrimitiveDot size={20} color='#68d1c8'style={{marginRight: '20px'}} />}
                 </div>
-            ))
+            )
+                      })
         }
         {
-        totalPage - 1 === currentPage || data?.length === 0 ? null : (
+        totalPage - 1 === currentPage || data?.length === 0 || (totalPage === 0 && currentPage === 0) ? null : (
             <div style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}>
                 <Spin size="large" style={{margin: '15px 0', padding: '5px 0'}}/>
             </div>  
@@ -343,6 +320,7 @@ const Chat = (props: any) => {
       const creatNewGroupChat = await createChatGroup(body)
       const newChat = _.get(creatNewGroupChat, 'data', null);
       if(newChat) {
+        setMessages([])
         setChatDetail({
           ...newChat,
           avatar: newChat.image,
