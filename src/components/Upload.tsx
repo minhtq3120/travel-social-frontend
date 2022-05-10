@@ -116,7 +116,7 @@ const UploadLogo = memo(
           />
         ) : (
 
-          <AiOutlinePlusCircle  size={100} style={{cursor: 'pointer'}}/>
+          <AiOutlinePlusCircle  size={50} style={{cursor: 'pointer', opacity: '0.7'}}/>
         //   <div
         //     style={{
         //       // display: 'flex',

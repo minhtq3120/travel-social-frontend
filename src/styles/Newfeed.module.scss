@@ -32,7 +32,7 @@
 
 
         .newFeed-middle {
-            width: 50%;
+            width: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -58,77 +58,91 @@
         .newFeed-right {
             width: 400px;
             // margin: 10px 0;
-            margin-top: 10px;
+            // margin-top: 90px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             align-content: center;
             justify-content: flex-start;
-            height: auto;
-            position: sticky;
-            top: 90px;
+            height: 100vh;
+            margin-left: 60px;
 
-            .filter-newfeed {
-                width: 95%;
+            // position: sticky;
+            .newFeed-right-child {
+                width: auto;
+                border-radius: 10px;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: column;
                 align-items: center;
                 align-content: center;
-                // border: 1px solid black;
-                margin-bottom: 15px;
+                justify-content: flex-start;
+                height: auto;
+                top: 100px;
+                // right: 150px;
+                position: fixed;
 
-
-                .filter-value-selected {
-                    padding: 10px 30px;
-                    width: auto;
+                .filter-newfeed {
+                    width: 95%;
                     display: flex;
                     flex-direction: row;
-                    justify-content: center;
+                    justify-content: space-between;
                     align-items: center;
                     align-content: center;
-                    background-color: #68d1c8;
-                    // width: 100%;
-                    border-radius: 25px;
-                    border: 1px solid #68d1c8;
-                    cursor: pointer;
+                    // border: 1px solid black;
+                    margin-bottom: 15px;
 
-                    .text {
-                        font-size: 16px;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        color: white;
+
+                    .filter-value-selected {
+                        padding: 10px 30px;
+                        width: auto;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        background-color: #68d1c8;
+                        // width: 100%;
+                        border-radius: 25px;
+                        border: 1px solid #68d1c8;
+                        cursor: pointer;
+
+                        .text {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin: 0 5px;
+                            color: white;
+                        }
+
+                        .icon {
+                            color: white
+                        }
                     }
 
-                    .icon {
-                        color: white
-                    }
-                }
+                    .filter-value {
+                        padding: 10px 30px;
+                        width: auto;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        background-color: white;
+                        // width: 100%;
+                        border-radius: 25px;
+                        border: 1px solid #68d1c8;
+                        cursor: pointer;
 
-                .filter-value {
-                    padding: 10px 30px;
-                    width: auto;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    align-content: center;
-                    background-color: white;
-                    // width: 100%;
-                    border-radius: 25px;
-                    border: 1px solid #68d1c8;
-                    cursor: pointer;
+                        .text {
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin: 0 5px;
+                            color: black;
+                        }
 
-                    .text {
-                        font-size: 16px;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        color: black;
-                    }
-
-                    .icon {
-                        color: black
+                        .icon {
+                            color: black
+                        }
                     }
                 }
             }

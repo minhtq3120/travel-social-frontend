@@ -134,6 +134,7 @@ const NewFeed = (props: any) => {
             )}
           </div>
         <div className={cx(`newFeed-right`)}>
+          <div className={cx(`newFeed-right-child`)}>
           <div className={cx('filter-newfeed')}>
               <div className={cx(`${filterValue === 'following' ? 'filter-value-selected' : 'filter-value'}`)} 
                 onClick={() => {
@@ -161,6 +162,7 @@ const NewFeed = (props: any) => {
           </div>
           <Weather />
         <Recents />
+        </div>
 
            {/* <GoogleMapCom
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&v=3.exp&libraries=geometry,drawing,places`}

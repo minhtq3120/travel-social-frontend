@@ -90,6 +90,10 @@ const StakingPage = (props: any) => {
   };
 
   useEffect(() => {
+    if(yourStakeData?.maxStake) form.setFieldsValue({maxStake: yourStakeData?.maxStake})
+  }, [yourStakeData])
+
+  useEffect(() => {
     getListPoolActive()
   }, []);
 
@@ -98,7 +102,8 @@ const StakingPage = (props: any) => {
     const handleFinish = async (values) => {
         try {
             let amountToWei = await web3.utils.toWei(String(values?.amount), 'ether')
-            const stake = await handleStake(0, web3.utils.toWei(String(3333), 'ether'), amountToWei , values?.signature)
+            let maxStakeToWei= await web3.utils.toWei(String(values?.maxStake), 'ether')
+            const stake = await handleStake(0, maxStakeToWei, amountToWei , values?.signature)
         }
         catch (err) {
             console.log(err)
@@ -340,7 +345,7 @@ const StakingPage = (props: any) => {
                             }
                             })
                         ]}
-                        initialValue={200000}
+                        // initialValue={200000}
                         >
                         <Input
                             type='number'
@@ -495,7 +500,7 @@ const StakingPage = (props: any) => {
                                 Điểm / Lượng stake của bạn
                             </div>
                             <div className={cx('value')}>
-                            {parseFloat(pool?.totalStaked).toFixed(0)} điểm
+                            {parseFloat(yourStakeData?.yourStaked).toFixed(0)} điểm
                             </div>
                         </div>
                         <div className={cx('pool-apr')}>

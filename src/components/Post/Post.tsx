@@ -77,7 +77,8 @@ const Post = (props: any) => {
             })
             socket.emit(SEND_NOTIFICATION, {
                 receiver: props.item.userId,
-                action: NotificationAction.Comment
+                action: NotificationAction.Comment,
+                postId: props?.item?.postId
             })
             const addCom = await commentToPost(addCommentToPost)
             console.log(addCom)

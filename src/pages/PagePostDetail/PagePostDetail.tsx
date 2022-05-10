@@ -336,12 +336,14 @@ const PagePostDetail = (props: any) => {
                 await replyToComment(addReplyComment)
                 socket.emit(SEND_NOTIFICATION, {
                 receiver: props?.info?.userId,
-                action: NotificationAction.ReplyComment
+                action: NotificationAction.ReplyComment,
+                postId: props?.postId
             })}
             else {
                 socket.emit(SEND_NOTIFICATION, {
                     receiver: props?.info?.userId,
-                    action: NotificationAction.Comment
+                    action: NotificationAction.Comment,
+                    postId: props?.postId
                 })
                 await commentToPost(addCommentToPost)
                 
