@@ -44,6 +44,7 @@ import { useWeb3React } from '@web3-react/core';
 import { loginWalletAddress, registerWalletAddress } from 'src/services/auth-service';
 import { ReactComponent as Wallet } from 'src/assets/Wallet.svg';
 import {MdOutlineTravelExplore} from 'react-icons/md'
+import { notificationError, notificationSuccess } from 'src/pages/Login/Login';
 
 const cx = classNames.bind(styles);
 const { Search } = Input;
@@ -150,6 +151,8 @@ const HeaderContainer = (props: any) => {
     const [trigger, setTrigger] = useState<any>(false)
     const [trigger2, setTrigger2] = useState<any>(false)
 
+    const [triggerWallet, setTriggerWallet] = useState<any>(false)
+
     const chatNotSeen: any = useSelector((state: RootState) => state.wallet.chatNotSeen);
   const notiNotSeen: any= useSelector((state: RootState) => state.wallet.notiNotSeen);
     useEffect(() => {
@@ -205,12 +208,19 @@ const HeaderContainer = (props: any) => {
 
   const handleSignUpWalletAddress = async (email: string, walletAddress: string) => {
       try {
+        console.log('?????????/')
         const credentials = {
           walletAddress,
          email
         };
-        const rsSignup = await registerWalletAddress(credentials);
+        const rsSignup: any = await registerWalletAddress(credentials);
         console.log(rsSignup)
+        if(rsSignup?.status === 400) {
+          notificationError('Tài khoản này đã được đăng ký địa chỉ ví')
+          return
+        }
+
+        notificationSuccess('Đăng ký địa chỉ ví thành công!')
       } catch (error) {
         console.log(error)
       }
@@ -227,21 +237,45 @@ const HeaderContainer = (props: any) => {
       };
       const rs= await loginWalletAddress(credentials);
       console.log(rs)
-      const data = _.get(rs, 'data', []);
-      console.log(data)
-      if(rs && data) {
-        localStorage.setItem('metamaskAccessToken', data?.accessToken)
-        dispatch(setAccountAddress(ac))
+      if(rs?.status === 500 && rs?.message === 'User is undefined') {
+        notificationError('bạn chưa đăng ký địa chỉ ví với tài khoản này')
+        return
       }
+      if(rs?.status === 201) {
+        notificationSuccess('đăng nhập ví thành công')
+        const data = _.get(rs, 'data', []);
+        console.log(data)
+        if(rs && data) {
+          localStorage.setItem('metamaskAccessToken', data?.accessToken)
+          dispatch(setAccountAddress(ac))
+        }
+      }
+      
     } catch (error) {
       console.log(error)
     }
   };
   const handleLoginMetamask = async () => {
-    if ((window as any)?.ethereum?.isMetaMask) {
-      await activate(injectedConnector, undefined, true);
+    try {
+      console.log('login')
+      if ((window as any)?.ethereum?.isMetaMask) {
+        await activate(injectedConnector, undefined, true);
+      }
+      setTriggerWallet(!triggerWallet)
     }
+    catch (err: any) {
+      console.log(err)
+      if(err && err?.code === -32002) notificationError('Mở tiện tích để tiếp tục process') 
+    }
+    
   };
+
+  useEffect(() => {
+    if(walletAccount && walletAccount?.length > 0) activate(injectedConnector, undefined, true);
+  }, [walletAccount, ac])
+
+  console.log(ac)
+  console.log(walletAccount)
 
   useEffect(() => {
 
@@ -258,7 +292,7 @@ const HeaderContainer = (props: any) => {
       // localStorage.removeItem('metamaskAccessToken')
       // setMetaType('')
     // }
-  },[ac])
+  },[triggerWallet])
 
 
   const menu = (
@@ -310,7 +344,7 @@ const HeaderContainer = (props: any) => {
           </div>
           <div style={{width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center'}}>
            {
-             !(walletAccount && walletAccount?.length > 0 )? (
+             !(walletAccount && walletAccount?.length > 0) || !ac? (
                <>
                <div style={{backgroundColor: 'white', padding: '10px 20px', marginTop: '20px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: '25px', cursor: 'pointer'}}
                 onClick={() => {
@@ -394,7 +428,7 @@ const HeaderContainer = (props: any) => {
                 setPopupConnectMetamask(true)
               }}>
                 <AiOutlineWallet size={20}/>
-                  <div style={{margin: '0 5px'}}>{walletAccount && walletAccount?.length > 0 ?  `${walletAccount?.slice(0, 6) + '...' + walletAccount?.slice(-4)}` : `Connect wallet` }</div>
+                  <div style={{margin: '0 5px'}}>{walletAccount && walletAccount?.length > 0 && ac?  `${walletAccount?.slice(0, 6) + '...' + walletAccount?.slice(-4)}` : `Connect wallet` }</div>
                 </Button>
               <MdOutlineTravelExplore 
               style={account === '5' ? iconClicked : iconNotClick}

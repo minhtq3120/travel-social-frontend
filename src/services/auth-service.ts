@@ -31,9 +31,7 @@ export const loginWalletAddress = async (payload: LoginParamsWalletAddress) => {
   return await axiosInstance
     .post('/user/auth/loginWalletAddress', payload)
     .catch(function (error) {
-      if (error.response) {
-        return error.response.status;
-      }
+      return error
     });
 };
 

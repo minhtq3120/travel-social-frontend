@@ -41,6 +41,8 @@ import { ProgressBar, Step } from "react-step-progress-bar";
  
 
 import BigNumber from 'bignumber.js';
+import { useWeb3React } from '@web3-react/core';
+import { notificationError, notificationSuccess } from '../Login/Login';
 const web3 = new Web3;
 
 const cx = classNames.bind(styles);
@@ -66,6 +68,7 @@ const StakingPage = (props: any) => {
 
     const walletAccount = useSelector((state: RootState) => state.wallet.account) || localStorage.getItem('account');
     const [signature, setSignature] = useState('')
+    const { account : ac, library, chainId , activate, deactivate} = useWeb3React();
 
     const [isModalVisibleStake, setisModalVisibleStake] = useState(false)
     const [allowance, setAllowance] = useState('')
@@ -88,6 +91,12 @@ const StakingPage = (props: any) => {
     }
     
   };
+
+  console.log('AC', ac, walletAccount)
+
+//   useEffect(() => {
+//     if(walletAccount && walletAccount?.length > 0) activate(injectedConnector, undefined, true);
+//   }, [walletAccount, ac])
 
   useEffect(() => {
     if(yourStakeData?.maxStake) form.setFieldsValue({maxStake: yourStakeData?.maxStake})
@@ -126,11 +135,12 @@ const StakingPage = (props: any) => {
 
     useEffect(() => {
         console.log("-------------------------------------")
-       if(walletAccount) {
+       if(walletAccount && ac) {
            checkAllowance(walletAccount)        
             getStakingData()
         }
-    }, [walletAccount])
+        else setYourStakeData(null)
+    }, [walletAccount, ac])
      useEffect(() => {
         if(allowance?.length > 0 && stakedValue?.length > 0){
             let compare = new BigNumber(String(allowance)).minus(web3.utils.toWei(String(stakedValue), 'ether'));
@@ -146,7 +156,7 @@ const StakingPage = (props: any) => {
 
     const getSignatureFromBE = async() => {
         try {
-            if(walletAccount) {
+            if(walletAccount && ac) {
                 const payload = {
                     poolId: 0,
                     walletAddress: walletAccount
@@ -165,7 +175,7 @@ const StakingPage = (props: any) => {
     
      const getStakingData = async() => {
         try {
-            if(walletAccount) {
+            if(walletAccount && ac) {
                 const payload = {
                     walletAddress: walletAccount
                 }
@@ -218,28 +228,13 @@ const StakingPage = (props: any) => {
             .then(async (res: any) => {
             const rs = await res.wait();
             console.log("=====", res, "------",rs)
-            notification.success({
-                message: 'stake success full',
-                duration: 7,
-                className: 'toast__message toast__message__success',
-                style: {
-                width: '450px'
-                },
-            });
+            notificationSuccess('stake thành công')
             });
         } catch (error: any) {
             if (error && (error?.code === 4001 || error?.message === 'User rejected the transaction')) {
-                notification.error({
-                message: 'You declined the action in your wallet',
-                duration: 7,
-                className: 'toast__message toast__message__error',
-                });
+                notificationError('Bạn đã từ chối giao dịch')
             } else {
-                notification.error({
-                message: 'Something went wrong',
-                duration: 7,
-                className: 'toast__message toast__message__error',
-                });
+                notificationError('Đã xảy ra lỗi')
             }
         }
     };
@@ -290,7 +285,7 @@ const StakingPage = (props: any) => {
                         <div className={cx('value')} style={{display: 'flex', flex: 'row', justifyContent:'center', alignItems: 'center'}}>
                                 <Coin
                                 style={{height: '30px', width: '30px', borderRadius: '50%', marginRight: '5px'}}
-                                />{parseFloat(yourStakeData?.yourStaked).toFixed(2)} MSN
+                                />{`${parseFloat(yourStakeData?.yourStaked).toFixed(2)} MSN` || `----`}
                             </div>
                     ): null}</div>
                 </div>
@@ -307,7 +302,7 @@ const StakingPage = (props: any) => {
                         <div className={cx('value')} style={{display: 'flex', flex: 'row', justifyContent:'center', alignItems: 'center'}}>
                                 <Coin
                                 style={{height: '30px', width: '30px', borderRadius: '50%', marginRight: '5px'}}
-                                />{parseFloat(yourStakeData?.minInvestment).toFixed(2)} MSN
+                                />{`${parseFloat(yourStakeData?.minInvestment).toFixed(2)} MSN` || `----`}
                             </div>
                     ) : null}</div>
                 </div>
@@ -500,7 +495,7 @@ const StakingPage = (props: any) => {
                                 Điểm / Lượng stake của bạn
                             </div>
                             <div className={cx('value')}>
-                            {parseFloat(yourStakeData?.yourStaked).toFixed(0)} điểm
+                            {yourStakeData?.yourStaked ? `${parseFloat(yourStakeData?.yourStaked).toFixed(0)} điểm` : `---`}
                             </div>
                         </div>
                         <div className={cx('pool-apr')}>
@@ -508,11 +503,11 @@ const StakingPage = (props: any) => {
                                 Thời gian đã stake
                             </div>
                             <div className={cx('value')}>
-                            {moment.duration(moment().startOf('day').diff(moment.unix(Number(yourStakeData?.joinTime)))).days()} Ngày
+                            {yourStakeData?.yourStaked ? `${moment.duration(moment().startOf('day').diff(moment.unix(Number(yourStakeData?.joinTime)))).days()} Ngày` :`---`}
                             </div>
                         </div>
                         {
-                        !walletAccount ?  (
+                        !walletAccount || !ac ?  (
                                 <Button className={cx('btn-stake')} onClick={() => {
                                     console.log('stake now')
                                     }}>
