@@ -131,7 +131,6 @@ const Weather = (props: any) => {
     const fetchWeather = async () => {
       //await sleep();
       if(!weatherPosition) {
-        console.log('com hjererh')
         setLoading(false)
         return
       }
@@ -151,9 +150,7 @@ const Weather = (props: any) => {
     }, [weatherPosition, loading]);
 
     const fetchWeather = async () => {
-      console.log('???????')
       navigator.geolocation.getCurrentPosition(function(position: any) {
-        console.log(position)
         dispatch(setWeatherPosition([position.coords.latitude, position.coords.longitude]))
       });
     }

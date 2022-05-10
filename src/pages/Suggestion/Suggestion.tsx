@@ -133,7 +133,6 @@ const Suggestion = (props: any) => {
   const setStartPosFromPlaceId = async (placeId: string) => {
     const placeDetail = await getPlacesDetail(placeId)
     const rs = _.get(placeDetail, 'data', null);
-    console.log(rs)
     setStartInfo({
       lat: rs?.coordinate?.latitude,
       lon: rs?.coordinate?.longitude
@@ -151,7 +150,6 @@ const Suggestion = (props: any) => {
       lang: 'vi_VN'
     });
     const rs = _.get(suggest, 'data', null);
-    console.log(rs)
   }
 
   const getPlacesSuggest = async (locationId: string, subcategory: string ) => {
@@ -236,7 +234,6 @@ const Suggestion = (props: any) => {
   //     // currency: 'VND'
   //   });
   //   const rs = _.get(suggest, 'data', null);
-  //   console.log(rs)
   //   setData(rs)
   // }
 
@@ -251,12 +248,6 @@ const Suggestion = (props: any) => {
     endDate: new Date(),
     key: 'selection',
   }])
-
-  // useEffect(() => {
-  //   set
-  // },[selectionRange])
-
-  console.log(selectionRange)
 
   const handleCancel = () => {
       setVisibleModalCityDetail(false)
@@ -284,7 +275,6 @@ const Suggestion = (props: any) => {
     };
 
   const SlideshowReward = (props) => {
-    console.log(props?.data)
         return (
          <div className={`slide-container ${cx('slider-container3')}`} >
           {/* <Slide
@@ -575,7 +565,6 @@ const Suggestion = (props: any) => {
                 </div>
               </div>
               <div className={cx('btn-next-container')} onClick={() => {
-                console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
                 <Button className={cx('btn-next')}>
@@ -618,13 +607,11 @@ const Suggestion = (props: any) => {
               </div>
               <div className={cx('btn-next-container')} >
                 <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
                 setCurrentStep(currentStep - 1)
               }}>
                   Quay lại
                 </Button>
                 <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
                   Tiếp theo
@@ -654,13 +641,11 @@ const Suggestion = (props: any) => {
               </div>
               <div className={cx('btn-next-container')} >
                 <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
                 setCurrentStep(currentStep - 1)
               }}>
                   Quay lại
                 </Button>
                 <Button className={cx('btn-next')} onClick={() => {
-                console.log(selectedTypeTravel)
                 setCurrentStep(currentStep + 1)
               }}>
                   Tiếp theo
@@ -680,7 +665,6 @@ const Suggestion = (props: any) => {
                         thingsToDo?.data?.filter((it) => it.result_type ==='geos')?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
-                            console.log(item)
                             setLocationId(item?.result_object?.location_id)
                             setTravelCity(item)
                             setVisibleModalCityDetail(true)
@@ -741,7 +725,6 @@ const Suggestion = (props: any) => {
                         dataSuggest?.data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
-                            console.log(item)
                             setTravelPlace(item)
                             setDestinationInfo({
                               lat: item?.latitude,
@@ -814,7 +797,6 @@ const Suggestion = (props: any) => {
                       bordered={false} 
                       suffixIcon={() => <GoLocation style={{ paddingRight: '10px', fontSize: '25px', cursor: 'pointer', zIndex: '988' }} />}
                       onSelect={(value: any) => {
-                          console.log(value)
                           setStartPosFromPlaceId(value)
                       }}
                         showArrow={false}

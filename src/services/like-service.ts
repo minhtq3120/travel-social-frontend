@@ -35,7 +35,6 @@ export const getLikeOfPots = async (params) => {
         const queryPage = `?page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

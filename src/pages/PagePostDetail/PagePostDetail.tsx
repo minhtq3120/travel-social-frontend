@@ -61,7 +61,6 @@ const ReplyNoOneSeeThis = (props) => {
                     {`----- Hide replies (${item?.replys}) -----`}
                 </div>  : <div className={cx('view-replys')} onClick={() => {
                     let temp = showReply
-                    console.log('?????')
                     temp.push(item?.commentId)
                     setShowReply(temp)
                     props?.setShowReply(temp)
@@ -107,8 +106,6 @@ const PagePostDetail = (props: any) => {
     const [postDetailInfo, setPostDetailInfo] = useState<any>(null)
 
     const history = useHistory()
-
-    console.log(postDetailInfo)
 
      const [liked, setLiked] = useState<boolean>(postDetailInfo?.liked || false)
     const [isModalVisibleLikes, setIsModalVisibleLikes] = useState(false);
@@ -190,14 +187,12 @@ const PagePostDetail = (props: any) => {
             }}> {`----- Hide replies (${item?.replys}) -----`}</div>
                  <Reply commentId={item?.commentId} form={form} setReplyCommentId={setReplyCommentId}/>
             </div>  : <div className={cx('view-replys')} onClick={() => {
-                console.log('?????')
                 setShowReply2([...showReply2, item?.commentId])
             }}>
                 {`----- View replies (${item?.replys}) -----`}
             </div> 
         )
     }
-    console.log(postDetailInfo)
     const handleLike = async (postId: string, userId: string) => {
         try {
             const like = await likePost(postId)
@@ -259,7 +254,6 @@ const PagePostDetail = (props: any) => {
                             <ListReplys item={item}/>
                         </div>  : <div className={cx('view-replys')} onClick={() => {
                             let temp = showReply
-                            console.log('?????')
                             temp.push(item?.commentId)
                             setShowReply(temp)
                         }}>
@@ -317,8 +311,6 @@ const PagePostDetail = (props: any) => {
     }
     const handleFinish = async (values) => {
         try {
-            console.log(values)
-            // props.setNumComments(props.numComments + 1)
             const addCommentToPost = {
                 postId: postId,
                 comment: values.comment
@@ -327,7 +319,6 @@ const PagePostDetail = (props: any) => {
                 commentId: replyCommentId,
                 comment: values.comment
             }
-            console.log(replyCommentId)
             addInterest({
                 postId: postId
             })
@@ -345,9 +336,7 @@ const PagePostDetail = (props: any) => {
 
             }
             else {
-
                 const addCom =  await commentToPost(addCommentToPost)
-                console.log(addCom)
                 const commentId = _.get(addCom, 'data._id', null);
                 if(commentId) {
                         socket.emit(SEND_NOTIFICATION, {
@@ -365,7 +354,6 @@ const PagePostDetail = (props: any) => {
             console.log(err)
         }
     }
-    console.log(props?.info)
 
     return (
         <>

@@ -77,7 +77,6 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const LocationPopup = (props: any) => {
-  console.log(props)
     return (
         <div className={cx('recent-container')}>
             <img src={props?.marker?.data?.lastestPost?.mediaFiles[0]?.url|| `https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/limestone-rock-phang-nga-1-Beautiful-limestone-rock-in-the-ocean.jpg`}
@@ -102,13 +101,11 @@ const Maps = (props: any) => {
 
   useEffect(() => {
     setCurrentPosition(currentPos)
-    console.log(currentPos)
   }, [currentPos])
 
   const [map, setMap] = useState(null);
 
   const positionInit: any = [props.lat, props.long]
-  console.log(positionInit, '=====', currentPosition)
 
   const [position, setPosition] = useState<any>(positionInit)
   const [markers, setMarkers] = useState<any>([position])
@@ -160,13 +157,10 @@ const Maps = (props: any) => {
     // })
 
     // console.log('position ', position)
-    console.log('markers',  markers)
 
     return (
       markers?.length > 0 &&
           markers?.map((marker,index) => {
-            console.log(marker)
-            console.log(marker)
             return <Marker 
             draggable={false}
             key={index}
@@ -190,7 +184,6 @@ const Maps = (props: any) => {
 
   return null;
 }
-  console.log(props?.mapType)
   return (
     <div style={{width: props?.mapWidth ? props.mapWidth : '1200px', height: props?.mapHeight ? props.mapHeight : '700px', position: 'relative'}}>
       {

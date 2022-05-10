@@ -58,8 +58,6 @@ const Slideshow2 = ({fileList, imageBase64Arr}: any) => {
             >
                     {
                     fileList?.map((item: any, index: any) => {
-                      // console.log('fileList', fileList) 
-                      // console.log('imageBase64', imageBase64Arr )
                         return (
                            <div className={cx('recent-container')} key={index}>
                                 {FILE_TYPE_VIDEO.includes(item.type) ? 
@@ -145,7 +143,6 @@ const CreateNewPost = memo(
     const [zoom, setZoom] = useState(1);
     const [cropImg, setCropImg] = useState<any>(null)
     const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-      console.log(croppedArea, croppedAreaPixels);
     }, []);
     const [sizeImage1, setSizeImage1] = useState(false);
     const [sizeImage2, setSizeImage2] = useState(false);
@@ -224,7 +221,6 @@ const CreateNewPost = memo(
         formData.append('description', values.description);
         formData.append('placeId', placeId)
         const create = await createPost(formData);
-        console.log(create);
         if(create?.status === 201) {
           notificationSuccess('bài viết đã được tạo thành công')
           props.setOpenCreatePost(false)
@@ -417,7 +413,6 @@ const CreateNewPost = memo(
             rules={[
               ({ getFieldValue }) => ({
                 validator(_, value: string) {
-                  console.log(value)
                   if (!value) {
                     return Promise.reject(
                       new Error('Please select location')

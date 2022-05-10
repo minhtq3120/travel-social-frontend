@@ -66,7 +66,6 @@ const Post = (props: any) => {
 
     const handleFinish = async (values) => {
         try {
-            console.log(values)
             setNumComments(numComments + 1)
             const addCommentToPost = {
                 postId: props?.item?.postId,
@@ -76,9 +75,7 @@ const Post = (props: any) => {
                 postId: props?.item?.postId
             })
             const addCom = await commentToPost(addCommentToPost)
-            console.log(addCom)
             const commentId = _.get(addCom, 'data._id', null);
-            console.log(commentId)
             if(commentId) {
                 socket.emit(SEND_NOTIFICATION, {
                     receiver: props.item.userId,
@@ -259,7 +256,6 @@ const Post = (props: any) => {
                         <FaTemperatureHigh size={40} className={cx(`localtion-icon-temp`)} 
                             onClick={() => {
                                 if(props?.item?.place) {
-                                    console.log("???", props?.item?.place)
                                     dispatch(setWeatherData(null))
                                     dispatch(setWeatherPosition([props.item.place?.coordinate?.latitude,props.item.place?.coordinate?.longitude]))
                                 }
@@ -349,7 +345,7 @@ const Post = (props: any) => {
                 less="Hiển thị bớt"
                 className="content-css"
                 anchorClass="my-anchor-css-class"
-                onClick={() => {console.log('hehe')}}
+                onClick={() => {}}
                 expanded={false}
                 width={750}
                 truncatedEndingComponent={"... "}
@@ -359,7 +355,6 @@ const Post = (props: any) => {
                             <ReactHashtag
                                 renderHashtag={(hashtagValue) => (
                                     <span className={cx(`hashtag`)} onClick={()=> {
-                                        console.log(hashtagValue)
                                         dispatch(setHashtagSearch({hashtag: hashtagValue}))
                                          history.push(`/hashtagDetail?hashtag=%23${hashtagValue.slice(1, hashtagValue?.length)}`)
                                     }}><Tag color="#68d1c8">{hashtagValue}</Tag></span>

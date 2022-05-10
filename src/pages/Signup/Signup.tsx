@@ -36,7 +36,6 @@ const Signup = (props: any) => {
       }
 
       const result: any = await register(payload)
-      console.log('register', result)
       if(result?.status === 409) {
         notificationError(result?.message)
         setLoadingSignIn(false)

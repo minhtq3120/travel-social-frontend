@@ -125,7 +125,6 @@ const LayoutComponent = (props: any) => {
 
   const notiNotSeen: any = useSelector((state: RootState) => state.wallet.notiNotSeen);
   socket?.on(RECEIVE_NOTIFICATION, (data) => {
-    console.log('+++++++++++++++++++++++++++++=', data)
     setDataNoti(data)
     dispatch(setSocket(null))
     dispatch(setNotifications(null))

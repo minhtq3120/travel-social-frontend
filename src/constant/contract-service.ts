@@ -40,10 +40,7 @@ export const injectedConnector = new InjectedConnector({ supportedChainIds: [4] 
 
 export const signMessage = async (msg: any, library: any, walletAdddress: string) => {
   if (!library || !msg) throw new Error('invalid params');
-  console.log({
-    msg,
-    library
-  })
+
   const provider: any = await getProvider();
   const signature = await provider.send('personal_sign', [
     ethers.utils.hexlify(ethers.utils.toUtf8Bytes(msg)),

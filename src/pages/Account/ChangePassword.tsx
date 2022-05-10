@@ -46,7 +46,6 @@ const ChangePassword = (props: any) => {
             newPassword: values.newPassword
         }
         const changePass = await changePassword(payload)
-        console.log(changePass)
         if(changePass?.status === 200) {
             notificationSuccess("Thay đổi mật khẩu thành công")
             form.resetFields()
@@ -56,7 +55,6 @@ const ChangePassword = (props: any) => {
         return
     } 
     catch (err) {
-
      console.log(err)
     }
   };

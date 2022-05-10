@@ -61,7 +61,6 @@ const Chat = (props: any) => {
     setCurentPage2(currentPage2 + 1)
   }
   const scrollRef2: any = useBottomScrollListener(() => {
-    console.log('HELLLO')
      totalPage2 - 1 === currentPage2 || messages?.length === 0 ? null : handleFetchMore2()
   });
 
@@ -93,13 +92,11 @@ const Chat = (props: any) => {
 
   const getCurrentUser = async() => {
     const user = await getCurrUserProfile()
-    console.log(user)
   }
 
   useEffect(() => {
     socket?.on(RECEIVE_MESSAGE, (data) => {
       
-      console.log('?????????????//')
     if(data?.isCurrentUserMessage === false) {
       setTrigger({
         id:  data?.userId,
@@ -113,7 +110,6 @@ const Chat = (props: any) => {
     // getCurrentUser()
   }, [socket])
   useEffect(() => {
-    console.log("TRIGGER ACTIVE")
     if(trigger && messages){
       let temp = [trigger].concat(messages)
       setMessages(temp)
@@ -150,7 +146,6 @@ const Chat = (props: any) => {
       let temp: any = []
       if(!messages) temp = mapMess
       else temp = messages.concat(mapMess)
-      console.log(temp)
       setMessages(temp);
       dispatch(setOldChat(temp))
       setTotalItem2(parseInt(totalItem));
@@ -186,7 +181,6 @@ const Chat = (props: any) => {
             console.log(err)
         }
     }
-    // console.log('====', messages , '===', currentPage2, '===', totalPage2)
     const ListRecentsChat = () => {
      return <div  ref={scrollRef } style={{width: '100%',height: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden', marginTop: '10px'}} >
          {
@@ -194,7 +188,6 @@ const Chat = (props: any) => {
                  <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: item?.seen ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
                   onClick={() => {
-                    console.log(item)
                     setMessages([])
                     setCurentPage2(0)
                     setChatDetail({
@@ -291,9 +284,7 @@ const Chat = (props: any) => {
       let body = payload?.length === 1 ? bodyPrivateTrue : bodyPrivateFalse
       const creatNewGroupChat = await createChatGroup(body)
       const newChat = _.get(creatNewGroupChat, 'data', null);
-      console.log('what the fuck', creatNewGroupChat, newChat)
       if(newChat) {
-        console.log('come here')
         setChatDetail({
           ...newChat,
           avatar: newChat.image
@@ -312,9 +303,7 @@ const Chat = (props: any) => {
  
   const onScroll = async () => {
     if (scrollRef2.current) {
-      console.log(scrollRef2)
       const { scrollTop, scrollHeight, clientHeight } = scrollRef2.current;
-      console.log('======', scrollTop, '========', scrollHeight, "========", clientHeight)
       if ((-(clientHeight - scrollHeight) + scrollTop < 10) && !( totalPage2 - 1 === currentPage2 || messages?.length === 0  || (totalPage2 === 0 && currentPage2 === 0))) {
         // TO SOMETHING HERE
         //await sleep()
@@ -341,7 +330,6 @@ const Chat = (props: any) => {
          
           {
             messages.map((mess, index) => {
-              console.log(mess)
               return (
                 <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
                   <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>

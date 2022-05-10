@@ -64,7 +64,6 @@ const EditProfile = (props: any) => {
             }
         }
         const update = await updateInfo(payload)
-        console.log(update)
         if(update?.status === 200) {
             notificationSuccess("Thay đổi thông tin cá nhân thành công")
             // form.resetFields()

@@ -38,7 +38,6 @@ const ResetPassword = (props: any) => {
         email: values.email,
       }
       const result: any = await resetLink(payload.email)
-      console.log(result)
       if(result?.statusCode === 400){
         notificationError(result?.message)
         setLoadingSignIn(false)

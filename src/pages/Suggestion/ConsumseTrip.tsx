@@ -93,7 +93,6 @@ const ConsumseTrip = (props: any) => {
         flightDetail: flightDetail? flightDetail : {},
         hotelSelect
      })
-     console.log(save)
 
      if(save?.status === 201) {
           notificationSuccess('Lưu đề xuất thành công')
@@ -102,7 +101,6 @@ const ConsumseTrip = (props: any) => {
         }
       notificationError('đã xảy ra lỗi khi lưu đề xuất.')
     }
-    console.log(vehicleChoose)
 // console.log( destinationInfo,
 //             startInfo,
 //             startDate,
@@ -188,7 +186,6 @@ const ConsumseTrip = (props: any) => {
 
 
   const SlideshowReward2 = (props) => {
-    console.log(props?.data)
         return (
          <div className={`slide-container ${cx('slider-container3')}`} >
           {/* <Slide

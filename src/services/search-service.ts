@@ -19,7 +19,6 @@ export const searchAllUser = async (params) => {
         queryString = queryString.concat(queryPage);
     }
 
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

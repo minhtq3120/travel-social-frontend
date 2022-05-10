@@ -7,7 +7,7 @@ export const getDiscovery = async (params) => {
         const queryPage = `?page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -21,7 +21,6 @@ export const getDiscovery = async (params) => {
 
 export const getDiscoveryDetail = async (params) => {
     let queryString = `/places/discovery-detail`;
-    console.log('=============', params)
     if (params?.placeId) {
         const queryPage = `/${params.placeId}`;
         queryString = queryString.concat(queryPage);
@@ -32,7 +31,7 @@ export const getDiscoveryDetail = async (params) => {
         const queryPage = `&perPage=${params?.perPage}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -48,7 +47,7 @@ export const getPlacesDetail = async (placeId: string) => {
         const queryPage = `/${placeId}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -70,7 +69,7 @@ export const getRecentsVisited = async (params) => {
         const queryPage = `${condition}page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -86,7 +85,7 @@ export const getPlaces = async (params) => {
         const queryInput = `?input=${params.input}`;
         queryString = queryString.concat(queryInput);
     }
-    console.log(queryString)
+
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -99,7 +98,7 @@ export const getPlaces = async (params) => {
 export const getSuggestionVehicle = async (payload) => {
     let queryString = `places/suggest/vehicle`;
 
-    console.log(queryString)
+
     return await axiosInstance
         .post(queryString, payload)
         .catch(function (error) {

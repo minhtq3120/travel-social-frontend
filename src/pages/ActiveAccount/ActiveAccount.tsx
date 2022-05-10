@@ -39,21 +39,14 @@ const ActiveAccount = (props: any) => {
         email: values.email,
         activationCode: values.activationCode
       }
-      console.log('????/')
-
-      // const result = await register(payload)
       const sendActiveCode:any = await activate(payload)
-      console.log(sendActiveCode)
       if(sendActiveCode?.status === 400){
         notificationError(sendActiveCode?.message)
       setLoadingSignIn(false)
         return
       }
-
       notificationSuccess('kích hoạt tài khoản thành công')
-      
       setLoadingSignIn(false)
-          
       history.push('/login')      
       return;
     } 

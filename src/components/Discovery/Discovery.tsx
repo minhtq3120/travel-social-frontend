@@ -82,7 +82,6 @@ const Discovery = (props: any) => {
 
     const [mapType, setMapType] = useState<any>('')
 
-    console.log((window.pageYOffset))
     const handleCancel = () => {
         setIsModalVisibleMap(false)
         setIsModalVisibleMap2(false)
@@ -162,7 +161,6 @@ const Discovery = (props: any) => {
     }, [data])
 
     useBottomScrollListener(() => {
-        console.log('REACRT ENDNDNDN')
         // handleFetchMore()
 
     });
@@ -218,7 +216,6 @@ const Discovery = (props: any) => {
                                         />
                                 }
                                 <div className={cx('location-pos-name')} onClick={() => {
-                                    console.log('????')
                                     setLatLng({
                                         lat: item?.coordinate?.latitude,
                                         lng: item?.coordinate?.longitude
@@ -282,10 +279,8 @@ const Discovery = (props: any) => {
                     rowHeight={300}
                     margin={10}
                     // onClickThumbnail={(e) => {
-                    //     console.log('asdfjkladsfkl', e?.postId)
                     // }}
                     // onClickImage={(e) => {
-                    //     console.log('asdfjkladsfkl', e)
                         
                     // }}
                     onSelectImage={(e) => {

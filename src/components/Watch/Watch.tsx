@@ -42,7 +42,6 @@ const Watch = (props: any) => {
 
   const handleFetchMore = async () => {
     await sleep();
-    console.log('===============what the fuck')
     totalPage - 1 === currentPage || data?.length === 0 ? null : setCurentPage(currentPage + 1)
   }
 
@@ -52,7 +51,6 @@ const Watch = (props: any) => {
         page: page,
         // perPage: 9
     }
-    console.log(params)
       const result = await getWatchs(params)
       if(result) {
         const dataSource = _.get(result, 'data.items', []);
@@ -75,7 +73,6 @@ const Watch = (props: any) => {
 
 
   useEffect(() => {
-    console.log(currentPage)
     appendData(Number(currentPage));
   }, [currentPage]);
 

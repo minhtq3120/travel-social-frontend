@@ -43,7 +43,6 @@ const NotificationList = (props: any) => {
   const noti: any = useSelector((state: RootState) => state.wallet.notification);
 
   const appendData =  async (page?: number) => {
-    console.log('????')
      
     let params = {}
       params = {
@@ -90,7 +89,6 @@ const NotificationList = (props: any) => {
          notificationId: notificationId
       })
       const result = _.get(dataNoti, 'data', []);
-      console.log(result)
 
       if(result?.action === 'follow') {
         history.push(`profile?userId=${userId}`)

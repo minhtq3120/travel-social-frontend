@@ -123,14 +123,12 @@ const FlightSelect = (props: any) => {
   }, [props?.startDate?.length>0])
 
   useEffect(() => {
-    console.log('start------------', props?.startDate , props?.endDate)
     if(props?.endDate) {
       setFlightForm({...flightForm,  date_departure_return: props?.endDate})
     }
   }, [props?.endDate])
 
   useEffect(() => {
-    console.log('get flight comer here', flightForm)
     if(airportFrom&& airportTo&& props?.startDate && props?.endDate  ) getFLightEJ(airportFrom, airportTo, props?.startDate ,props?.endDate )
   }, [airportFrom, airportTo , flightForm?.startDate , flightForm?.endDate  ])
 
@@ -145,17 +143,12 @@ const FlightSelect = (props: any) => {
       setFlightForm({...flightForm, location_arrival: rs?.items[0]?.iata})
       setAirportTo(rs)
     }
-    console.log("++++++++++++++++++++++++++",rs)
-
-
     // if(type==='from') setAirportFrom(flightFrom)
     // if(type==='to') setAirportTo(flightTo)
   }
 
-  console.log(flightForm)
 
   const getFLightEJ = async (airportFrom, airportTo ,startDate, endDate ) => {
-    console.log("why-------=======",airportFrom, airportTo ,startDate, endDate )
     setFlightForm({
       ...flightForm,
       date_departure: startDate, 
@@ -173,15 +166,9 @@ const FlightSelect = (props: any) => {
        location_arrival: airportTo?.items[0]?.iata,
        location_departure: airportFrom?.items[0]?.iata
     }
-    console.log("why-------======",flightForm)
-
-    console.log('CLGT', payload)
     if(payload) {
-      console.log('comer here')
       const suggest = await getFlight(payload)
-      console.log(suggest)
       const rs = _.get(suggest, 'data', null);
-      console.log(rs)
       setAirline(rs?.airline)
       setData(rs)
     }

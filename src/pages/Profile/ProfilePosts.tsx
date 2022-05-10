@@ -46,9 +46,7 @@ const ProfilePosts = (props: any) => {
   
 
   useBottomScrollListener(() => {
-    console.log('REACRT ENDNDNDN')
      totalPage - 1 === currentPage || dataSrc?.length === 0 ? null :handleFetchMore()
-
   });
 
   const handleFetchMore = async () => {

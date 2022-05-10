@@ -12,7 +12,6 @@ export const getWatchs = async (params) => {
         const queryPage = `&perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

@@ -95,9 +95,7 @@ const history = useHistory()
 
   const htag: any = useSelector((state: RootState) => state.wallet.hashtagSearch) || localStorage.getItem('hashtagSearch');
   useBottomScrollListener(() => {
-    console.log('REACRT ENDNDNDN')
     handleFetchMore()
-
   });
 
   const searchValue: any =  useSelector((state: RootState) => state.wallet.searchValue)||  localStorage.getItem('searchValue');
@@ -131,7 +129,6 @@ const history = useHistory()
         filter: searchFilter,
         keyword: searchValue
       }
-      console.log('KLFSDLKDLDSFLLKJDF')
       const result = await searchEverythingAll(
         params
       )
@@ -173,14 +170,12 @@ const history = useHistory()
   }
 
   useEffect(() => {
-    console.log("COME HERE")
     setDataSrc([])
     if(currentPage === 0) setTrigger(!trigger)
     else setCurentPage(0)
   }, [searchFilter, searchValue,  triggerSearch]);
 
   useEffect(() => {
-    console.log('+++++++++++++', searchFilter, searchValue, currentPage)
     if(searchFilter && searchValue) getNewfeed(currentPage);
   }, [currentPage, trigger]);
   return (

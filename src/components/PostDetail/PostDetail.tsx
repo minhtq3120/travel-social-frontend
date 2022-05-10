@@ -147,7 +147,6 @@ const PostDetail = (props: any) => {
             }}> {`----- Hide replies (${item?.replys}) -----`}</div>
                  <Reply commentId={item?.commentId} form={form} setReplyCommentId={setReplyCommentId}/>
             </div>  : <div className={cx('view-replys')} onClick={() => {
-                console.log('?????')
                 setShowReply2([...showReply2, item?.commentId])
             }}>
                 {`----- View replies (${item?.replys}) -----`}
@@ -220,7 +219,6 @@ const PostDetail = (props: any) => {
     }
     const handleFinish = async (values) => {
         try {
-            console.log(values)
             if(props?.setNumberComment)props.setNumComments(props.numComments + 1)
             const addCommentToPost = {
                 postId: props.postId,
@@ -230,11 +228,9 @@ const PostDetail = (props: any) => {
                 commentId: replyCommentId,
                 comment: values.comment
             }
-            console.log(replyCommentId)
             addInterest({
                 postId: props?.postId
             })
-            
             if(replyCommentId) {
                 const addCom = await replyToComment(addReplyComment)
                 const commentId = _.get(addCom, 'data._id', null);
@@ -249,9 +245,7 @@ const PostDetail = (props: any) => {
 
             }
             else {
-
                 const addCom =  await commentToPost(addCommentToPost)
-                console.log(addCom)
                 const commentId = _.get(addCom, 'data._id', null);
                 if(commentId) {
                         socket.emit(SEND_NOTIFICATION, {

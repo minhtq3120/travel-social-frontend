@@ -27,7 +27,6 @@ export const register = async (payload: RegisterParams) => {
 };
 
 export const loginWalletAddress = async (payload: LoginParamsWalletAddress) => {
-  console.log(payload)
   return await axiosInstance
     .post('/user/auth/loginWalletAddress', payload)
     .catch(function (error) {

@@ -134,10 +134,7 @@ const HeaderContainer = (props: any) => {
     dataNoti.forEach((it) => {
       if(!it?.seen) tempCountNoti+=1
      })
-     console.log({
-       tempCountChat,
-       tempCountNoti
-     })
+
      dispatch(setChatNotSeen(tempCountChat))
      dispatch(setNotiNotSeen(tempCountNoti))
   }
@@ -157,9 +154,7 @@ const HeaderContainer = (props: any) => {
   const notiNotSeen: any= useSelector((state: RootState) => state.wallet.notiNotSeen);
     useEffect(() => {
     socket?.on(RECEIVE_MESSAGE, (data) => {
-      console.log('?????????????//, CHAT')
       if(data?.isCurrentUserMessage === false) {
-        console.log("WORKKKKKKKKKKKKKKKKKKKk")
         setTrigger(data?.createdAt)
       }
     })
@@ -167,31 +162,20 @@ const HeaderContainer = (props: any) => {
 
   useEffect(() => {
     socket?.on(RECEIVE_NOTIFICATION, (data) => {
-      console.log('?????????????//, NOTIFICATIOn',data )
-      // if(data?.isCurrentUserMessage === false) {
-      //   console.log("WORKKKKKKKKKKKKKKKKKKKk")
-      //   setTrigger(data?.createdAt)
-      // }
       setTrigger2(data?.createdAt)
     })
   }, [socket])
 
   useEffect(() => {
-      console.log('COMER+HEERRELKREKLJER', chatNotSeen)
       dispatch(setChatNotSeen(chatNotSeen + 1))
-      console.log('AFTER DISPATCH', chatNotSeen)
   }, [trigger])
 
    useEffect(() => {
-      console.log('COMER+HEERRELKREKLJER',  notiNotSeen)
       dispatch(setNotiNotSeen(notiNotSeen + 1))
-      console.log('AFTER DISPATCH NOTI', notiNotSeen)
   }, [trigger2])
 
   useEffect(() => {
     if(chatNotSeen)setChatNotSeenCount(chatNotSeen)
-    console.log('bruh', chatNotSeen, '====', chatNotSeenCount)
-
   }, [chatNotSeen])
   
   useEffect(() => {
@@ -208,13 +192,11 @@ const HeaderContainer = (props: any) => {
 
   const handleSignUpWalletAddress = async (email: string, walletAddress: string) => {
       try {
-        console.log('?????????/')
         const credentials = {
           walletAddress,
          email
         };
         const rsSignup: any = await registerWalletAddress(credentials);
-        console.log(rsSignup)
         if(rsSignup?.status === 400) {
           notificationError('Tài khoản này đã được đăng ký địa chỉ ví')
           return
@@ -236,7 +218,6 @@ const HeaderContainer = (props: any) => {
         signature,
       };
       const rs= await loginWalletAddress(credentials);
-      console.log(rs)
       if(rs?.status === 500 && rs?.message === 'User is undefined') {
         notificationError('bạn chưa đăng ký địa chỉ ví với tài khoản này')
         return
@@ -244,7 +225,6 @@ const HeaderContainer = (props: any) => {
       if(rs?.status === 201) {
         notificationSuccess('đăng nhập ví thành công')
         const data = _.get(rs, 'data', []);
-        console.log(data)
         if(rs && data) {
           localStorage.setItem('metamaskAccessToken', data?.accessToken)
           dispatch(setAccountAddress(ac))
@@ -257,14 +237,12 @@ const HeaderContainer = (props: any) => {
   };
   const handleLoginMetamask = async () => {
     try {
-      console.log('login')
       if ((window as any)?.ethereum?.isMetaMask) {
         await activate(injectedConnector, undefined, true);
       }
       setTriggerWallet(!triggerWallet)
     }
     catch (err: any) {
-      console.log(err)
       if(err && err?.code === -32002) notificationError('Mở tiện tích để tiếp tục process') 
     }
     
@@ -273,9 +251,6 @@ const HeaderContainer = (props: any) => {
   useEffect(() => {
     if(walletAccount && walletAccount?.length > 0) activate(injectedConnector, undefined, true);
   }, [walletAccount, ac])
-
-  console.log(ac)
-  console.log(walletAccount)
 
   useEffect(() => {
 
@@ -409,7 +384,6 @@ const HeaderContainer = (props: any) => {
         <div className={cx(`header-search`)}>
           <RenderSearch onChange={onSearch} placeholder={'Search..'} handlePressEnterSearch={
             () => {
-              console.log("???", keyword)
               if(keyword?.length > 0) dispatch(setSearchValue(keyword))
               dispatch(setTriggerSearch(''))
               setKeyword('')

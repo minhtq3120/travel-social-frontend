@@ -83,7 +83,6 @@ const Search = (props: any) => {
     }
     
   };
-    // console.log('====', data , '===', currentPage, '===', totalPage, "__________________", totalPage - 1 === currentPage)
   
   useEffect(() => {
     if(keyword?.length > 0) appendData(keyword, currentPage);
@@ -93,13 +92,11 @@ const Search = (props: any) => {
 
     const handleFinish = async (values) => {
       try {
-        console.log(values)
         return;
       } catch (err) {
         return err;
       }
     };
-    console.log(props.userSelected)
     const ListSearchs = useCallback(() => {
      return (
         <div  ref={scrollRef } style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
@@ -158,7 +155,6 @@ const Search = (props: any) => {
         return (
             props?.userSelected?.length > 0 ?
         <div className={cx('send')}onClick={() => {
-            console.log(props.userSelected)
             props.handleCreateChat(props.userSelected)
             props.setIsModalVisiblNewChat(false)
             props.setUserSelected([])

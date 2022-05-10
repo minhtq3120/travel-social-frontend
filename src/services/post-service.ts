@@ -2,7 +2,6 @@ import axiosInstance from 'src/config/config';
 import _ from 'lodash';
 
 export const getNewFeedPost = async (params?: any) => {
-  console.log(params)
   let queryString = `/post/posts`;
   if (params?.postLimit) {
     const queryPage = `?postLimit=${params.postLimit}`;
@@ -27,7 +26,6 @@ export const getNewFeedPost = async (params?: any) => {
     const queryName = `${condition}groupId=${params.groupId}`;
     queryString = queryString.concat(queryName);
   }
-  console.log(queryString)
   return await axiosInstance
     .get(queryString)
     .catch(function (error) {
@@ -38,7 +36,6 @@ export const getNewFeedPost = async (params?: any) => {
 };
 
 export const getHashtagPosts = async (params?: any) => {
-  console.log(params)
   let queryString = `/post/hashtag-detail`;
   if (params?.keyword) {
     const queryPage = `?hashtag=%23${params.keyword.slice(1, params.keyword.length)}`;
@@ -64,7 +61,6 @@ export const getHashtagPosts = async (params?: any) => {
 export const createPost = async (
   payload
 ) => {
-  console.log(payload)
   return axiosInstance
     .post(`/post/new-post`, payload)
     .catch((error) => {
@@ -75,11 +71,9 @@ export const createPost = async (
 export const addInterest = async (
   payload
 ) => {
-  console.log(payload)
   return axiosInstance
     .post(`/interests/add`, payload)
     .catch((error) => {
-      console.log(error)
       if (error.response) {
         console.error(error.response.message);
         return error.response.status;

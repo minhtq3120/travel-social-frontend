@@ -144,7 +144,6 @@ const HotelSuggestion = (props: any) => {
                       data?.data?.map((item: any, index: any) => {
                         return (
                            <div className={cx('recent-container')} key={index} onClick={() => {
-                             console.log(item?.location_id)
                               setVisibleModalHotelDetail(true)
                               setLocationId(item?.location_id)
                             }}>
@@ -339,7 +338,6 @@ const HotelSuggestion = (props: any) => {
 
 
   const getListsHotels = async (payload) => {
-    console.log('payloadddddddddddddd', payload)
     //     setHotelForm({...hotelForm, 
     //       latitude: payload?.latitude, 
     //       longitude: payload?.longitude,
@@ -350,23 +348,17 @@ const HotelSuggestion = (props: any) => {
     //return
     if(payload?.latitude && payload?.longitude ) {
        const suggest = await getSuggestionHotels(payload)
-      console.log(suggest)
       const rs = _.get(suggest, 'data', null);
-      console.log(rs)
       setData(rs)
-      // 
     }
   }
 
   const getHotelDetail = async (location_id: string) => {
     if(locationId) {
        const suggest = await getHotelDetailTravid({location_id})
-      // const suggest = hotelDetail
-      console.log(suggest)
       const rs = _.get(suggest, 'data', null);
       console.log(rs)
       setHotel(rs?.data[0])
-      // 
     }
   }
 
@@ -382,7 +374,6 @@ const HotelSuggestion = (props: any) => {
 
   
   useEffect(() => {
-    console.log(hotelForm,'==========', props)
     getListsHotels({
        latitude: props?.destinationInfo?.lat, 
       longitude: props?.destinationInfo?.lon,
@@ -399,18 +390,14 @@ const HotelSuggestion = (props: any) => {
 
   
   const handleFinish = async (values) => {
-    console.log(values)
     const payload = {
       ...values,
       ...hotelForm
     }
-    // console.log(payload)
-    // return;
     if(hotelStar) payload["hotel_rating"] = hotelStar
     if(amenities2) payload["amenities"] = amenities2
     if(zff2) payload["zff"] = zff2
     await getListsHotels(payload)
-  console.log(payload)    
   }
 
   const ModalHotelDetail = () => {

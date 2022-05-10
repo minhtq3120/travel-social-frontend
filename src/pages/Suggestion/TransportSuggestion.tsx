@@ -81,18 +81,14 @@ const TransportSuggestion = (props: any) => {
     
     if(type==='to') setAirportTo(rs)
     
-    console.log("++++++++++++++++++++++++++",rs)
-
     // if(type==='from') setAirportFrom(flightFrom)
     // if(type==='to') setAirportTo(flightTo)
 
   }
 
-  console.log(recommentVehicle)
   useEffect(() => {
     if(props?.destinationInfo && props?.startInfo && airportFrom && airportTo){
       let airportFromFormat: any = []
-      console.log("from",airportFrom)
       if(airportFrom) airportFrom?.items?.map((from) => {
           return airportFromFormat.push(
               {
@@ -128,19 +124,16 @@ const TransportSuggestion = (props: any) => {
   }, [props?.destinationInfo, props?.startInfo, airportFrom, airportTo])
 
   const suggestVehicle = async (payload) => {
-    console.log(payload)
     const vehicle = await getSuggestionVehicle(payload)
     const rs =  _.get(vehicle, 'data', null);
-    console.log(rs)
     setRecommentVehicle(rs)
   }
 
 
-    const handleCancel = () => {
-        setIsModalVisibleMapDirection(false)
-    };
+  const handleCancel = () => {
+      setIsModalVisibleMapDirection(false)
+  };
 
-  console.log(props?.destinationInfo)
   return (
     <div className={cx('transport-suggestion-detail-container')}
       

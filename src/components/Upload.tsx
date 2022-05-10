@@ -45,8 +45,6 @@ const UploadLogo = memo(
       onChange(info: any) {
         if (info.file.status !== 'uploading') {
           setLoading(true);
-          console.log(info.file, info.fileList);
-          
             
           if (props?.setFileList){
             props.setFileList(info.fileList);

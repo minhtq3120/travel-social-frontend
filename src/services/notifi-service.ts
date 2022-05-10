@@ -9,7 +9,6 @@ export const getNotifi = async (params) => {
         const queryPage = `?page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -21,8 +20,6 @@ export const getNotifi = async (params) => {
 
 export const getNotifiDetail = async (payload: any) => {
     let queryString = `notifications/see/notification-detail`;
-
-    console.log(queryString)
     return await axiosInstance
         .post(queryString, payload)
         .catch(function (error) {

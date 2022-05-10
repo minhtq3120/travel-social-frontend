@@ -84,15 +84,12 @@ const StakingPage = (props: any) => {
 
     const result = await getListPool()
     if(result) {
-        console.log(result)
       const dataSource = _.get(result, 'data', null);
-    if(dataSource) setPool(dataSource)
-      
+        if(dataSource) setPool(dataSource)
     }
     
   };
 
-  console.log('AC', ac, walletAccount)
 
 //   useEffect(() => {
 //     if(walletAccount && walletAccount?.length > 0) activate(injectedConnector, undefined, true);
@@ -124,17 +121,14 @@ const StakingPage = (props: any) => {
     }, [signature])
 
     const checkAllowance = async (walletAddress: string) => {
-        console.log('whattt', walletAddress, STAKING_ADDRESS)
         const contract = await msnToken();
         const allowance = await contract.allowance(walletAddress, STAKING_ADDRESS)
-        console.log("ALLLLLLLLLLLOWC", allowance)
         const number = await Web3.utils.hexToNumberString(allowance._hex);
 
         setAllowance(number)
     }
 
     useEffect(() => {
-        console.log("-------------------------------------")
        if(walletAccount && ac) {
            checkAllowance(walletAccount)        
             getStakingData()
@@ -222,12 +216,10 @@ const StakingPage = (props: any) => {
     const handleStake = async (poolId: number, maxAmount: string, amount: string, signature: number) => {
         try {
         const contract = await staking();
-        console.log(maxAmount, "====== amo:", amount)
         const stake = await contract
             .deposit(poolId, maxAmount, amount, signature)
             .then(async (res: any) => {
             const rs = await res.wait();
-            console.log("=====", res, "------",rs)
             notificationSuccess('stake thành công')
             });
         } catch (error: any) {
@@ -246,7 +238,6 @@ const StakingPage = (props: any) => {
             .approve(spender, MAX_INT)
             .then(async (res: any) => {
             const rs = await res.wait();
-            console.log("=====", res, "------",rs)
             notification.success({
                 message: 'stake success full',
                 duration: 7,
@@ -509,7 +500,6 @@ const StakingPage = (props: any) => {
                         {
                         !walletAccount || !ac ?  (
                                 <Button className={cx('btn-stake')} onClick={() => {
-                                    console.log('stake now')
                                     }}>
                                     Connect Wallet
                                 </Button>

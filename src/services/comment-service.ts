@@ -20,7 +20,6 @@ export const getCommentsOfPost = async (params) => {
         const queryPage = `&perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -42,7 +41,6 @@ export const getReplyOfComment = async (params) => {
         const queryPage = `&page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

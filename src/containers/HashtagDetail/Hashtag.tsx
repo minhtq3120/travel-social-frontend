@@ -47,9 +47,7 @@ const history = useHistory()
 
 
   useBottomScrollListener(() => {
-    console.log('=======================================================REACRT ENDNDNDN')
     handleFetchMore()
-
   });
 
   const handleFetchMore = async () => {

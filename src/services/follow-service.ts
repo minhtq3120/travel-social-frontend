@@ -39,7 +39,6 @@ export const getFollowing = async (params) => {
         const queryPage = `${condition}page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -50,7 +49,6 @@ export const getFollowing = async (params) => {
 };
 export const getFollowers = async (params) => {
     let queryString = `/following/get/followers`;
-    console.log(params)
     if (params?.userId) {
         const queryPage = `?userId=${params.userId}`;
         queryString = queryString.concat(queryPage);
@@ -61,7 +59,6 @@ export const getFollowers = async (params) => {
         const queryPage = `${condition}page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {

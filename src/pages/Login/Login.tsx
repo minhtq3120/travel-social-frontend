@@ -60,7 +60,6 @@ const Login = (props: any) => {
         password: values.password
       }
       const result: any = await login(payload)
-      console.log(result)
        if (result?.statusCode === 401) {
         notificationError('Tài khoản hoặc mật khẩu không chính xác.')
         setLoadingSignIn(false);

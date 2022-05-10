@@ -6,7 +6,6 @@ export const getRecentsChat = async (params) => {
         const queryPage = `?page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -31,7 +30,6 @@ export const getChatDetailById = async (params) => {
         const queryPage = `&page=${params.page}`;
         queryString = queryString.concat(queryPage);
     }
-    console.log(queryString)
     return await axiosInstance
         .get(queryString)
         .catch(function (error) {
@@ -47,7 +45,6 @@ export const getChatDetailById = async (params) => {
 export const createChatGroup = async (
     payload
 ) => {
-    console.log(payload)
     return axiosInstance
         .post(`/chat/create/chat-group`, payload)
         .catch((error) => {

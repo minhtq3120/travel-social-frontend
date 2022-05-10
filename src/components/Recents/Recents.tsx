@@ -79,7 +79,6 @@ const Recents = (props: any) => {
     }
     
     useEffect(() => {
-        console.log('WTFFFFFFFFFFFFF', currentPage)
         fetchRecents(currentPage)
     }, [currentPage])
 

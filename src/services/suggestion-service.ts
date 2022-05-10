@@ -110,7 +110,6 @@ export const getHotelDetailTravid = async (payload?: any) => {
 
 export const getSuggestionDetail = async (payload: any) => {
     let queryString = 'https://hotels4.p.rapidapi.com/properties/list';
-    console.log(queryString)
     return await axiosInstance
         .get(queryString, {
             // params: {

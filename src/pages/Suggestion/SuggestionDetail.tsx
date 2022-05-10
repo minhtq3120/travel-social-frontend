@@ -76,7 +76,6 @@ const SuggestionDetail = (props: any) => {
     const itemsPerPage = _.get(result, 'data.meta.perPage', 0);
     const currentPage = _.get(result, 'data.meta.currentPage', 0);
 
-    console.log(dataSource)
     setData(dataSource);
     setTotalItem(parseInt(totalItem));
     setTotalPage(parseInt(totalPages));

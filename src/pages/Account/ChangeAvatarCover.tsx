@@ -51,13 +51,10 @@ const ChangeAvatarCover = (props: any) => {
                 avatar: file,
                 coverPhoto: file2
             }
-            console.log(form)
-
             const formData = new FormData();
             if(file)formData.append('avatar', file);
             if(file2) formData.append('coverPhoto', file2)
             const upload = await uploadProfileImage(formData)
-            console.log(upload)
             if(upload?.status === 201) {
                 notificationSuccess("Thay đổi ảnh thành công")
                 setFile(null)
@@ -72,8 +69,7 @@ const ChangeAvatarCover = (props: any) => {
             return
         } 
         catch (err) {
-
-        console.log(err)
+         console.log(err)
         }
     };
 

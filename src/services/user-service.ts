@@ -60,7 +60,6 @@ export const updateInfo = async (
 export const uploadProfileImage = async (
     payload: any
 ) => {
-    console.log(payload)
     return axiosInstance
         .post(`/user/upload/profile-image`, payload)
         .catch((error) => {

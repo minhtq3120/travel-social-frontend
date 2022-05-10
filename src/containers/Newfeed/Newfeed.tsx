@@ -37,7 +37,6 @@ const NewFeed = (props: any) => {
   const [loadingNewfeed, setLoadingNewfeed] = useState(false)
   
   useBottomScrollListener(() => {
-    console.log('REACRT ENDNDNDN')
     handleFetchMore()
 
   });
@@ -48,11 +47,9 @@ const NewFeed = (props: any) => {
     totalPage - 1 === currentPage || dataSrc?.length === 0 ? null : setCurentPage(currentPage + 1)
   }
 
-  // console.log("DATASCRRRRRRRRRRRRRRRRRRRRRRR", dataSrc, '==========',currentPage)
   const getNewfeed = async ( filterValue: string,page?: number,) => {
     try {
       setLoadingNewfeed(true)
-      console.log('GET INTO HERE')
       const params = {
         page: page?.toString(),
         postLimit: filterValue,
