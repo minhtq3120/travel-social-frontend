@@ -236,19 +236,31 @@ const PostDetail = (props: any) => {
             })
             
             if(replyCommentId) {
-                await replyToComment(addReplyComment)
-                socket.emit(SEND_NOTIFICATION, {
-                receiver: props?.info?.userId,
-                action: NotificationAction.ReplyComment,
-                postId: props?.postId
-            })}
+                const addCom = await replyToComment(addReplyComment)
+                const commentId = _.get(addCom, 'data._id', null);
+                if(commentId) {
+                    socket.emit(SEND_NOTIFICATION, {
+                        receiver: props?.info?.userId,
+                        action: NotificationAction.ReplyComment,
+                        postId: props?.postId,
+                        commentId
+                    })
+                }
+
+            }
             else {
-                socket.emit(SEND_NOTIFICATION, {
-                    receiver: props?.info?.userId,
-                    action: NotificationAction.Comment,
-                    postId: props?.postId
-                })
-                await commentToPost(addCommentToPost)
+
+                const addCom =  await commentToPost(addCommentToPost)
+                console.log(addCom)
+                const commentId = _.get(addCom, 'data._id', null);
+                if(commentId) {
+                        socket.emit(SEND_NOTIFICATION, {
+                        receiver: props?.info?.userId,
+                        action: NotificationAction.Comment,
+                        postId: props?.postId,
+                        commentId
+                    })
+                }
                 
             }
             form.resetFields()
@@ -257,7 +269,6 @@ const PostDetail = (props: any) => {
             console.log(err)
         }
     }
-    console.log(props?.info)
     return (
         <>
         <div className={cx(`post-detail-container`)}>

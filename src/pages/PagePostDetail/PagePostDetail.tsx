@@ -169,7 +169,6 @@ const PagePostDetail = (props: any) => {
     }, [currentPage, trigger, postId]);
 
     
-
     const properties = {
         duration: 5000,
         autoplay: false,
@@ -198,7 +197,7 @@ const PagePostDetail = (props: any) => {
             </div> 
         )
     }
-
+    console.log(postDetailInfo)
     const handleLike = async (postId: string, userId: string) => {
         try {
             const like = await likePost(postId)
@@ -333,19 +332,31 @@ const PagePostDetail = (props: any) => {
                 postId: postId
             })
             if(replyCommentId) {
-                await replyToComment(addReplyComment)
-                socket.emit(SEND_NOTIFICATION, {
-                receiver: props?.info?.userId,
-                action: NotificationAction.ReplyComment,
-                postId: props?.postId
-            })}
+                const addCom = await replyToComment(addReplyComment)
+                const commentId = _.get(addCom, 'data._id', null);
+                if(commentId) {
+                    socket.emit(SEND_NOTIFICATION, {
+                        receiver: postDetailInfo?.userId,
+                        action: NotificationAction.ReplyComment,
+                        postId: postId,
+                        commentId
+                    })
+                }
+
+            }
             else {
-                socket.emit(SEND_NOTIFICATION, {
-                    receiver: props?.info?.userId,
-                    action: NotificationAction.Comment,
-                    postId: props?.postId
-                })
-                await commentToPost(addCommentToPost)
+
+                const addCom =  await commentToPost(addCommentToPost)
+                console.log(addCom)
+                const commentId = _.get(addCom, 'data._id', null);
+                if(commentId) {
+                        socket.emit(SEND_NOTIFICATION, {
+                        receiver: postDetailInfo?.userId,
+                        action: NotificationAction.Comment,
+                        postId: postId,
+                        commentId
+                    })
+                }
                 
             }
             form.resetFields()
@@ -354,6 +365,7 @@ const PagePostDetail = (props: any) => {
             console.log(err)
         }
     }
+    console.log(props?.info)
 
     return (
         <>
@@ -367,7 +379,8 @@ const PagePostDetail = (props: any) => {
              <div className={cx(`post-right`)}>
                  <div className={cx('info')}>
                     <div className={cx('left')} onClick={() => {
-                        history.push(`/profile?userId=${props?.info?.userId}`)
+                      
+                        history.push(`/profile?userId=${postDetailInfo?.userId}`)
                     }}>
                          <Avatar src={postDetailInfo?.userAvatar} />
                         <div className={cx('name')}>{postDetailInfo?.userDisplayName}</div>

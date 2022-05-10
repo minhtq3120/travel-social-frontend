@@ -52,6 +52,8 @@ const  shuffleArray = (array) => {
 const Discovery = (props: any) => {
     const handleFetchMore = async () => {
     //await sleep();
+    localStorage.setItem("scrollPosition", String(window.pageYOffset));
+    return
         setCurentPage(currentPage + 1)
     }
     const scrollRef: any = useBottomScrollListener(() => {
@@ -80,7 +82,7 @@ const Discovery = (props: any) => {
 
     const [mapType, setMapType] = useState<any>('')
 
-
+    console.log((window.pageYOffset))
     const handleCancel = () => {
         setIsModalVisibleMap(false)
         setIsModalVisibleMap2(false)
@@ -103,7 +105,14 @@ const Discovery = (props: any) => {
 
         fetchDiscovery()
     }, [])
-    
+
+    const handleScrollPosition = () => {
+        const scrollPosition = localStorage.getItem("scrollPosition");
+        if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition));
+        }
+    };
+        
 
     const fetchDiscoveryDetail  = async (page?: number) => {
         let params = {

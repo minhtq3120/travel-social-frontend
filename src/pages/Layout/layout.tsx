@@ -33,6 +33,7 @@ import { getRecentsChat } from 'src/services/chat-service';
 import _ from 'lodash';
 import { getNotifi } from 'src/services/notifi-service';
 import StakingPage from '../Staking/StakingPage';
+import {AiFillNotification} from 'react-icons/ai'
 
 export enum NotificationAction {
   Like = 'like',
@@ -104,7 +105,8 @@ const LayoutComponent = (props: any) => {
           </div>,  
       placement,
       style: {width: '500px'},
-      duration: 10
+      duration: 10,
+      icon: <AiFillNotification color="#68d1c8"/>
     });
   };
   

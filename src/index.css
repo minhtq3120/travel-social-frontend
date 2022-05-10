@@ -238,3 +238,8 @@ input:-webkit-autofill:active {
 .ant-modal-body {
   padding: 0 !important;
 }
+
+.ant-notification-notice-with-icon {
+  display: flex;
+  align-items: center;
+}

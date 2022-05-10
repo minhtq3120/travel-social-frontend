@@ -29,7 +29,7 @@ import { setHashtagSearch, setWeatherData, setWeatherPosition } from 'src/redux/
 import { useHistory } from 'react-router-dom';
 import { addInterest } from 'src/services/post-service';
 const cx = classNames.bind(styles);
-
+import _ from 'lodash';
 import ShowMoreText from "react-show-more-text";
 
 
@@ -75,13 +75,18 @@ const Post = (props: any) => {
             addInterest({
                 postId: props?.item?.postId
             })
-            socket.emit(SEND_NOTIFICATION, {
-                receiver: props.item.userId,
-                action: NotificationAction.Comment,
-                postId: props?.item?.postId
-            })
             const addCom = await commentToPost(addCommentToPost)
             console.log(addCom)
+            const commentId = _.get(addCom, 'data._id', null);
+            console.log(commentId)
+            if(commentId) {
+                socket.emit(SEND_NOTIFICATION, {
+                    receiver: props.item.userId,
+                    action: NotificationAction.Comment,
+                    postId: props?.item?.postId,
+                    commentId
+                })
+            }
             form.resetFields()
         }
         catch (err) {

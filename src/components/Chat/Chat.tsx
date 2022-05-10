@@ -312,6 +312,7 @@ const Chat = (props: any) => {
  
   const onScroll = async () => {
     if (scrollRef2.current) {
+      console.log(scrollRef2)
       const { scrollTop, scrollHeight, clientHeight } = scrollRef2.current;
       console.log('======', scrollTop, '========', scrollHeight, "========", clientHeight)
       if ((-(clientHeight - scrollHeight) + scrollTop < 10) && !( totalPage2 - 1 === currentPage2 || messages?.length === 0  || (totalPage2 === 0 && currentPage2 === 0))) {

@@ -56,10 +56,7 @@ export const commentToPost = async (payload) => {
     return axiosInstance
         .post("/comment/add/comment-to-post", payload)
         .catch((error) => {
-            console.error(error);
-            if (error.response) {
-                return error.response;
-            }
+            return error
         });
 };
 
@@ -68,9 +65,6 @@ export const replyToComment = async (payload) => {
     return axiosInstance
         .post("/comment/add/reply-to-comment", payload)
         .catch((error) => {
-            console.error(error);
-            if (error.response) {
-                return error.response;
-            }
+            return error
         });
 };
