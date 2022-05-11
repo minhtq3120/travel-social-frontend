@@ -110,7 +110,7 @@ const Recents = (props: any) => {
 
 
     useEffect(() => {
-        if(dataVisited) {
+        if(dataVisited?.length>0) {
             let tempLat = 0
             let tempLng = 0
             dataVisited.forEach((item) => {
