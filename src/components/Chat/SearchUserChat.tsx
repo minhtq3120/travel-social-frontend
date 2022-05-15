@@ -51,6 +51,7 @@ const Search = (props: any) => {
   const [isTyping, setIsTyping] = useState(false)
   const [isModalVisibleNewChat, setIsModalVisiblNewChat] = useState(false);
   const [keyword, setKeyword] = useState<any>('')
+  const [loadingSearchUser, setLoadingSearchUser] = useState(false)
 
   const handleCancel = () => {
         setIsModalVisiblNewChat(false)
@@ -84,8 +85,9 @@ const Search = (props: any) => {
     }
     
   };
-  
+  console.log(data)
   useEffect(() => {
+      console.log("===========",data?.length)
     if(keyword?.length > 0) appendData(keyword, currentPage);
     else setData([])
   }, [currentPage, keyword]);
@@ -103,9 +105,8 @@ const Search = (props: any) => {
         <div  ref={scrollRef } style={{width: '100%',height: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center',alignContent:'flex-start', overflowY: 'scroll', overflowX: 'hidden'}} >
            {
                keyword.length > 0 && data.length === 0 ? (
-                   <div>
-                       No user found!
-                   </div>
+                   <>
+                   </>
                ) : (
                    <>
                    {
@@ -195,6 +196,8 @@ const Search = (props: any) => {
                     placeholder='Find someone...'
                     className={cx('seach-input')}
                     onChange={(e) => {
+                        setData([])
+                        setCurentPage(0)
                         setKeyword(e.target.value)
                     }}
                 />

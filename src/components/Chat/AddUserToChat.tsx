@@ -104,7 +104,6 @@ const AddUserToChat = (props: any) => {
            {
                keyword.length > 0 && data.length === 0 ? (
                    <div>
-                       No user found!
                    </div>
                ) : (
                    <>
@@ -195,6 +194,8 @@ const AddUserToChat = (props: any) => {
                     placeholder='Find someone...'
                     className={cx('seach-input')}
                     onChange={(e) => {
+                        setData([])
+                        setCurentPage(0)
                         setKeyword(e.target.value)
                     }}
                 />
