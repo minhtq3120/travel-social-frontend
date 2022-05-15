@@ -250,6 +250,7 @@ const Chat = (props: any) => {
         setIsModalVisiblNewChat(false)
         setIsModalVisiblAddPeople(false)
         setIsModalVisiblLeaveChat(false)
+        setUserSelected([])
     };
 
     const handleFinish = async (values) => {
@@ -575,7 +576,7 @@ const Chat = (props: any) => {
 
     )
   }
-
+console.log(chatDetail)
 
   const ChatDetail = () => {
     return (
@@ -597,9 +598,14 @@ const Chat = (props: any) => {
               <div className={cx('name')}>{chatDetail?.chatGroupName}</div>
           </div>
           <div>
-            <BsFillPersonPlusFill style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
-               setIsModalVisiblAddPeople(true)
-            }} />
+            {
+              chatDetail?.avatar.length === 1 ?  null : (
+                 <BsFillPersonPlusFill style={{ fontSize: '25px', margin: '0 10px', cursor: 'pointer'}} onClick={() => {
+                  setIsModalVisiblAddPeople(true)
+                }} />
+              )
+            }
+           
             <RiLogoutCircleRLine style={{ fontSize: '25px', margin: '0 10px', marginRight: '25px', cursor: 'pointer'}} onClick={() => {
               setIsModalVisiblLeaveChat(true)
             }}/>
@@ -674,10 +680,10 @@ const Chat = (props: any) => {
       </div>
 
       <Modal title={`Tin nhắn mới`} visible={isModalVisibleNewChat} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
-            <Search userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblNewChat={setIsModalVisiblNewChat} handleCreateChat={handleCreateChat}/>
+            <Search userSelected={userSelected} isModalVisibleNewChat={isModalVisibleNewChat} setUserSelected={setUserSelected} setIsModalVisiblNewChat={setIsModalVisiblNewChat} handleCreateChat={handleCreateChat}/>
       </Modal>
       <Modal title={`Thêm người vào nhóm chat`} visible={isModalVisibleAddPeople} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
-            <AddUserToChat userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblAddPeople={setIsModalVisiblAddPeople} handleAddNewPeopleToChat={handleAddNewPeopleToChat} chatDetail={chatDetail}/>
+            <AddUserToChat userSelected={userSelected}isModalVisibleAddPeople={isModalVisibleAddPeople}  setUserSelected={setUserSelected} setIsModalVisiblAddPeople={setIsModalVisiblAddPeople} handleAddNewPeopleToChat={handleAddNewPeopleToChat} chatDetail={chatDetail}/>
       </Modal>
       <Modal title={`Bạn có chắc muốn rời khỏi nhóm chat?`} visible={isModalVisibleLeaveChat} footer={null} onCancel={handleCancel} width={350} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
             <ConfirmLeaveChat />

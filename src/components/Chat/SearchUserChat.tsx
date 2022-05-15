@@ -57,6 +57,9 @@ const Search = (props: any) => {
         setIsModalVisiblNewChat(false)
     };
 
+    useEffect(() =>{
+        if(props?.isModalVisibleNewChat === false) setKeyword('')
+    }, [props?.isModalVisibleNewChat])
 
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
@@ -160,6 +163,9 @@ const Search = (props: any) => {
             props.handleCreateChat(props.userSelected)
             props.setIsModalVisiblNewChat(false)
             props.setUserSelected([])
+            setKeyword('')
+            form.setFieldsValue({search: ''})
+
             }} >
             <div className={cx('send-text')}>Next</div>
         </div>: null

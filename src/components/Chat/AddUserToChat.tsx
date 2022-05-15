@@ -56,6 +56,9 @@ const AddUserToChat = (props: any) => {
         setIsModalVisiblNewChat(false)
     };
 
+    useEffect(() =>{
+        if(props?.isModalVisibleAddPeople === false) setKeyword('')
+    }, [props?.isModalVisibleAddPeople])
 
   const socket: any = useSelector((state: RootState) => state.wallet.socket);
 
@@ -159,6 +162,8 @@ const AddUserToChat = (props: any) => {
             props.setIsModalVisiblAddPeople(false)
             props?.handleAddNewPeopleToChat(props?.userSelected)
             props.setUserSelected([])
+            setKeyword('')
+            form.setFieldsValue({search: ''})
             }} >
             <div className={cx('send-text')}>Next</div>
         </div>: null
