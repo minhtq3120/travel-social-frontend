@@ -63,8 +63,9 @@ const AddUserToChat = (props: any) => {
     let params =  {
         keyword,
         // perPage: 1000,
-        filter: 'all',
-        page
+        filter: 'chatGroup',
+        page,
+        target: props?.chatDetail?._id
     }
 
     const result = await searchAllUser(params)
@@ -86,7 +87,7 @@ const AddUserToChat = (props: any) => {
   };
   
   useEffect(() => {
-    if(keyword?.length > 0) appendData(keyword, currentPage);
+    if(keyword?.length > 0 && props?.chatDetail?._id) appendData(keyword, currentPage);
     else setData([])
   }, [currentPage, keyword]);
 

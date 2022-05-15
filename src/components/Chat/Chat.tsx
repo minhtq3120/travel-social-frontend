@@ -677,7 +677,7 @@ const Chat = (props: any) => {
             <Search userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblNewChat={setIsModalVisiblNewChat} handleCreateChat={handleCreateChat}/>
       </Modal>
       <Modal title={`Thêm người vào nhóm chat`} visible={isModalVisibleAddPeople} footer={null} onCancel={handleCancel} width={500} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
-            <AddUserToChat userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblAddPeople={setIsModalVisiblAddPeople} handleAddNewPeopleToChat={handleAddNewPeopleToChat}/>
+            <AddUserToChat userSelected={userSelected} setUserSelected={setUserSelected} setIsModalVisiblAddPeople={setIsModalVisiblAddPeople} handleAddNewPeopleToChat={handleAddNewPeopleToChat} chatDetail={chatDetail}/>
       </Modal>
       <Modal title={`Bạn có chắc muốn rời khỏi nhóm chat?`} visible={isModalVisibleLeaveChat} footer={null} onCancel={handleCancel} width={350} closable={false} bodyStyle={{padding: '0', borderRadius: '0'}}>
             <ConfirmLeaveChat />

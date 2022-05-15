@@ -14,6 +14,10 @@ export const searchAllUser = async (params) => {
         const queryPage = `&perPage=${params.perPage}`;
         queryString = queryString.concat(queryPage);
     }
+    if (params?.target) {
+        const queryPage = `&target=${params.target}`;
+        queryString = queryString.concat(queryPage);
+    }
     if (params?.page) {
         const queryPage = `&page=${params.page}`;
         queryString = queryString.concat(queryPage);
