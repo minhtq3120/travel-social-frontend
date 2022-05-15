@@ -132,7 +132,8 @@ const Chat = (props: any) => {
         message: `${data?.user?.displayName} rời khỏi nhóm chat`,
         senderName: data?.user?.displayName,
         avatar: data?.user?.avatar,
-        chatGroupId: data?.newChatGroup.chatGroupId
+        chatGroupId: data?.newChatGroup.chatGroupId,
+        newChatGroup: data.newChatGroup,
       })
       console.log(trigger)
       dispatch(setChatNotSeen(chatNotSeen + 1))
@@ -177,6 +178,27 @@ const Chat = (props: any) => {
           },
             ...data,
         ])
+      }
+      if(trigger?.id === ADD_USERS_TO_CHAT_GROUP_SUCCESS && data?.filter((item) => item?.chatGroupId ===trigger?.newChatGroup?.chatGroupId)?.length > 0  ) {
+        console.log('?????????????', trigger)
+        const index = data?.findIndex((item) => item?.chatGroupId ===trigger?.newChatGroup?.chatGroupId)
+        let newData = [...data]
+        console.log(newData[index])
+        newData[index]["chatGroupName"] = trigger?.newChatGroup?.chatGroupName
+        chatDetail["chatGroupName"] = trigger?.newChatGroup?.chatGroupName
+        console.log(newData)
+        setData(newData)
+      }
+      if(trigger?.id === LEAVE_CHAT_GROUP_SUCCESS && data?.filter((item) => item?.chatGroupId ===trigger?.newChatGroup?.chatGroupId)?.length > 0  ) {
+        console.log('?????????????', trigger)
+        const index = data?.findIndex((item) => item?.chatGroupId ===trigger?.newChatGroup?.chatGroupId)
+        let newData = [...data]
+        console.log(newData[index])
+        newData[index]["chatGroupName"] = trigger?.newChatGroup?.chatGroupName
+
+        chatDetail["chatGroupName"] = trigger?.newChatGroup?.chatGroupName
+        console.log(newData)
+        setData(newData)
       }
   }, [trigger])
 
