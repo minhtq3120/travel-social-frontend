@@ -41,11 +41,12 @@ const EditProfile = (props: any) => {
   const [formInput, setFormInput] = useState({email: '', password: ''})
 
   useEffect(() => {
+      console.log(props?.profile)
     if(props?.profile) {
         form.setFieldsValue({'displayName': props?.profile?.displayName})
         form.setFieldsValue({'bio': props?.profile?.bio || null})
         form.setFieldsValue({'birthday': moment(props?.profile?.birthday) || ''})
-        form.setFieldsValue({'sex': props?.profile?.sexNumber.toString()} || null)
+        form.setFieldsValue({'sex': props?.profile?.sexNumber?.toString()} || null)
     }
   }, [])
 
