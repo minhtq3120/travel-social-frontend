@@ -108,24 +108,76 @@ const Chat = (props: any) => {
 
   useEffect(() => {
     socket?.on(RECEIVE_MESSAGE, (data) => {
-      
+      console.log(data?.chatGroupId, '=============', chatDetail)
     if(data?.isCurrentUserMessage === false) {
       setTrigger({
         id:  data?.userId,
         message: data?.message,
         senderName: data?.displayName,
-        avatar: data?.avatar
+        avatar: data?.avatar,
+        chatGroupId: data?.chatGroupId
       })
       dispatch(setChatNotSeen(chatNotSeen + 1))
     }
     })
     // getCurrentUser()
   }, [socket])
+  
   useEffect(() => {
-    if(trigger && messages){
+  socket?.on(LEAVE_CHAT_GROUP_SUCCESS, (data) => {
+        console.log(data)
+    if(data) {
+      setTrigger({
+        id: LEAVE_CHAT_GROUP_SUCCESS,
+        message: `${data?.user?.displayName} rời khỏi nhóm chat`,
+        senderName: data?.user?.displayName,
+        avatar: data?.user?.avatar,
+        chatGroupId: data?.newChatGroup.chatGroupId
+      })
+      console.log(trigger)
+      dispatch(setChatNotSeen(chatNotSeen + 1))
+    }
+    })
+  }, [socket])
+  useEffect(() => {
+  socket?.on(ADD_USERS_TO_CHAT_GROUP_SUCCESS, (dataa) => {
+    console.log(dataa)
+    if(dataa) {
+      let temp: any = []
+      dataa?.addedUsers?.forEach((user) => {
+        temp.push(user?.displayName)
+      })
+      setTrigger({
+        id: ADD_USERS_TO_CHAT_GROUP_SUCCESS,
+        message: `${dataa?.adder?.displayName} đã thêm ${temp?.length} người vào nhóm: ${temp?.toString()}`,
+        senderName: dataa?.displayName,
+        avatar: dataa?.avatar, 
+        chatGroupId: dataa.newChatGroup.chatGroupId,
+        newChatGroup: dataa.newChatGroup,
+      })
+      
+      console.log(trigger)
+      dispatch(setChatNotSeen(chatNotSeen + 1))
+    }
+    })
+  }, [socket])
+  useEffect(() => {
+    if(trigger && messages && trigger?.chatGroupId === chatDetail?._id){
       let temp = [trigger].concat(messages)
       setMessages(temp)
+      
     }
+    if(trigger?.id === ADD_USERS_TO_CHAT_GROUP_SUCCESS && data?.filter((item) => item?.chatGroupId ===trigger?.newChatGroup?.chatGroupId)?.length === 0  ) {
+        console.log('DATA+++++++++++++++++++' , data)
+        setData([
+          {
+            image: trigger?.newChatGroup?.image || [],
+            chatGroupId: trigger?.newChatGroup?.chatGroupId,
+            chatGroupName: trigger?.newChatGroup?.chatGroupName,
+          },
+            ...data,
+        ])
+      }
   }, [trigger])
 
 
@@ -168,6 +220,7 @@ const Chat = (props: any) => {
   }
 
   useEffect(() => {
+    console.log('========',chatDetail)
     if(chatDetail?._id) getChatDetail(chatDetail?._id, currentPage2)
   }, [chatDetail, currentPage2])
 
@@ -202,7 +255,6 @@ const Chat = (props: any) => {
          {
             data?.map((item: any, index: any) => {
               const [seenFake, setSeenFake] = useState<any>(item?.seen)
-              console.log(index, '===',seenFake)
               return (
                  <div style={{width: '100%', display: 'flex',flexDirection: 'row',borderLeft: seenFake ? '5px solid white' : '5px solid#68d1c8',  justifyContent: 'space-between', alignItems: 'center', alignContent: 'center', padding: '15px 10px' , cursor: 'pointer', margin: '5px 0'}}
                   key={index}
@@ -336,7 +388,6 @@ const Chat = (props: any) => {
           chatGroupName: newChat.chatGroupName,
         },
           ...data,
-      
       ])
         setMessages([])
         socket.emit(JOIN_ROOM, {
@@ -416,10 +467,19 @@ const Chat = (props: any) => {
           {
             messages.map((mess, index) => {
               return (
-                <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
+                <div  key={index} style={{width: '100%',marginBottom: '5px', display: 'flex', flexDirection: 'row', justifyContent: mess.id ===LEAVE_CHAT_GROUP_SUCCESS ? 'center' : mess?.id === 0 ? 'flex-end' : 'flex-start', alignItems: 'center'}}>
                   <div style={{width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '5 10px'}}>
                    {
-                     mess.id === 0 ? (
+                     mess.id ===LEAVE_CHAT_GROUP_SUCCESS ? (
+                       <>
+                          <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: 'white', color: 'grey', fontWeight: 'bold'}}>{mess?.message}</div>
+                       </>
+                     ):
+                     mess.id ===ADD_USERS_TO_CHAT_GROUP_SUCCESS ? (
+                       <>
+                          <div style={{width: 'auto', textAlign: 'center', padding: '10px 20px', borderRadius: '30px', backgroundColor: 'white', color: 'grey', fontWeight: 'bold'}}>{mess?.message}</div>
+                       </>
+                     ) : mess.id === 0 ? (
                        <div style={{width: 'auto', padding: '10px 20px', borderRadius: '30px', backgroundColor: '#68d1c8', color: 'white', fontWeight: 'bold'}}>{mess?.message}</div>
                      ) : (
                        <>
